@@ -1,0 +1,115 @@
+<div class="container-detail form-content-details">
+    <div class="toolbar-header">
+        <kiss-card-title [titleHeader]="'CtlSpeziaikonto.Detail' | translate" [customizeBtn]="customizeBtn" [isCard]="true"
+            (onCustomizeBtnFn)="toolBarOnItemClick($event)">
+        </kiss-card-title>
+    </div>
+    <div class="container-detail-content" *ngIf="showDetailContainer">
+        <div class="container-detail__form" *ngIf="!isEditMode">
+            <kiss-speziaikonto-detail-view-vorabzugskonti *ngIf="isVorabzugskonti" [detailSelected]="detailSelected"
+                [nameRueckerstattung]="nameRueckerstattung" [nameMonthVon]="nameMonthVon" [nameMonthBis]="nameMonthBis"
+                [namePerson]="namePerson">
+            </kiss-speziaikonto-detail-view-vorabzugskonti>
+
+            <kiss-speziaikonto-detail-view-abzahlungskonti *ngIf="isAbzahlungskonti" [detailSelected]="detailSelected"
+                [nameRueckerstattung]="nameRueckerstattung" [nameMonthVon]="nameMonthVon" [nameMonthBis]="nameMonthBis"
+                [namePerson]="namePerson" [nameBelastung]="nameBelastung" [nameGutschrift]="nameGutschrift">
+            </kiss-speziaikonto-detail-view-abzahlungskonti>
+
+            <kiss-speziaikonto-detail-view-ausgabekonti *ngIf="isAusgabekonti" [detailSelected]="detailSelected"
+                [nameBelastung]="nameBelastung" [namePerson]="namePerson" [nameMonthVon]="nameMonthVon" [nameMonthBis]="nameMonthBis">
+            </kiss-speziaikonto-detail-view-ausgabekonti>
+
+            <kiss-speziaikonto-detail-view-kurzungen *ngIf="isKurzungen" [detailSelected]="detailSelected" [namePerson]="namePerson"
+                [nameMonthVon]="nameMonthVon" [nameMonthBis]="nameMonthBis">
+            </kiss-speziaikonto-detail-view-kurzungen>
+
+            <kiss-speziaikonto-detail-grid [isVorabzugskonti]="isVorabzugskonti" [isAbzahlungskonti]="isAbzahlungskonti"
+                [isAusgabekonti]="isAusgabekonti" [isKurzungen]="isKurzungen" [dataSource]="dataSource">
+            </kiss-speziaikonto-detail-grid>
+        </div>
+
+        <!-- Edit Mode -->
+        <div class="container-detail__form" *ngIf="isEditMode">
+            <kiss-speziaikonto-detail-edit-vorabzugskonti #vorabzugskonti *ngIf="isVorabzugskonti" [queryVorhanden]="queryVorhanden"
+                [queryBeglichen]="queryBeglichen" [monat]="monat" [dataSourceBaPerson]="dataSourceBaPerson"
+                (objValueChange)="onValueDataChange($event)" [detailSelected]="detailSelected" [isDatumBis]="isDatumBis">
+            </kiss-speziaikonto-detail-edit-vorabzugskonti>
+
+            <kiss-speziaikonto-detail-edit-abzahlungskonti #abzahlungskonti *ngIf="isAbzahlungskonti" [queryVorhanden]="queryVorhanden"
+                [queryBeglichen]="queryBeglichen" [isAbschliessenVisible]="isAbschliessenVisible" [isVisiblePanasch]="isVisiblePanasch"
+                [monat]="monat" [dataSourceBaPerson]="dataSourceBaPerson" (objValueChange)="onValueDataChange($event)"
+                [detailSelected]="detailSelected" [dataSourceBgKostenart]="dataSourceBgKostenart"
+                [abzahlungskontoRueckerstattung]="abzahlungskontoRueckerstattung" [dataSourceGutschrift]="dataSourceGutschrift"
+                [isEdit]="isAddOrEdit">
+            </kiss-speziaikonto-detail-edit-abzahlungskonti>
+
+            <kiss-speziaikonto-detail-edit-ausgabekonti #ausgabekonti *ngIf="isAusgabekonti" [detailSelected]="detailSelected"
+                [queryVorhanden]="queryVorhanden" [queryBeglichen]="queryBeglichen" [nameGutschrift]="nameGutschrift"
+                [namePerson]="namePerson" [nameMonthVon]="nameMonthVon" [nameMonthBis]="nameMonthBis" [monat]="monat"
+                [dataSourceBaPerson]="dataSourceBaPerson" [dataSourceBgKostenart]="dataSourceBgKostenart"
+                (objValueChange)="onValueDataChange($event)" [isDatumBis]="isDatumBis">
+            </kiss-speziaikonto-detail-edit-ausgabekonti>
+
+            <kiss-speziaikonto-detail-edit-kurzungen #kurzungenEdit *ngIf="isKurzungen" [detailSelected]="detailSelected"
+                [namePerson]="namePerson" [nameMonthVon]="nameMonthVon" [nameMonthBis]="nameMonthBis" [maxSanktion]="maxSanktion"
+                [monat]="monat" [dataSourceBaPerson]="dataSourceBaPerson" [isDisableKurzungen]="isDisableKurzungen"
+                [isDisableSalo]="isDisableSalo" (objValueChange)="onValueDataChange($event)" [isEdit]="isAddOrEdit">
+            </kiss-speziaikonto-detail-edit-kurzungen>
+
+            <kiss-speziaikonto-detail-grid [isVorabzugskonti]="isVorabzugskonti" [isAbzahlungskonti]="isAbzahlungskonti"
+                [dataSource]="dataSource" [isAusgabekonti]="isAusgabekonti" [isKurzungen]="isKurzungen" [formName]="formName">
+            </kiss-speziaikonto-detail-grid>
+        </div>
+    </div>
+    <dx-popup #H001_popup id="H001_popup" class="popup" [showTitle]="true" [title]="'CtlSpeziaikonto.Label.Abzahlungskonto' | translate"
+        [dragEnabled]="false" [closeOnOutsideClick]="false" [(visible)]="isVisibleTitle" (onShown)="onShownWertErfassen()" [width]="600" [height]="200">
+
+        <div *dxTemplate="let data of 'content'" class="content-container">
+            <dx-validation-group #validationGroup>
+                <dx-form #formBetrag [showColonAfterLabel]="false">
+                    <dxi-item itemType="group" [colCount]="8">
+                        <dxi-item itemType="group" [colSpan]="2">
+                            <dxi-item template="lableTemplate"></dxi-item>
+                        </dxi-item>
+                        <dxi-item itemType="group" [colSpan]="6">
+                            <dxi-item template="numberTemplate"></dxi-item>
+                        </dxi-item>
+                        <dxi-item itemType="empty" [colSpan]="2"></dxi-item>
+                        <dxi-item itemType="group" [colSpan]="3">
+                            <dxi-item template="AusgleichenTemplate"></dxi-item>
+                        </dxi-item>
+                        <dxi-item itemType="group" [colSpan]="3">
+                            <dxi-item template="InkassoTemplate"></dxi-item>
+                        </dxi-item>
+                    </dxi-item>
+                    <div *dxTemplate="let data of 'numberTemplate'">
+                        <dx-number-box *ngIf="!isKonto"  #numberbox  [format]="formatNumberDefault" valueChangeEvent="keyup" (onKeyDown)="onKeyDownNumberBox($event)"
+                            name="" class="drop-down-box" placeholder="" [disabled]="!isLoadEditBar" [(value)]="detailSelected['Saldo']">
+                            <dx-validator>
+                                <dxi-validation-rule  type="required" message="Das Feld Betrag darf nicht leer bleiben !"></dxi-validation-rule>
+                            </dx-validator>
+                        </dx-number-box>
+                        <dx-number-box *ngIf="isKonto"  #numberbox  [format]="formatNumberDefault" valueChangeEvent="keyup" (onKeyDown)="onKeyDownNumberBox($event)"
+                            name="" class="drop-down-box" placeholder="" [disabled]="!isLoadEditBar" [(value)]="detailSelected['Saldo']">
+                        </dx-number-box>
+                    </div>
+                    <div *dxTemplate="let data of 'lableTemplate'">
+                        <label>Betrag </label>
+                    </div>
+                    <div *dxTemplate="let data of 'AusgleichenTemplate'">
+                        <dx-button class="btn-popup" (onClick)="clickAusgleichen()" [text]="'CtlSpeziaikonto.Button.Konto' | translate"
+                            alignment="left"  [useSubmitBehavior]="true" ></dx-button>
+                    </div>
+                    <div *dxTemplate="let data of 'InkassoTemplate'">
+                        <dx-button #InkassoUbergabe class="btn-popup" (onClick)="clickOkInkasso()" [text]="'CtlSpeziaikonto.Button.Ubergabe' | translate"
+                            alignment="left"  [useSubmitBehavior]="true"></dx-button>
+                    </div>
+                </dx-form>
+            </dx-validation-group>
+        </div>
+        <!--  -->
+    </dx-popup>
+</div>
+
+<app-popup-confirm [popUpModel]="popUpModel"></app-popup-confirm>

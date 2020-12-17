@@ -1,0 +1,147 @@
+﻿<div id="c007_label_Mietvertrag" class="section_title">{{'Klientensystem.SectionMietvertrag.Mietvertrag' |
+  translate}}
+</div>
+<hr class="c007_breakline" />
+<div id="c007_form">
+  <dx-form id="form" [formData]="mietvertragData" [readOnly]="false" [showColonAfterLabel]="false"
+    [showValidationSummary]="true" [colCount]="12" [screenByWidth]="getSizeQualifier">
+    <dxi-item [dataField]="" itemType="group" [colSpan]="10">
+      <dxi-item [dataField]=" 'Klientensystem.SectionMietvertrag.Vermieter' | translate " [template]="'vermieter'">
+        <dxo-label [text]=" 'Klientensystem.SectionMietvertrag.Vermieter' | translate "></dxo-label>
+      </dxi-item>
+      <dxi-item [dataField]=" 'Klientensystem.SectionMietvertrag.Bemerkung' | translate " [template]="'bemerkung'">
+        <dxo-label [text]=" 'Klientensystem.SectionMietvertrag.Bemerkung' | translate "></dxo-label>
+      </dxi-item>
+    </dxi-item>
+    <dxi-item [dataField]="" itemType="group" [colSpan]="2">
+      <dxi-item [dataField]="'Klientensystem.SectionMietvertrag.MietkostenNetto' | translate" 
+        [template]="'mietkostenNetto'">
+        <dxo-label [text]=" 'Klientensystem.SectionMietvertrag.MietkostenNetto' | translate "></dxo-label>
+      </dxi-item>
+      <dxi-item [dataField]="'Klientensystem.SectionMietvertrag.Nebenkosten' | translate" 
+        [template]="'nebenkosten'">
+        <dxo-label [text]=" 'Klientensystem.SectionMietvertrag.Nebenkosten' | translate "></dxo-label>
+      </dxi-item>
+      <dxi-item [dataField]="'Klientensystem.SectionMietvertrag.KostenanteilUE' | translate" 
+        [template]="'kostenanteilUE'">
+        <dxo-label [text]=" 'Klientensystem.SectionMietvertrag.KostenanteilUE' | translate "></dxo-label>
+      </dxi-item>
+      <dxi-item [dataField]="'Klientensystem.SectionMietvertrag.Mietdepot' | translate" 
+        [template]="'mietdepot'">
+        <dxo-label [text]=" 'Klientensystem.SectionMietvertrag.Mietdepot' | translate "></dxo-label>
+      </dxi-item>
+      <dxi-item [dataField]="'Klientensystem.SectionMietvertrag.Mietzinsgarantie' | translate" 
+        [template]="'mietzinsgarantie'">
+        <dxo-label [text]=" 'Klientensystem.SectionMietvertrag.Mietzinsgarantie' | translate "></dxo-label>
+      </dxi-item>
+      <dxi-item [dataField]="'Klientensystem.SectionMietvertrag.GarantieGultigBis' | translate" [editorOptions]="{ width: widthNumberAndDateBox }"
+        [template]="'garantieGultigBis'">
+        <dxo-label [text]=" 'Klientensystem.SectionMietvertrag.GarantieGultigBis' | translate "></dxo-label>
+      </dxi-item>
+      <dxi-item [dataField]="'Klientensystem.SectionMietvertrag.Miete' | translate" [editorOptions]="{ width: widthNumberAndDateBox }"
+        [template]="'miete'">
+        <dxo-label [text]=" 'Klientensystem.SectionMietvertrag.Miete' | translate "></dxo-label>
+      </dxi-item>
+      <dxi-item [dataField]="'Klientensystem.SectionMietvertrag.bis' | translate" 
+        [template]="'bis'">
+        <dxo-label [text]=" 'Klientensystem.SectionMietvertrag.bis' | translate "></dxo-label>
+      </dxi-item>
+      <dxi-item [dataField]="'Klientensystem.SectionMietvertrag.MieteAbgetreten' | translate" 
+        [template]="'mieteAbgetreten'">
+        <dxo-label [text]=" 'Klientensystem.SectionMietvertrag.MieteAbgetreten' | translate "></dxo-label>
+      </dxi-item>
+    </dxi-item>
+    <div *dxTemplate="let data of 'vermieter'" class="mietvertrag_item_height">
+      <dx-drop-down-box #vermieter [tabIndex]="24" [(value)]="mietvertragData.baInstitutionID" class="dx-drop-down-box-width"
+        [accessKey]="1" [(opened)]="isDropDownBoxOpened" valueExpr="baInstitutionID" displayExpr="name" [placeholder]="'Klientensystem.SectionMietvertrag.Auswahlen' | translate"
+        (onFocusIn)="onFocusIn(vermieter,'Vermieter','dropdownbox')" (onFocusOut)="onFocusOut()" (onKeyDown)="onKeyDown($event)"
+        [showClearButton]="true" [dataSource]="comboboxVermieter" (onOpened)="onVermieterOpened($event)"
+        (onInitialized)="onInitDropdownbox()">
+        <div *dxTemplate="let data of 'content'">
+          <dx-data-grid #vermieterGrid [dataSource]="comboboxVermieter" [columns]="['name', 'adresse', 'typen']"
+            [(selectedRowKeys)]="selectedKeys" keyExpr="baInstitutionID" [selection]="{ mode: 'single' }"
+            [hoverStateEnabled]="true" [paging]="{ enabled: true, pageSize: 100000 }" [filterRow]="{ visible: true }"
+            [scrolling]="{ mode: 'infinite' }" [height]="345" [noDataText]="'Klientensystem.SectionMietvertrag.NoDataText' | translate"
+            (onRowClick)="onVermieterGridRowSelected($event)" (onKeyDown)="onVermieterGridRowEnter($event)"
+            [focusedRowEnabled]="true" (onFocusedRowChanged)="onFocusedRowChanged()"
+            [(focusedRowKey)]="rowIndex">
+          </dx-data-grid>
+        </div>
+      </dx-drop-down-box>
+    </div>
+    <div *dxTemplate="let data of 'bemerkung'">
+      <div id="c007_form_datebox_bemerkung" class="form_text_area">
+        <div [tabIndex]="31" [froalaEditor]="froalaEditorConfig" [(froalaModel)]="mietvertragData.bemerkung"
+          [accessKey]="11" id="froalaEditor"></div>
+      </div>
+    </div>
+    <div *dxTemplate="let data of 'mietkostenNetto'" class="mietvertrag_item_height mietvertrag_right_item_width mietvertrag_right_item_content">
+      <dx-number-box class="kiss-input-right" width="160" [format]="numberFormat" [tabIndex]="25" #mietkostenNetto
+        [(value)]="mietvertragData.mietkosten" [accessKey]="4" (onKeyDown)="onKeyDown($event)" [step]="0" (onFocusIn)="onFocusIn(mietkostenNetto,'MietkostenNetto','numberbox')"
+        (onFocusOut)="onFocusOut()">
+        <dx-validator>
+          <dxi-validation-rule type="range" [min]="minNumber" [max]="maxNumber" [message]=" 'Klientensystem.Message.BemerkungMaxlength' | translate "></dxi-validation-rule>
+        </dx-validator>
+      </dx-number-box>
+    </div>
+    <div *dxTemplate="let data of 'nebenkosten'" class="mietvertrag_item_height mietvertrag_right_item_width mietvertrag_right_item_content">
+      <dx-number-box class="kiss-input-right" width="160" [format]="numberFormat" [tabIndex]="26" #nebenkosten
+        [(value)]="mietvertragData.nebenkosten" [accessKey]="5" (onKeyDown)="onKeyDown($event)" [step]="0" (onFocusIn)="onFocusIn(nebenkosten,'Nebenkosten','numberbox')"
+        (onFocusOut)="onFocusOut()">
+        <dx-validator>
+          <dxi-validation-rule type="range" [min]="minNumber" [max]="maxNumber" [message]=" 'Klientensystem.Message.BemerkungMaxlength' | translate "></dxi-validation-rule>
+        </dx-validator>
+      </dx-number-box>
+    </div>
+    <div *dxTemplate="let data of 'kostenanteilUE'" class="mietvertrag_item_height mietvertrag_right_item_width mietvertrag_right_item_content">
+      <dx-number-box class="kiss-input-right" width="160" [format]="numberFormat" [tabIndex]="27" #kostenanteilUE
+        [(value)]="mietvertragData.kostenanteilUE" [accessKey]="6" (onKeyDown)="onKeyDown($event)" [step]="0"
+        (onFocusIn)="onFocusIn(kostenanteilUE,'KostenanteilUE','numberbox')" (onFocusOut)="onFocusOut()">
+        <dx-validator>
+          <dxi-validation-rule type="range" [min]="minNumber" [max]="maxNumber" [message]=" 'Klientensystem.Message.BemerkungMaxlength' | translate "></dxi-validation-rule>
+        </dx-validator>
+      </dx-number-box>
+    </div>
+    <div *dxTemplate="let data of 'mietzinsgarantie'" class="mietvertrag_item_height mietvertrag_right_item_width mietvertrag_right_item_content">
+      <dx-number-box class="kiss-input-right" width="160" [format]="numberFormat" [tabIndex]="33" #mietzinsgarantie
+        [(value)]="mietvertragData.mietzinsgarantie" [accessKey]="8" (onKeyDown)="onKeyDown($event)" [step]="0"
+        (onFocusIn)="onFocusIn(mietzinsgarantie,'Mietzinsgarantie','numberbox')" (onFocusOut)="onFocusOut()">
+        <dx-validator>
+          <dxi-validation-rule type="range" [min]="minNumber" [max]="maxNumber" [message]=" 'Klientensystem.Message.BemerkungMaxlength' | translate "></dxi-validation-rule>
+        </dx-validator>
+      </dx-number-box>
+    </div>
+    <div *dxTemplate="let data of 'mietdepot'" class="mietvertrag_item_height mietvertrag_right_item_width mietvertrag_right_item_content">
+      <dx-number-box class="kiss-input-right" width="160" [format]="numberFormat" [tabIndex]="30" #mietdepot [(value)]="mietvertragData.mietdepot"
+        [accessKey]="7" [step]="0" (onKeyDown)="onKeyDown($event)" (onFocusIn)="onFocusIn(mietdepot,'Mietdepot','numberbox')"
+        (onFocusOut)="onFocusOut()">
+        <dx-validator>
+          <dxi-validation-rule type="range" [min]="minNumber" [max]="maxNumber" [message]=" 'Klientensystem.Message.BemerkungMaxlength' | translate "></dxi-validation-rule>
+        </dx-validator>
+      </dx-number-box>
+    </div>
+    <div *dxTemplate="let data of 'garantieGultigBis'" class="mietvertrag_item_height mietvertrag_right_item_width">
+      <dx-date-box [displayFormat]="dateFormat" width="160" [tabIndex]="32" #garantieBis [(value)]="mietvertragData.garantieBis"
+        [min]="minDate" [max]="maxDate" type="date" (onKeyDown)="onKeyDown($event)" [accessKey]="9" (onFocusIn)="onFocusIn(garantieBis,'GarantieBis','datebox')"
+        (onFocusOut)="onFocusOut()" class="arrowKey">
+      </dx-date-box>
+    </div>
+    <div *dxTemplate="let data of 'miete'" class="mietvertrag_item_height mietvertrag_right_item_width">
+      <dx-date-box [tabIndex]="28" #miete width="160" [displayFormat]="dateFormat" #datumVon (onKeyDown)="onKeyDown($event)"
+        [accessKey]="2" [(value)]="mietvertragData.datumVon" type="date" [min]="minDate" [max]="maxDate" (onFocusIn)="onFocusIn(miete,'Miete','datebox')"
+        (onFocusOut)="onFocusOut()">
+      </dx-date-box>
+    </div>
+    <div *dxTemplate="let data of 'bis'" class="mietvertrag_item_height mietvertrag_right_item_width">
+      <dx-date-box [displayFormat]="dateFormat" width="160" [tabIndex]="29" #datumBis [accessKey]="3" [min]="minDate"
+        [max]="maxDate" (onKeyDown)="onKeyDown($event)" class="arrowKey" (onFocusIn)="onFocusIn(datumBis,'DatumBis','date-box')"
+        (onFocusOut)="onFocusOut()" [(value)]="mietvertragData.datumBis" type="date">
+      </dx-date-box>
+    </div>
+    <div *dxTemplate="let data of 'mieteAbgetreten'" class="mietvertrag_item_height mietvertrag_right_item_width">
+      <dx-check-box #mieteAbgetreten1 [(value)]="mietvertragData.mieteAbgetreten" [tabIndex]="34" [accessKey]="10"
+        (onKeyDown)="onKeyDown($event)" (focus)="onFocusIn(mieteAbgetreten1,'MieteAbgetreten','checkbox');" (focusout)="onFocusOut()">
+      </dx-check-box>
+    </div>
+  </dx-form>
+</div>

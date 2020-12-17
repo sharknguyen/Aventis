@@ -1,0 +1,69 @@
+{
+  "RegularerFinanzplan": {
+    "PageTitle1": "Finanzplan [it]",
+    "Header": {
+      "Aktualisieren": "Status Aktualisieren [it]",
+      "Verlauf": "Verlauf... [it]",
+      "Bewilligung": "Bewilligung [it]",
+      "Neuer": "Neuer Regulärer Finanzplan [it]",
+      "Bearbeiten": "Bearbeiten [it]",
+      "Beenden": "Beenden [it]",
+      "Speichern": "Speichern [it]",
+      "Abbrechen": "Abbrechen [it]",
+      "Loschen": "Löschen [it]"
+    },
+    "Form": {
+      "GeplantVon": "Geplant von [it]",
+      "GeplantBis": "Geplant bis [it]",
+      "GultigAb": "Gültig ab [it]",
+      "GultigBis": "Gültig bis [it]",
+      "Grund": "Grund [it]",
+      "Typ": "Typ [it]",
+      "Berech": "Berechnungsgrundlage [it]"
+    },
+    "StatusInfo": {
+      "Header": "Statusinformationen [it]",
+      "Key": "Schlüssel [it]",
+      "Info": "Status Informationen [it]",
+      "Status": "Status [it]",
+      "UpdateData": "Die folgenden Daten müssen noch ergänzt/korrigiert werden [it]",
+      "SavedData": "Daten sind vollständig erfasst [it]",
+      "Warning": "Warnung: [it]"
+    },
+    "PopupConfirm": {
+      "Yes": "Ja [it]",
+      "No": "Nein [it]",
+      "Discard": "Discard [it]",
+      "Abbrechen": "Abbrechen [it]",
+      "Title": "Bestätigung [it]",
+      "Message": "Änderungen an diesem Datensatz rückgängig machen ? [it]",
+      "TitleConfirmDate": "Anpassung Ambulante erzieherische Hilfe [it]",
+      "MessageConfirmDate": "Die neuen Ansätze werden automatisch im Masterbudget sowie in sämtlichen noch nicht freigegebenen Monatsbudgets vom unten stehenden Monat an nachgeführt [it]",
+      "MessageChoseDate": "Die neue Kosten gelten ab"
+    },
+    "MessageError": {
+      "Message1": "Der Beginn liegt ausserhalb der Sozialhilfe [it]",
+      "Message2": "Das Ende liegt ausserhalb der Sozialhilfe [it]",
+      "Message3": "Der Beginn liegt nach dem Ende [it]",
+      "Message4": "Dieser Grundbedarftyp darf nicht mehr verwendet werden! [it]",
+      "Message5": "Ungültige Daten. Bitte geben Sie gültige Eingabewerte ein [it]"
+    },
+    "ValidateMessage": {
+      "GeplantVon": "Das Feld 'Geplant von' darf nicht leer bleiben ! [it]",
+      "GeplantBis": "Das Feld 'Geplant bis' darf nicht leer bleiben ! [it]"
+    },
+    "PopupVerlauf": {
+      "Title": "Bewilligung Finanzplan [it]",
+      "TitleContentPopup": "Die Bewilligung des Finanzplanes hat folgenden Verlauf genommen [it]",
+      "Datum": "Datum [it]",
+      "Absender": "Absender [it]",
+      "Empfanger": "Empfänger [it]",
+      "Typ": "Typ [it]",
+      "PerDatum": "per Datum [it]",
+      "Bemerkung": "BemerKung [it]",
+      "Schlussen": "Schlüssen [it]",
+      "CountGrid": "Display only data (text) [it]",
+      "FileName": "Verlauf [it]"
+    }
+  }
+}

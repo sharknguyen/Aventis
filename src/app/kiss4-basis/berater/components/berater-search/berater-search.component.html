@@ -1,0 +1,63 @@
+<div [ngClass]="{'disabled': !readOnly}" class="container-search c006_search-form" id="c006_suchen">
+  <dx-toolbar class="container-search__header" id="c006_suchen_header" [disabled]="!readOnly">
+    <dxi-item [template]="'titleGridview'" name="toolbar-header" location="before" [disabled]="!readOnly"></dxi-item>
+    <div *dxTemplate="let temp of 'titleGridview'">
+      <span class="container-search__header-title c006_title-search" (click)="toggleContainer()">{{
+        'ExterneBerater.ExterneBeraterSucheBox.TitleSuche' | translate }}</span>
+    </div>
+    <dxi-item location="after" widget="dxButton" [options]="options" [visible]="true"></dxi-item>
+  </dx-toolbar>
+  <div *ngIf="isExpand" class="container-search__form">
+    <dx-form id="C006_search-form" #BeraterSearchForm colCount="auto" labelLocation="left" [showColonAfterLabel]="false"
+      [colCount]="12" [screenByWidth]="getSizeQualifier">
+      <dxi-item [colSpan]="5" id="C006_label-institution" [template]="'searchInstitution'">
+        <dxo-label [text]="'ExterneBerater.ExterneBeraterSucheBox.Institution' | translate"></dxo-label>
+      </dxi-item>
+      <dxi-item itemType="empty" [colSpan]="7"></dxi-item>
+      <dxi-item [template]="'searchName'" [colSpan]="5" id="C006_label-name">
+        <dxo-label [text]="'ExterneBerater.ExterneBeraterSucheBox.Name' | translate"></dxo-label>
+      </dxi-item>
+      <dxi-item itemType="empty" [colSpan]="7"></dxi-item>
+      <dxi-item [template]="'searchVorname'" [colSpan]="5" id="C006_label-vorname">
+        <dxo-label [text]="'ExterneBerater.ExterneBeraterSucheBox.Vorname' | translate"></dxo-label>
+      </dxi-item>
+      <dxi-item itemType="empty" [colSpan]="7"></dxi-item>
+      <dxi-item [template]="'searchEmail'" [colSpan]="5" id="C006_label-email">
+        <dxo-label [text]="'ExterneBerater.ExterneBeraterSucheBox.Email' | translate"></dxo-label>
+      </dxi-item>
+      <dxi-item itemType="empty" [colSpan]="7"></dxi-item>
+      <dxi-item [template]="'searchTelefon'" [colSpan]="5" id="C006_label-telefon">
+        <dxo-label [text]="'ExterneBerater.ExterneBeraterSucheBox.Telefon' | translate"></dxo-label>
+      </dxi-item>
+      <div *dxTemplate="let data of 'searchInstitution'">
+        <kiss-dropdown-grid
+          [dataSource]="institutions"
+          [disabled]="!readOnly"
+          [columnsDef]="columnsDef"
+          [(value)]="queryData['baInstitutionID']"
+          valueExpr="baInstitutionID"
+          displayExpr="name"
+          keyExpr="index"
+          [noDataText]="'ExterneBerater.Messgage.NoDataText' | translate" valueExpr="baInstitutionID"
+          (keyDown)="onKeyDown($event)">
+        </kiss-dropdown-grid>
+      </div>
+      <div *dxTemplate="let data of 'searchName'">
+        <dx-text-box name="c006_suchen_name" class="drop-down-box" placeholder="" [(value)]="queryData['name']" id="C006_textbox-name"
+          [disabled]="!readOnly" valueChangeEvent="keyup" (onKeyDown)="onKeyDown($event)"></dx-text-box>
+      </div>
+      <div *dxTemplate="let data of 'searchVorname'">
+        <dx-text-box name="c006_suchen_vorname" class="drop-down-box" placeholder="" [(value)]="queryData['vorname']"
+          id="C006_textbox-vorname" [disabled]="!readOnly" valueChangeEvent="keyup" (onKeyDown)="onKeyDown($event)"></dx-text-box>
+      </div>
+      <div *dxTemplate="let data of 'searchEmail'">
+        <dx-text-box name="c006_suchen_email" class="drop-down-box" placeholder="" [(value)]="queryData['email']" id="C006_textbox-email"
+          [disabled]="!readOnly" valueChangeEvent="keyup" (onKeyDown)="onKeyDown($event)"></dx-text-box>
+      </div>
+      <div *dxTemplate="let data of 'searchTelefon'">
+        <dx-text-box name="c006_suchen_telefon" class="drop-down-box" placeholder="" [(value)]="queryData['telefon']"
+          id="C006_textbox-telefon" [disabled]="!readOnly" valueChangeEvent="keyup" (onKeyDown)="onKeyDown($event)"></dx-text-box>
+      </div>
+    </dx-form>
+  </div>
+</div>

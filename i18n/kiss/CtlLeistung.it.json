@@ -1,0 +1,57 @@
+{
+    "J020-Leistung":{
+        "SAR":"zuständige/r SAR [it]",
+        "Bezeichnung":"Bezeichnung [it]",
+        "Datum-von":"Datum von [it]",
+        "Unsterart":"Unsterart [it]",
+        "Datum-bis":"Datum bis [it]",
+        "Abschulussgrund":"Abschulussgrund [it]",
+        "Gemeinde":"zust.Gemeinde [it]",
+        "Ruckerstattung":"Rückerstattung [it]",
+        "Forderungstitel":"Forderungstitel [it]",
+        "erstellt-am":"erstellt am [it]",
+        "Tritt-in-Rechtskratf-am":"Tritt in Rechtskratf am [it]",
+        "Schuldner":"Schuldner [it];",
+        "Adresse":"Adresse [it]",
+        "Schuldner-mahnen":"Schuldner mahnen [it]",
+        "Schuldner-ist-Rentenbezüger":"Schuldner ist Rentenbezüger [it]",
+        "Schuldner-wird-von-fremden-Sozialdienst-unterstützt":"Schuldner wird von fremden Sozialdienst unterstützt [it]",
+        "Aufenthaltsart":"Aufenthaltsart [it]",
+        "Schuldner-Status":"Schuldner Status [it]",
+        "Inkasso-bemuhung":"Inkasso bemühung [it]",
+        "nachste-Verjahrung":"nächste Verjährung [it]",
+        "Status":"Status [it]",
+        "Quote":"Quote [it]",
+        "BegrundungderQuote":"BegrundungderQuote [it]",
+        "Bermerkung":"Bermerkung [it]",
+        "Button": {
+            "fall-wieder": "Fall wieder öffnen [it]",
+            "bearbeiten": "Bearbeiten [it]",
+            "Speichern": "Speichern [it]",
+            "Abbrechen": "Abbrechen [it]",
+            "Datenaktualisieren":"Daten aktualisieren [it]"
+        },
+        "Message": {
+            "MessageDatumVon": "Das Feld 'Datum von' darf nicht leer bleiben ! [it]",
+            "MessageFallverlauf": "Soll der geschlossene Fallverlauf wieder geöffnet werden ? [it]",
+            "MessageGeme": "Das Feld 'zust. Gemeinde' darf nicht leer bleiben ! [it]",
+            "MessageCompareDate": "Das Von-Datum muss kleiner sein als das Bis-Datum [it]",
+            "MessageIsValidate": "Ungültige Daten. Bitte geben Sie gültige Eingabewerte ein. [it]",
+            "MessageDelete": "Soll der Datensatz gelöscht werden ? [it]",
+            "MessageDeleteRemaining": "Es bestehen noch abhängige Daten. Diese müssen zuerst gelöscht werden [it]",
+            "MessageCancel": "Änderungen an diesem Datensatz rückgängig machen ? [it]",
+            "MessageCopyDbClick": "Die Angaben wurden in den Zwischenspeicher kopiert. [it]",
+            "MessageCopyShiftDbClick": "Die ID wurde in den Zwischenspeicher kopiert [it]",
+            "MessageCanDeactivate": "Sie haben Daten geändert. Möchten Sie das Formular schließen und die Änderungen verwerfen? [it]",
+            "MessageconCurrency": "Der gewählte Datensatz wurde in der Zwischenzeit von einer anderen Person geändert oder gelöscht. Aktualisieren sie die Daten zuerst, um Ihre Änderungen zu speichern. [it]",
+            "MessageMaxlenght": "Der Inhalt eines Feldes überschreitet die maximal zugelassene Länge. Bitte kürzen Sie zuerst den Inhalt und versuchen Sie anschliessend nochmals zu speichern. [it]"
+
+        },
+        "TitleMessage": {
+            "Information": "Information [it]",
+            "Bestatigung": "Bestätigung [it]",
+            "Yes": "Ja [it]",
+            "No": "Nein [it]"
+        }
+    }
+}

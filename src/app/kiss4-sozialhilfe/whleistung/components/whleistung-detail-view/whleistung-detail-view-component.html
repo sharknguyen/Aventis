@@ -1,0 +1,111 @@
+<div class="container-detail-content" id="i001_detail_form" class="i001-detail-form">
+  <div class="container-detail__form">
+
+    <dx-form #whLeistungForm labelLocation="left" id="i001-detail" [showColonAfterLabel]="false" [formData]="formData" [width]="formWidth">
+      <dxi-item itemType="group" [colCount]="12">
+
+        <dxi-item itemType="group" [colSpan]="3">
+          <dxi-item dataField="datumVon" [template]="'dateboxTemplate'">
+            <dxo-label [text]="'I001WhLeistung.Title.Eröffnet' | translate"></dxo-label>
+          </dxi-item>
+        </dxi-item>
+        <dxi-item itemType="group" [colSpan]="5">
+          <dxi-item dataField="eroeffnungsGrundText" [template]="'selectboxTemplate'">
+            <dxo-label [text]="'I001WhLeistung.Title.Grund' | translate"></dxo-label>
+          </dxi-item>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="group" [colCount]="12">
+        <dxi-item itemType="group" [colSpan]="8">
+          <dxi-item dataField="leistungsartText" [template]="'selectboxBFSTemplate'">
+            <dxo-label [text]="'I001WhLeistung.Title.BFS-Leistungsart' | translate"></dxo-label>
+          </dxi-item>
+        </dxi-item>
+
+        <dxi-item itemType="empty" [colSpan]="4"></dxi-item>
+
+        <dxi-item itemType="group" [colSpan]="3">
+          <dxi-item dataField="datumBis" [template]="'dateboxAbTemplate'">
+            <dxo-label [text]="'I001WhLeistung.Title.Abgeschlossen' | translate"></dxo-label>
+          </dxi-item>
+        </dxi-item>
+        <dxi-item itemType="group" [colSpan]="5">
+          <dxi-item dataField="abschlussGrundText" [template]="'selectboxBottomTemplate'">
+            <dxo-label [text]="'I001WhLeistung.Title.Grund' | translate"></dxo-label>
+          </dxi-item>
+        </dxi-item>
+        <dxi-item itemType="empty" [colSpan]="4"></dxi-item>
+
+        <dxi-item itemType="group" [colSpan]="8">
+          <dxi-item dataField="gemeindeText" [template]="'selectboxGemTemplate'">
+            <dxo-label [text]="'I001WhLeistung.Title.Gemeindet' | translate"></dxo-label>
+          </dxi-item>
+        </dxi-item>
+
+        <dxi-item itemType="empty" [colSpan]="4"></dxi-item>
+
+        <dxi-item itemType="group" [colSpan]="12">
+          <dxi-item dataField="bemerkung" [template]="'textAreaBemeGemTemplate'">
+            <dxo-label [text]="'I001WhLeistung.Title.Bemerkung' | translate"></dxo-label>
+          </dxi-item>
+        </dxi-item>
+
+        <dxi-item itemType="group" [colSpan]="3">
+          <dxi-item dataField="vorsaldo" [template]="'textboxVorTemplate'">
+            <dxo-label [text]="'I001WhLeistung.Title.Vorsaldo' | translate"></dxo-label>
+          </dxi-item>
+        </dxi-item>
+
+        <dxi-item itemType="empty" [colSpan]="9"></dxi-item>
+
+        <dxi-item itemType="group" [colSpan]="12">
+          <dxi-item dataField="" [template]="'textAreaImfoGemTemplate'">
+            <dxo-label [text]="'I001WhLeistung.Title.Infomationen' | translate"></dxo-label>
+          </dxi-item>
+        </dxi-item>
+
+      </dxi-item>
+
+      <div class="item-detail-view" *dxTemplate="let data of 'dateboxTemplate'">
+        <span>{{ formData[data.dataField] | date: "dd.MM.yyyy" }}&nbsp;</span>
+      </div>
+
+      <div class="item-detail-view" *dxTemplate="let data of 'personTemplate'">
+        <span>{{ formData[data.dataField] }}&nbsp;</span>
+      </div>
+
+      <div class="item-detail-view" *dxTemplate="let data of 'textboxVorTemplate'">
+        <span>{{ vorsaldoString }}&nbsp;</span>
+      </div>
+
+      <div class="item-detail-view" *dxTemplate="let data of 'selectboxTemplate'">
+        <span>{{ formData[data.dataField] }}&nbsp;</span>
+      </div>
+
+      <div class="item-detail-view" *dxTemplate="let data of 'selectboxBFSTemplate'">
+        <span>{{ formData[data.dataField] }}&nbsp;</span>
+      </div>
+
+      <div class="item-detail-view" *dxTemplate="let data of 'dateboxAbTemplate'">
+        <span>{{ formData[data.dataField] | date: "dd.MM.yyyy" }}&nbsp;</span>
+      </div>
+
+      <div class="item-detail-view" *dxTemplate="let data of 'selectboxGemTemplate'">
+        <span>{{ formData[data.dataField] }}&nbsp;</span>
+      </div>
+
+      <div class="item-detail-view" *dxTemplate="let data of 'selectboxBottomTemplate'">
+        <span>{{ formData[data.dataField] }}&nbsp;</span>
+      </div>
+
+      <div class="item-detail-view" *dxTemplate="let data of 'textAreaBemeGemTemplate'">
+        <span class="textarea-pre-wrap">{{ formData[data.dataField] }}&nbsp;</span>
+      </div>
+
+      <div class="item-detail-view" *dxTemplate="let data of 'textAreaImfoGemTemplate'">
+        <span>{{ formData[data.dataField] }}&nbsp;</span>
+      </div>
+
+    </dx-form>
+  </div>
+</div>

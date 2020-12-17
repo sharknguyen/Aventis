@@ -1,0 +1,69 @@
+{
+  "RegularerFinanzplan": {
+    "PageTitle1": "Finanzplan",
+    "Header": {
+      "Aktualisieren": "Status Aktualisieren",
+      "Verlauf": "Verlauf...",
+      "Bewilligung": "Bewilligung",
+      "Neuer": "Neuer Regulärer Finanzplan",
+      "Bearbeiten": "Bearbeiten",
+      "Beenden": "Beenden",
+      "Speichern": "Speichern",
+      "Abbrechen": "Abbrechen",
+      "Loschen": "Löschen"
+    },
+    "Form": {
+      "GeplantVon": "Geplant von",
+      "GeplantBis": "Geplant bis",
+      "GultigAb": "Gültig ab",
+      "GultigBis": "Gültig bis",
+      "Grund": "Grund",
+      "Typ": "Typ",
+      "Berech": "Berechnungsgrundlage"
+    },
+    "StatusInfo": {
+      "Header": "Statusinformationen",
+      "Key": "Schlüssel",
+      "Info": "Status Informationen",
+      "Status": "Status",
+      "UpdateData": "Die folgenden Daten müssen noch ergänzt/korrigiert werden",
+      "SavedData": "Daten sind vollständig erfasst",
+      "Warning": "Warnung:"
+    },
+    "PopupConfirm": {
+      "Yes": "Ja",
+      "No": "Nein",
+      "Discard": "Discard",
+      "Abbrechen": "Abbrechen",
+      "Title": "Bestätigung",
+      "Message": "Änderungen an diesem Datensatz rückgängig machen ?",
+      "TitleConfirmDate": "Anpassung Ambulante erzieherische Hilfe",
+      "MessageConfirmDate": "Die neuen Ansätze werden automatisch im Masterbudget sowie in sämtlichen noch nicht freigegebenen Monatsbudgets vom unten stehenden Monat an nachgeführt",
+      "MessageChoseDate": "Die neue Kosten gelten ab"
+    },
+    "MessageError": {
+      "Message1": "Der Beginn liegt ausserhalb der Sozialhilfe",
+      "Message2": "Das Ende liegt ausserhalb der Sozialhilfe",
+      "Message3": "Der Beginn liegt nach dem Ende",
+      "Message4": "Dieser Grundbedarftyp darf nicht mehr verwendet werden!",
+      "Message5": "Ungültige Daten. Bitte geben Sie gültige Eingabewerte ein"
+    },
+    "ValidateMessage": {
+      "GeplantVon": "Das Feld 'Geplant von' darf nicht leer bleiben !",
+      "GeplantBis": "Das Feld 'Geplant bis' darf nicht leer bleiben !"
+    },
+    "PopupVerlauf": {
+      "Title": "Bewilligung Finanzplan",
+      "TitleContentPopup": "Die Bewilligung des Finanzplanes hat folgenden Verlauf genommen",
+      "Datum": "Datum",
+      "Absender": "Absender",
+      "Empfanger": "Empfänger",
+      "Typ": "Typ",
+      "PerDatum": "per Datum",
+      "Bemerkung": "Bemerkung",
+      "Schlussen": "Schlüssen",
+      "CountGrid": "Display only data (text)",
+      "FileName": "Verlauf"
+    }
+  }
+}

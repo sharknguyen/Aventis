@@ -1,0 +1,62 @@
+{
+    "Versicherungsleistungen": {
+      "List": {
+        "NurAktuelleAnzeigen": "Nur aktuelle anzeigen [fr]",
+        "GultigAb": "Gultig ab [fr]",
+        "Name": "Name [fr]",
+        "Geburtsdatum": "Geburtsdatum [fr]",
+        "ArtDerVersicherung": "Art der Versicherung [fr]",
+        "Einkommen": "Einkommen [fr]",
+        "Betrag": "Betrag [fr]",
+        "Bemerkung": "Bemerkung [fr]",
+        "ApplyFilter": "Filter anwenden [fr]",
+        "EmptyPanelText": "Zu gruppierende Spalten in diesen Bereich ziehen [fr]",
+        "NoDataText":"Keine Daten [fr]",
+        "Benutzerdefiniert":"Benutzerdefiniert [fr]",
+        "Suchen":"Suchen... [fr]"
+      },
+      "Form": {
+        "Neues": " Neues Einkommen aus Versicherungsleistungen [fr]",
+        "Bearbeiten": "Bearbeiten [fr]",
+        "Speichern": "Speichern [fr]",
+        "Abbrechen": "Abbrechen [fr]",
+        "Loschen": "Löschen [fr]",
+        "Person": "Person [fr]",
+        "ArtDerVersicherung": "Art der Versicherung [fr]",
+        "MonatlichesEinkommen": "Monatliches Einkommen [fr]",
+        "EinkommenWird": "Einkommen wird vom Sozialdienst verwaltet [fr]",
+        "Beschreibung": "Beschreibung [fr]",
+        "Title":"Detail [fr]"
+      },
+      "Message": {
+        "DblClick": "Die Angaben wurden in den Zwischenspeicher kopiert. [fr]",
+        "ShiftDblClick_1": "Die ID wurde in den Zwischenspeicher kopiert (",
+        "ShiftDblClick_2": "). [fr]",
+        "RequiredArtDerVersicherung":"Das Feld 'Art der Versicherung' darf nicht leer bleiben ! [fr]",
+        "RequiredEinkommen":"Nicht alle Mussfelder sind ausgefüllt [fr]",
+        "InValidData":"Ungültige Daten. Bitte geben Sie gültige Eingabewerte ein. [fr]",
+        "ConfirmDelete": "Soll der Datensatz gelöscht werden ? [fr]",
+        "Title": "Bestätigung [fr]",
+        "ConfirmMessage":"Sie haben Daten geändert. Möchten Sie das Formular schließen und die Änderungen verwerfen ? [fr]",
+        "ConfirmDeactive": "Änderungen an diesem Datensatz rückgängig machen ? [fr]",
+        "CancelAdd":"Neuen Datensatz wieder löschen ? [fr]",
+        "DeleteConcurrency": "Beim Löschen des Datensatzes ist ein Fehler aufgetreten ! [fr]",
+        "Delete428": "Es bestehen noch abhängige Daten. Diese müssen zuerst gelöscht werden [fr]",
+        "UpdateConcurrency": "Beim Speichern des veränderten Datensatzes ist ein Fehler aufgetreten ! [fr]",
+        "UpdateConcurrency409": "Der gewählte Datensatz wurde in der Zwischenzeit von einer anderen Person geändert oder gelöscht. Aktualisieren sie die Daten zuerst, um Ihre Änderungen zu speichern. [fr]",
+        "InsertFail":"Das Einfügen eines Datensatzes ist nicht erlaubt ! [fr]",
+        "Rights":"Insufficient rights. [fr]",
+        "Group":"Zu gruppierende Spalten in diesen Bereich ziehen [fr]"
+      },
+      "Button": {
+        "Yes": "Ja [fr]",
+        "No": "Nein [fr]",
+        "Discard": "Discard [fr]",
+        "Abbrechen": "Abbrechen [fr]"
+      },
+      "Title": {
+        "String_1": " > Monatliche Versicherungsleistungen vom [fr]",
+        "String_2": " bis [fr]"
+      }
+    }
+  }

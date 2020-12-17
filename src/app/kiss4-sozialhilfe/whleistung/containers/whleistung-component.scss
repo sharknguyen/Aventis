@@ -1,0 +1,17 @@
+@import 'settings/variables.scss';
+.grid-bottom {
+  margin-top: $label-detail-label-margin-top;
+}
+@media only screen and (max-width: 1000px) {
+  ::ng-deep div.i001-button {
+      .dx-button-content{
+          padding: 5px;
+          .dx-button-text{
+              display: none;
+         }
+        .dx-icon{
+          margin: 0;
+        }
+      }  
+  }
+}

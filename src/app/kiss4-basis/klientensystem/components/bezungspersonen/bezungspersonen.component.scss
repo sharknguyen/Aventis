@@ -1,0 +1,19 @@
+@import 'settings/variables.scss';
+
+.custom-grid-select-box {
+  margin: -7px;
+}
+.section_title{
+  padding-top: $padding-horizontal;
+  font-weight: $form-detail-label-font-weight;
+}
+.c007_breakline{
+  margin: $c007-margin-bottom 0px;
+}
+.grid-content-center {
+  text-align: center;
+  margin: -3px;
+}
+.text-center {
+  text-align: center;
+}

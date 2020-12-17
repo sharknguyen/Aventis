@@ -1,0 +1,23 @@
+.title-display{
+  font-weight: bolder;
+  height: 30px;
+}
+
+.beschreibung-margin{
+  margin-left: -4px;
+  margin-right: 15px;
+}
+.item-height{
+  min-height: 36px;
+}
+:host::ng-deep.dx-group-colcount-13{
+  border-top: 1px solid #3e5876;
+}
+.minus-align {
+  height: 36px;
+  padding-top: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #3e5876;
+  min-height: 36px;
+}

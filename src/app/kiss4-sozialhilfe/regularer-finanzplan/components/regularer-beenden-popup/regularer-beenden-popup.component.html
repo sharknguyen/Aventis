@@ -1,0 +1,78 @@
+<dx-popup [title]="'RegularerFinanzplan.PopupBeenden.Title' | translate" [showTitle]="true" [width]="'auto'"
+    [minWidth]="700" [maxWidth]="800" [height]="'auto'" [resizeEnabled]="true" [visible]="visiblePopupBeenden"
+    [dragEnabled]="false" [closeOnOutsideClick]="false" [showCloseButton]="false">
+    <div *dxTemplate="let data of 'content'" class="i031-beenden-container">
+        <b>{{'RegularerFinanzplan.PopupBeenden.TitleContentPopup' | translate}}</b>
+        <dx-form labelLocation="left" [showColonAfterLabel]="false" class="box-form">
+            <dxi-item itemType="group" [colCount]="12">
+                <dxi-item [colSpan]="3">
+                    <span class="label-text">{{'RegularerFinanzplan.PopupBeenden.ZuBenachrichtigenderMitarbeiter' |
+                        translate}}</span>
+                </dxi-item>
+                <dxi-item [colSpan]="9">
+                    <dx-select-box>
+                    </dx-select-box>
+                </dxi-item>
+            </dxi-item>
+            <dxi-item itemType="group" [colCount]="12">
+                <dxi-item [colSpan]="3"></dxi-item>
+                <dxi-item [colSpan]="9" class="item-box">
+                    <dx-check-box [text]="'RegularerFinanzplan.PopupBeenden.PerEmailBenachrichtight' | translate"></dx-check-box>
+                    <span class="example-email">kiss@diartis.ch</span>
+                </dxi-item>
+            </dxi-item>
+            <dxi-item itemType="group" [colCount]="12">
+                <dxi-item [colSpan]="3">
+                    <span class="label-text">
+                    </span>
+                </dxi-item>
+                <dxi-item [colSpan]="9">
+                    <dx-check-box [text]="'RegularerFinanzplan.PopupBeenden.PerSofortSperren' | translate"></dx-check-box>
+                </dxi-item>
+            </dxi-item>
+            <dxi-item itemType="group" [colCount]="12">
+                <dxi-item [colSpan]="3">
+                    <span class="label-text">{{'RegularerFinanzplan.PopupBeenden.BeendenAm' | translate}}</span>
+                </dxi-item>
+                <dxi-item [colSpan]="9">
+                    <dx-date-box></dx-date-box>
+                </dxi-item>
+            </dxi-item>
+            <dxi-item itemType="group" [colCount]="12">
+                <dxi-item [colSpan]="3">
+                    <span class="label-text">{{'RegularerFinanzplan.PopupBeenden.Begrundung' | translate}}</span>
+                </dxi-item>
+                <dxi-item [colSpan]="9">
+                    <dx-text-area [height]="100"></dx-text-area>
+                </dxi-item>
+            </dxi-item>
+            <dxi-item itemType="group" [colCount]="12">
+                <dxi-item [colSpan]="3">
+                    <span class="label-text">{{'RegularerFinanzplan.PopupBeenden.GrundVorzeitigeBeendigung' |
+                        translate}}</span>
+                </dxi-item>
+                <dxi-item [colSpan]="9">
+                    <dx-select-box>
+                    </dx-select-box>
+                </dxi-item>
+            </dxi-item>
+            <dxi-item itemType="group" [colCount]="12">
+                <dxi-item [colSpan]="3">
+                    <span class="label-text"></span>
+                </dxi-item>
+                <dxi-item [colSpan]="9">
+                    <dx-check-box [text]="'RegularerFinanzplan.PopupBeenden.Agree' | translate"></dx-check-box>
+                </dxi-item>
+            </dxi-item>
+        </dx-form>
+        <div class="btn-content">
+            <dx-button [visible]="true" [elementAttr]="{ class: 'btn-detail' }" icon="check" [text]="'RegularerFinanzplan.PopupBeenden.ButtonYesBeenden' | translate" (onClick)="onSaveClicked()">
+            </dx-button>&nbsp;
+            <dx-button [visible]="true" [elementAttr]="{ class: 'btn-detail' }" icon="fa fa-times" [text]="'RegularerFinanzplan.PopupBeenden.ButtonNoBeenden' | translate" (onClick)="onCancelClicked()">
+            </dx-button>
+        </div>
+        <div class="close-popup-common-content">
+            <dx-button id="button-close-popup-common" icon="close" (onClick)="onCancelClicked()"></dx-button>
+        </div>
+    </div>
+</dx-popup>

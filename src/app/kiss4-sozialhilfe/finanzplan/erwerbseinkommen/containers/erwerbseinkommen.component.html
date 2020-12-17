@@ -1,0 +1,36 @@
+<kiss-right-component id="i003_monatliches-erwerbeinkommen">
+    <kiss-header-bar (action)="onHeaderAction($event)" (dblclick)="onDblClickMessage()" [isShiftKeyDown]="isShiftKeyDown"
+        [isEditMode]="isEditMode" [titleHeader]="pageTitle" [vom]="Vom" [bis]="Bis" [baPersonID]="baPersonID">
+    </kiss-header-bar>
+    <div class="container">
+        <section id="i003-erwerbeinkommen" class="container__right-content">
+            <app-remaining-message #remainingMessage></app-remaining-message>
+            <kiss-erwerbseinkommen-list #vermogenList [gridAction]="gridAction$" [dataSource]="bgErwerbseinkommens"
+                [disableGrid]="isDisableGrid" (rowSelection)="onSelectionChange($event)" (refresh)="onRefresh($event)"
+                [gridKey]="selectKey" [bgBudgetID]="bgBudgetID">
+            </kiss-erwerbseinkommen-list>
+
+            <ng-container *ngIf="isEditMode; then editMode; else viewMode"> </ng-container>
+
+            <ng-template #viewMode>
+                <kiss-erwerbseinkommen-view #detailView [dataSource]="rowDetail" (action)="onDetailAction($event)"
+                    [permistion]="permis" [concurrency]="concurrency"></kiss-erwerbseinkommen-view>
+            </ng-template>
+
+            <ng-template #editMode>
+                <kiss-erwerbseinkommen-edit #detailEdit [dataSource]="rowDataEdit" (action)="onDetailAction($event)"
+                    (formError)="onFormError($event)" [persons]="persons" [artDesEinkommens]="artDesEinkommens"
+                    [concurrency]="concurrency" (isDirtyForm)="setDirtyForm($event)">
+                </kiss-erwerbseinkommen-edit>
+            </ng-template>
+        </section>
+    </div>
+
+</kiss-right-component>
+
+<!-- Print component -->
+<kiss-printer #printer></kiss-printer>
+
+<!-- Confirm popup -->
+<app-popup-confirm [popUpModel]="popUpModel"></app-popup-confirm>
+<app-popup-concurrency-detail [visible]='visibleConcurrencyPopup' (yes)="onConcurrencyYes()" (no)="onConcurrencyNo()"></app-popup-concurrency-detail>

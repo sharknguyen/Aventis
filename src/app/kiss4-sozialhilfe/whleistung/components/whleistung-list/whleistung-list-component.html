@@ -1,0 +1,17 @@
+
+<div class="grid-table-view">
+  <kiss-grid #dataGrid
+    keyExpr="bgFinanzplanID"
+    idGridName="i001_sozialhilfe_grid-perioden"
+    filterBuilderName="i001_sozialhilfe_grid-perioden"
+    [dataSource]="dataGridBottom"
+    [noDataText]="'I001WhLeistung.NoData' | translate"
+    [fileName]="'I001WhLeistung.fileNameExcel' | translate"
+    [selectedRowKey]="selectedKeys"
+    [gridFunctionModel]="gridFunctionModel"
+    [readOnly]="enableGrid"
+    [columnsDef]="columnsDataGrid"
+    (selectedRow)="onClickRowGrid($event)"
+    [hideContextMenuHeader]="true">
+  </kiss-grid>
+</div>

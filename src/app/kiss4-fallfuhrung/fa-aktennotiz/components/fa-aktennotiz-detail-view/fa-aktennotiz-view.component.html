@@ -1,0 +1,73 @@
+﻿<div class="container-detail form-content-details single-container">
+  <div class="toolbar-header" (click)="changeCollapseFormContent($event)">
+    <kiss-card-title [titleHeader]="'CtlBfsFragenkatalog.Detail' | translate" [customizeBtn]="customizeBtn"
+      [isCard]="true" (onCustomizeBtnFn)="toolBarOnItemClick($event)">
+    </kiss-card-title>
+  </div>
+  <div class="container-detail__form" [ngClass]="{'container__hide': !isExpand}">
+    <dx-form id="faAktennotiz-CreateEditForm" #faAktennotizCreateEditForm colCount="auto" labelLocation="left"
+      [showColonAfterLabel]="false">
+      <dxi-item itemType="group" cssClass="second-group" [colCount]="2">
+        <dxi-item [dataField]="'FaAktennotizDetails.LabelDatum' | translate" [template]="'dateBoxDatumTemplate'"
+          [colSpan]="2"></dxi-item>
+        <dxi-item [dataField]="'FaAktennotizDetails.LabelKontaktpartner' | translate" [template]="'textBoxKontaktpartnerTemplate'"
+          [colSpan]="2"></dxi-item>
+        <dxi-item itemType="group" cssClass="second-group" [colSpan]="1">
+          <dxi-item [dataField]="'FaAktennotizDetails.LabelKontaktart' | translate" [template]="'selectBoxKontaktartTemplate'"></dxi-item>
+          <dxi-item [dataField]="'FaAktennotizDetails.LabelDauer' | translate" [template]="'labelDauerTemplate'">
+          </dxi-item>
+          <dxi-item [dataField]="'FaAktennotizDetails.LabelAutor' | translate" [template]="'dropDownBoxEmbeddedDataGridDetailTemplate'"></dxi-item>
+        </dxi-item>
+        <dxi-item itemType="empty" cssClass="second-group" [colSpan]="1">
+        </dxi-item>
+        <dxi-item [dataField]="'FaAktennotizDetails.LabelStichwort' | translate" [template]="'textBoxStichwortTemplate'"
+          [colSpan]="2"></dxi-item>
+        <dxi-item [dataField]="'FaAktennotizDetails.LabelInhalt' | translate" [template]="'textAreaInhaltTemplate'"
+          [colSpan]="2"></dxi-item>
+        <dxi-item [template]="'tagBoxTheMenTemplate'" [colSpan]="2">
+          <dxo-label [text]="'FaAktennotizDetails.LabelThemen' | translate"></dxo-label>
+        </dxi-item>
+        <dxi-item [dataField]="'FaAktennotizDetails.LabelErfassung' | translate" [template]="'labelErfassungTemplate'"
+          [colSpan]="2"> </dxi-item>
+        <dxi-item [dataField]="'FaAktennotizDetails.LabelMutation' | translate" [template]="'labelMutationTemplate'"
+          [colSpan]="2"> </dxi-item>
+      </dxi-item>
+      <div *dxTemplate="let data of 'dateBoxDatumTemplate'">
+        <span>{{this.faAktennotizDetail.Datum | date: 'dd.MM.yyyy'}}</span>
+      </div>
+      <div *dxTemplate="let data of 'textBoxKontaktpartnerTemplate'">
+        <span>{{this.faAktennotizDetail.Kontaktpartner}}</span>
+      </div>
+      <div *dxTemplate="let data of 'selectBoxKontaktartTemplate'">
+        <span>{{this.faAktennotizDetail.FaKontaktartText}}</span>
+      </div>
+      <div *dxTemplate="let data of 'textBoxStichwortTemplate'">
+        <span>{{this.faAktennotizDetail.Stichwort}}</span>
+      </div>
+      <div *dxTemplate="let data of 'textAreaInhaltTemplate'">
+        <div [froalaEditor]="froalaEditorConfig" [(froalaModel)]="faAktennotizDetail.InhaltRtf" id="froalaEditor"></div>
+      </div>
+      <div *dxTemplate="let data of 'labelDauerTemplate'">
+        <span>{{this.faAktennotizDetail.FaDauerText }}</span>
+      </div>
+      <div *dxTemplate="let data of 'labelMutationTemplate'">
+        <span class="label-creator-modifier">{{ this.faAktennotizDetail.Modified| date: 'dd.MM.yyyy
+          HH:mm:ss' }}</span>
+        <span>{{ this.faAktennotizDetail.Modifier }}</span>
+      </div>
+      <div *dxTemplate="let data of 'labelErfassungTemplate'">
+        <span class="label-creator-modifier">{{ this.faAktennotizDetail.Created | date: 'dd.MM.yyyy
+          HH:mm:ss' }}</span>
+        <span>{{ this.faAktennotizDetail.Creator }}</span>
+      </div>
+      <div *dxTemplate="let data of 'tagBoxTheMenTemplate'">
+        <dx-tag-box [dataSource]="theMenData" displayExpr="text" valueExpr="code" [readOnly]="true" (onValueChanged)="onValueTagBoxThemenChanged($event)"
+          [(value)]="tagBoxDetailTheMenValue" [searchEnabled]="true" [showClearButton]="true" [showSelectionControls]="true"
+          applyValueMode="useButtons"></dx-tag-box>
+      </div>
+      <div *dxTemplate="let data of 'dropDownBoxEmbeddedDataGridDetailTemplate'">
+        <span>{{this.faAktennotizDetail.AutorText}}</span>
+      </div>
+    </dx-form>
+  </div>
+</div>

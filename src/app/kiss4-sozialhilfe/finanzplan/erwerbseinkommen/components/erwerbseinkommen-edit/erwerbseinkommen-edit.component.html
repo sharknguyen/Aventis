@@ -1,0 +1,204 @@
+<div class="container-detail form-content-details">
+    <div class="toolbar-header">
+        <kiss-card-title id="i003_detail_header" [titleHeader]="'CtlBfsFragenkatalog.Detail' | translate" [isCard]="true"
+            (onCustomizeBtnFn)="toolBarOnItemClick($event)" [customizeBtn]="customizeBtn">
+        </kiss-card-title>
+    </div>
+    <div class="container-detail-content">
+        <div class="container-detail__form" id="i003_form_edit" class="i003-form-edit">
+            <dx-validation-group #validationGroup>
+                <dx-form [showColonAfterLabel]="false" [showColonAfterLabel]="false" [width]="formWidth">
+                    <dxi-item itemType="group" [colCount]="12">
+                        <dxi-item itemType="group" [colSpan]="1">
+                            <dxo-label [text]="'Erwerbseinkommen.Feld.Person' | translate"></dxo-label>
+                            <dxi-validation-rule type="required"></dxi-validation-rule>
+                        </dxi-item>
+                        <dxi-item itemType="group" [colSpan]="7">
+                            <dxi-item [template]="'personTemplate'">
+                            </dxi-item>
+                        </dxi-item>
+                    </dxi-item>
+                    <dxi-item itemType="group" [colCount]="12">
+                        <dxi-item itemType="group" [colSpan]="1">
+                            <dxo-label [text]="'Erwerbseinkommen.Feld.ArtdesEinkommens' | translate"></dxo-label>
+                            <dxi-validation-rule type="required"></dxi-validation-rule>
+                        </dxi-item>
+                        <dxi-item itemType="group" [colSpan]="7">
+                            <dxi-item [template]="'artDesEinkommenTemplate'">
+                            </dxi-item>
+                        </dxi-item>
+                    </dxi-item>
+                    <dxi-item itemType="group" [colCount]="12">
+                        <dxi-item itemType="group" [colSpan]="1">
+                            <dxo-label [text]="'Erwerbseinkommen.Feld.vonSDverwaltet' | translate"></dxo-label>
+                        </dxi-item>
+                        <dxi-item itemType="group" [colSpan]="7">
+                            <dxi-item [template]="'verwaletTemplate'">
+                            </dxi-item>
+                        </dxi-item>
+                    </dxi-item>
+
+                    <dxi-item itemType="group" [colCount]="12">
+                        <dxi-item itemType="group" [colSpan]="1">
+                            <dxo-label text="   "></dxo-label>
+                        </dxi-item>
+                        <dxi-item itemType="group" [colSpan]="2">
+                            <dxi-item [template]="'colEffektivTemplate'">
+                            </dxi-item>
+                        </dxi-item>
+                        <dxi-item itemType="group" [colSpan]="1">
+                        </dxi-item>
+                        <dxi-item itemType="group" [colSpan]="2">
+                            <span>{{'Erwerbseinkommen.List.Reduktion' | translate}}</span>
+                        </dxi-item>
+                        <dxi-item itemType="group" [colSpan]="1">
+                        </dxi-item>
+                        <dxi-item itemType="group" [colSpan]="2">
+                            <span>{{'Erwerbseinkommen.Feld.Angerechnet' | translate}}</span>
+                        </dxi-item>
+                        <dxi-item itemType="group" [colSpan]="1">
+                        </dxi-item>
+                        <dxi-item itemType="group" [colSpan]="2">
+                            <span>{{'Erwerbseinkommen.Feld.Total' | translate}}</span>
+                        </dxi-item>
+                    </dxi-item>
+
+                    <dxi-item itemType="group" [colCount]="12">
+                        <dxi-item itemType="group" [colSpan]="1">
+                            <dxo-label [text]="'Erwerbseinkommen.Feld.MonatlichesEinkomemen' | translate"></dxo-label>
+                            <dxi-validation-rule type="required"></dxi-validation-rule>
+                        </dxi-item>
+                        <dxi-item itemType="group" [colSpan]="2">
+                            <dxi-item [template]="'betragTemplate'">
+                            </dxi-item>
+                        </dxi-item>
+                        <dxi-item itemType="group" [colSpan]="1">
+                        </dxi-item>
+                        <dxi-item itemType="group" [colSpan]="2">
+                        </dxi-item>
+                        <dxi-item itemType="group" [colSpan]="1">
+                        </dxi-item>
+                        <dxi-item itemType="group" [colSpan]="2">
+                        </dxi-item>
+                        <dxi-item itemType="group" [colSpan]="1">
+                            <span>+</span>
+                        </dxi-item>
+                        <dxi-item itemType="group" [colSpan]="2">
+                        </dxi-item>
+                    </dxi-item>
+
+                    <dxi-item itemType="group" [colCount]="12">
+                        <dxi-item itemType="group" [colSpan]="1">
+                            <dxo-label [text]="'Erwerbseinkommen.Feld.EffektiveErwebsunkosten' | translate"></dxo-label>
+                            <dxi-validation-rule type="required"></dxi-validation-rule>
+                        </dxi-item>
+                        <dxi-item itemType="group" [colSpan]="2">
+                            <dxi-item [template]="'ukBetragTemplate'">
+                            </dxi-item>
+                        </dxi-item>
+                        <dxi-item itemType="group" [colSpan]="1">
+                            <span>-</span>
+                        </dxi-item>
+                        <dxi-item itemType="group" [colSpan]="2">
+                            <dxi-item [template]="'ukReduktionTemplate'">
+                            </dxi-item>
+                        </dxi-item>
+                        <dxi-item itemType="group" [colSpan]="1">
+                            <span>=</span>
+                        </dxi-item>
+                        <dxi-item itemType="group" [colSpan]="2">
+                            <span>{{ (data.UKBetrag - data.UKReduktion) | number:'1.2' : 'de-CH'}}</span>
+                        </dxi-item>
+                        <dxi-item itemType="group" [colSpan]="1">
+                            <span>-</span>
+                        </dxi-item>
+                        <dxi-item itemType="group" [colSpan]="2">
+                            <span>{{(data.Betrag - (data.UKBetrag - data.UKReduktion)) | number : '1.2' : 'de-CH'}}</span>
+                        </dxi-item>
+                    </dxi-item>
+
+                    <dxi-item itemType="group" [colCount]="12">
+                        <dxi-item itemType="group" [colSpan]="1">
+                            <dxo-label [text]="'Erwerbseinkommen.Feld.Beschreigung' | translate"></dxo-label>
+                        </dxi-item>
+                        <dxi-item itemType="group" [colSpan]="11" [template]="'beschreibungTemplate'">
+                        </dxi-item>
+                    </dxi-item>
+
+                    <!-- Template -->
+                    <div *dxTemplate="let item of 'personTemplate'" class="item-padding">
+                        <dx-select-box #nameVorname (onKeyDown)="onKeyDownSelectbox($event)" displayExpr="NameVorname"
+                            valueExpr="BaPersonID" [dataSource]="persons" [showClearButton]="false" [(value)]="data.BaPersonID"
+                            (onValueChanged)="changeValue($event)" searchEnabled="true" (onOpened)="selectContentReady($event)">
+                            <dx-validator>
+                                <dxi-validation-rule type="required" [message]="'Erwerbseinkommen.Messager.PersonsError' | translate">
+                                </dxi-validation-rule>
+                            </dx-validator>
+                        </dx-select-box>
+                    </div>
+
+                    <div *dxTemplate="let item of 'artDesEinkommenTemplate'" class="item-padding">
+                        <dx-select-box #name (onKeyDown)="onKeyDownSelectbox($event)" [dataSource]="artDesEinkommens"
+                            displayExpr="Name" valueExpr="BgPositionsartID" [showClearButton]="false" [(value)]="data.BgPositionsartID"
+                            (onValueChanged)="changeValue($event)" searchEnabled="true">
+                            <dx-validator>
+                                <dxi-validation-rule type="required" [message]="'Erwerbseinkommen.Messager.ArtdesEinkommensError' | translate">
+                                </dxi-validation-rule>
+                            </dx-validator>
+                        </dx-select-box>
+                    </div>
+
+                    <div *dxTemplate="let item of 'verwaletTemplate'" class="item-padding">
+                        <dx-check-box #VerwaltungSD [(value)]="data.VerwaltungSD" (onValueChanged)="changeValue($event)"></dx-check-box>
+                    </div>
+
+                    <div *dxTemplate="let item of 'colEffektivTemplate'">
+                        <span>{{'Erwerbseinkommen.Feld.Effektiv' | translate}}</span>
+                    </div>
+
+                    <div *dxTemplate="let item of 'ukBetragTemplate'">
+                        <dx-number-box #uKBetrag [(value)]="data.UKBetrag" [format]="numberFormat" (onKeyDown)="onNumberboxKeyDown($event,'UKBetrag')"
+                            (onFocusOut)="numberboxFocusOut()" (onValueChanged)="changeValue($event)" valueChangeEvent="keyup change focusout"
+                            class="kiss-input-right">
+                            <dx-validator>
+                                <dxi-validation-rule type="required" [message]="'Erwerbseinkommen.Messager.UnkostenError' | translate">
+                                </dxi-validation-rule>
+                                <dxi-validation-rule type="range" [min]="minNumber" [max]="maxNumber" [message]="'Aliment.Message.RequiredMonatlichesError' | translate"></dxi-validation-rule>
+                            </dx-validator>
+                        </dx-number-box>
+                    </div>
+
+                    <div *dxTemplate="let item of 'ukReduktionTemplate'">
+                        <dx-number-box #uKReduktion [(value)]="data.UKReduktion" [format]="numberFormat" (onKeyDown)="onNumberboxKeyDown($event,'UKReduktion')"
+                            (onFocusOut)="numberboxFocusOut()" (onValueChanged)="changeValue($event)" valueChangeEvent="keyup change focusout"
+                            class="kiss-input-right">
+                            <dx-validator>
+                                <dxi-validation-rule type="required" [message]="'Erwerbseinkommen.Messager.ReduktionError' | translate">
+                                </dxi-validation-rule>
+                                <dxi-validation-rule type="range" [min]="minNumber" [max]="maxNumber" [message]="'Aliment.Message.RequiredMonatlichesError' | translate"></dxi-validation-rule>
+                            </dx-validator>
+                        </dx-number-box>
+                    </div>
+
+                    <div *dxTemplate="let item of 'betragTemplate'">
+                        <dx-number-box #betrag [(value)]="data.Betrag" [format]="numberFormat" (onKeyDown)="onNumberboxKeyDown($event,'Betrag')"
+                            (onFocusOut)="numberboxFocusOut()" (onValueChanged)="changeValue($event)" valueChangeEvent="keyup change focusout"
+                            class="kiss-input-right">
+                            <dx-validator>
+                                <dxi-validation-rule type="required" [message]="'Erwerbseinkommen.Messager.EinkommenError' | translate">
+                                </dxi-validation-rule>
+                                <dxi-validation-rule type="range" [min]="minNumber" [max]="maxNumber" [message]="'Aliment.Message.RequiredMonatlichesError' | translate"></dxi-validation-rule>
+                            </dx-validator>
+                        </dx-number-box>
+                    </div>
+
+                    <div *dxTemplate="let item of 'beschreibungTemplate'" class="item-padding">
+                        <dx-text-area #beschreibungTemplate [(value)]="data.Bemerkung" (onValueChanged)="changeValue($event)"
+                            height="85">
+                        </dx-text-area>
+                    </div>
+                </dx-form>
+            </dx-validation-group>
+        </div>
+    </div>
+</div>

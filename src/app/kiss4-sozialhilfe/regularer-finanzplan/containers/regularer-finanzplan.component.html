@@ -1,0 +1,27 @@
+﻿<kiss-right-component>
+  <div id="i002_personen-im-haushalt">
+    <kiss-header-bar-regularer-finanzplan (action)="onHeaderAction($event)" [isEditMode]="isEditMode" [isConcurrency]="isConcurrency"
+      [isShiftKeyDown]="isShiftKeyDown" [disableBtnData]="disableBtnData" (dblclick)="onDblClickMessage()" [titleData]="headerData$ | async"></kiss-header-bar-regularer-finanzplan>
+    <div class="container">
+      <div class="right-content">
+        <app-remaining-message #remainingMessage></app-remaining-message>
+        <dx-box direction="row">
+          <dxi-item [ratio]="3">
+            <kiss-regularer-finanzplan-view [isEditMode]="isEditMode" [formData]="formData" [upperGrundList]="upperGrundList" [statusInfo]="statusInfo" [statusList]="statusList$ | async"
+              [lowerGrundList]="lowerGrundList" [typeList]="typeList" [berechnungList]="berechnungList"></kiss-regularer-finanzplan-view>
+            <kiss-regularer-finanzplan-form [isEditMode]="isEditMode" [formData]="formData" [upperGrundList]="upperGrundList" [statusInfo]="statusInfo" [statusList]="statusList$ | async"
+              [lowerGrundList]="lowerGrundList" [typeList]="typeList" [berechnungList]="berechnungList" [headerAction]="headerAction$"
+              (formResult)="onFormResult($event)"></kiss-regularer-finanzplan-form>
+          </dxi-item>
+        </dx-box>
+      </div>
+    </div>
+    <app-dlg-bewilligung [(popupModel)]="bewilligungPopup"></app-dlg-bewilligung>
+    <!-- show overlay popup confirm -->
+    <kiss-regularer-beenden-popup [(visiblePopupBeenden)]="visiblePopupBeenden"></kiss-regularer-beenden-popup>
+    <kiss-regularer-verlauf-popup [(visiblePopupVerlauf)]="visiblePopupVerlauf" [verlaufData]="verlaufData" [bgFinanzplanID]="bgFinanzplanID">
+    </kiss-regularer-verlauf-popup>
+    <app-popup-confirm [popUpModel]="popUpModel"></app-popup-confirm>
+    <app-popup-concurrency-detail [visible]='visibleConcurrencyPopup' (yes)="onConcurrencyYes()" (no)="onConcurrencyNo()"></app-popup-concurrency-detail>
+  </div>
+</kiss-right-component>

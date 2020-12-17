@@ -1,0 +1,26 @@
+<div class="form-content-details" id="bar-header">
+  <div id="bar-content">
+    <div class="toolbar-header">
+      <!-- (onCustomizeBtnFn)="$event.callBack()" -->
+      <kiss-card-title id="c006_detail_header"
+        [titleHeader]="'ExterneBerater.ExterneBeraterSucheBox.Detail' | translate"
+        [customizeBtn]="customizeBtnDetail"
+        [isCard]="true"
+        (onCustomizeBtnFn)="toolBarOnItemDetailClick($event)">
+      </kiss-card-title>
+    </div>
+    <div *ngIf="expandedDetail">
+      <kiss-berater-detail-view *ngIf="isReadOnly()"
+        [formData]="formData">
+      </kiss-berater-detail-view>
+      <kiss-berater-detail-edit *ngIf="!isReadOnly()" #editForm
+        [institutions]="institutions"
+        [columnsDef]="columnsDef"
+        [formData]="formData"
+        [beraterLanguages]="beraterLanguages"
+        [newForm]="isNew()">
+      </kiss-berater-detail-edit>
+    </div>
+  </div>
+</div>
+<app-popup-confirm [popUpModel]="popUpConfirmModel"></app-popup-confirm>

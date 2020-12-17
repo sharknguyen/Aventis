@@ -1,0 +1,91 @@
+<div class="container-detail form-content-details i010_zulagen_form" id="i010_zulagen_form">
+  <div class="toolbar-header">
+    <kiss-card-title id="I010_detail_header" class="i010_detail_header" [titleHeader]="'CtlBfsFragenkatalog.Detail' | translate"
+      [listBtn]="listBtn" [isCard]="true" (onCustomizeBtnFn)="toolBarOnItemClick($event)" [customizeBtn]="customizeBtn">
+    </kiss-card-title>
+  </div>
+  <dx-validation-group #validationZulagen>
+    <dx-form class="zulagen_form" id="zulagen_form" #dxForm [showColonAfterLabel]="false" labelLocation="left"
+      [screenByWidth]="getSizeQualifier">
+      <dxi-item itemType="group" [colCount]="12">
+        <span class="content-label">{{dataForm.nameVorname}}</span>
+      </dxi-item>
+
+      <dxi-item itemType="group" [colCount]="12">
+        <dxi-item [colSpan]="5" [template]="'Zulage'" editorType="dxSelectBox" tabindex="30">
+          <dxi-validation-rule type="required"></dxi-validation-rule>
+          <dxo-label class="label-text" [text]="'ZulagenEfb.Form.Zulage' | translate"></dxo-label>
+        </dxi-item>
+      </dxi-item>
+
+      <dxi-item itemType="group" [colCount]="12">
+        <dxi-item [colSpan]="5" [template]="'PercentAnteil'" editorType="dxSelectBox" tabindex="31">
+          <dxi-validation-rule *ngIf="!isDisableAnteil" type="required"></dxi-validation-rule>
+          <dxo-label class="label-text" [text]="'ZulagenEfb.Form.PercentAnteil' | translate"></dxo-label>
+        </dxi-item>
+      </dxi-item>
+
+      <dxi-item itemType="group" [colCount]="12">
+        <dxi-item [colSpan]="8" dataField="  " itemType="group">
+          <dxi-item [colSpan]="1"></dxi-item>
+          <dxi-item [colSpan]="1" [template]="'Alleinerziehend'" editorType="dxCheckBox" tabindex="32"></dxi-item>
+        </dxi-item>
+      </dxi-item>
+
+      <dxi-item itemType="group" [colCount]="12">
+        <dxi-item [colSpan]="5" [template]="'Betrag'" editorType="dxNumberBox" [editorOptions]="{ width: '100%', mode: 'number'}"
+          tabindex="33">
+          <dxo-label class="label-text" [text]="'ZulagenEfb.Form.Betrag' | translate"></dxo-label>
+          <dxi-validation-rule type="required" *ngIf="!isDisableBetrag"></dxi-validation-rule>
+        </dxi-item>
+      </dxi-item>
+
+      <dxi-item itemType="group" [colCount]="12">
+        <dxi-item [colSpan]="12" [template]="'Beschreibung'" editorType="dxTextArea" tabindex="34">
+          <dxo-label class="label-text" [text]="'ZulagenEfb.Form.Beschreibung' | translate"></dxo-label>
+        </dxi-item>
+      </dxi-item>
+
+      <div *dxTemplate="let data of 'Zulage'">
+        <dx-select-box #zulage [tabIndex]="30" [accessKey]="1" class="content-label" [dataSource]="zulageSelectBoxData"
+          valueExpr="zulageCode" displayExpr="zulageText" [value]="dataForm?.bgGruppeCode" [showClearButton]="false"
+          (onFocusIn)="onFocusIn(zulage,'zulage','selectbox')" (onKeyDown)="onFormKeyDown($event)"
+          (onValueChanged)="onChangeZulage($event)" searchEnabled="true">
+          <dx-validator>
+            <dxi-validation-rule type="required" [message]="'ZulagenEfb.Message.ZulageBlank' | translate"></dxi-validation-rule>
+          </dx-validator>
+        </dx-select-box>
+      </div>
+
+      <div *dxTemplate="let data of 'PercentAnteil'">
+        <dx-select-box #anteil [tabIndex]="31" [accessKey]="2" class="content-label" [dataSource]="anteilSelectBoxData"
+          valueExpr="anteilCode" displayExpr="anteilText" [value]="dataForm?.anteil" [showClearButton]="false"
+          (onFocusIn)="onFocusIn(anteil,'anteil','selectbox')" (onFocusOut)="onFocusOut()" (onKeyDown)="onFormKeyDown($event)"
+          (onValueChanged)="onChangeAnteil($event)" [readOnly]="isDisableAnteil" [(isValid)]="isAnteilValid" [(validationError)]="anteilValidationError" >
+          <dx-validator>
+            <dxi-validation-rule *ngIf="!isDisableAnteil" type="required" [message]="'ZulagenEfb.Message.AnteilBlank' | translate"></dxi-validation-rule>
+          </dx-validator>
+        </dx-select-box>
+      </div>
+
+      <div *dxTemplate="let data of 'Alleinerziehend'">
+        <dx-check-box #alleinerziehend [tabIndex]="32" [accessKey]="3" class="label-text" [readOnly]="isDisableAlleinerziehend"
+          (onValueChanged)="onChangeAlleinerziehend($event)" [(value)]="dataForm.alleinerziehend" [text]="'ZulagenEfb.Form.Alleinerziehend' | translate"></dx-check-box>
+      </div>
+
+      <div *dxTemplate="let data of 'Betrag'">
+        <dx-number-box #betrag class="content-label" [format]="numberFormat" [tabIndex]="33" [accessKey]="4" [step]="0"
+          [readOnly]="isDisableBetrag" [(value)]="dataForm.betragSum" (onKeyDown)="formatNumberBox($event)" [(isValid)]="isBetragValid" [(validationError)]="betragValidationError">
+          <dx-validator>
+            <dxi-validation-rule type="required" [message]="'ZulagenEfb.Message.BetragBlank' | translate" *ngIf="!isDisableBetrag"></dxi-validation-rule>
+          </dx-validator>
+        </dx-number-box>
+      </div>
+
+      <div *dxTemplate="let data of 'Beschreibung'">
+        <dx-text-area #beschreibung [tabIndex]="34" [accessKey]="5" class="content-label" [height]="115" [(value)]="dataForm.bemerkung">
+        </dx-text-area>
+      </div>
+    </dx-form>
+  </dx-validation-group>
+</div>

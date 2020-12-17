@@ -1,0 +1,63 @@
+<kiss-right-component>
+  <kiss-header-bar 
+    (action)="onHeaderAction($event)" 
+    [isShiftKeyDown]="isShiftKeyDown"
+    [titleHeader]="pageTitle"
+    [isEditMode]="isEditMode"
+    [baPersonID]="baPersonID"
+    [bgFinanzplanID]="bgFinanzplanID">
+  </kiss-header-bar>
+  <section id="wrapper-content">
+    <div class="container kennzahlen-aktualisieren-container" id="i006_vermogen">
+      <div class="right-content">
+        <app-remaining-message #remainingMessage></app-remaining-message>
+
+        <kiss-vermogen-list #vermogenList
+          [gridAction]="gridAction$"
+          [dataSource]="vermogens"
+          [disableGrid]="isDisableGrid"
+          [selectedRowKey]="selectedDataID"
+          (rowSelection)="onSelectionChange($event)"
+          (nurAktiveAnzeigen)="nurAktiveAnzeigen($event)"
+          [changeParamAction]="changeParamAction$"
+          [bgFinanzplanID]="bgFinanzplanID">
+        </kiss-vermogen-list>
+
+        <kiss-vermogen-detail-view
+          #detailView
+          [isEditMode]="isEditMode"
+          [dataSource]="rowDetail"
+          [freibetrag]="freibetrag"
+          [angerechnet]="angerechnet"
+          [shortcutAction]="shortcutAction$"
+          [disableEditBtn]="disableEditBtn"
+          [disableButton]="disableButton"
+          [bgFinanzplanID]="bgFinanzplanID"
+          [expandDetail]="expandDetail"
+          (action)="onDetailViewAction($event)" >  
+        </kiss-vermogen-detail-view>
+
+        <kiss-vermogen-detail-edit
+          #detailEdit
+          [isEditMode]="isEditMode"
+          [dataSource]="rowDataEdit"
+          [freibetrag]="freibetrag"
+          [angerechnet]="angerechnet"
+          (action)="onDetailAction($event)"
+          [dataSelectBoxPerson]="persons"
+          [dataSelectBoxArtDesVermogen]="artDesVermogens"
+          [expandDetail]="expandDetail"
+          [shortcutAction]="shortcutAction$">
+        </kiss-vermogen-detail-edit>
+      </div>
+    </div>
+  </section>
+</kiss-right-component>
+
+<!-- Print component -->
+<kiss-printer #printer></kiss-printer>
+
+<!-- Confirm popup -->
+<app-popup-concurrency-detail [visible]='visibleConcurrencyPopup' (yes)="onConcurrencyYes()" (no)="onConcurrencyNo()"></app-popup-concurrency-detail>
+<app-popup-confirm [popUpModel]="popUpModel"></app-popup-confirm>
+<app-can-deactivate #canDeactivate></app-can-deactivate>

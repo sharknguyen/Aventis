@@ -1,0 +1,45 @@
+<div class="form-body">
+  <dx-form id="C006-detail" labelLocation="left" #detailBeraterForm [formData]="formData" [showColonAfterLabel]="false"
+    [screenByWidth]="getSizeQualifier" [colCount]="12">
+    <dxi-item itemType="group" [colSpan]="6">
+      <dxi-item dataField="institution">
+        <dxo-label [text]="'ExterneBerater.ExterneBeraterSucheBox.Institution' | translate"></dxo-label>
+        <span class="text-view-c006">{{formData?.institution}}</span>
+      </dxi-item>
+      <dxi-item id="C006_detail_anrede" dataField="anrede">
+        <dxo-label [text]="'ExterneBerater.ExterneBeraterSucheBox.Anrede' | translate"></dxo-label>
+        <span class="text-view-c006">{{formData?.anrede}}</span>
+      </dxi-item>
+      <dxi-item id="C006_detail_name" dataField="name">
+        <dxo-label [text]="'ExterneBerater.ExterneBeraterSucheBox.Name' | translate"></dxo-label>
+        <span class="text-view-c006">{{formData?.name}}</span>
+      </dxi-item>
+      <dxi-item id="C006_detail_vorname" dataField="vorname">
+        <dxo-label [text]="'ExterneBerater.ExterneBeraterSucheBox.Vorname' | translate"></dxo-label>
+        <span class="text-view-c006">{{formData?.vorname}}</span>
+      </dxi-item>
+    </dxi-item>
+    <dxi-item itemType="group" [colSpan]="6">
+      <dxi-item id="C006_detail_telefon" dataField="telefon">
+        <dxo-label [text]="'ExterneBerater.ExterneBeraterSucheBox.Telefon' | translate"></dxo-label>
+        <span class="text-view-c006">{{formData?.telefon}}</span>
+      </dxi-item>
+      <dxi-item id="C006_detail_fax" dataField="fax">
+        <dxo-label [text]="'ExterneBerater.ExterneBeraterSucheBox.Fax' | translate"></dxo-label>
+        <span class="text-view-c006">{{formData?.fax}}</span>
+      </dxi-item>
+      <dxi-item id="C006_detail_email" dataField="eMail">
+        <dxo-label [text]="'ExterneBerater.ExterneBeraterSucheBox.Email' | translate"></dxo-label>
+        <span class="text-view-c006">{{formData?.eMail}}</span>
+      </dxi-item>
+      <dxi-item dataField="textSprache">
+        <dxo-label [text]="'ExterneBerater.ExterneBeraterSucheBox.Sprache' | translate"></dxo-label>
+        <span class="text-view-c006">{{formData?.textSprache}}</span>
+      </dxi-item>
+    </dxi-item>
+    <dxi-item id="C006_detail_benerkung" dataField="bemerkung" [colSpan]="12">
+      <dxo-label [text]="'ExterneBerater.ExterneBeraterSucheBox.Bemerkung' | translate"></dxo-label>
+      <span [froalaView]="formData?.bemerkung"></span>
+    </dxi-item>
+  </dx-form>
+</div>

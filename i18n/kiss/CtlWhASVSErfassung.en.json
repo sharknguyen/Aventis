@@ -1,0 +1,77 @@
+{
+    "AsvDatenerfassung": {
+        "Title": "ASV-Datenerfassung [en]",
+        "TitleDetail": "Detail [en]",
+        "EmptyPanelText": "Zu gruppierende Spalten in diesen Bereich ziehen [en]",
+        "GridTop": {
+            "Person": "Person [en]",
+            "Datumvon": "Datum Von [en]",
+            "Datumbis": "Datum Bis [en]",
+            "Ubertragungsdatum": "Übertragungsdatum [en]",
+            "Widerrufen": "Widerrufen [en]",
+            "WiderrufUbertragen": "Widerruf übertragen [en]",
+            "ColumnChooser": "Benutzerdefiniert [en]",
+            "ExportExcel": "Excel Export [en]",
+            "GridPrint": "Grid drucken [en]",
+            "Search": "Schnellfilterzeile anzeigen/ausblenden [en]",
+            "Grouping": "Gruppierungsbereich anzeigen/ausblenden [en]",
+            "SearchPanel": "Suche anzeigen/ausblenden [en]",
+            "FilterBuilder": "Filtereditor anzeigen/ausblenden [en]",
+            "GridSetting": "Grid Einstellungen [en]"
+        },
+        "Button": {
+            "EintragKopieren": "Eintrag kopieren [en]",
+            "Speichern": "Speichern [en]",
+            "NeueASVDatenerfassung": "Neue ASV-Datenerfassung [en]",
+            "Bearbeiten": "Bearbeiten [en]",
+            "Cancel": "Abbrechen [en]",
+            "Delete": "Löschen [en]"
+        },
+        "MessageError": {
+            "UpdateError": "Update Error [en]",
+            "Validate": "Ungültige Daten. Bitte geben Sie gültige Eingabewerte ein. [en]",
+            "ValidateDatumbisGreater": "Datum bis darf nicht vor Datum von sein [en]",
+            "ValidateDatumbisLastDayOfMonth": "Abmeldung ist nur am letzten Tag des Monats möglich. [en]",
+            "ValidateDatumvonFirstDayOfMonth": "Anmeldung ist nur am ersten Tag des Monats möglich. [en]",
+            "ValidateBemerkung": "Der Inhalt eines Feldes überschreitet die maximal zugelassene Länge. Bitte kürzen Sie zuerst den Inhalt und versuchen Sie anschliessend nochmals zu speichern. [en]",
+            "MSG_01": "Das Feld 'Datum Von' muss ausgefüllt sein [en]",
+            "MSG_02": "Anmeldung ist nur am ersten Tag des Monats möglich. [en]",
+            "MSG_03": "Die Person muss ausgewählt werden. [en]",
+            "MSG_04": "Abmeldung ist nur am letzten Tag des Monats möglich. [en]",
+            "MSG_05": "Für die Person ist keine Adresse hinterlegt. [en]",
+            "MSG_06": "Datum bis darf nicht vor Datum von sein [en]",
+            "MSG_10": "Für die Person ist keine Versichertennummer hinterlegt. [en]",
+            "MSG_12": "Das Anmeldedatum kann nicht vor dem Eröffnungsdatum des ersten Finanzplans liegen. [en]",
+            "MSG_18": "Das Anmeldedatum darf, bezogen auf den 1. des Monats, maximal 2 Monate früher als die Sozialhilfe sein. [en]",
+            "DateOutOfRange": "Der Wert ist nicht im gültigen Bereich [en]",
+            "MSG_09": "Der Eintrag kann nicht gelöscht werden, da er bereits exportiert wurde. [en]"
+        },
+        "NavigatorPopupConfirm": {
+            "Yes": "Discard [en]",
+            "No": "Abbrechen [en]",
+            "Title": "Bestätigung [en]",
+            "Message": "Sie haben Daten geändert. Möchten Sie das Formular schließen und die Änderungen verwerfen ? [en]"
+        },
+        "DataDetail": {
+            "Bis": " bis [en]",
+            "EintragWiderrufen": "Eintrag widerrufen [en]"
+        },
+        "MessageValidation": {
+            "DatumVon": "Das Feld 'Datum Von' muss ausgefüllt sein [en]",
+            "Person": "Die Person muss ausgewählt werden. [en]"
+        },
+        "PopupConfirm": {
+            "Yes": "Ja [en]",
+            "No": "Nein [en]",
+            "Title": "Bestätigung [en]",
+            "Message": "Änderungen an diesem Datensatz rückgängig machen ? [en]",
+            "MessageDeleteRow": "Soll der Datensatz gelöscht werden ? [en]",
+            "MessageDeleteNewRow": "Neuen Datensatz wieder löschen ? [en]"
+        },
+        "Message": {
+            "ConcurrencyMsg404_DELETE_UPDATE": "Beim Speichern des veränderten Datensatzes ist ein Fehler aufgetreten ! [en]",
+            "ConcurrencyMsg409": "Der gewählte Datensatz wurde in der Zwischenzeit von einer anderen Person geändert oder gelöscht.\r\nAktualisieren sie die Daten zuerst, um Ihre Änderungen zu speichern. [en]",
+            "ConcurrencyMsg404_DELETE_DELETE": "Beim Löschen des Datensatzes ist ein Fehler aufgetreten ! [en]"
+        }
+    }
+}

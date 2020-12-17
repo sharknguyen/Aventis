@@ -1,0 +1,75 @@
+{
+    "Fallfuhrung": {
+        "Title": "Fallführung [en]",
+        "GroupTop": "Fall-Eröffnung [en]",
+        "GroupBottom": "Fall-Abschluss [en]",
+        "TitleGrund": "Grund [en]",
+        "TitleBemerkung": "Bemerkung [en]",
+        "TitleGemeinde": "zust. Gemeinde [en]",
+        "TitleDatum": "Datum [en]",
+        "TitleSAR": "SAR [en]",
+        "TitleBenutzerdefiniert": "Benutzerdefiniert [en]",
+        "ColumnChooser": "Spaltenauswahl [en]",
+        "ExportExcel": "Excel Export [en]",
+        "GridPrint": "Grid drucken [en]",
+        "Search": "Schnellfilterzeile anzeigen/ausblenden [en]",
+        "Grouping": "Gruppierungsbereich anzeigen/ausblenden [en]",
+        "SearchPanel": "Suche anzeigen/ausblenden [en]",
+        "FilterBuilder": "Filtereditor anzeigen/ausblenden [en]",
+        "GridSetting": "Grid Einstellungen [en]",
+        "TitleAnmeldeart": "Anmeldeart [en]",
+        "TitleKontaktveranl": "Kontaktveranl. [en]",
+        "TitleFall": "Fall wieder öffnen [en]",
+        "PopupConfirm": {
+            "Yes": "Ja [en]",
+            "No": "Nein [en]",
+            "Title": "Bestätigung [en]",
+            "Message": "Änderungen an diesem Datensatz rückgängig machen ? [en]",
+            "MessageFallWieder": "Soll der geschlossene Fallverlauf wieder geöffnet werden ? [en]",
+            "Abbrechen": "Abbrechen [en]",
+            "Daten": "Daten aktualisieren [en]",
+            "MessageCancelConcurrency": "Fenster trotz der nicht gespeicherten Daten schliessen ? [en]"
+        },
+        "MessageError": {
+            "DeleteMessageError": "Das Löschen dieses Datensatzes ist nicht erlaubt! [en]",
+            "SaveMessageFirstError": "Es existieren noch ",
+            "SaveMessageLastError": " offene Pendenzen zu der abzuschliessenden Leistung. [en]",
+            "ValidationFaLeistungDataError": "Das Eröffnungsdatum darf sich nicht mit einer anderen Fallführung überschneiden! [en]",
+            "ValidationCountFaPhase": "Fallabschluss nicht möglich. Es gibt noch nicht abgeschlossene Phasen! [en]"
+        },
+        "Message": {
+            "DoubleClickMessage": "Die Angaben wurden in den Zwischenspeicher kopiert. [en]",
+            "ShiftClickMessage": "Die ID wurde in den Zwischenspeicher kopiert [en]",
+            "ConcurrencyMsg404": "Beim Speichern des veränderten Datensatzes ist ein Fehler aufgetreten ! [en]",
+            "ConcurrencyMsg409": "Der gewählte Datensatz wurde in der Zwischenzeit von einer anderen Person geändert oder gelöscht.\r\nAktualisieren sie die Daten zuerst, um Ihre Änderungen zu speichern. [en]",
+            "MSG001": "Das Eröffnungsdatum darf sich nicht mit einer anderen Fallführung überschneiden! [en]",
+            "MSG002": "Fallabschluss nicht möglich. Es gibt noch nicht abgeschlossene Phasen! [en]",
+            "MSG003": "Es existieren noch {0} offene Pendenzen zu der abzuschliessenden Leistung. [en]",
+            "MSG004": "Fallabschluss nicht möglich. Das Fallabschluss liegt vor einem Phasenabschluss! [en]",
+            "MSG005": "Die Fallführung kann nicht abgeschlossen werden, solange andere Module noch offen sind! [en]",
+            "MSG006": "Es gibt Kategorien mit einem Enddatum nach dem Fallabschluss. [en]",
+            "MSG007": "Es gibt Kategorien mit einem Anfangsdatum nach dem Fallabschluss. [en]"
+        },
+        "PopupMessage": {
+            "Title": "Information [en]",
+            "Yes": "OK [en]"
+        },
+        "NavigatorPopupConfirm": {
+            "Yes": "Discard [en]",
+            "No": "Abbrechen [en]",
+            "Title": "Bestätigung [en]",
+            "Message": "Sie haben Daten geändert. Möchten Sie das Formular schließen und die Änderungen verwerfen ? [en]"
+        },
+        "MessageValidation": {
+            "Eroffnungsdatum": "Das Feld 'Eröffnungsdatum' darf nicht leer bleiben ! [en]",
+            "Validate": "Ungültige Daten. Bitte geben Sie gültige Eingabewerte ein. [en]"
+        },
+        "Toolbar": {
+            "Bearbeiten": "Bearbeiten [en]",
+            "Speichern": "Speichern [en]",
+            "Abbrechen": "Abbrechen [en]",
+            "FallWieder": "Fall wieder öffnen [en]",
+            "Loschen": "Löschen [en]"
+        }
+    }
+}

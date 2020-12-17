@@ -1,0 +1,57 @@
+<div class="grid-table-view">
+  <div class="grid-margin-top">
+    <div *ngIf="gridFunction.model.isFilterBuilder" class="filter-container">
+      <dx-filter-builder [fields]="gridComponent.instance.option('columns')" [(value)]="filterAvs" [disabled]="!isViewMode">
+        <dxi-field dataField="NameVorname" [caption]="'AsvDatenerfassung.GridTop.Person' | translate"></dxi-field>
+        <dxi-field dataField="DatumVon" dataType="date" [caption]="'AsvDatenerfassung.GridTop.Datumvon' | translate"></dxi-field>
+        <dxi-field dataField="DatumBis" dataType="date" [caption]="'AsvDatenerfassung.GridTop.Datumbis' | translate"></dxi-field>
+        <dxi-field dataField="DatumExport" dataType="date" [caption]="'AsvDatenerfassung.GridTop.Ubertragungsdatum' | translate"></dxi-field>
+        <dxi-field dataField="Widerrufen" dataType="boolean" [caption]="'AsvDatenerfassung.GridTop.Widerrufen' | translate"></dxi-field>
+        <dxi-field dataField="ExportDatumWiderruf" dataType="date" [caption]="'AsvDatenerfassung.GridTop.WiderrufUbertragen' | translate"></dxi-field>
+      </dx-filter-builder>
+      <dx-button [text]="'Asvexport.GridTop.FilterBuilderButton' | translate" type="default" (onClick)="filterAsvDaten()"
+        [disabled]="!isViewMode">
+      </dx-button>
+
+      <div class="dx-clearfix"></div>
+    </div>
+    <app-grid-function #gridFunction (onchange)="gridFunction.model" [keyStorage]="gridFunctionKey"></app-grid-function>
+
+    <dx-data-grid id="grid-FaAktennotiz" #gridComponent  keyExpr="index" [(dataSource)]="asvDatenerfassungData"
+      [disabled]="!isViewMode" [allowColumnResizing]="true" [hoverStateEnabled]="true" [showRowLines]='true'
+      [showBorders]="true" [height]="300" [allowColumnReordering]="true" [customizeExportData]="customizeExportData"
+      [noDataText]="'FaAktennotizDetails.Validation.NoData' | translate" [(focusedRowKey)]="selectedRowKey"
+      [focusedRowEnabled]="true" (onContentReady)="onContentReady()" (onContextMenuPreparing)="onContextMenuPreparing($event)" width="100%" [filterValue] = "gridFilterAsv" columnResizingMode="widget">
+      <dxo-header-filter [visible]="gridFunction.model.isFilter"></dxo-header-filter>
+      <dxo-group-panel [visible]="gridFunction.model.isGrouping" [emptyPanelText]="'AsvDatenerfassung.EmptyPanelText' | translate"></dxo-group-panel>
+      <dxo-grouping [contextMenuEnabled]="true" #expandGridTop [autoExpandAll]="false"></dxo-grouping>
+      <dxo-scrolling mode="virtual"></dxo-scrolling>
+      <dxo-selection mode="single"></dxo-selection>
+      <dxo-editing mode="cell"></dxo-editing>
+      <dxo-paging [enabled]="false"></dxo-paging>
+      <dxo-paging [pageSize]="99999"></dxo-paging>
+      <dxo-export [allowExportSelectedData]="true" [customizeExcelCell]="customizeExcelCell"></dxo-export>
+      <dxo-column-chooser #columnChooser emptyPanelText="" [title]="'AsvDatenerfassung.GridTop.ColumnChooser' | translate"
+        [enabled]="false"></dxo-column-chooser>
+      <dxi-column width="auto" [minWidth]="50" dataField="NameVorname" [caption]="'AsvDatenerfassung.GridTop.Person' | translate"
+        alignment="left" [allowEditing]="false"></dxi-column>
+      <dxi-column width="auto" [minWidth]="50" dataField="DatumVon" [caption]="'AsvDatenerfassung.GridTop.Datumvon' | translate"
+        alignment="left" [allowEditing]="false" dataType="date" [format]="dateFormat"></dxi-column>
+      <dxi-column width="auto" [minWidth]="50" dataField="DatumBis" [caption]="'AsvDatenerfassung.GridTop.Datumbis' | translate"
+        alignment="left" dataType="date" [format]="dateFormat"></dxi-column>
+      <dxi-column width="auto" [minWidth]="50" dataField="DatumExport" [caption]="'AsvDatenerfassung.GridTop.Ubertragungsdatum' | translate"
+        alignment="left" dataType="date" [format]="dateFormat"></dxi-column>
+      <dxi-column width="auto" [minWidth]="50" dataField="Widerrufen" [caption]="'AsvDatenerfassung.GridTop.Widerrufen' | translate"
+        cellTemplate="cellWiderruf" alignment="center" dataType="boolean"></dxi-column>
+      <div *dxTemplate="let data of 'cellWiderruf'">
+        <dx-check-box [disabled]="true" [(value)]="data.data.Widerrufen" class="custom-checkbox">
+        </dx-check-box>
+      </div>
+      <dxi-column dataField="ExportDatumWiderruf"  [caption]="'AsvDatenerfassung.GridTop.WiderrufUbertragen' | translate"
+        alignment="left" dataType="date" [format]="dateFormat" width="auto" [minWidth]="50"></dxi-column>
+      <dxo-filter-row [visible]="gridFunction.model.isSearch" applyFilter="Immediately"></dxo-filter-row>
+      <dxo-search-panel [visible]="gridFunction.model.isSearchPanel" highlightCaseSensitive="true"></dxo-search-panel>
+    </dx-data-grid>
+  </div>
+</div>
+<kiss-printer #printer></kiss-printer>

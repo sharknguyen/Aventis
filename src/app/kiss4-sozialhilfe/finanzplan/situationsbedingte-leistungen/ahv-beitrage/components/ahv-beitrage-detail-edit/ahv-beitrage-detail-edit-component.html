@@ -1,0 +1,300 @@
+<div class="container-detail__form" *ngIf="expandDetail">
+  <dx-validation-group #validationAhvBeitrage>
+    <dx-form
+      [showColonAfterLabel]="false"
+      id="i011-form-details"
+      class="form-body"
+      labelLocation="left"
+      id="i011-detail"
+      #detailAhvBeitrageForm
+      [formData]="ahvBeitragPositionDetail"
+      [screenByWidth]="sizeQualifier"
+    >
+      <dxi-item itemType="group" [colCount]="10">
+        <dxi-item itemType="group" [colSpan]="5">
+          <dxi-item dataField="baPersonID" [template]="'personTemplate'">
+            <dxo-label
+              [text]="'AhvBeitrage.Detail.Person' | translate"
+            ></dxo-label>
+          </dxi-item>
+          <dxi-item dataField="laID" [template]="'laTemplate'">
+            <dxi-validation-rule
+              type="required"
+              message="la is required !"
+            ></dxi-validation-rule>
+            <dxo-label
+              [text]="'AhvBeitrage.Detail.LA' | translate"
+            ></dxo-label>
+          </dxi-item>
+          <dxi-item itemType="group" [colCount]="2" minColWidth="250">
+            <dxi-item
+              [colSpan]="1"
+              [accessKey]="9"
+              id="i011_detail_mtl-betrag"
+              dataField="betragFormat"
+              [template]="'betragTemplate'"
+              [editorOptions]="{
+                placeholder: 'AhvBeitrage.Detail.EnterValue' | translate
+              }"
+            >
+              <dxi-validation-rule
+                type="required"
+                message="betrag is required !"
+              ></dxi-validation-rule>
+              <dxo-label
+                [text]="'AhvBeitrage.Detail.MtlBetrag' | translate"
+              ></dxo-label>
+            </dxi-item>
+          </dxi-item>
+          <dxi-item itemType="group" [colCount]="2" minColWidth="250">
+            <dxi-item
+              id="i011_detail_geplant-von"
+              dataField="datumVon"
+              editorType="dxDateBox"
+              [template]="'datumVonTemplate'"
+              [editorOptions]="{ value: null }"
+            >
+              <dxi-validation-rule
+                *ngIf="isBgSilTherapieEntzugStatus"
+                type="required"
+                message="datumVon is required !"
+              ></dxi-validation-rule>
+              <dxo-label
+                [text]="'AhvBeitrage.Detail.GeplantVon' | translate"
+              ></dxo-label>
+            </dxi-item>
+            <dxi-item
+              id="i011_detail_geplant-bis"
+              dataField="datumBis"
+              editorType="dxDateBox"
+              [template]="'datumBisTemplate'"
+              [editorOptions]="{ value: null }"
+            >
+              <dxi-validation-rule
+                *ngIf="isBgSilTherapieEntzugStatus"
+                type="required"
+                message="datumBis is required !"
+              ></dxi-validation-rule>
+              <dxo-label
+                [text]="'AhvBeitrage.Detail.GeplantBis' | translate"
+              ></dxo-label>
+            </dxi-item>
+          </dxi-item>
+          <dxi-item
+            id="i011_detail_institution"
+            dataField="name"
+            [template]="'institutionTemplate'"
+            [editorOptions]="{ width: '100%', maxLength: '100' }"
+          >
+            <dxi-validation-rule
+              *ngIf="isBgSilTherapieEntzugStatus"
+              type="required"
+              message="la is required !"
+            ></dxi-validation-rule>
+            <dxo-label
+              [text]="'AhvBeitrage.Detail.Institution' | translate"
+            ></dxo-label>
+          </dxi-item>
+          <dxi-item
+            id="i011_detail_begrundung"
+            dataField="bemerkung"
+            [template]="'bemerkungTemplate'"
+          >
+            <dxo-label
+              [text]="'AhvBeitrage.Detail.Begrundung' | translate"
+            ></dxo-label>
+          </dxi-item>
+        </dxi-item>
+      </dxi-item>
+      <div *dxTemplate="let data of 'personTemplate'">
+        <dx-select-box
+          [showClearButton]="true"
+          #person
+          [accessKey]="7"
+          (onItemClick)="onItemDropdownClick($event, 'baPersonID')"
+          [searchEnabled]="false"
+          id="i011_detail_person"
+          name="i011_detail_person"
+          [dataSource]="ahvBeitragesSandbox.personenUnterstuetzt$ | async"
+          valueExpr="BaPersonID"
+          displayExpr="NameVorname"
+          [(value)]="ahvBeitragPositionDetail.baPersonID"
+          (onFocusIn)="onFocusIn(person, 'person')"
+          (onFocusOut)="onFocusOut($event, person)"
+          (onValueChanged)="onChangeData($event, 'baPersonID')"
+          (onKeyDown)="onKeyDownSelectOption($event, 'person')"
+        >
+        </dx-select-box>
+      </div>
+      <div *dxTemplate="let data of 'laTemplate'">
+        <dx-select-box
+          valueChangeEvent="keyup"
+          [showClearButton]="true"
+          #la
+          [accessKey]="8"
+          (onItemClick)="onItemDropdownClick($event, 'bgPositionsartID')"
+          [searchEnabled]="false"
+          id="i011_detail_la"
+          name="i011_detail_la"
+          [dataSource]="ahvBeitragesSandbox.sqlQueryShPositionTyp$ | async"
+          valueExpr="Code"
+          displayExpr="Text"
+          [(value)]="ahvBeitragPositionDetail.bgPositionsartID"
+          (onFocusIn)="onFocusIn(la, 'la')"
+          (onFocusOut)="onFocusOut($event, la)"
+          (onClosed)="closedSelectBox($event)"
+          (onValueChanged)="onChangeData($event, 'bgPositionsartID')"
+          (onKeyDown)="onKeyDownSelectOption($event, 'la')"
+        >
+          <dx-validator #validationLA>
+              <dxi-validation-rule
+                *ngIf="ahvBeitragPositionDetail.bgPositionID && isOpenLa"
+                type="required"
+                [message]="'AhvBeitrage.MessageError.ValidateLA' | translate"
+              >
+              </dxi-validation-rule>
+            </dx-validator>
+        </dx-select-box>
+      </div>
+      <div *dxTemplate="let data of 'betragTemplate'">
+        <dx-number-box
+          valueChangeEvent="keyup change focusout"
+          class="kiss-input-right-i011"
+          format="#,##0.00"
+          #betrag
+          [(value)]="ahvBeitragPositionDetail.betrag"
+          [accessKey]="9"
+          id="i011_detail_mtl-betrag"
+          width="100%"
+          (onKeyDown)="onNumberboxKeyDown($event, 'betrag')"
+          (onFocusIn)="onFocusIn(betrag, 'betrag')"
+          (onFocusOut)="onFocusOut($event, 'betrag')"
+          (onValueChanged)="onChangeData($event, 'betrag')"
+        >
+          <dx-validator>
+            <dxi-validation-rule
+              *ngIf="isBgSilTherapieEntzugStatus && ahvBeitragPositionDetail.bgPositionID && isOpenBetrag"
+              [validationCallback]="validationBetrag"
+              type="custom"
+              [message]="'AhvBeitrage.MessageError.ValidateBetragBiggerZero' | translate"
+            ></dxi-validation-rule>
+            <dxi-validation-rule
+              *ngIf="ahvBeitragPositionDetail.bgPositionID"
+              type="required"
+              [message]="'AhvBeitrage.MessageError.ValidateBetrag' | translate"
+            >
+            </dxi-validation-rule>
+            <dxi-validation-rule
+              *ngIf="ahvBeitragPositionDetail.bgPositionID"
+              type="range"
+              [max]="valueMaxValidateBetrag"
+              [message]="'AhvBeitrage.MessageError.ValidateDate' | translate"
+            ></dxi-validation-rule>
+            <dxi-validation-rule
+              *ngIf="ahvBeitragPositionDetail.bgPositionID"
+              type="range"
+              [min]="valueMinValidateBetrag"
+              [message]="'AhvBeitrage.MessageError.ValidateDate' | translate"
+            ></dxi-validation-rule>
+          </dx-validator>
+        </dx-number-box>
+      </div>
+      <div *dxTemplate="let data of 'datumVonTemplate'">
+        <dx-date-box
+          [showClearButton]="true"
+          [accessKey]="10"
+          #datumVon
+          placeholder="{{ 'AhvBeitrage.Detail.SelectItem' | translate}}"
+          width="100%"
+          [value]="ahvBeitragPositionDetail.datumVon"
+          (onValueChanged)="onChangeData($event, 'datumVon')"
+          [displayFormat]="dateFormat"
+          valueChangeEvent="keyup"
+          [disabled]="!showDateVon"
+          [useMaskBehavior]="true"
+          (onFocusIn)="onFocusIn(datumVon, 'datumVon')"
+          (onFocusOut)="onFocusOut($event, 'datumVon')"
+          (onKeyDown)="onKeyDownAdd($event)"
+        >
+          <dx-validator #validatorVon>
+            <dxi-validation-rule
+              *ngIf="ahvBeitragPositionDetail.bgPositionID && (bgSilAHVBeitrag.bgBewilligungStatusCode < 5 && isBgSilTherapieEntzug)"
+              type="required"
+              [message]="'AhvBeitrage.MessageError.ValidateDateVon' | translate"
+            ></dxi-validation-rule>
+            <dxi-validation-rule
+              *ngIf="ahvBeitragPositionDetail.bgPositionID"
+              [validationCallback]="validationDateVon"
+              type="custom"
+              [message]="msgValidateDateErr"
+            ></dxi-validation-rule>
+
+          </dx-validator>
+        </dx-date-box>
+      </div>
+      <div *dxTemplate="let data of 'datumBisTemplate'">
+        <dx-date-box
+          [showClearButton]="true"
+          [accessKey]="11"
+          #datumBis
+          placeholder="{{ 'AhvBeitrage.Detail.SelectItem' | translate }}"
+          width="100%"
+          valueChangeEvent="keyup"
+          [value]="ahvBeitragPositionDetail.datumBis"
+          (onValueChanged)="onChangeData($event, 'datumBis')"
+          [displayFormat]="dateFormat"
+          (onFocusIn)="onFocusIn(datumBis, 'datumBis')"
+          [useMaskBehavior]="true"
+          (onFocusOut)="onFocusOut($event, datumBis)"
+          (onKeyDown)="onKeyDownAdd($event)"
+        >
+          <dx-validator #validatorBis>
+            <dxi-validation-rule
+              *ngIf="isBgSilTherapieEntzugStatus && ahvBeitragPositionDetail.bgPositionID && isOpenDateBis"
+              type="required"
+              [message]="'AhvBeitrage.MessageError.ValidateDateVonBisEmpty' | translate"
+            ></dxi-validation-rule>
+            <dxi-validation-rule
+              *ngIf="ahvBeitragPositionDetail.bgPositionID"
+              [validationCallback]="validationBisDate"
+              type="custom"
+              [min]="ahvBeitragPositionDetail.datumVon"
+              [message]="'AhvBeitrage.MessageError.ValidateDateVonBis' | translate"
+            ></dxi-validation-rule>
+          </dx-validator>
+        </dx-date-box>
+      </div>
+      <div *dxTemplate="let data of 'institutionTemplate'">
+        <kiss-dropdown-grid
+          [dataSource]="listAhvInstitutionSuchenWh"
+          [placeholder]="'AhvBeitrage.Detail.SelectItem' | translate"
+          [columnsDef]="columnsDef"
+          displayExpr="institution"
+          [(value)]="ahvBeitragPositionDetail.baInstitutionID"
+          keyExpr="id"
+          valueExpr="id"
+          [validation]="validationType"
+          [sumaries]="sumaries"
+          [validationMsg]="'AhvBeitrage.MessageError.ValidateInstitution' | translate"
+          [noDataText]="'AhvBeitrage.Detail.NoDataInstitution' | translate"
+          (valueChange)="ondDataGridInstitutionClick($event)">
+        </kiss-dropdown-grid>
+      </div>
+      <div *dxTemplate="let data of 'bemerkungTemplate'">
+        <dx-text-area
+          #bemerkung
+          valueChangeEvent="keyup"
+          [accessKey]="13"
+          [(value)]="ahvBeitragPositionDetail.bemerkung"
+          placeholder="{{'AhvBeitrage.Detail.EnterValue' | translate }}"
+          [maxLength]="4000"
+          [height]="200"
+          (onValueChanged)="onChangeData($event, 'bemerkung')"
+          (onFocusIn)="onFocusIn(bemerkung, 'bemerkung')"
+          (onFocusOut)="onFocusOut($event, bemerkung)"
+        >
+        </dx-text-area>
+      </div>
+    </dx-form>
+  </dx-validation-group>
+</div>

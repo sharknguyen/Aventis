@@ -1,0 +1,56 @@
+{
+  "PendenzenGruppen": {
+    "Title": "Gruppen",
+    "GruppenName": "Name",
+    "GruppenID": "ID",
+    "Description": "Beschreibung",
+    "Suchen": "Suchen",
+    "Ausführen": "Ausführen",
+    "PendenzengruppenDetails": {
+      "TitleDetail": "Detail",
+      "Placeholder": "Suchen ...",
+      "Validation": {
+        "NoData": "Keine Daten"
+      }
+    },
+    "Button": {
+      "Add": "Neuer Gruppen",
+      "Edit": "Bearbeiten",
+      "Save": "Speichern",
+      "Cancel": "Abbrechen",
+      "Search": "Search"
+    },
+    "NavigatorPopupConfirm": {
+      "Yes": "Discard",
+      "No": "Abbrechen",
+      "Title": "Bestätigung",
+      "Message": "Sie haben Daten geändert. Möchten Sie das Formular schließen und die Änderungen verwerfen ?"
+    },
+    "Message": {
+      "ComfirmYes": "Ja",
+      "ComfirmNo": "Nein",
+      "DeleteAppNew": "Neuen Datensatz wieder löschen ?",
+      "CancelEditModel": "Änderungen an diesem Datensatz rückgängig machen ?",
+      "UpdateComfirmYes": "Abbrechen",
+      "UpdateComfirmNo": "Daten aktualisieren",
+      "Information": "information",
+      "ConcurrencySave": "Beim Speichern des veränderten Datensatzes ist ein Fehler aufgetreten !",
+      "ConcurrencyDelete": "Beim Löschen des Datensatzes ist ein Fehler aufgetreten !",
+      "Concurrency409": "Der gewählte Datensatz wurde in der Zwischenzeit von einer anderen Person geändert oder gelöscht.\nAktualisieren sie die Daten zuerst, um Ihre Änderungen zu speichern"
+    },
+    "MessageValidate": {
+      "GruppenName": "Name is required",
+      "FormValidate": "Ungültige Daten. Bitte geben Sie gültige Eingabewerte ein",
+      "MaxLengthField": "Der Inhalt eines Feldes überschreitet die maximal zugelassene Länge. Bitte kürzen Sie zuerst den Inhalt und versuchen Sie anschliessend nochmals zu speichern."
+    },
+    "Search": {
+      "Name": "Name",
+      "Beschreibung": "Beschreibung"
+    },
+    "DataGrid": {
+      "Kandidaten": "Kandidaten",
+      "Name": "Name Vorname",
+      "Login": "Login"
+    }
+  }
+}

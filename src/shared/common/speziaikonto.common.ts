@@ -1,0 +1,17 @@
+export const SpeziaikontoConstant = {
+    ABSCHLIESSENRUCKGANGIG: 'Abschliessenruckgangig',
+    ABSCHLIESSEN: 'Abschliessen',
+    AUFHEBEN: 'Aufheben',
+    FREIGEBEN: 'Freigeben',
+    VORBEREITUNG: 'Vorbereitung',
+    ADD: 'btnAdd',
+    BEARBEITEN: 'Bearbeiten',
+    SPEICHERN: 'Speichern',
+    ABBRECHEN: 'Abbrechen',
+    LOSCHEN: 'loschen',
+    INVORBEREITUNG: 'In Vorbereitung',
+    FREIGEGEBEN: 'freigegeben',
+    AUFGEHOBEN: 'aufgehoben',
+    ID_AUFGEHOBEN: 9,
+    ID_SPEZIAIKONTOKUZUNGEN: 4,
+};

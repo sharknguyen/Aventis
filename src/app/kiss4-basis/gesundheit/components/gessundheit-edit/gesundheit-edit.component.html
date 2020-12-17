@@ -1,0 +1,462 @@
+<div class="container-detail-content">
+    <div class="container-detail__form" id="c019_form_edit">
+        <dx-validation-group>
+            <dx-form labelLocation="left" id="c019-detail" [showColonAfterLabel]="false">
+                <dxi-item itemType="group" [colCount]="12">
+
+                    <dxi-item itemType="group" [colCount]="6" [colSpan]="6">
+                        <dxi-item itemType="group" [colSpan]="6">
+                            <dxi-item>
+                                <dxo-label [text]="'Gesundheit.Detail.KVG' | translate"></dxo-label>
+                            </dxi-item>
+                        </dxi-item>
+
+                        <dxi-item itemType="group" [colSpan]="6">
+                            <dxi-item><hr /></dxi-item>
+                        </dxi-item>
+                        
+                        <dxi-item itemType="group" [colSpan]="6">
+                            <dxi-item [template]="'KrankenkasseKVGTemplate'">
+                                <dxo-label [text]="'Gesundheit.Detail.Krankenkasse' | translate"></dxo-label>
+                            </dxi-item>
+                        </dxi-item>
+
+                        <dxi-item itemType="group" [colSpan]="6">
+                            <dxi-item [template]="'KontaktpersonKVGTemplate'">
+                                <dxo-label [text]="'Gesundheit.Detail.Kontaktperson' | translate"></dxo-label>
+                            </dxi-item>
+                        </dxi-item>
+
+                        <dxi-item itemType="group" [colSpan]="6">
+                            <dxi-item [template]="'TelefonKVGTemplate'">
+                                <dxo-label [text]="'Gesundheit.Detail.Telefon' | translate"></dxo-label>
+                            </dxi-item>
+                        </dxi-item>
+
+                        <dxi-item itemType="group" [colSpan]="6">
+                            <dxi-item [template]="'Mitglied-NrKVGTemplate'">
+                                <dxo-label [text]="'Gesundheit.Detail.Mitglied-Nr' | translate"></dxo-label>
+                            </dxi-item>
+                        </dxi-item>
+
+                        <dxi-item itemType="group" [colSpan]="6">
+                            <dxi-item [template]="'VersichertSeitKVGTemplate'">
+                                <dxo-label [text]="'Gesundheit.Detail.VersichertSeit' | translate"></dxo-label>
+                            </dxi-item>
+                        </dxi-item>
+                    </dxi-item>
+
+                    <dxi-item itemType="group" [colCount]="6" [colSpan]="6">
+                        <dxi-item itemType="group" [colSpan]="6">
+                            <dxi-item>
+                                <dxo-label [text]="'Gesundheit.Detail.VVG' | translate"></dxo-label>
+                            </dxi-item>
+                        </dxi-item>
+
+                        <dxi-item itemType="group" [colSpan]="6">
+                            <dxi-item><hr /></dxi-item>
+                        </dxi-item>
+
+                        <dxi-item itemType="group" [colSpan]="6">
+                            <dxi-item [template]="'KrankenkasseVVGTemplate'">
+                                <dxo-label [text]="'Gesundheit.Detail.Krankenkasse' | translate"></dxo-label>
+                            </dxi-item>
+                        </dxi-item>
+
+                        <dxi-item itemType="group" [colSpan]="6">
+                            <dxi-item [template]="'KontaktpersonVVGTemplate'">
+                                <dxo-label [text]="'Gesundheit.Detail.Kontaktperson' | translate"></dxo-label>
+                            </dxi-item>
+                        </dxi-item>
+
+                        <dxi-item itemType="group" [colSpan]="6">
+                            <dxi-item [template]="'TelefonVVGTemplate'">
+                                <dxo-label [text]="'Gesundheit.Detail.Telefon' | translate"></dxo-label>
+                            </dxi-item>
+                        </dxi-item>
+
+                        <dxi-item itemType="group" [colSpan]="6">
+                            <dxi-item [template]="'Mitglied-NrVVGTemplate'">
+                                <dxo-label [text]="'Gesundheit.Detail.Mitglied-Nr' | translate"></dxo-label>
+                            </dxi-item>
+                        </dxi-item>
+
+                        <dxi-item itemType="group" [colSpan]="6">
+                            <dxi-item [template]="'VersichertSeitVVGTemplate'">
+                                <dxo-label [text]="'Gesundheit.Detail.VersichertSeit' | translate"></dxo-label>
+                            </dxi-item>
+                        </dxi-item>
+                    </dxi-item>
+                </dxi-item><!-- end Group1 -->
+
+                <dxi-item itemType="group" [colCount]="12">
+                    <dxi-item itemType="group" [colCount]="6" [colSpan]="6">
+                        <dxi-item itemType="group" [colSpan]="6">
+                            <dxi-item [template]="'GrundpramieTemplate'">
+                                <dxo-label [text]="'Gesundheit.Detail.Grundpramie' | translate"></dxo-label>
+                            </dxi-item>
+                        </dxi-item>
+
+                        <dxi-item itemType="group" [colSpan]="6">
+                            <dxi-item [template]="'UnfallTemplate'">
+                                <dxo-label [text]="'Gesundheit.Detail.Unfall' | translate"></dxo-label>
+                            </dxi-item>
+                        </dxi-item>
+
+                        <dxi-item itemType="group" [colSpan]="6">
+                            <dxi-item [template]="'GesundhFordTemplate'">
+                                <dxo-label [text]="'Gesundheit.Detail.GesundhFord' | translate"></dxo-label>
+                            </dxi-item>
+                        </dxi-item>
+
+                        <dxi-item itemType="group" [colSpan]="6">
+                            <dxi-item [template]="'PramienverbTemplate'">
+                                <dxo-label [text]="'Gesundheit.Detail.Pramienverb' | translate"></dxo-label>
+                            </dxi-item>
+                        </dxi-item>
+
+                        <dxi-item itemType="group" [colSpan]="6">
+                            <dxi-item [template]="'UmweltabgabeTemplate'">
+                                <dxo-label [text]="'Gesundheit.Detail.Umweltabgabe' | translate"></dxo-label>
+                            </dxi-item>
+                        </dxi-item>
+
+                        <dxi-item itemType="group" [colSpan]="6">
+                            <dxi-item [template]="'PramieZahlungKVGTemplate'">
+                                <dxo-label [text]="'Gesundheit.Detail.PramieZahlung' | translate"></dxo-label>
+                            </dxi-item>
+                        </dxi-item>
+
+                        <dxi-item itemType="group" [colSpan]="6">
+                            <dxi-item [template]="'FranchiseKVGTemplate'">
+                                <dxo-label [text]="'Gesundheit.Detail.Franchise' | translate"></dxo-label>
+                            </dxi-item>
+                        </dxi-item>
+
+                    </dxi-item>
+
+                    <dxi-item itemType="group" [colCount]="6" [colSpan]="6">
+                        <dxi-item itemType="group" [colSpan]="6">
+                            <dxi-item [template]="'ZusatzeTemplate'">
+                                <dxo-label [text]="'Gesundheit.Detail.Zusatze' | translate"></dxo-label>
+                            </dxi-item>
+                        </dxi-item>
+
+                        <dxi-item itemType="group" [colSpan]="6">
+                            <dxi-item [template]="'PramieZahlungVVGTemplate'">
+                                <dxo-label [text]="'Gesundheit.Detail.PramieZahlung' | translate"></dxo-label>
+                            </dxi-item>
+                        </dxi-item>
+
+                        <dxi-item itemType="group" [colSpan]="6">
+                            <dxi-item [template]="'FranchiseVVGTemplate'">
+                                <dxo-label [text]="'Gesundheit.Detail.Franchise' | translate"></dxo-label>
+                            </dxi-item>
+                        </dxi-item>
+                    </dxi-item>
+                </dxi-item><!-- end Group2 -->
+
+                <dxi-item itemType="group" [colCount]="12">
+                    <dxi-item itemType="group" [colCount]="6" [colSpan]="6">
+                        <dxi-item itemType="group" [colSpan]="6">
+                            <dxi-item>
+                                <dxo-label [text]="'Gesundheit.Detail.Weitere' | translate"></dxo-label>
+                            </dxi-item>
+                        </dxi-item>
+
+                        <dxi-item itemType="group" [colSpan]="6">
+                            <dxi-item><hr /></dxi-item>
+                        </dxi-item>
+
+                        <dxi-item itemType="group" [colSpan]="6">
+                            <dxi-item [template]="'IVEingliederungTemplate'">
+                                <dxo-label [text]="'Gesundheit.Detail.IVEingliederung' | translate"></dxo-label>
+                            </dxi-item>
+                        </dxi-item>
+
+                        <dxi-item itemType="group" [colSpan]="6">
+                            <dxi-item [template]="'PflegeDurchTemplate'">
+                                <dxo-label [text]="'Gesundheit.Detail.PflegeDurch' | translate"></dxo-label>
+                            </dxi-item>
+                        </dxi-item>
+
+                        <dxi-item itemType="group" [colSpan]="6">
+                            <dxi-item [template]="'EVAZDatumTemplate'">
+                                <dxo-label [text]="'Gesundheit.Detail.EVAZDatum' | translate"></dxo-label>
+                            </dxi-item>
+                        </dxi-item>
+
+                        <dxi-item itemType="group" [colSpan]="6">
+                            <dxi-item [template]="'ZahnarztTemplate'">
+                                <dxo-label [text]="'Gesundheit.Detail.Zahnarzt' | translate"></dxo-label>
+                            </dxi-item>
+                        </dxi-item>
+
+                    </dxi-item>
+                    <dxi-item itemType="group" [colCount]="6" [colSpan]="6">
+                        
+                    </dxi-item>
+                    <dxi-item itemType="group" [colSpan]="12">
+                        <dxi-item [template]="'BemerkungTemplate'">
+                            <dxo-label [text]="'Gesundheit.Detail.Bemerkung' | translate"></dxo-label>
+                        </dxi-item>
+                    </dxi-item>
+                </dxi-item><!-- end Group3 -->
+
+                <!-- start template Group1 -->
+                <div class="template-grp1">
+                    <div *dxTemplate="let data of 'KrankenkasseKVGTemplate'">
+                        <dx-box direction="row">
+                            <dxi-item [ratio]="0.5"><span>&nbsp;</span></dxi-item>
+                            <dxi-item [ratio]="11">
+                                <dx-select-box></dx-select-box>
+                            </dxi-item>
+                        </dx-box>
+                    </div>
+
+                    <div *dxTemplate="let data of 'KontaktpersonKVGTemplate'">
+                        <dx-box direction="row">
+                            <dxi-item [ratio]="0.5"><span>&nbsp;</span></dxi-item>
+                            <dxi-item [ratio]="11">
+                                <dx-text-box></dx-text-box>
+                            </dxi-item>
+                        </dx-box>
+                    </div>
+
+                    <div *dxTemplate="let data of 'TelefonKVGTemplate'">
+                        <dx-box direction="row">
+                            <dxi-item [ratio]="0.5"><span>&nbsp;</span></dxi-item>
+                            <dxi-item [ratio]="11">
+                                <dx-text-box></dx-text-box>
+                            </dxi-item>
+                        </dx-box>
+                    </div>
+
+                    <div *dxTemplate="let data of 'Mitglied-NrKVGTemplate'">
+                        <dx-box direction="row">
+                            <dxi-item [ratio]="0.5"><span>&nbsp;</span></dxi-item>
+                            <dxi-item [ratio]="11">
+                                <dx-text-box></dx-text-box>
+                            </dxi-item>
+                        </dx-box>
+                    </div>
+
+                    <div *dxTemplate="let data of 'VersichertSeitKVGTemplate'">
+                        <dx-box direction="row">
+                            <dxi-item [ratio]="0.5"><span>&nbsp;</span></dxi-item>
+                            <dxi-item [ratio]="11">
+                                <dx-date-box width="50%"></dx-date-box>
+                            </dxi-item>
+                        </dx-box>
+                    </div>
+
+                    <div *dxTemplate="let data of 'KrankenkasseVVGTemplate'">
+                        <dx-box direction="row">
+                            <dxi-item [ratio]="0.5"><span>&nbsp;</span></dxi-item>
+                            <dxi-item [ratio]="11">
+                                <dx-select-box></dx-select-box>
+                            </dxi-item>
+                        </dx-box>
+                    </div>
+
+                    <div *dxTemplate="let data of 'KontaktpersonVVGTemplate'">
+                        <dx-box direction="row">
+                            <dxi-item [ratio]="0.5"><span>&nbsp;</span></dxi-item>
+                            <dxi-item [ratio]="11">
+                                <dx-text-box></dx-text-box>
+                            </dxi-item>
+                        </dx-box>
+                    </div>
+
+                    <div *dxTemplate="let data of 'TelefonVVGTemplate'">
+                        <dx-box direction="row">
+                            <dxi-item [ratio]="0.5"><span>&nbsp;</span></dxi-item>
+                            <dxi-item [ratio]="11">
+                                <dx-text-box></dx-text-box>
+                            </dxi-item>
+                        </dx-box>
+                    </div>
+
+                    <div *dxTemplate="let data of 'Mitglied-NrVVGTemplate'">
+                        <dx-box direction="row">
+                            <dxi-item [ratio]="0.5"><span>&nbsp;</span></dxi-item>
+                            <dxi-item [ratio]="11">
+                                <dx-text-box></dx-text-box>
+                            </dxi-item>
+                        </dx-box>
+                    </div>
+
+                    <div *dxTemplate="let data of 'VersichertSeitVVGTemplate'">
+                        <dx-box direction="row">
+                            <dxi-item [ratio]="0.5"><span>&nbsp;</span></dxi-item>
+                            <dxi-item [ratio]="11">
+                                <dx-date-box width="50%"></dx-date-box>
+                            </dxi-item>
+                        </dx-box>
+                    </div>
+                </div>
+                <!-- end template Group1 -->
+
+                <!-- start template Group2 -->
+                <div class="template-grp2">
+                    <div *dxTemplate="let data of 'GrundpramieTemplate'">
+                        <dx-box direction="row">
+                            <dxi-item [ratio]="0.5"><span>+</span></dxi-item>
+                            <dxi-item [ratio]="11">
+                                <dx-text-box width="50%"></dx-text-box>
+                            </dxi-item>
+                        </dx-box>
+                    </div>
+
+                    <div *dxTemplate="let data of 'UnfallTemplate'">
+                        <dx-box direction="row">
+                            <dxi-item [ratio]="0.5"><span>+</span></dxi-item>
+                            <dxi-item [ratio]="11">
+                                <dx-text-box width="50%"></dx-text-box>
+                            </dxi-item>
+                        </dx-box>
+                    </div>
+
+                    <div *dxTemplate="let data of 'GesundhFordTemplate'">
+                        <dx-box direction="row">
+                            <dxi-item [ratio]="0.5"><span>+</span></dxi-item>
+                            <dxi-item [ratio]="11">
+                                <dx-text-box width="50%"></dx-text-box>
+                            </dxi-item>
+                        </dx-box>
+                    </div>
+
+                    <div *dxTemplate="let data of 'PramienverbTemplate'">
+                        <dx-box direction="row">
+                            <dxi-item [ratio]="0.45"><span>-</span></dxi-item>
+                            <dxi-item [ratio]="5">
+                                <dx-text-box width="100%"></dx-text-box>
+                            </dxi-item>
+                            <dxi-item [ratio]="1"></dxi-item>
+                            <dxi-item [ratio]="4">
+                                <dx-check-box [text]="'Gesundheit.Detail.Abklaren' | translate"></dx-check-box>
+                            </dxi-item>
+                        </dx-box>
+                    </div>
+                    
+                    <div *dxTemplate="let data of 'UmweltabgabeTemplate'">
+                        <dx-box direction="row">
+                            <dxi-item [ratio]="0.5"><span>-</span></dxi-item>
+                            <dxi-item [ratio]="11">
+                                <dx-text-box width="50%"></dx-text-box>
+                            </dxi-item>
+                        </dx-box>
+                    </div>
+
+                    <div *dxTemplate="let data of 'PramieZahlungKVGTemplate'">
+                        <dx-box direction="row">
+                            <dxi-item [ratio]="0.5"><span>=</span></dxi-item>
+                            <dxi-item [ratio]="5">
+                                <dx-text-box></dx-text-box>
+                            </dxi-item>
+                            <dxi-item [ratio]="0.1"></dxi-item>
+                            <dxi-item [ratio]="5">
+                                <dx-select-box></dx-select-box>
+                            </dxi-item>
+                        </dx-box>
+                    </div>
+
+                    <div *dxTemplate="let data of 'FranchiseKVGTemplate'">
+                        <dx-box direction="row">
+                            <dxi-item [ratio]="0.5"><span>&nbsp;</span></dxi-item>
+                            <dxi-item [ratio]="11">
+                                <dx-text-box width="50%"></dx-text-box>
+                            </dxi-item>
+                        </dx-box>
+                    </div>
+
+                    <div *dxTemplate="let data of 'ZusatzeTemplate'">
+                        <dx-box direction="row">
+                            <dxi-item [ratio]="0.5"><span>&nbsp;</span></dxi-item>
+                            <dxi-item [ratio]="11">
+                                <dx-text-area></dx-text-area>
+                            </dxi-item>
+                        </dx-box>
+                    </div>
+
+                    <div *dxTemplate="let data of 'PramieZahlungVVGTemplate'">
+                        <dx-box direction="row">
+                            <dxi-item [ratio]="0.5"><span>&nbsp;</span></dxi-item>
+                            <dxi-item [ratio]="5">
+                                <dx-text-box></dx-text-box>
+                            </dxi-item>
+                            <dxi-item [ratio]="0.1"></dxi-item>
+                            <dxi-item [ratio]="5">
+                                <dx-select-box></dx-select-box>
+                            </dxi-item>
+                        </dx-box>
+                    </div>
+
+                    <div *dxTemplate="let data of 'FranchiseVVGTemplate'">
+                        <dx-box direction="row">
+                            <dxi-item [ratio]="0.5"><span>&nbsp;</span></dxi-item>
+                            <dxi-item [ratio]="11">
+                                <dx-text-box width="50%"></dx-text-box>
+                            </dxi-item>
+                        </dx-box>
+                    </div>
+                </div>
+                <!-- end template Group2 -->
+
+                <!-- start template Group3 -->
+                <div class="template-grp3">
+                    <div *dxTemplate="let data of 'IVEingliederungTemplate'">
+                        <dx-box direction="row">
+                            <dxi-item [ratio]="0.45"><span>&nbsp;</span></dxi-item>
+                            <dxi-item [ratio]="5">
+                                <dx-text-box width="100%"></dx-text-box>
+                            </dxi-item>
+                            <dxi-item [ratio]="1"></dxi-item>
+                            <dxi-item [ratio]="4">
+                                <dx-check-box [text]="'Gesundheit.Detail.Pflegedurftig' | translate"></dx-check-box>
+                            </dxi-item>
+                        </dx-box>
+                    </div>
+
+                    <div *dxTemplate="let data of 'PflegeDurchTemplate'">
+                        <dx-box direction="row">
+                            <dxi-item [ratio]="0.5"><span>&nbsp;</span></dxi-item>
+                            <dxi-item [ratio]="11">
+                                <dx-select-box></dx-select-box>
+                            </dxi-item>
+                        </dx-box>
+                    </div>
+
+                    <div *dxTemplate="let data of 'EVAZDatumTemplate'">
+                        <dx-box direction="row">
+                            <dxi-item [ratio]="0.5"><span>&nbsp;</span></dxi-item>
+                            <dxi-item [ratio]="11">
+                                <dx-date-box width="50%"></dx-date-box>
+                            </dxi-item>
+                        </dx-box>
+                    </div>
+
+                    <div *dxTemplate="let data of 'ZahnarztTemplate'">
+                        <dx-box direction="row">
+                            <dxi-item [ratio]="0.5"><span>&nbsp;</span></dxi-item>
+                            <dxi-item [ratio]="11">
+                                <dx-select-box></dx-select-box>
+                            </dxi-item>
+                        </dx-box>
+                    </div>
+
+                    <div *dxTemplate="let data of 'BemerkungTemplate'">
+                        <dx-box direction="row">
+                            <dxi-item [ratio]="0.2"><span>&nbsp;</span></dxi-item>
+                            <dxi-item [ratio]="11">
+                                <dx-text-area></dx-text-area>
+                            </dxi-item>
+                        </dx-box>
+                    </div>
+                </div>
+                <!-- end template Group3 -->
+
+            </dx-form>
+        </dx-validation-group>
+    </div>
+</div>

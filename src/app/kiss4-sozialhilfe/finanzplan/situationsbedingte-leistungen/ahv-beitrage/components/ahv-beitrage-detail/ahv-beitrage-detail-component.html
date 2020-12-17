@@ -1,0 +1,251 @@
+
+<div id="i011-form-details">
+  <div #toolbarHeader class="toolbar-header">
+    <dx-toolbar class="toolbarHeader kiss-card" (onItemClick)="toolBarOnItemClick($event)">
+      <dxi-item
+        class="navigator title-header-container"
+        [template]="'titleGridview'"
+        name="headerClicked"
+        location="before"
+        tabindex="-1"
+      ></dxi-item>
+      <dxi-item
+        class="toolbarHeader"
+        *ngIf="!statusContainer.isBetrageAnpassen && !statusContainer.isAddNew"
+        widget="dxButton"
+        name="bewilligteBetrageAnpassen"
+        location="after"
+        [template]="'bewilligteBetrageAnpassenTemplate'"
+      >
+      </dxi-item>
+      <dxi-item
+        class="toolbarHeader"
+        *ngIf="statusContainer.isErteilt && (statusContainer.isBetrageAnpassen || statusContainer.isAddNew)"
+        widget="dxButton"
+        name="bewilligteBetrageAnpassen"
+        location="after"
+        [template]="'betrageAnpassenTemplate'"
+      >
+      </dxi-item>
+      <dxi-item
+      class="toolbarHeader"
+        widget="dxButton"
+        name="bewilligung"
+        location="after"
+        [template]="'bewilligungTemplate'"
+        *ngIf="!statusContainer.isBetrageAnpassen && !statusContainer.isAddNew"
+      >
+      </dxi-item>
+      <dxi-item
+      class="toolbarHeader"
+        widget="dxButton"
+        *ngIf="!statusContainer.isBetrageAnpassen && !statusContainer.isAddNew && !statusContainer.isEdited"
+        [template]="'newTemplate'"
+        name="neuer"
+        location="after"
+      >
+      </dxi-item>
+      <dxi-item
+      class="toolbarHeader"
+        widget="dxButton"
+        *ngIf="(!statusContainer.isErteilt && !statusContainer.isReadOnly)"
+        [template]="'saveBtnTemplate'"
+        name="speichern"
+        location="after"
+      >
+      </dxi-item>
+      <dxi-item
+      class="toolbarHeader"
+        widget="dxButton"
+        *ngIf="statusContainer.isBetrageAnpassen || statusContainer.isAddNew || statusContainer.isEdited "
+        [template]="'cancelBtnTemplate'"
+        name="abbrechen"
+        location="after"
+      >
+      </dxi-item>
+      <dxi-item
+      class="toolbarHeader"
+        widget="dxButton"
+        *ngIf="statusContainer.isReadOnly && !statusContainer.isBetrageAnpassen && !statusContainer.isAddNew"
+        [template]="'editBtnTemplate'"
+        name="bearbeiten"
+        location="after"
+      >
+      </dxi-item>
+      <dxi-item
+      class="toolbarHeader"
+        class="button-remove-detail"
+        [text]="'AhvBeitrage.Loschen' | translate"
+        name="loschen"
+        [disabled]="!ahvBeitragPositionDetail.bgPositionID || !permissionContainer.isPermissionRemove || this.isSxMode || isDeleteError"
+        locateInMenu="always"
+      >
+      </dxi-item>
+      <div *dxTemplate="let temp of 'titleGridview'">
+        <span [title]="'AhvBeitrage.Detail.Detail' | translate" class="toolbar-header-title">{{
+          'AhvBeitrage.Detail.Detail' | translate
+        }}</span>
+      </div>
+      <div *dxTemplate="let data of 'bewilligteBetrageAnpassenTemplate'">
+        <dx-button
+          [disabled]="!statusContainer.isBtnBAnpassen || this.isSxMode"
+          icon="money"
+          [text]="headerWidth > 1000 ? ('AhvBeitrage.Button.BewilligteBetrageAnpassen' | translate) : ''"
+          id="btnBetrageAnpassenID"
+        >
+        </dx-button>
+      </div>
+      <div *dxTemplate="let data of 'betrageAnpassenTemplate'">
+        <dx-button
+          icon="todo"
+          [disabled]="this.isSxMode"
+          [text]="headerWidth > 1000 ? ('AhvBeitrage.Button.BewilligteBetrageAnpassenSave' | translate) : ''"
+          id="btnBetrageAnpassenSaveID"
+        >
+        </dx-button>
+      </div>
+      <div *dxTemplate="let data of 'bewilligungTemplate'">
+        <dx-button
+          [disabled]="!isBtnBewilligung || statusContainer.dataSize === 0 || this.isSxMode"
+          icon="assets/icon/ic_key.png"
+          [text]="headerWidth > 800 ? ('AhvBeitrage.Button.Bewilligung' | translate) : ''"
+          id="btnBewilligungID"
+        >
+        </dx-button>
+      </div>
+      <div *dxTemplate="let data of 'newTemplate'">
+        <dx-button
+          [disabled]="!permissionContainer.isPermissionNew || this.isSxMode"
+          icon="plus"
+          [text]="headerWidth > 700 ? textBtnNew : ''"
+          id="btnNewID"
+        >
+        </dx-button>
+      </div>
+      <div *dxTemplate="let data of 'editBtnTemplate'">
+        <dx-button
+          icon="edit"
+          [disabled]="!permissionContainer.isPermissionEdit || statusContainer.dataSize === 0 || this.isSxMode"
+          [text]="headerWidth > 400 ? ('AhvBeitrage.Button.Bearbeiten' | translate) : ''"
+          id="btnEditID"
+        >
+        </dx-button>
+      </div>
+      <div *dxTemplate="let data of 'saveBtnTemplate'">
+        <dx-button
+          icon="floppy"
+          [disabled]="statusContainer.iscConcurrency"
+          [text]="headerWidth > 400 ? ('AhvBeitrage.Button.Speichern' | translate) : ''"
+          id="btnSaveID"
+        >
+        </dx-button>
+      </div>
+      <div *dxTemplate="let data of 'cancelBtnTemplate'">
+        <dx-button
+          icon="close"
+          [text]="headerWidth > 400 ? ('AhvBeitrage.Button.Abbrechen' | translate) : ''"
+          id="btnCancelID"
+        >
+        </dx-button>
+      </div>
+    </dx-toolbar>
+  </div>
+
+  <!-- Form view -->
+  <kiss-ahv-beitrage-detail-view
+    *ngIf="statusContainer.isReadOnly && !statusContainer.isBetrageAnpassen"
+    [ahvBetrageDetailEmit]="ahvBeitrageDetail"
+    [expandDetail]="expandDetail"
+    [listSqlQueryShPositionTypEmit]="listSqlQueryShPositionTypEmit">
+  </kiss-ahv-beitrage-detail-view>
+
+  <!-- Form edit -->
+
+  <kiss-ahv-beitrage-detail-edit
+    *ngIf="!(statusContainer.isReadOnly && !statusContainer.isBetrageAnpassen)"
+    [ahvBetrageDetailEmit]="ahvBeitragPositionDetail"
+    [sizeQualifier]="getSizeQualifier"
+    [numberFormat]="numberFormat"
+    [valueMaxValidateBetrag]="valueMaxValidateBetrag"
+    [valueMinValidateBetrag]="valueMinValidateBetrag"
+    [maxDate]="maxDate"
+    [minDate]="minDate"
+    [showDateVon]="statusContainer.isVisibleDateVon"
+    [msgValidateDateErr]="msgValidateDateErr"
+    [isBgSilTherapieEntzug]="isBgSilTherapieEntzug"
+    [BgSilAHVBeitragEmit]="BgSilAHVBeitrag"
+    [listSqlQueryShPositionTypEmit]="listSqlQueryShPositionTypEmit"
+    [isShow]="!(statusContainer.isReadOnly && !statusContainer.isBetrageAnpassen)"
+    (focusIn)="onFocusIn($event)"
+    (focusOut)="onFocusOut($event)"
+    (dataGridInstitutionClick)="dataGridInstitutionClick($event)"
+    (itemDropdownClick)="onItemDropdownClick($event)"
+    (changeData)="onChangeData($event)"
+    (keyDownAdd)="keyDownAdd($event)"
+    [expandDetail]="expandDetail"
+    >
+  </kiss-ahv-beitrage-detail-edit>
+</div>
+<dx-popup (onShown)="popupShown($event)" class="popupDate" title="{{ 'AhvBeitrage.PopupConfirm.TitleConfirmDate' | translate }}" [width]="620"
+      [height]="300" [(visible)]="visiblePopUpDate" [dragEnabled]="false" [closeOnOutsideClick]="false">
+      <div class="content-popup" *dxTemplate="let data of 'content'">
+        <h3 class="title-popup">{{ 'AhvBeitrage.PopupConfirm.MessageConfirmDate' | translate}}</h3>
+        <dx-form>
+          <dxi-item itemType="group" [colCount]="2">
+            <dxi-item [colSpan]="1">
+              <h3 class="title-popup">{{ 'AhvBeitrage.PopupConfirm.MessageChoseDate' | translate }}</h3>
+            </dxi-item>
+            <dxi-item [colSpan]="1">
+              <dx-select-box #selectDatePopup (onItemClick)="onItemDropdownDatePopUpClick($event)" [searchEnabled]="false"
+                [dataSource]="listDropDownAnpassungs" [disabled]="listDropDownAnpassungs.length === 0" valueExpr="firstDate" displayExpr="text" [value]="datePopupSelect || ''">
+              </dx-select-box>
+            </dxi-item>
+          </dxi-item>
+        </dx-form>
+
+        <div class="element-popup">
+          <dx-button #btnAbbrechenPopup [elementAttr]="{ class: 'btn-detail' }" icon="fa fa-times" [text]="'AhvBeitrage.Button.Abbrechen' | translate"
+            (onClick)="buttonPopUpClicked('Abbrechen')">
+          </dx-button>&nbsp;
+          <dx-button [disabled]="listDropDownAnpassungs.length === 0" icon="check" class="btn-detail" text="OK"
+            (onClick)="buttonPopUpClicked('ok')">
+          </dx-button>
+        </div>
+      </div>
+    </dx-popup>
+<app-popup-confirm [popUpModel]="confirmDialogData"></app-popup-confirm>
+<app-popup-concurrency [popUpConcurrencyModel]="popUpConcurrencyModel"></app-popup-concurrency>
+<dx-tooltip *ngIf="!statusContainer.isBetrageAnpassen && headerWidth < 1000" target="#btnBetrageAnpassenID" showEvent="dxhoverstart" hideEvent="dxhoverend">
+  <span>{{'AhvBeitrage.Button.BewilligteBetrageAnpassen' | translate}}</span>
+</dx-tooltip>
+<dx-tooltip *ngIf="statusContainer.isBetrageAnpassen && headerWidth < 1000" target="#btnBetrageAnpassenSaveID" showEvent="dxhoverstart" hideEvent="dxhoverend">
+  <span>{{'AhvBeitrage.Button.BewilligteBetrageAnpassenSave' | translate}}</span>
+</dx-tooltip>
+<dx-tooltip *ngIf="headerWidth < 800" target="#btnBewilligungID" showEvent="dxhoverstart" hideEvent="dxhoverend">
+  <span>{{'AhvBeitrage.Button.Bewilligung' | translate}}</span>
+</dx-tooltip>
+<dx-tooltip *ngIf="statusContainer.isReadOnly && !statusContainer.isBetrageAnpassen && headerWidth < 400"
+  target="#btnEditID" showEvent="dxhoverstart" hideEvent="dxhoverend">
+  <span>{{'AhvBeitrage.Button.Bearbeiten' | translate}}</span>
+</dx-tooltip>
+<dx-tooltip *ngIf="(statusContainer.isReadOnly || (statusContainer.isBetrageAnpassen  && !statusContainer.isBetrageAnpassenAddNew)) && headerWidth < 700"
+  target="#btnNewID" showEvent="dxhoverstart" hideEvent="dxhoverend">
+  <span>{{textBtnNew}}</span>
+</dx-tooltip>
+<dx-tooltip *ngIf="!statusContainer.isReadOnly && (statusContainer.isAddNew || statusContainer.isEdited) && headerWidth < 400"
+  target="#btnSaveID" showEvent="dxhoverstart" hideEvent="dxhoverend">
+  <span>{{'AhvBeitrage.Button.Speichern' | translate}}</span>
+</dx-tooltip>
+<dx-tooltip *ngIf="!statusContainer.isReadOnly && (statusContainer.isAddNew || statusContainer.isEdited) && headerWidth < 400"
+  target="#btnCancelID" showEvent="dxhoverstart" hideEvent="dxhoverend">
+  <span>{{'AhvBeitrage.Button.Abbrechen' | translate}}</span>
+</dx-tooltip>
+<dx-tooltip *ngIf="statusContainer.isBetrageAnpassen && !statusContainer.isAddNew && headerWidth < 550" target="#btnSaveBAID"
+  showEvent="dxhoverstart" hideEvent="dxhoverend">
+  <span>{{'AhvBeitrage.Button.Abbrechen' | translate}}</span>
+</dx-tooltip>
+<dx-tooltip *ngIf="statusContainer.isBetrageAnpassen && !statusContainer.isAddNew && headerWidth < 350" target="#btnCancelBAID"
+  showEvent="dxhoverstart" hideEvent="dxhoverend">
+  <span>{{'AhvBeitrage.Button.Abbrechen' | translate}}</span>
+</dx-tooltip>
+

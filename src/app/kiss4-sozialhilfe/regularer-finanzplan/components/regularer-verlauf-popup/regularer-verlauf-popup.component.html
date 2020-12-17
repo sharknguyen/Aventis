@@ -1,0 +1,39 @@
+<dx-popup [dragEnabled]="false" [closeOnOutsideClick]="false" [resizeEnabled]="false" [(visible)]="visiblePopupVerlauf"
+    [maxWidth]="1200" height="auto">
+    <div class="demografie-history" *dxTemplate="let data of 'title'">
+        <kiss-card-title id="c012_demografie-history_header" [listBtn]="listBtn" [isCard]="true" [closeBtn]="true"
+            [titleHeader]="'RegularerFinanzplan.PopupVerlauf.Title' | translate" (onCustomizeBtnFn)="toolBarOnItemClickTopGrd($event)"></kiss-card-title>
+    </div>
+    <div *dxTemplate="let data of 'content'" class="i031-verlauf-container">
+        <dx-scroll-view direction="Vertical" class="history-scroll">
+            <p class="i031_title-content-popup-verlauf">{{ 'RegularerFinanzplan.PopupVerlauf.TitleContentPopup' |
+                translate }}</p>
+            <div id="c012_grid_textmarken">
+                <kiss-grid #formList keyExpr="BgBewilligungID" idGridName="I031_data-grid" filterBuilderName="I031_filter-builder"
+                    readOnly="false" [dataSource]="verlaufData" [searchPlaceholder]="'ExterneBerater.SearchSuche' | translate"
+                    [noDataText]="'VorlagenKontext.VorlagenkontextDetails.Validation.NoData' | translate" [fileName]="'RegularerFinanzplan.PopupVerlauf.FileName' | translate"
+                    [columnChooserName]="'ExterneBerater.ColumnChooser' | translate" [columnsDef]="columnsDataGrid"
+                    (selectedRow)="onSelectedRow($event)">
+                </kiss-grid>
+            </div>
+            <dx-form labelLocation="left" [showColonAfterLabel]="false" class="box-form">
+                <dxi-item itemType="group" [colCount]="12">
+                    <dxi-item [colSpan]="1">
+                        <span class="label-text">{{'RegularerFinanzplan.PopupVerlauf.Bemerkung' | translate}}</span>
+                    </dxi-item>
+                    <dxi-item [colSpan]="11">
+                        <dx-text-area [height]="100" [value]="formData?.Bemerkung" readOnly="true"></dx-text-area>
+                    </dxi-item>
+                </dxi-item>
+                <dxi-item itemType="group" [colCount]="12">
+                    <dxi-item [colSpan]="1">
+                        <span class="label-text">{{'RegularerFinanzplan.PopupVerlauf.Schlussen' | translate}}</span>
+                    </dxi-item>
+                    <dxi-item [colSpan]="11">
+                        <p class="i031_title-content-popup-verlauf mr0">{{bgFinanzplanID}}</p>
+                    </dxi-item>
+                </dxi-item>
+            </dx-form>
+        </dx-scroll-view>
+    </div>
+</dx-popup>

@@ -1,0 +1,32 @@
+:host ::ng-deep .i010_zulagen_form {
+  // padding: 10px;
+  .zulagen_form {
+    margin: 15px;
+  }
+  .dx-item {
+    outline: 0;
+    border: 0px solid;
+  }
+  .ctrWith {
+    width: 35%;
+  }
+  .ctrmargin-top {
+    margin-top: 5px;
+  }
+  .i010_detail_header {
+    .dx-toolbar-after {
+      padding-right: 5px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  :host ::ng-deep .i010-button {
+      .dx-button-content{
+          padding: 8px 0px 8px 8px;
+          .dx-button-text{
+              display: none;
+          }
+       }   
+  }
+}

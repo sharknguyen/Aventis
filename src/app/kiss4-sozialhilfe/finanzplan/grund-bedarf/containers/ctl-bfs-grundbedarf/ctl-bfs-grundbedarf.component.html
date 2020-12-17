@@ -1,0 +1,20 @@
+<kiss-right-component>
+    <app-navigator id="i007_grund-bedarf_header" [titleHeader]="pageTitle" [customizeBtn]="customizeBtn" [listBtn]="listBtn"
+        (onCustomizeBtnFn)="toolBarOnItemClick($event)" (dblclick)="onCopyTitle()"></app-navigator>
+    <div class="container">
+        <div class="container__right-content">
+            <app-remaining-message #remainingMessage></app-remaining-message>
+            <div class="container-detail form-content-details" id="i007_detail">
+                <kiss-grundbedarf-detail #formDetail [isViewMode]="isViewMode" (remainingMessageError)="displayRemainingMessage($event)"
+                    (changeToViewModeEvent)="changeToViewModeEvent($event)" (isConcurrencyEvent)="isConcurrencyEvent($event)"
+                    (refreshDataEvent)="refreshDataEvent($event)" [richtlinieData]="richtlinieData" (titleTextEvent)="titleTextEvent($event)">
+                </kiss-grundbedarf-detail>
+            </div>
+        </div>
+    </div>
+</kiss-right-component>
+<!-- Print component -->
+<kiss-printer #printer></kiss-printer>
+
+<!-- Confirm popup -->
+<app-popup-confirm [popUpModel]="popUpModel"></app-popup-confirm>

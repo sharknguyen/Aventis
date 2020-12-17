@@ -1,0 +1,55 @@
+{
+    "CtlWhKontoauszug": {
+        "Container": {
+            "PageTitle": "Kontoauszug [it]",
+            "KontoauszugDrucken": "Kontoauszug drucken [it]"
+        },
+        "Search": {
+            "HeaderTitle": "Suche [it]",
+            "Klient": "Klient/in [it]",
+            "Ganze": "Ganze UE [it]",
+            "Zeitraum": "Zeitraum [it]",
+            "DatumVon": "Datum von [it]",
+            "DatumBis": "bis [it]",
+            "BetrageVer": "Beträge an Verwendungsperiode anpassen [it]",
+            "Verdichtet": "verdichtet [it]",
+            "SalAusKiss": "Saldovortrag aus KiSS [it]",
+            "SalAusFremdsystem": "Saldovortrag aus Fremdsystem [it]",
+            "Kostenarten": "Kostenarten [it]",
+            "Verfuegbar": "Verfügbare Kostenart [it]",
+            "Zugeteilt": "Zugeteilte Kostenart [it]",
+            "DatumVonLessThanDatumBis": "Das 'von-Datum' muss kleiner sein als das 'bis-Datum' [it]"
+        },
+        "List": {
+            "BelegDatum": "Beleg-Datum [it]",
+            "BelegNr": "Beleg-Nr. [it]",
+            "Klient": "Klient/in [it]",
+            "LAText" : "KoA [it]",
+            "Buchungstext": "Buchungstext [it]",
+            "VerwPeriodeVon": "Verw. P. von [it]",
+            "VerwPeriodeBis": "Verw. P. bis [it]",
+            "Ausgabe": "Auszahlung [it]",
+            "Einnahme": "Einnahme [it]",
+            "Saldo": "Saldo [it]",
+            "KbBuchungStatusCode": "Sta. [it]",
+            "Doc": "Dok [it]"
+        },
+        "Detail": {
+            "Verwendungsp": "Verwendungsp. [it]",
+            "Betrag": "Betrag 100% [it]",
+            "Splitting": "Splitting [it]",
+            "Valuta": "Valuta [it]",
+            "Auszahlart": "Auszahlart [it]",
+            "Kreditor": "Kreditor [it]",
+            "Debitor": "Debitor [it]"
+        },
+        "Dokumente": {
+            "TitleHeader": "Dokumente [it]",
+            "EditBtn": "Bearbeiten [it]",
+            "Typ": "Typ [it]",
+            "Stichwort": "Stichwort [it]",
+            "Erstellungsdatum": "Erstellungsdatum [it]",
+            "LetzteSpeicherung": "Letzte Speicherung [it]"
+        }
+    }
+}

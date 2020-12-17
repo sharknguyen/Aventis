@@ -1,0 +1,226 @@
+<dx-validation-group #validationGroup>
+  <dx-form #form [showColonAfterLabel]="false" [formData]="detailSelected">
+    <dxi-item itemType="group" [colCount]="12">
+
+      <dxi-item itemType="group" [colSpan]="6">
+        <dxi-item [template]="'BezeichnungTemplate'">
+          <dxo-label [text]="'CtlSpeziaikonto.Label.Bezeichnung' | translate"></dxo-label>
+          <dxi-validation-rule type="required"></dxi-validation-rule>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="empty" [colSpan]="6"></dxi-item>
+
+      <dxi-item itemType="group" [colSpan]="6">
+        <dxi-item [template]="'PersonTemplate'">
+          <dxo-label [text]="'CtlSpeziaikonto.Label.Person' | translate"></dxo-label>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="empty" [colSpan]="6"></dxi-item>
+
+      <dxi-item itemType="group" [colSpan]="5">
+        <dxi-item [template]="'StartsaldoTemplate'">
+          <dxo-label [text]="'CtlSpeziaikonto.Label.Startsaldo' | translate">
+          </dxo-label>
+          <dxi-validation-rule type="required"></dxi-validation-rule>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="empty" [colSpan]="7"></dxi-item>
+
+      <dxi-item itemType="group" [colSpan]="5">
+        <dxi-item [template]="'MonatlicherBetragTemplate'">
+          <dxo-label [text]="'CtlSpeziaikonto.Label.MonatlicherBetrag' | translate"></dxo-label>
+          <dxi-validation-rule type="required"></dxi-validation-rule>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="empty" [colSpan]="7"></dxi-item>
+
+      <dxi-item itemType="group" [colSpan]="4">
+        <dxi-item [template]="'GultigvonTemplate'">
+          <dxo-label [text]="'CtlSpeziaikonto.Label.GultigVon' | translate">
+          </dxo-label>
+          <dxi-validation-rule type="required"></dxi-validation-rule>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="group" [colSpan]="2">
+        <dxi-item [template]="'GultigvonNumberboxTemplate'">
+          <dxo-label text=""></dxo-label>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="empty" [colSpan]="6"></dxi-item>
+
+      <dxi-item itemType="group" [colSpan]="4">
+        <dxi-item [template]="'GultigbisTemplate'">
+          <dxo-label [text]="'CtlSpeziaikonto.Label.GultigBis' | translate"></dxo-label>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="group" [colSpan]="2">
+        <dxi-item [template]="'GultigbisNumberboxTemplate'">
+          <dxo-label text=""></dxo-label>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="empty" [colSpan]="6"></dxi-item>
+
+      <dxi-item itemType="group" [colSpan]="12">
+        <dxi-item [template]="'BemerkungenTemplate'">
+          <dxo-label [text]="'CtlSpeziaikonto.Label.Bemerkungen' | translate"></dxo-label>
+        </dxi-item>
+      </dxi-item>
+    </dxi-item>
+
+    <div *dxTemplate="let data of 'BezeichnungTemplate'">
+      <dx-text-box
+        #BezeichnungTextBox
+        [disabled]="queryBeglichen"
+        [(value)]="detailData.NameSpezkonto"
+        (onValueChanged)="onValueChanged()">
+        <dx-validator>
+          <dxi-validation-rule type="required"  [message]="'CtlSpeziaikonto.Message.MessageBezeichnungNull'|translate">
+          </dxi-validation-rule>
+          <dxi-validation-rule type="stringLength" [max]="100" [message]="'CtlSpeziaikonto.Message.MessageMaxlenght'|translate">
+          </dxi-validation-rule>
+        </dx-validator>
+      </dx-text-box>
+    </div>
+
+    <div *dxTemplate="let data of 'PersonTemplate'">
+      <dx-select-box
+        (onFocusIn)="onFocusIn($event, 'selectbox')"
+        [disabled]="queryVorhanden"
+        [placeholder]="queryVorhanden ? '' : 'CtlSpeziaikonto.Placeholder' | translate"
+        [dataSource]="dataSourceBaPerson"
+        valueExpr="BaPersonID"
+        displayExpr="NameVorname"
+        [(value)]="detailData.BaPersonID"
+        (onKeyDown)="onKeyDown($event)"
+        (onValueChanged)="onValueChanged()">
+      </dx-select-box>
+    </div>
+
+    <div *dxTemplate="let data of 'StartsaldoTemplate'">
+      <div class="unit">
+        <dx-number-box 
+          #Startsaldo 
+          [format]="formatNumberDefault" 
+          class="numberbox" 
+          valueChangeEvent="keyup change focusout"
+          [(value)]="detailData.StartSaldo"
+          (onValueChanged)="onValueChanged()" 
+          (onKeyDown)="onKeyDownNumberBox($event,'StartSaldo')">
+          <dx-validator>
+            <dxi-validation-rule type="required" [message]="'CtlSpeziaikonto.Message.MessageStartsaldoNull'|translate">
+            </dxi-validation-rule>
+          </dx-validator>  
+        </dx-number-box>
+        <span>{{'CtlSpeziaikonto.Label.CHF' | translate}}</span>
+      </div>
+    </div>
+
+    <div *dxTemplate="let data of 'MonatlicherBetragTemplate'">
+      <div class="unit">
+        <dx-number-box 
+          #MonatlicherBetrag 
+          [format]="formatNumberDefault"  
+          class="numberbox" 
+          valueChangeEvent="keyup change focusout"
+          [(value)]="detailData.BetragProMonat"
+          (onValueChanged)="onValueChanged()"
+          (onKeyDown)="onKeyDownNumberBox($event,'BetragProMonat')">
+          <dx-validator>
+            <dxi-validation-rule type="required"  [message]="'CtlSpeziaikonto.Message.MessageMonatlicherBetragNull'|translate">
+            </dxi-validation-rule>
+          </dx-validator>  
+        </dx-number-box>
+        <span>{{'CtlSpeziaikonto.Label.CHF' | translate}}</span>
+      </div>
+    </div>
+
+    <div *dxTemplate="let data of 'GultigvonTemplate'">
+      <dx-select-box 
+        #Gultigvon
+        (onFocusIn)="onFocusIn($event, 'selectbox')" 
+        [disabled] = "queryVorhanden" 
+        [dataSource]="monat" 
+        valueExpr="code" 
+        displayExpr="shortText"
+        [(value)]="detailData.DatumVonMonat" 
+        (onKeyDown)="onKeyDown($event)" 
+        (onValueChanged)="onValueChangedDateBox()">
+        <dx-validator>
+          <dxi-validation-rule type="required" [message]="'CtlSpeziaikonto.Message.MessageDatumVonNull'|translate">
+          </dxi-validation-rule>
+          <dxi-validation-rule [reevaluate]="true" type="custom" [validationCallback]="validationCallback" *ngIf="!isDatumBis" [message]="'CtlSpeziaikonto.Message.MessageDateConstraint'|translate">
+          </dxi-validation-rule>
+          <dxi-validation-rule [reevaluate]="true" type="custom" [validationCallback]="validationCallback" *ngIf="isDatumBis" [message]="'CtlSpeziaikonto.Message.MessageGesperrt'|translate">
+          </dxi-validation-rule>
+        </dx-validator>
+      </dx-select-box>
+    </div>
+
+    <div *dxTemplate="let data of 'GultigvonNumberboxTemplate'">
+      <dx-number-box
+        #GultigvonNumberbox
+        class="numberbox"
+        valueChangeEvent="keyup change focusout"
+        [disabled]="queryVorhanden"
+        (onValueChanged)="onValueChangedDateBox()"
+        [(value)]="detailData.DatumVonJahr"
+        [format]="formatNumberInteger"
+        (onKeyDown)="onKeyDownNumberBox($event,'DatumVonJahr')">
+        <dx-validator>
+          <dxi-validation-rule type="required" [message]="'CtlSpeziaikonto.Message.MessageDatumVonNull'|translate">
+          </dxi-validation-rule>
+          <dxi-validation-rule [reevaluate]="true" type="custom" [validationCallback]="validationCallback" *ngIf="!isDatumBis" [message]="'CtlSpeziaikonto.Message.MessageDateConstraint'|translate">
+          </dxi-validation-rule>
+          <dxi-validation-rule [reevaluate]="true" type="custom" [validationCallback]="validationCallback" *ngIf="isDatumBis" [message]="'CtlSpeziaikonto.Message.MessageGesperrt'|translate">
+          </dxi-validation-rule>
+          <dxi-validation-rule type="range" [max]="3000" [min]="2000" [message]="'CtlSpeziaikonto.Message.MessageDatumVonOutOfRange'|translate">
+          </dxi-validation-rule>
+        </dx-validator>
+      </dx-number-box>
+    </div>
+
+    <div *dxTemplate="let data of 'GultigbisTemplate'">
+      <dx-select-box
+        #Gultigbis
+        (onFocusIn)="onFocusIn($event, 'selectbox')"
+        [dataSource]="monat"
+        [(value)]="detailData.DatumBisMonat"
+        valueExpr="code"
+        displayExpr="shortText"
+        (onKeyDown)="onKeyDown($event)"
+        (onValueChanged)="onValueChangedDateBox()">
+        <dx-validator>
+          <dxi-validation-rule [reevaluate]="true" type="custom" [validationCallback]="validationCallback" *ngIf="!isDatumBis" [message]="'CtlSpeziaikonto.Message.MessageDateConstraint'|translate">
+          </dxi-validation-rule>
+          <dxi-validation-rule [reevaluate]="true" type="custom" [validationCallback]="validationCallback" *ngIf="isDatumBis" [message]="'CtlSpeziaikonto.Message.MessageGesperrt'|translate">
+          </dxi-validation-rule>
+        </dx-validator>
+      </dx-select-box>
+    </div>
+
+    <div *dxTemplate="let data of 'GultigbisNumberboxTemplate'">
+      <dx-number-box
+        #GultigbisNumberbox
+        class="numberbox"
+        valueChangeEvent="keyup change focusout"
+        (onValueChanged)="onValueChangedDateBox()"
+        [(value)]="detailData.DatumBisJahr"
+        [format]="formatNumberInteger"
+        (onKeyDown)="onKeyDownNumberBox($event,'DatumBisJahr')">
+        <dx-validator>
+          <dxi-validation-rule type="range" [max]="3000" [min]="2000" [message]="'CtlSpeziaikonto.Message.MessageDatumBisOutOfRange'|translate">
+          </dxi-validation-rule>
+          <dxi-validation-rule [reevaluate]="true" type="custom" [validationCallback]="validationCallback" *ngIf="!isDatumBis" [message]="'CtlSpeziaikonto.Message.MessageDateConstraint'|translate">
+          </dxi-validation-rule>
+          <dxi-validation-rule [reevaluate]="true" type="custom" [validationCallback]="validationCallback" *ngIf="isDatumBis" [message]="'CtlSpeziaikonto.Message.MessageGesperrt'|translate">
+          </dxi-validation-rule>
+        </dx-validator>
+      </dx-number-box>
+    </div>
+
+    <div *dxTemplate="let data of 'BemerkungenTemplate'">
+      <dx-text-area #Bemerkungen height='140' class="textBreak" [(value)]="detailData.Bemerkung" (onValueChanged)="onValueChanged()"></dx-text-area>
+    </div>
+
+  </dx-form>
+</dx-validation-group>

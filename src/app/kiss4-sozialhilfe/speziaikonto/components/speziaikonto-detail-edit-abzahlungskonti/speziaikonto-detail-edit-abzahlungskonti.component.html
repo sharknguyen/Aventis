@@ -1,0 +1,318 @@
+<dx-validation-group #validationGroup>
+  <dx-form [showColonAfterLabel]="false">
+    <dxi-item itemType="group" [colCount]="12">
+
+      <dxi-item itemType="group" [colSpan]="6">
+        <dxi-item [template]="'BezeichnungTemplate'">
+          <dxo-label [text]="'CtlSpeziaikonto.Label.Bezeichnung' | translate"></dxo-label>
+          <dxi-validation-rule type="required"></dxi-validation-rule>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="empty" [colSpan]="6"></dxi-item>
+
+      <dxi-item itemType="group" [colSpan]="6">
+        <dxi-item [template]="'BelastungvonTemplate'">
+          <dxo-label [text]="'CtlSpeziaikonto.Label.BelastungVon' | translate"></dxo-label>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="empty" [colSpan]="6"></dxi-item>
+
+      <dxi-item itemType="group" [colSpan]="6">
+        <dxi-item [template]="'GutschriftaufTemplate'">
+          <dxo-label [text]="'CtlSpeziaikonto.Label.GutschriftAuf' | translate"></dxo-label>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="empty" [colSpan]="6"></dxi-item>
+
+      <dxi-item itemType="group" [colSpan]="6">
+        <dxi-item [template]="'PersonTemplate'">
+          <dxo-label [text]="'CtlSpeziaikonto.Label.Person' | translate"></dxo-label>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="empty" [colSpan]="6"></dxi-item>
+
+      <dxi-item itemType="group" [colSpan]="5">
+        <dxi-item [template]="'AbzuzahlenderBetragTemplate'">
+          <dxo-label [text]="'CtlSpeziaikonto.Label.AbzuzahlenderBetrag' | translate"></dxo-label>
+          <dxi-validation-rule type="required"></dxi-validation-rule>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="empty" [colSpan]="7"></dxi-item>
+
+      <dxi-item itemType="group" [colSpan]="5">
+        <dxi-item [template]="'MonatlicherBetragTemplate'">
+          <dxo-label [text]="'CtlSpeziaikonto.Label.MonatlicherBetrag' | translate"></dxo-label>
+          <dxi-validation-rule type="required"></dxi-validation-rule>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="empty" [colSpan]="7"></dxi-item>
+
+      <dxi-item itemType="group" [colSpan]="4">
+        <dxi-item [template]="'GultigvonTemplate'">
+          <dxo-label [text]="'CtlSpeziaikonto.Label.GultigVon' | translate"></dxo-label>
+          <dxi-validation-rule type="required"></dxi-validation-rule>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="group" [colSpan]="2">
+        <dxi-item [template]="'GultigvonNumberboxTemplate'">
+          <dxo-label text=""></dxo-label>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="empty" [colSpan]="6"></dxi-item>
+
+      <dxi-item itemType="group" [colSpan]="4">
+        <dxi-item [template]="'GultigbisTemplate'">
+          <dxo-label [text]="'CtlSpeziaikonto.Label.GultigBis' | translate"></dxo-label>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="group" [colSpan]="2">
+        <dxi-item [template]="'GultigbisNumberboxTemplate'">
+          <dxo-label text=""></dxo-label>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="empty" [colSpan]="6"></dxi-item>
+
+      <dxi-item itemType="group" [colSpan]="12">
+        <dxi-item [template]="'BemerkungenTemplate'">
+          <dxo-label [text]="'CtlSpeziaikonto.Label.Bemerkungen' | translate"></dxo-label>
+        </dxi-item>
+      </dxi-item>
+
+      <dxi-item itemType="group" [colSpan]="6">
+        <dxi-item [template]="'RuckerstattungTemplate'">
+          <dxo-label [text]="'CtlSpeziaikonto.Label.Ruckerstattung' | translate"></dxo-label>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="empty" [colSpan]="6"></dxi-item>
+
+      <dxi-item itemType="group" [colSpan]="12">
+        <dxi-item [template]="'BegrundungAbschlussTemplate'">
+          <dxo-label [text]="'CtlSpeziaikonto.Label.BegrundungAbschluss' | translate"></dxo-label>
+        </dxi-item>
+      </dxi-item>
+
+      <dxi-item itemType="group" [colSpan]="6">
+        <dxi-item [template]="'EinzelzahlungTemplate'">
+          <dxo-label text=" "></dxo-label>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="empty" [colSpan]="6"></dxi-item>
+
+    </dxi-item>
+
+    <div *dxTemplate="let data of 'BezeichnungTemplate'">
+      <dx-text-box #BezeichnungTextBox 
+        [disabled] = "queryBeglichen"
+        (onValueChanged)="onValueChanged()"
+        [(value)]="detailData.NameSpezkonto">
+        <dx-validator>
+          <dxi-validation-rule type="required" [message]="'CtlSpeziaikonto.Message.MessageBezeichnungNull'|translate">
+          </dxi-validation-rule>
+          <dxi-validation-rule type="stringLength" [max]="100" [message]="'CtlSpeziaikonto.Message.MessageMaxlenght'|translate">
+          </dxi-validation-rule>
+        </dx-validator>
+      </dx-text-box>
+    </div>
+
+    <div *dxTemplate="let data of 'BelastungvonTemplate'">
+      <dx-select-box 
+        [disabled]="queryVorhanden"
+        [placeholder]="queryVorhanden ? '' : 'CtlSpeziaikonto.Placeholder' | translate"
+        [(value)]="detailData.BgKostenartID"
+        [dataSource]="dataSourceBgKostenart" 
+        valueExpr="BgKostenartID"
+        displayExpr="Name" 
+        (onFocusIn)="onFocusIn($event, 'selectbox')" 
+        (onKeyDown)="onKeyDown($event)" 
+        (onValueChanged)="onValueChanged()">
+      </dx-select-box>
+    </div>
+
+    <div *dxTemplate="let data of 'GutschriftaufTemplate'">
+      <dx-select-box 
+        [disabled] = "queryVorhanden"
+        [placeholder]="queryVorhanden ? '' : 'CtlSpeziaikonto.Placeholder' | translate"
+        [(value)]="detailData.BgPositionsartID"
+        [dataSource]="dataSourceGutschrift" 
+        valueExpr="BgPositionsartID"
+        displayExpr="Text"
+        (onFocusIn)="onFocusIn($event, 'selectbox')" 
+        (onKeyDown)="onKeyDown($event)" 
+        (onValueChanged)="onValueChanged()">
+      </dx-select-box>
+    </div>
+
+    <div *dxTemplate="let data of 'PersonTemplate'">
+      <dx-select-box 
+        [disabled] = "queryVorhanden"
+        [placeholder]="queryVorhanden ? '' : 'CtlSpeziaikonto.Placeholder' | translate"
+        [(value)]="detailData.BaPersonID"
+        [dataSource]="dataSourceBaPerson" 
+        valueExpr="BaPersonID"
+        displayExpr="NameVorname" 
+        (onFocusIn)="onFocusIn($event, 'selectbox')" 
+        (onKeyDown)="onKeyDown($event)" 
+        (onValueChanged)="onValueChanged()">
+      </dx-select-box>
+    </div>
+
+    <div *dxTemplate="let data of 'AbzuzahlenderBetragTemplate'">
+      <div class="unit">
+        <dx-number-box 
+          #AbzuzahlenderBetrag
+          [disabled] = "queryBeglichen"
+          [format]="formatNumberDefault"
+          class="numberbox"
+          valueChangeEvent="keyup change focusout"
+          [(value)]="detailData.StartSaldo"
+          (onValueChanged)="onValueChanged()"
+          (onKeyDown)="onKeyDownNumberBox($event,'StartSaldo')">
+          <dx-validator>
+            <dxi-validation-rule type="required" [message]="'CtlSpeziaikonto.Message.MessageEmptyAbzuzahlenderBetrag' | translate">
+            </dxi-validation-rule>
+            <dxi-validation-rule type="range" *ngIf="!isEdit" [min]="0" [message]="'Die Summe aller Einzelzahlungen (0.00) übersteigt das Abzahlungsziel ( ' + detailData.StartSaldo + ('CtlSpeziaikonto.Message.MessageBetrag' | translate)">
+            </dxi-validation-rule>
+            <dxi-validation-rule type="range" *ngIf="isEdit" [min]="0" [message]="'CtlSpeziaikonto.Message.MessageStartsaldoEdit' | translate">
+            </dxi-validation-rule>
+            <dxi-validation-rule type="range" [max]="maxValue" [message]="'CtlSpeziaikonto.Message.MessageMaxAbzung' | translate">
+            </dxi-validation-rule>
+          </dx-validator>
+        </dx-number-box>
+        <span>{{'CtlSpeziaikonto.Label.CHF' | translate}}</span>
+      </div>
+    </div>
+
+    <div *dxTemplate="let data of 'MonatlicherBetragTemplate'">
+      <div class="unit">
+        <dx-number-box
+          #MonatlicherBetrag
+          [disabled] = "queryBeglichen"
+          [format]="formatNumberDefault"
+          class="numberbox"
+          valueChangeEvent="keyup change focusout"
+          [(value)]="detailData.BetragProMonat"
+          (onValueChanged)="onValueChanged()"
+          (onKeyDown)="onKeyDownNumberBox($event,'BetragProMonat')">
+          <dx-validator>
+            <dxi-validation-rule type="required" [message]="'CtlSpeziaikonto.Message.MessageMonatlicherBetragNull' | translate">
+            </dxi-validation-rule>
+            <dxi-validation-rule type="range" [min]="1" [message]="'CtlSpeziaikonto.Message.MessageRangeMonatlicherBetrag' | translate">
+            </dxi-validation-rule>
+          </dx-validator>
+        </dx-number-box>
+        <span>{{'CtlSpeziaikonto.Label.CHF' | translate}}</span>
+      </div>
+    </div>
+
+    <div *dxTemplate="let data of 'GultigvonTemplate'">
+      <dx-select-box 
+        [disabled] = "queryVorhanden"
+        [placeholder]="queryVorhanden ? '' : 'CtlSpeziaikonto.Placeholder' | translate"
+        [(value)]="detailData.DatumVonMonat"
+        [dataSource]="monat" 
+        valueExpr="code" 
+        displayExpr="shortText" 
+        (onFocusIn)="onFocusIn($event, 'selectbox')" 
+        (onKeyDown)="onKeyDown($event)" 
+        (onValueChanged)="onValueChanged()">
+        <dx-validator>
+          <dxi-validation-rule type="required" [message]="'CtlSpeziaikonto.Message.MessageDatumVonNull' | translate">
+          </dxi-validation-rule>
+        </dx-validator>
+      </dx-select-box>
+    </div>
+
+    <div *dxTemplate="let data of 'GultigvonNumberboxTemplate'">
+      <dx-number-box
+        #GultigvonNumberbox
+        [disabled] = "queryVorhanden"
+        [placeholder]="queryVorhanden ? '' : 'CtlSpeziaikonto.Placeholder' | translate"
+        class="numberbox"
+        valueChangeEvent="keyup change focusout"
+        [(value)]="detailData.DatumVonJahr"
+        (onValueChanged)="onValueChanged()"
+        [format]="formatNumberInteger"
+        (onKeyDown)="onKeyDownNumberBox($event,'DatumVonJahr')">
+        <dx-validator> 
+          <dxi-validation-rule type="required"  [message]="'CtlSpeziaikonto.Message.MessageDatumVonNull' | translate"></dxi-validation-rule>
+          <dxi-validation-rule type="range" [max]="3000" [min]="2000" [message]="'CtlSpeziaikonto.Message.MessageDatumVonOutOfRange'|translate">
+          </dxi-validation-rule>
+        </dx-validator>
+      </dx-number-box>
+    </div>
+
+    <div *dxTemplate="let data of 'GultigbisTemplate'">
+      <dx-select-box
+        disabled="true"
+        placeholder=""
+        [(value)]="detailData.DatumBisMonat"
+        [dataSource]="monat" 
+        valueExpr="code" 
+        displayExpr="shortText" 
+        (onFocusIn)="onFocusIn($event, 'selectbox')" 
+        (onKeyDown)="onKeyDown($event)" 
+        (onValueChanged)="onValueChanged()">
+      </dx-select-box>
+    </div>
+
+    <div *dxTemplate="let data of 'GultigbisNumberboxTemplate'">
+      <dx-number-box
+        #GultigbisNumberbox
+        disabled="true"
+        class="numberbox"
+        valueChangeEvent="keyup change focusout"
+        [(value)]="detailData.DatumBisJahr"
+        (onValueChanged)="onValueChanged()"
+        [format]="formatNumberInteger"
+        (onKeyDown)="onKeyDownNumberBox($event,'DatumBisJahr')">
+        <dx-validator>
+          <dxi-validation-rule type="range" [max]="3000" [min]="2000" [message]="'CtlSpeziaikonto.Message.MessageDatumBisOutOfRange'|translate">
+          </dxi-validation-rule>
+        </dx-validator>
+      </dx-number-box>
+    </div>
+
+    <div *dxTemplate="let data of 'BemerkungenTemplate'">
+      <dx-text-area
+        #Bemerkungen
+        [(value)]="detailData.Bemerkung"
+        height='140' 
+        (onValueChanged)="onValueChanged()">
+      </dx-text-area>
+    </div>
+
+    <div *dxTemplate="let data of 'RuckerstattungTemplate'">
+      <dx-select-box 
+        *ngIf="isAbschliessenVisible"
+        [disabled]= "isVisiblePanasch"
+        [placeholder]="isVisiblePanasch ? '' : 'CtlSpeziaikonto.Placeholder' | translate"
+        [(value)]="detailData.AbzahlungskontoRueckerstattungCode"
+        [dataSource]="abzahlungskontoRueckerstattung" 
+        valueExpr="code" 
+        displayExpr="text" 
+        (onFocusIn)="onFocusIn($event, 'selectbox')" 
+        (onKeyDown)="onKeyDown($event)" 
+        (onValueChanged)="onValueChanged()">
+      </dx-select-box>
+    </div>
+
+    <div *dxTemplate="let data of 'BegrundungAbschlussTemplate'">
+      <dx-text-area 
+        #BegrundungAbschluss
+        [disabled]= "isVisiblePanasch"
+        *ngIf = "isAbschliessenVisible"
+        height='140'
+        [(value)]="detailData.AbschlussBegruendung"
+        (onValueChanged)="onValueChanged()">
+      </dx-text-area>
+    </div>
+
+    <div *dxTemplate="let data of 'EinzelzahlungTemplate'">
+      <dx-check-box 
+        [(value)]="detailData.OhneEinzelzahlung"
+        class="opacity-text" [text]="'CtlSpeziaikonto.Label.Verrechnung' | translate">
+      </dx-check-box>
+    </div>
+
+  </dx-form>
+</dx-validation-group>

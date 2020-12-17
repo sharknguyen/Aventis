@@ -1,0 +1,37 @@
+{
+    "Gesundheit": {
+        "Button": {
+            "NeueVersicherung": "Neue Versicherung[it]",
+            "Bearbeiten": "Bearbeiten[it]",
+            "PramieBerechnen": "Pramie Berechnen[it]",
+            "Speichern": "Speichern[it]",
+            "Abbrechen": "Abbrechen[it]",
+            "Loschen": "Löschen[it]"
+        },
+        "Detail": {
+            "KVG":"KVG[it]",
+            "VVG":"VVG[it]",
+            "Weitere":"Weitere Infomationen[it]",
+            "Krankenkasse": "Krankenkasse[it]",
+            "Kontaktperson": "Kontaktperson[it]",
+            "Telefon": "Telefon[it]",
+            "Mitglied-Nr": "Mitglied-Nr[it]",
+            "VersichertSeit": "versichert seit[it]",
+            "Grundpramie": "Grundprämie[it]",
+            "Unfall": "Unfall[it]",
+            "GesundhFord": "Gesundh. Förd.[it]",
+            "Pramienverb": "Prämienverb.[it]",
+            "Abklaren": "Abklären[it]",
+            "Umweltabgabe": "Umweltabgabe[it]",
+            "PramieZahlung": "Prämie / Zahlung[it]",
+            "Franchise": "Franchise[it]",
+            "Zusatze": "Zusätze[it]",
+            "IVEingliederung": "IV-Eingliederung[it]",
+            "Pflegedurftig": "pflegedurftig[it]",
+            "PflegeDurch": "Pflege durch[it]",
+            "EVAZDatum": "EVAZ Datum[it]",
+            "Zahnarzt": "Zahnarzt[it]",
+            "Bemerkung": "Bemerkung[it]"
+        }
+    }
+}

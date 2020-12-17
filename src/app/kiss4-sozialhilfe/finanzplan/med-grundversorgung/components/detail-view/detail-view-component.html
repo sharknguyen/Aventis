@@ -1,0 +1,369 @@
+<div class="container-detail__form">
+  <div class="title-display">
+    <span>{{ formData.NameVorname }}</span>
+  </div>
+  <dx-validation-group #validationAhvBeitrage>
+    <dx-form #detailForm [showColonAfterLabel]="false" labelLocation="left" [formData]="" [width]="formWidth">
+      <!--Row 1-->
+      <dxi-item itemType="group" [colCount]="33" [colSpan]="33">
+        <!-- Panel Left-->
+        <dxi-item itemType="group" [colCount]="17" [colSpan]="17">
+          <dxi-item itemType="group" [colSpan]="4">
+            <div class="minus-align">
+              <span>{{ 'MedGrundversorgung.Detail.KVG_max_Beitrag' | translate}}</span>
+            </div>
+          </dxi-item>
+          <dxi-item itemType="group" [colSpan]="13">
+            <div class="minus-align">
+              <span>{{ formData.BgPositionsartID }} </span>
+            </div>
+          </dxi-item>
+        </dxi-item>
+        <dxi-item itemType="group" [colSpan]="1">
+          <div class="minus-align">
+            <span></span>
+          </div>
+        </dxi-item>
+        <!-- Panel Right-->
+        <dxi-item itemType="group" [colCount]="15" [colSpan]="15">
+          <dxi-item itemType="group" [colSpan]="6">
+            <div class="minus-align text-content-left">
+              <span>{{ formData.KVGLimit }}</span>
+            </div>
+          </dxi-item>
+          <dxi-item itemType="empty" [colSpan]="9">
+          </dxi-item>
+        </dxi-item>
+      </dxi-item>
+      <!--Row 2-->
+      <dxi-item itemType="group" [colCount]="33" [colSpan]="33">
+        <!-- Panel Left-->
+        <dxi-item itemType="group" [colCount]="17" [colSpan]="17">
+          <dxi-item itemType="group" [colSpan]="4">
+            <div class="minus-align">
+              <span>&nbsp;</span>
+            </div>
+          </dxi-item>
+          <dxi-item itemType="group" [colSpan]="6">
+            <div class="minus-align">
+              <span>{{ 'MedGrundversorgung.Detail.Effektiv' | translate}}</span>
+            </div>
+          </dxi-item>
+          <dxi-item itemType="group" [colSpan]="1">
+            <div class="minus-align text-content-left">
+              <span></span>
+            </div>
+          </dxi-item>
+          <dxi-item itemType="group" [colSpan]="6">
+            <div class="minus-align">
+              <span>{{ 'MedGrundversorgung.Detail.Reduktion' | translate}}</span>
+            </div>
+          </dxi-item>
+
+        </dxi-item>
+        <dxi-item itemType="empty" [colSpan]="1">
+        </dxi-item>
+        <!-- Panel Right-->
+        <dxi-item itemType="group" [colCount]="15" [colSpan]="15">
+          <dxi-item itemType="group" [colSpan]="6">
+            <div class="minus-align">
+              <span>{{ 'MedGrundversorgung.Detail.Unterstutzung' | translate}} </span>
+            </div>
+          </dxi-item>
+          <dxi-item itemType="group" [colSpan]="1">
+            <div class="minus-align text-content-left">
+              <span></span>
+            </div>
+          </dxi-item>
+          <dxi-item itemType="group" [colSpan]="6">
+            <div class="minus-align">
+              <span>{{ 'MedGrundversorgung.Detail.Rechnung' | translate}}</span>
+            </div>
+          </dxi-item>
+          <dxi-item itemType="group" [colSpan]="2">
+            <dxo-label text=""></dxo-label>
+          </dxi-item>
+        </dxi-item>
+      </dxi-item>
+      <!--Row 3-->
+      <dxi-item itemType="group" [colCount]="33" [colSpan]="33">
+        <!-- Panel Left-->
+        <dxi-item itemType="group" [colCount]="17" [colSpan]="17">
+          <dxi-item itemType="group" [colSpan]="4">
+            <div class="minus-align">
+              <span>{{ 'MedGrundversorgung.Detail.KVG_Beitrag' | translate}}</span>
+            </div>
+          </dxi-item>
+          <dxi-item itemType="group" [colSpan]="6">
+            <div class="minus-align">
+              <span>{{ formData.KVGBetrag }}</span>
+            </div>
+          </dxi-item>
+          <dxi-item itemType="empty" [colSpan]="1">
+          </dxi-item>
+          <dxi-item itemType="empty" [colSpan]="6">
+          </dxi-item>
+        </dxi-item>
+        <dxi-item itemType="empty" [colSpan]="1">
+        </dxi-item>
+        <!-- Panel Right-->
+        <dxi-item itemType="empty" [colCount]="15" [colSpan]="15">
+        </dxi-item>
+      </dxi-item>
+      <!--Row 4-->
+      <dxi-item itemType="group" [colCount]="33" [colSpan]="33">
+        <!-- Panel Left-->
+        <dxi-item itemType="group" [colCount]="17" [colSpan]="17">
+          <dxi-item itemType="group" [colSpan]="4">
+            <div class="minus-align">
+              <span>{{ 'MedGrundversorgung.Detail.KVG_max_Beitrag' | translate}}</span>
+            </div>
+          </dxi-item>
+          <dxi-item itemType="group" [colSpan]="6">
+            <div class="minus-align">
+              <span>{{ formData.KVGMaxBeitrag }}</span>
+            </div>
+          </dxi-item>
+          <dxi-item itemType="group" [colSpan]="1">
+            <div class="minus-align">
+              <span>-</span>
+            </div>
+          </dxi-item>
+          <dxi-item itemType="group" [colSpan]="6">
+            <div class="minus-align">
+              <span>{{ formData.KVGReduktion }}</span>
+            </div>
+          </dxi-item>
+        </dxi-item>
+        <dxi-item itemType="group" [colSpan]="1">
+          <div class="minus-align">
+            <span>=</span>
+          </div>
+        </dxi-item>
+        <!-- Panel Right-->
+        <dxi-item itemType="group" [colCount]="15" [colSpan]="15">
+          <dxi-item itemType="group" [colSpan]="6">
+            <div class="minus-align text-content-left">
+              <span>{{ formData.KVGUnterstuetzt }}</span>
+            </div>
+          </dxi-item>
+          <dxi-item itemType="empty" [colSpan]="9">
+          </dxi-item>
+        </dxi-item>
+      </dxi-item>
+      <!--Row 5-->
+      <dxi-item itemType="group" [colCount]="33" [colSpan]="33">
+        <!-- Panel Left-->
+        <dxi-item itemType="group" [colCount]="17" [colSpan]="17">
+          <dxi-item itemType="group" [colSpan]="4">
+            <div class="minus-align">
+              <span>{{ 'MedGrundversorgung.Detail.KVG_Beitrag_Differenz' | translate}}</span>
+            </div>
+          </dxi-item>
+          <dxi-item itemType="group" [colSpan]="6">
+            <div class="minus-align">
+              <span>{{ formData.KVGBeitragDiff }}</span>
+            </div>
+          </dxi-item>
+          <dxi-item itemType="empty" [colSpan]="1">
+          </dxi-item>
+          <dxi-item itemType="group" [colSpan]="6" [template]="'checkboxTemplate1'">
+          </dxi-item>
+        </dxi-item>
+        <dxi-item itemType="empty" [colSpan]="1">
+        </dxi-item>
+        <!-- Panel Right-->
+        <dxi-item itemType="group" [colCount]="15" [colSpan]="15">
+          <dxi-item itemType="group" [colSpan]="6">
+            <div class="minus-align text-content-left">
+              <span>{{ formData.KVGUnterstuetztDiff }}</span>
+            </div>
+          </dxi-item>
+          <dxi-item itemType="empty" [colSpan]="1">
+          </dxi-item>
+          <dxi-item itemType="group" [colSpan]="6">
+            <div class="minus-align text-content-left">
+              <span>{{ formData.KVGTotal }}</span>
+            </div>
+          </dxi-item>
+          <dxi-item itemType="empty" [colSpan]="2">
+          </dxi-item>
+        </dxi-item>
+      </dxi-item>
+      <!--Row 6-->
+      <dxi-item itemType="group" [colCount]="33" [colSpan]="33">
+        <!-- Panel Left-->
+        <dxi-item itemType="group" [colCount]="17" [colSpan]="17">
+          <dxi-item itemType="group" [colSpan]="4">
+            <div class="minus-align">
+              <span>{{ 'MedGrundversorgung.Detail.VVG_Beitrag' | translate}}</span>
+            </div>
+          </dxi-item>
+          <dxi-item itemType="group" [colSpan]="6">
+            <div class="minus-align">
+              <span>{{ formData.VVGBetrag }}</span>
+            </div>
+          </dxi-item>
+          <dxi-item itemType="group" [colSpan]="1">
+            <div class="minus-align">
+              <span>-</span>
+            </div>
+          </dxi-item>
+          <dxi-item itemType="group" [colSpan]="6">
+            <div class="minus-align">
+              <span>{{ formData.VVGReduktion }}</span>
+            </div>
+          </dxi-item>
+        </dxi-item>
+        <dxi-item itemType="empty" [colSpan]="1">
+        </dxi-item>
+        <!-- Panel Right-->
+        <dxi-item itemType="group" [colCount]="15" [colSpan]="15">
+          <dxi-item itemType="group" [colSpan]="6">
+            <div class="minus-align text-content-left">
+              <span>{{ formData.VVGUnterstuetzt }}</span>
+            </div>
+          </dxi-item>
+          <dxi-item itemType="empty" [colSpan]="1">
+          </dxi-item>
+          <dxi-item itemType="group" [colSpan]="6">
+            <div class="minus-align text-content-left">
+              <span>{{ formData.VVGTotal }}</span>
+            </div>
+          </dxi-item>
+          <dxi-item itemType="empty" [colSpan]="2">
+          </dxi-item>
+        </dxi-item>
+      </dxi-item>
+      <!--Row 7-->
+      <dxi-item itemType="group" [colCount]="33" [colSpan]="33">
+        <!-- Panel Left-->
+        <dxi-item itemType="group" [colCount]="17" [colSpan]="17">
+          <dxi-item itemType="group" [colSpan]="4">
+            <dxo-label text="&nbsp;"></dxo-label>
+          </dxi-item>
+          <dxi-item itemType="group" [colSpan]="13" [template]="'checkboxTemplate2'">
+          </dxi-item>
+        </dxi-item>
+        <dxi-item itemType="empty" [colSpan]="1">
+        </dxi-item>
+        <!-- Panel Right-->
+        <dxi-item itemType="group" [colCount]="13" [colSpan]="13">
+          <dxi-item itemType="group" [colSpan]="6">
+            <div class="minus-align text-content-left">
+              <span>{{ formData.TotalUnterstuetzt }}</span>
+            </div>
+          </dxi-item>
+          <dxi-item itemType="group" [colSpan]="1">
+            <div class="minus-align text-content-left">
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </div>
+          </dxi-item>
+          <dxi-item itemType="group" [colSpan]="6">
+            <div class="minus-align text-content-left">
+              <span>{{ formData.Total }}</span>
+            </div>
+          </dxi-item>
+        </dxi-item>
+        <dxi-item itemType="empty" [colSpan]="2">
+        </dxi-item>
+      </dxi-item>
+      <!--Row 8-->
+      <dxi-item itemType="group" [colCount]="33" [colSpan]="33">
+        <!-- Panel Left-->
+        <dxi-item itemType="group" [colCount]="17" [colSpan]="17">
+          <dxi-item itemType="group" [colSpan]="4">
+            <div class="minus-align">
+              <span>{{ 'MedGrundversorgung.Detail.VVG_Kasse' | translate}}</span>
+            </div>
+          </dxi-item>
+          <dxi-item itemType="group" [colSpan]="13">
+            <div class="minus-align">
+              <span>{{ formData.InstitutionName }}</span>
+            </div>
+          </dxi-item>
+        </dxi-item>
+        <dxi-item itemType="group" [colSpan]="1">
+          <div class="minus-align">
+            <span></span>
+          </div>
+        </dxi-item>
+        <!-- Panel Right-->
+        <dxi-item itemType="empty" [colSpan]="17">
+        </dxi-item>
+      </dxi-item>
+      <!--Row 9-->
+      <dxi-item itemType="group" [colCount]="33" [colSpan]="33">
+        <!-- Panel Left-->
+        <dxi-item itemType="group" [colCount]="17" [colSpan]="17">
+          <dxi-item itemType="group" [colSpan]="4">
+            <div class="minus-align">
+              <span>{{ 'MedGrundversorgung.Detail.VVG_Kasse' | translate}}</span>
+            </div>
+          </dxi-item>
+          <dxi-item itemType="group" [colSpan]="13">
+            <div class="minus-align">
+              <span>{{ formData.VVGInstitutionName }}</span>
+            </div>
+          </dxi-item>
+        </dxi-item>
+        <dxi-item itemType="group" [colSpan]="1">
+          <div class="minus-align">
+            <span></span>
+          </div>
+        </dxi-item>
+        <!-- Panel Right-->
+        <dxi-item itemType="empty" [colSpan]="15">
+        </dxi-item>
+      </dxi-item>
+      <!--Row 10-->
+      <dxi-item itemType="group" [colCount]="33" [colSpan]="33">
+        <!-- Panel Left-->
+        <dxi-item itemType="group" [colCount]="33" [colSpan]="33">
+          <dxi-item itemType="group" [colSpan]="4">
+            <div class="minus-align">
+              <span>{{ 'MedGrundversorgung.Detail.Beschreibung' | translate}}</span>
+            </div>
+          </dxi-item>
+          <dxi-item itemType="group" [colSpan]="29">
+            <div class="minus-align beschreibung-margin">
+              <span>{{ formData.Bemerkung }}</span>
+            </div>
+          </dxi-item>
+        </dxi-item>
+      </dxi-item>
+      <!--Row 11-->
+      <dxi-item itemType="group" [colCount]="33" [colSpan]="33">
+        <!-- Panel Left-->
+        <dxi-item itemType="group" [colCount]="17" [colSpan]="17">
+          <dxi-item itemType="empty" [colSpan]="4">
+          </dxi-item>
+          <dxi-item itemType="group" [colSpan]="6">
+            <div class="minus-align">
+              <span>&nbsp;</span>
+            </div>
+          </dxi-item>
+          <dxi-item itemType="empty" [colSpan]="1">
+          </dxi-item>
+          <dxi-item itemType="empty" [colSpan]="6">
+          </dxi-item>
+        </dxi-item>
+        <dxi-item itemType="empty" [colSpan]="1">
+        </dxi-item>
+        <!-- Panel Right-->
+        <dxi-item itemType="empty" [colCount]="15" [colSpan]="15">
+        </dxi-item>
+      </dxi-item>
+      <div *dxTemplate="let data of 'checkboxTemplate1'">
+        <div class="minus-align">
+          <dx-check-box readOnly="true" [(value)]="formData.KVGBeitragSD" [text]=" 'MedGrundversorgung.Detail.durch_den_SD_ubernommen' | translate"></dx-check-box>
+        </div>
+      </div>
+      <div *dxTemplate="let data of 'checkboxTemplate2'">
+        <div class="minus-align">
+          <dx-check-box readOnly="true" [(value)]="formData.VVGBeitragSD" [text]=" 'MedGrundversorgung.Detail.VVG_Beitrag_wird_durch_den_SD_ubernommen' | translate"></dx-check-box>
+        </div>
+      </div>
+    </dx-form>
+  </dx-validation-group>
+</div>

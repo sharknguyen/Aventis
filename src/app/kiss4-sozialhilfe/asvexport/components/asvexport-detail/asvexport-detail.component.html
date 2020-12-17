@@ -1,0 +1,106 @@
+<div class="container-detail form-content-details">
+    <div class="toolbar-header" (click)="changeCollapseFormContent($event)">
+        <kiss-card-title [titleHeader]="'Asvexport.TitleDetail' | translate" [customizeBtn]="customizeBtn" [isCard]="true"
+            (onCustomizeBtnFn)="toolBarOnItemClick($event)">
+        </kiss-card-title>
+    </div>
+
+    <div class="container-detail__form" [ngClass]="{'container__hide': !isExpand}">
+        <div>
+            <dx-validation-group #validationGroup>
+                <dx-form [showColonAfterLabel]="false">
+                    <dxi-item itemType="group" cssClass="second-group" [colCount]="2">
+                        <dxi-item [template]="'textBoxBemerkungTemplate'" [colSpan]="2">
+                            <dxo-label [text]="'Asvexport.TitleBemerkung' | translate"></dxo-label>
+                        </dxi-item>
+                        <dxi-item itemType="group" cssClass="second-group" [colSpan]="1">
+                            <dxi-item [template]="'selectBoxSektionTemplate'">
+                                <dxo-label [text]="'Asvexport.TitleSektion' | translate" [visible]="isAddNew"></dxo-label>
+                            </dxi-item>
+                        </dxi-item>
+                    </dxi-item>
+                    <div *dxTemplate="let data of 'textBoxBemerkungTemplate'">
+                        <dx-text-box #bemerkung *ngIf="!isReadOnly" class="i025-text-box" id="i025_detail_bemerkung"
+                            [(value)]="txtBemerkung" (onFocusIn)="onFocusIn(bemerkung,'textbox')" (onFocusOut)="onFocusOut($event)"
+                            [accessKey]="1">
+                            <dx-validator>
+                                <dxi-validation-rule type="stringLength" [max]="lengthInput" [message]="'Asvexport.MessageError.ValidateBemerkung' | translate"></dxi-validation-rule>
+                            </dx-validator>
+                        </dx-text-box>
+                        <span *ngIf="isReadOnly">{{this.txtBemerkung}}</span>
+                    </div>
+
+                    <div *dxTemplate="let data of 'selectBoxSektionTemplate'">
+                        <dx-select-box #sektion id="i025_detail_sektion" valueExpr="code" displayExpr="text" [visible]="isAddNew"
+                            (onItemClick)="selectDropdownValue($event)" (onValueChanged)="onChangeSelectBox($event)"
+                            [dataSource]="xOrgUnitData" (onFocusIn)="onFocusIn(sektion,'selectbox')" (onFocusOut)="onFocusOut($event)"
+                            [accessKey]="2" (onKeyDown)="onKeyDownSelectbox($event)" [searchEnabled]="true"></dx-select-box>
+                    </div>
+                </dx-form>
+            </dx-validation-group>
+        </div>
+
+        <div class="container-detail form-content-details">
+            <div class="toolbar-header">
+                <kiss-card-title *ngIf="!isAddNew" id="i025_detail_label-zu-exportierende-eintrage" [titleHeader]="'Asvexport.TitleGridBottom' | translate"
+                    [listBtn]="listBtnBottom" [isCard]="true" (onCustomizeBtnFn)="toolBarOnItemClickBottomGrd($event)"></kiss-card-title>
+                <kiss-card-title *ngIf="isAddNew" id="i025_detail_label-zu-exportierende-eintrage" [titleHeader]="'Asvexport.TitleGridBottomAdd' | translate"
+                    [listBtn]="listBtnBottom" [isCard]="true" (onCustomizeBtnFn)="toolBarOnItemClickBottomGrd($event)"></kiss-card-title>
+            </div>
+
+            <div *ngIf="gridFunctionBottom.model.isFilterBuilder" class="filter-container">
+                <dx-filter-builder [fields]="gridZuExportierendeEintrageBottom.instance.option('columns')" [(value)]="filterAvsBottom">
+                    <dxi-field dataField="NameVorname" [caption]="'Asvexport.GridBottom.TitleName' | translate"></dxi-field>
+                    <dxi-field dataField="BaPersonID" dataType="number" [caption]="'Asvexport.GridBottom.TitlePersonID' | translate"></dxi-field>
+                    <dxi-field dataField="DatumVon" dataType="date" [caption]="'Asvexport.GridBottom.TitleAnmeldung' | translate"></dxi-field>
+                    <dxi-field dataField="DatumBis" dataType="date" [caption]="'Asvexport.GridBottom.TitleAbmeldung' | translate"></dxi-field>
+                    <dxi-field dataField="Widerruf" dataType="boolean" [caption]="'Asvexport.GridBottom.TitleWiderruf' | translate"></dxi-field>
+                    <dxi-field dataField="Problem" [caption]="'Asvexport.GridBottom.TitleProblem' | translate"></dxi-field>
+                </dx-filter-builder>
+                <dx-button [text]="'Asvexport.GridTop.FilterBuilderButton' | translate" type="default" (onClick)="onClickFilterGrid()">
+                </dx-button>
+                <div class="dx-clearfix"></div>
+            </div>
+            <app-grid-function #gridFunctionBottom (onchange)="gridFunctionBottom.model" [keyStorage]="gridFunctionKeyBottom"></app-grid-function>
+            <div class="data-grid-bottom-class">
+                <dx-data-grid id="i025_zu-exportierende-eintrage_grid" #gridZuExportierendeEintrageBottom [dataSource]="dataExportAllGridBottom"
+                    [showBorders]="true" [showColumnLines]="true" [showRowLines]="true" (onContextMenuPreparing)="onContextMenuPreparing($event)"
+                    class="gridBottom" [allowColumnResizing]="true" [columnMinWidth]="50"
+                    (onRowClick)="onRowClick($event)" (onSelectionChanged)="onSelectionChanged()"
+                    [allowColumnReordering]="true" [customizeExportData]="customizeExportData" (onFocusedRowChanged)="onFocusedRowChanged($event)"
+                    (onContentReady)=onContentReady() (onRowPrepared)="onRowPrepared($event)" [filterValue]="gridEintrageFilter" width = "100%">
+                    <dxo-column-chooser #columnChooser [title]="'Asvexport.TitleBenutzerdefiniert' | translate" id="columnChooser"
+                        class="column" [enabled]="false" emptyPanelText=""></dxo-column-chooser>
+                    <dxo-load-panel [enabled]="false"></dxo-load-panel>
+                    <dxo-paging [enabled]="false"></dxo-paging>
+                    <dxo-paging [pageSize]="99999"></dxo-paging>
+                    <dxo-filter-row [visible]="gridFunctionBottom.model.isSearch" applyFilter="Immediately"></dxo-filter-row>
+                    <dxo-header-filter [visible]="gridFunctionBottom.model.isFilter"></dxo-header-filter>
+                    <dxo-group-panel [visible]="gridFunctionBottom.model.isGrouping" [emptyPanelText]="'Asvexport.EmptyPanelText' | translate"></dxo-group-panel>
+                    <dxo-grouping [contextMenuEnabled]="true" #expandGridBottom [autoExpandAll]="false"></dxo-grouping>
+                    <dxo-selection mode="multiple"></dxo-selection>
+                    <dxo-sorting mode="multiple"></dxo-sorting>
+                    <dxi-column dataField="NameVorname" [caption]="'Asvexport.GridBottom.TitleName' | translate"
+                        width="auto"></dxi-column>
+                    <dxi-column dataField="BaPersonID" dataType="number" [caption]="'Asvexport.GridBottom.TitlePersonID' | translate"
+                        width="auto"></dxi-column>
+                    <dxi-column dataField="DatumVon" [caption]="'Asvexport.GridBottom.TitleAnmeldung' | translate"
+                        dataType="date" [format]="dateFormat" width="auto"></dxi-column>
+                    <dxi-column dataField="DatumBis" [caption]="'Asvexport.GridBottom.TitleAbmeldung' | translate"
+                        dataType="date" [format]="dateFormat" width="auto"></dxi-column>
+                    <dxi-column dataField="Widerruf" [caption]="'Asvexport.GridBottom.TitleWiderruf' | translate"
+                        cellTemplate="cellWiderruf" alignment="left" dataType="boolean" width="auto"></dxi-column>
+                    <div *dxTemplate="let data of 'cellWiderruf'" class="grid-content-center">
+                        <dx-check-box [disabled]="true" [(value)]="data.data.Widerruf">
+                        </dx-check-box>
+                    </div>
+                    <dxi-column dataField="Problem" [caption]="'Asvexport.GridBottom.TitleProblem' | translate"
+                        [visible]="isAddNew" width="auto"></dxi-column>
+                    <dxo-search-panel [visible]="gridFunctionBottom.model.isSearchPanel" highlightCaseSensitive="true"></dxo-search-panel>
+                    <dxo-export [enabled]="false" [allowExportSelectedData]="true"></dxo-export>
+                </dx-data-grid>
+            </div>
+        </div>
+    </div>
+</div>
+<kiss-printer #printer></kiss-printer>

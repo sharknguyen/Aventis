@@ -1,0 +1,51 @@
+﻿<kiss-right-component>
+  <app-navigator 
+    id="c007_klientensystem_header" 
+    titleHeader="{{pageTitle}} {{'Klientensystem.Title'| translate}}"
+    [listBtn]="listBtn" 
+    [customizeBtn]="customizeBtn" 
+    (onCustomizeBtnFn)="toolBarOnItemClick($event)">
+  </app-navigator>
+    <div class="container">
+      <div class="container__right-content">
+        <div class="error" *ngIf="remainMessage?.visible">
+          <span class="btn-close-error">
+            <dx-button class="btn-close" (onClick)="onCloseError()" icon="fa fa-times fa-2x">
+            </dx-button>
+          </span>
+          <div class="error-messege">
+            <span class="ico-error">
+              <i class="fa fa-exclamation-circle " aria-hidden="true"></i>
+            </span>
+            <i id="r009_errors-messeger">{{remainMessage?.message}}</i>
+          </div>
+        </div>
+        <kiss-falltrager 
+          [falltraegerData]="falltraegerData">
+        </kiss-falltrager>
+        <div class="grid-table-view">
+          <kiss-bezungspersonen 
+            [bezugspersonenData]="bezugspersonenData" 
+            [isReadOnly]="isReadOnly"
+            [isAbleGlHaushaltOut]="isAbleGlHaushaltOut"
+            [itemSelected]="itemSelected"
+            (checkboxChange)="handleCheckboxChange($event)"
+            (glHaushalOut)="handleGlHaushalOut($event)"
+            (glHaushaltOutFocusItem)="getGlHaushaltOutFocusItem($event)">
+          </kiss-bezungspersonen>
+        </div>
+        <kiss-mietvertrag 
+          *ngIf="!isReadOnly" 
+          [mietvertragData]="mietvertragData">
+        </kiss-mietvertrag>
+        <kiss-mietvertrag-edit 
+          *ngIf="isReadOnly" 
+          [mietvertragData]="mietvertragData" 
+          [comboboxVermieter]="comboboxVermieter"
+          (emitErrorStr)="handleError($event)">
+        </kiss-mietvertrag-edit>
+      </div>
+    </div>
+    <app-popup-confirm [popUpModel]="popUpModel"></app-popup-confirm>
+    <app-popup-concurrency [popUpConcurrencyModel]="popUpConcurrencyModel"></app-popup-concurrency>
+</kiss-right-component>

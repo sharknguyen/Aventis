@@ -1,0 +1,17 @@
+
+.dx-popup-wrapper > .dx-overlay-content {
+    .kw-popup--center &,
+    &.kw-popup--center {
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) scale(1) !important;
+    }
+
+    @media screen and (max-height: 540px) {
+        .kw-popup--scroll &,
+        &.kw-popup--scroll {
+            height: 90vh !important;
+            overflow-y: auto;
+        }
+    }
+}

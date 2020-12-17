@@ -1,0 +1,64 @@
+{
+  "MedGrundversorgung": {
+    "CheckBox": "Nur aktuelle anzeigen",
+    "Title": {
+      "Part1": " > Monatliche KVG- und VVG-Beiträge vom ",
+      "Part2": " bis "
+    },
+    "Grid": {
+      "GultigAb": "Gültig ab",
+      "Name": "Name",
+      "Geburtsdaty": "Geburtsdaty ",
+      "KVG": "KVG",
+      "KVGRed": "KVGRed",
+      "VVG": "VVG",
+      "VVGRed": "VVGRed"
+    },
+    "Detail": {
+      "title": "Detail",
+      "Wohnsituation": "Wohnsituation",
+      "Berechnungsgrundlage": "Berechnungsgrundlage",
+      "hg": "für HG",
+      "ue": "für UE",
+      "Effektive": "Effektive Miet-rsp. Zinskosten",
+      "Ansatz": "Ansatz gemäss Richtlinien",
+      "AngerechneterExkl": "Angerechneter MedGrundversorgunganteil exkl. NK",
+      "AngerechneterInkl": "Angerechneter MedGrundversorgunganteil inkl. NK",
+      "Unterdeckter": "Unterdeckter Anteil zulasten Klient",
+      "EffektiveNebenkosten": "Effektive Nebenkosten",
+      "Begrundungen": "Begründungen",
+      "MedGrundversorgung": "MedGrundversorgung",
+      "BearbeitungAbschliessen": "Bearbeitung abschliessen",
+      "BewilligteWohnostenAnpassen": "bewilligte Wohnosten Anpassen ...",
+      "MedGrundversorgungAnpassen": "MedGrundversorgung Anpassen ...",
+      "Speichern": "Speichern",
+      "Abbrechen": "Abbrechen",
+      "Kennzahlen": "Kennzahlen",
+      "Haushaltsgrosse": "Haushaltsgrösse",
+      "Unterstutzungseinheit": "Unterstützungseinheit",
+      "Grundbedarf": "Grundbedarf",
+      "Bearbeiten": "Bearbeiten",
+      "Begründungen": "Begründungen",
+      "KVG_max_Beitrag": "KVG-max. Beitrag",
+      "Effektiv": "Effektiv",
+      "Reduktion": "Reduktion",
+      "Unterstutzung": "Unterstützung",
+      "Rechnung": "Rechnung",
+      "KVG_Beitrag": "KVG-Beitrag",
+      "KVG_Beitrag_Differenz": "KVG-Beitrag Differenz",
+      "VVG_Beitrag": "VVG-Beitrag",
+      "VVG_Kasse": "VVG Kasse",
+      "Beschreibung": "Beschreibung",
+      "durch_den_SD_ubernommen": "durch den SD übernommen",
+      "VVG_Beitrag_wird_durch_den_SD_ubernommen": "VVG Beitrag wird durch den SD übernommen",
+      "Bearbeitung_Abschilessen": "Bearbeitung Abschilessen",
+      "BeitrageAnpassen":"Beiträge anpassen …"
+    },
+    "PopupConfirm": {
+      "TitleConfirmDate": "Anpassung KVG- und VVG Prämien",
+      "MessageConfirmDate": "Die neuen Ansätze werden automatisch im Masterbudget sowie in sämtlichen noch nicht freigegebenen Monatsbudgets vom unten stehenden Monat an nachgeführt",
+      "MessageChoseDate": "Die neue Kosten gelten ab",
+      "MessageNoData":"Sämtliche Monatsbudgets des Finanzplanes sind bereits bewilligt."
+    }
+  }
+}

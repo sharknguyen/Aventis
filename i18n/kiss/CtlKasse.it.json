@@ -1,0 +1,81 @@
+{
+    "Kasse": {
+        "Button": {
+            "Ausfuhren":"Ausführen[it]",
+            "Auszahlen": "Auszahlen[it]",
+            "Edit": "Bearbeiten[it]",
+            "Save": "Speichern[it]",
+            "Cancel": "Abbrechen[it]",
+            "Search": "Ausführen[it]",
+            "BtnYes": "Ja[it]",
+            "BtnNo": "Nein[it]",
+            "BtnAbbrechenConcurrency": "Abbrechen[it]",
+            "BtnDatenAktualisieren": "Daten aktualisieren[it]"
+        },
+        "Message":{
+            "TitleConfirm": "Bestätigung[it]"
+        },
+        "PageTitle": "Kassenbelege[it]",
+        "FileName": "SH-Kasse[it]",
+        "TitleSearch": "Suchen[it]",
+        "TitleDetail": "Detail[it]",
+        "Detail":{
+            "TitleGroupPerson":"unterstüzte Person[it]",
+            "LabelFieldName":"Name[it]",
+            "LabelFieldStrasse":"Strasse[it]",
+            "LabelFieldPlzOrt": "PLZ / Ort[it]",
+            "LabelFieldGeburt": "Geburtsdatum[it]",
+            "LabelFieldAhvNumber": "AHV-Nummer[it]",
+            "LabelFieldVersNr": "Vers. - Nr.[it]",
+            "TitleGroupBeleg":"Beleg[it]",
+            "LabelFieldBuchungs":"Buchungstext[it]",
+            "LabelFieldBemerkungen":"Bemerkungen[it]",
+            "LabelFieldAuszahlung": "Auszahlung[it]",
+            "LabelFieldBelegerstellerln": "Belegerstellerln[it]",
+            "LabelFieldZustSA": "zust. SA[it]",
+            "LabelFieldAuszahlungAn": "Auszahlung an[it]",
+            "MessConfirmAusfuhren":"Soll der Betrag von CHF {0} an {1} ausbezahlt werden und der Belegstatus entsprechend geändert werden ?[it]",
+            "ConcurrencyMessUpdateRecordDeleted": "Beim Speichern des veränderten Datensatzes ist ein Fehler aufgetreten !​[it]",
+            "MessageConfirmCancelEdit": "Änderungen an diesem Datensatz rückgängig machen ?[it]"
+        },
+        "Search":{
+            "DropDownNoData":"Keine zutreffende, unterstützte Person gefunden[it]",
+            "LabelDropDown":"Fallträger/-in Name[it]",
+            "VerfalldatumVon": "Verfalldatum von[it]",
+            "VerfalldatumBis":" bis[it]",
+            "Belegstatus":"Belegstatus[it]",
+            "NochNichtAusgedruckt":"noch nicht ausgedruckt[it]",
+            "Ausgedruckt":"ausgedruckt[it]",
+            "Gesperrt":"gesperrt[it]",
+            "MessRequireField":"Mindestens eines der Felder 'Person', 'Verfalldatum von', 'Verfalldatum bis' muss ausgefüllt sein![it]"
+        },
+        "Grid": {
+            "BelegNr": "Beleg-Nr.[it]",
+            "Person": "Person[it]",
+            "Verfalldatum": "Verfalldatum[it]",
+            "Buchungstext": "Buchungstext[it]",
+            "Betrag": "Betrag[it]",
+            "ausged": "ausged.[it]",
+            "Status": "Status[it]",
+            "FT":"FT[it]",
+            "Nr":"Nr.[it]",
+            "Name":"Name[it]",
+            "Strasse":"Strasse[it]",
+            "PLZOrt":"PLZOrt[it]",
+            "HideColumn":"Spalte ausblenden[it]",
+            "ExpandCloumnGrouping":"Alles Gruppen erweitern[it]",
+            "UnExpandCloumnGrouping":"Alles Gruppen reduzieren[it]"
+        },
+        "Validation":{
+            "NoData":"Keine Daten[it]",
+            "RemainingValidate": "Ungültige Daten. Bitte geben Sie gültige Eingabewerte ein.[it]",
+            "MessageValidateMaxLength":"Der Inhalt eines Feldes überschreitet die maximal zugelassene Länge.\nBitte kürzen Sie zuerst den Inhalt und versuchen Sie anschliessend nochmals zu speichern.[it]"
+        },
+        "NavigatorPopupConfirm": {
+            "Yes": "Discard[it]",
+            "No": "Abbrechen[it]",
+            "Title": "Bestätigung[it]",
+            "Message": "Sie haben Daten geändert. Möchten Sie das Formular schließen und die Änderungen verwerfen ?[it]"
+          }
+    }
+}

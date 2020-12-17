@@ -1,0 +1,13 @@
+@media only screen and (max-width: 500px) {
+    :host ::ng-deep div.i020-res-edit-button {
+        .dx-button-content{
+            padding: 8px;
+            .dx-button-text{
+                display: none;
+            }
+        }
+        .dx-icon {
+            margin-right: 0;
+        }
+    }
+}

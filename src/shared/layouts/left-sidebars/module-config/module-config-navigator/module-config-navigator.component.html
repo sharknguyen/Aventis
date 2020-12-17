@@ -1,0 +1,6 @@
+<div class="navigation-container">
+  <dx-tree-view class="navigation-tree-view" #moduleConfigNavigator [dataSource]="moduleConfigNavigatorItems"
+    dataStructure="plain" parentIdExpr="parentMenuItemID" keyExpr="menuItemID" displayExpr="text" [width]="'100%'" [noDataText]="''"
+    selectionMode="single" (onContentReady)="onContentReady($event)" (onItemClick)="onItemClick($event)">
+  </dx-tree-view>
+</div>

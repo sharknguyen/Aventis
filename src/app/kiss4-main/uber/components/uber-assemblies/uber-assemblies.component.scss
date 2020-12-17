@@ -1,0 +1,22 @@
+@import 'settings/variables.scss';
+.form-content-details-title {
+    padding-left: $padding-content;
+    font-weight: $label-detail-font-weight;
+}
+.btn-Coppy {
+    padding-right: 15px;
+}
+@media only screen and (max-width: 1500px) {
+    :host ::ng-deep div.responsive-button {
+        .dx-button-content{
+            padding: 8px 8px 8px 8px;
+            .dx-button-text{
+                display: none;
+            }
+        }
+        .dx-icon {
+            margin-right: 0;
+        }
+        
+    }
+}

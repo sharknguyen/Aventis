@@ -1,0 +1,15 @@
+@import 'settings/variables.scss';
+.unit {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    flex-direction: row;
+}
+
+.unit .numberbox {
+    margin-right: 10px;
+}
+
+:host ::ng-deep .numberbox input {
+    text-align: right;
+}

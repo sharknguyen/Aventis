@@ -1,0 +1,62 @@
+﻿{
+  "Versicherungsleistungen": {
+    "List": {
+      "NurAktuelleAnzeigen": "Nur aktuelle anzeigen [en]",
+      "GultigAb": "Gultig ab [en]",
+      "Name": "Name [en]",
+      "Geburtsdatum": "Geburtsdatum [en]",
+      "ArtDerVersicherung": "Art der Versicherung [en]",
+      "Einkommen": "Einkommen [en]",
+      "Betrag": "Betrag [en]",
+      "Bemerkung": "Bemerkung [en]",
+      "ApplyFilter": "Filter anwenden [en]",
+      "EmptyPanelText": "Zu gruppierende Spalten in diesen Bereich ziehen [en]",
+      "NoDataText":"Keine Daten [en]",
+      "Benutzerdefiniert":"Benutzerdefiniert [en]",
+      "Suchen":"Suchen... [en]"
+    },
+    "Form": {
+      "Neues": " Neues Einkommen aus Versicherungsleistungen [en]",
+      "Bearbeiten": "Bearbeiten [en]",
+      "Speichern": "Speichern [en]",
+      "Abbrechen": "Abbrechen [en]",
+      "Loschen": "Löschen [en]",
+      "Person": "Person [en]",
+      "ArtDerVersicherung": "Art der Versicherung [en]",
+      "MonatlichesEinkommen": "Monatliches Einkommen [en]",
+      "EinkommenWird": "Einkommen wird vom Sozialdienst verwaltet [en]",
+      "Beschreibung": "Beschreibung [en]",
+      "Title":"Detail [en]"
+    },
+    "Message": {
+      "DblClick": "Die Angaben wurden in den Zwischenspeicher kopiert. [en]",
+      "ShiftDblClick_1": "Die ID wurde in den Zwischenspeicher kopiert (",
+      "ShiftDblClick_2": "). [en]",
+      "RequiredArtDerVersicherung":"Das Feld 'Art der Versicherung' darf nicht leer bleiben ! [en]",
+      "RequiredEinkommen":"Nicht alle Mussfelder sind ausgefüllt [en]",
+      "InValidData":"Ungültige Daten. Bitte geben Sie gültige Eingabewerte ein. [en]",
+      "ConfirmDelete": "Soll der Datensatz gelöscht werden ? [en]",
+      "Title": "Bestätigung [en]",
+      "ConfirmMessage":"Sie haben Daten geändert. Möchten Sie das Formular schließen und die Änderungen verwerfen ? [en]",
+      "ConfirmDeactive": "Änderungen an diesem Datensatz rückgängig machen ? [en]",
+      "CancelAdd":"Neuen Datensatz wieder löschen ? [en]",
+      "DeleteConcurrency": "Beim Löschen des Datensatzes ist ein Fehler aufgetreten ! [en]",
+      "Delete428": "Es bestehen noch abhängige Daten. Diese müssen zuerst gelöscht werden [en]",
+      "UpdateConcurrency": "Beim Speichern des veränderten Datensatzes ist ein Fehler aufgetreten ! [en]",
+      "UpdateConcurrency409": "Der gewählte Datensatz wurde in der Zwischenzeit von einer anderen Person geändert oder gelöscht. Aktualisieren sie die Daten zuerst, um Ihre Änderungen zu speichern. [en]",
+      "InsertFail":"Das Einfügen eines Datensatzes ist nicht erlaubt ! [en]",
+      "Rights":"Insufficient rights. [en]",
+      "Group":"Zu gruppierende Spalten in diesen Bereich ziehen [en]"
+    },
+    "Button": {
+      "Yes": "Ja [en]",
+      "No": "Nein [en]",
+      "Discard": "Discard [en]",
+      "Abbrechen": "Abbrechen [en]"
+    },
+    "Title": {
+      "String_1": " > Monatliche Versicherungsleistungen vom [en]",
+      "String_2": " bis [en]"
+    }
+  }
+}

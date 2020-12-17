@@ -1,0 +1,12 @@
+@media only screen and (max-width: 1000px) {
+    :host ::ng-deep .i007-button {
+        .dx-button-content {
+            i {
+                margin-right: 0;
+            }
+            .dx-button-text {
+                display: none;
+            }
+         }   
+    }
+  }

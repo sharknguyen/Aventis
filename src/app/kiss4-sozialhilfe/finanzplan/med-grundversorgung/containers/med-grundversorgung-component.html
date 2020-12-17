@@ -1,0 +1,56 @@
+<kiss-right-component>
+  <app-navigator id="i009-medGrundversorgung_header" (dblclick)="onCopyTitle()" [titleHeader]="titleHeader" [listBtn]="listBtn"
+    (onCustomizeBtnFn)="toolBarOnItemClick($event)" (click)="headerClicked$.next(null)"></app-navigator>
+  <div class="container">
+    <div class="container__right-content">
+      <div class="remaining-message" *ngIf="isError" id="i011_validate-message">
+        <span class="remaining-message__btn-container">
+          <dx-button class="remaining-message__btn-close" (onClick)="onCloseError()" icon="fa fa-times fa-2x"></dx-button>
+        </span>
+        <div class="remaining-message__content">
+          <span class="remaining-message__icon"><i class="fa fa-exclamation-circle " aria-hidden="true"></i></span>
+          <i class="remaining-message__text">{{messageErr}}</i>
+        </div>
+      </div>
+      <div class="grid-table-view">
+        <kiss-grid #wohnkostenList 
+          keyExpr="BgPositionID" 
+          idGridName="I009_data-grid" 
+          filterBuilderName="I009_filter-builder"
+          [dataSource]="gridData" 
+          [searchPlaceholder]="'MedGrundversorgung.SearchSuche' | translate" 
+          [noDataText]="'VorlagenKontext.VorlagenkontextDetails.Validation.NoData' | translate"
+          [fileName]="'MedGrundversorgung.TitlePage' | translate" 
+          [columnChooserName]="'MedGrundversorgung.ColumnChooser' | translate"
+          [readOnly]="isGridDisable"
+          [selectedRowKey]="focusedRowKey" 
+          [columnsDef]="columnsDataGrid" 
+          (selectedRow)="onSelectedRow($event)">
+        </kiss-grid>
+      </div>
+      <div class="check-box-nur-aktuelle-anzeigen">
+        <dx-check-box [(value)]="nurAktuelleAnzeigen" [text]="'MedGrundversorgung.CheckBox' | translate"
+          (onValueChanged)="checkboxChange()"></dx-check-box>
+      </div>
+      <div class="container-detail form-content-details" id="i009_detail" >
+        <kiss-med-grundversorgung-detail 
+          #detailForm
+          [(isEditMode)]="isEditMode" 
+          [formData]="detailData"
+          [shPositionTyp]="shPositionTyp"
+          [baInstitution]="baInstitution"
+          [columnsDef]="columnsDef"
+          [bgBewilligungStatusCode]="bgBewilligungStatusCode"
+          [editMask]="editMask"
+          [leistungDatumBis]="leistungDatumBis"
+          [datePopUpList]="datePopUpList"
+          [allowBewilligte]="allowBewilligte"
+          [gridData]="gridData"          
+          (callWhAlleKvgVvgAnpassen)="callWhAlleKvgVvgAnpassen($event)"
+          (enableGrid)="enableGrid($event)"
+          ></kiss-med-grundversorgung-detail>
+      </div>
+    </div>
+  </div>
+</kiss-right-component>
+<kiss-printer #printer></kiss-printer>

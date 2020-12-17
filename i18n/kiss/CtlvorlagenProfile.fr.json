@@ -1,0 +1,63 @@
+﻿{
+  "VorlagenProfile": {
+    "Title": "Vorlagen Profile [fr]",
+    "FilterAnwendenButton": "Filter anwenden [fr]",
+    "Suche": {
+      "TitleSearch": "Profilename [fr]"
+    },
+    "Liste": {
+      "xProfileIDCaption": "ID [fr]",
+      "NameCaption": "Profilname [fr]",
+      "TagsCaption": "Merkmale [fr]"
+    },
+    "Detail": {
+      "Title": "Detail [fr]",
+      "Add": "Neues Vorlagen Profil [fr]",
+      "Edit": "Bearbeiten [fr]",
+      "Save": "Speichern [fr]",
+      "Cancel": "Abbrechen [fr]",
+      "Delete": "Löschen [fr]",
+      "NameCaption": "Profilname [fr]",
+      "TagsCaption": "Merkmale [fr]",
+      "TextAreaCaption": "Beschreibung [fr]"
+    },
+    "Toolbar": {
+      "GridDrucken": "Grid drucken [fr]",
+      "ExcelExport": "Excel Export [fr]",
+      "Spaltenauswahl": "Spaltenauswahl [fr]",
+      "Schnellfilterzeile": "Schnellfilterzeile anzeigen/ausblenden [fr]",
+      "Gruppierungsbereich": "Gruppierungsbereich anzeigen/ausblenden [fr]",
+      "Suche": "Suche anzeigen/ausblenden [fr]",
+      "Filtereditor": "Filtereditor anzeigen/ausblenden [fr]",
+      "GridEinstellungen": "Grid Einstellungen [fr]",
+      "Ausfuhren": "Ausführen [fr]"
+    },
+    "Message": {
+      "Title": "Bestätigung [fr]",
+      "Infomation": "Infomation [fr]",
+      "Add": "Neuen Datensatz wieder löschen ? [fr]",
+      "Edit": "Änderungen an diesem Datensatz rückgängig machen ? [fr]",
+      "Delete": "Soll der Datensatz gelöscht werden ? [fr]",
+      "NameRequired": "Das Feld 'Profilname' darf nicht leer bleiben ! [fr]",
+      "Information": "Information [fr]",
+      "MaxLenght": "Ungültige Daten. Bitte geben Sie gültige Eingabewerte ein. [fr]",
+      "Placeholder": "Wählen... [fr]",
+      "DeleteConcurrency": "Beim Löschen des Datensatzes ist ein Fehler aufgetreten ! [fr]",
+      "Delete428": "Es bestehen noch abhängige Daten. Diese müssen zuerst gelöscht werden [fr]",
+      "UpdateConcurrency": "Beim Speichern des veränderten Datensatzes ist ein Fehler aufgetreten ! [fr]",
+      "UpdateConcurrency409": "Der gewählte Datensatz wurde in der Zwischenzeit von einer anderen Person geändert oder gelöscht. Aktualisieren sie die Daten zuerst, um Ihre Änderungen zu speichern. [fr]",
+      "TextMaxLenght":"Der Inhalt eines Feldes überschreitet die maximal zugelassene Länge. Bitte kürzen Sie zuerst den Inhalt und versuchen Sie anschliessend nochmals zu speichern. [fr]"
+    },
+    "PopupButton": {
+      "Yes": "Ja [fr]",
+      "No": "Nein [fr]",
+      "Language": "de-CH [fr]",
+      "Abbrechen": "Abbrechen [fr]",
+      "DatenAktualisieren": "Daten aktualisieren [fr]",
+      "Ok": "Ok [fr]"
+    },
+    "Grid": {
+      "Suche": "Suche... [fr]"
+    }
+  }
+}

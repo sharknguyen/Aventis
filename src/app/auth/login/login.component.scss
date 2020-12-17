@@ -1,0 +1,85 @@
+// ---------------------------------------------------------------------------
+// Bootstrap variables
+//
+// Override Bootstrap variables here to suite your theme.
+// Copy variables you want to customize from node_modules/bootstrap/scss/_variables.scss
+
+// Components
+//
+// Define common padding and border radius sizes and more.
+$border-radius: 0;
+$border-radius-lg: 0;
+$border-radius-sm: 0;
+$gray-800: #343a40;
+$gray-101: #e4e4e4;
+$green-100: #deebee;
+$green-800: #1a73d8;
+$input-border-color: $gray-800;
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px
+);
+
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px
+);
+// Use Bootstrap defaults for other variables, imported here so we can access all app variables in one place when used
+// in components.
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/media";
+@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/utilities";
+/deep/ .body-loginPage {
+    background-color: #e5e5e5;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.needs-validation .invalid-feedback {
+    display: block;
+}
+.pt-10 {
+    padding-top: ($spacer * 5);
+}
+.pb-10 {
+    padding-bottom: ($spacer * 5);
+}
+@include media-breakpoint-up(sm) {
+    .pt-10 {
+        padding-top: ($spacer * 10);
+    }
+    .pb-10 {
+        padding-bottom: ($spacer * 10);
+    }
+}
+.bg-light-white {
+    background-color: #fff !important;
+    border-color: $gray-800;
+    box-shadow: 0 0 6px 0 rgba($gray-800, 0.75);
+    .card-header {
+        background: $green-100;
+        color: $green-800;
+        border: 1px solid $gray-800;
+        border-bottom-color: transparent;
+        border-bottom-width: 0;
+    }
+    .card-body {
+        background: $gray-101;
+        border: 1px solid $gray-800;
+        border-top-color: transparent;
+    }
+}

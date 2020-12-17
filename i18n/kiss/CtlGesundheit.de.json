@@ -1,0 +1,37 @@
+{
+    "Gesundheit": {
+        "Button": {
+            "NeueVersicherung": "Neue Versicherung",
+            "Bearbeiten": "Bearbeiten",
+            "PramieBerechnen": "Pramie Berechnen",
+            "Speichern": "Speichern",
+            "Abbrechen": "Abbrechen",
+            "Loschen": "Löschen"
+        },
+        "Detail": {
+            "KVG":"KVG",
+            "VVG":"VVG",
+            "Weitere":"Weitere Infomationen",
+            "Krankenkasse": "Krankenkasse",
+            "Kontaktperson": "Kontaktperson",
+            "Telefon": "Telefon",
+            "Mitglied-Nr": "Mitglied-Nr",
+            "VersichertSeit": "versichert seit",
+            "Grundpramie": "Grundprämie",
+            "Unfall": "Unfall",
+            "GesundhFord": "Gesundh. Förd.",
+            "Pramienverb": "Prämienverb.",
+            "Abklaren": "Abklären",
+            "Umweltabgabe": "Umweltabgabe",
+            "PramieZahlung": "Prämie / Zahlung",
+            "Franchise": "Franchise",
+            "Zusatze": "Zusätze",
+            "IVEingliederung": "IV-Eingliederung",
+            "Pflegedurftig": "pflegedurftig",
+            "PflegeDurch": "Pflege durch",
+            "EVAZDatum": "EVAZ Datum",
+            "Zahnarzt": "Zahnarzt",
+            "Bemerkung": "Bemerkung"
+        }
+    }
+}

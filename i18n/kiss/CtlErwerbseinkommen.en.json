@@ -1,0 +1,66 @@
+{
+    "Erwerbseinkommen": {
+        "Title": {
+            "MonatlichesErwerbseinkommen": "Monatliches Erwerbseinkommen [en]",
+            "Vom": "vom [en]",
+            "Bis": "bis [en]",
+            "TitleCancelMessage": "Bestätigung [en]",
+            "ButtonJa": "Ja [en]",
+            "ButtonNein": "Nein [en]"
+        },
+        "View": {
+            "NeuesErwerbseinkommen": "Neues Erwerbseinkommen [en]",
+            "Bearbeiten": "Bearbeiten [en]",
+            "Speichern": "Speichern [en]",
+            "Abbrechen": "Abbrechen [en]"
+        },
+        "Messager": {
+            "CopyTitle": "Die Angaben wurden in den Zwischenspeicher kopiert. [en]",
+            "CopyIdTitle1": "Die [en]",
+            "CopyIdTitle2": "wurde in den Zwischenspeicher kopiert [en]",
+            "notPermistion": "Insufficient rights [en]",
+            "DasFeldHead": "Das Feld [en]",
+            "DasFeldEnd": "darf nicht leer bleiben ! [en]",
+            "PersonsError": "Das Feld 'Persons' darf nicht leer bleiben ! [en]",
+            "EinkommenError": "Das Feld 'Betrag Einkommen' darf nicht leer bleiben ! [en]",
+            "ReduktionError": "Das Feld 'Reduktion Unkosten' darf nicht leer bleiben ! [en]",
+            "UnkostenError": "Das Feld 'Betrag Unkosten' darf nicht leer bleiben ! [en]",
+            "ArtdesEinkommensError": "Das Feld 'Art des Einkommens' darf nicht leer bleiben ! [en]",
+            "Error500": "Arithmetic overflow error converting expression to data type money. [en]",
+            "MainFormError": "Ungültige Daten. Bitte geben Sie gültige Eingabewerte ein. [en]",
+            "CancelEdit": "Änderungen an diesem Datensatz rückgängig machen ? [en]",
+            "NumberMoneyError": "Arithmetic overflow error converting expression to data type money. \n  The statement has been terminated. [en]",
+            "PlaceholderGroupGrid": "Zu gruppierende Spalten in diesen Bereich ziehen [en]"
+        },
+        "Feld": {
+            "Person": "Person [en]",
+            "ArtdesEinkommens": "Art des Einkommens [en]",
+            "vonSDverwaltet": "von SD verwaltet [en]",
+            "MonatlichesEinkomemen": "Monatliches Einkomemen [en]",
+            "EffektiveErwebsunkosten": "Effektive Erwebsunkosten [en]",
+            "Beschreigung": "Beschreibung [en]",
+            "Effektiv": "Effektiv [en]",
+            "Angerechnet": "Angerechnet [en]",
+            "Total": "Total [en]"
+
+        },
+        "List": {
+            "NurAkktuelleAnzeigen": "Nur aktuelle anzeigen [en]",
+            "GultigAb": "Gültig ab [en]",
+            "Name": "Name [en]",
+            "Geburtsdatum": "Geburtsdatum [en]",
+            "ArtDesEinkommens": "Art des Einkommens [en]",
+            "Einkommen": "Einkommen [en]",
+            "Unkosten": "Unkosten [en]",
+            "Reduktion": "Reduktion [en]",
+            "groupingHeaderRightClick": "Nach dieser Spalte gruppieren [en]",
+            "unAllGroupingHeaderRightClick": "Alle Gruppierung entfernen [en]",
+            "hideColumn": "Spalte ausblenden [en]",
+            "expandCloumnGrouping": "Alles Gruppen erweitern [en]",
+            "unExpandCloumnGrouping": "Alles Gruppen reduzieren [en]",
+            "emptyPanelText": "Zu gruppierende Spalten in diesen Bereich ziehen [en]",
+            "columnChooser": "Benutzerdefiniert [en]"
+        }
+
+    }
+}

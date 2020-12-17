@@ -1,0 +1,17 @@
+<div class="h010-tab-module-fallbearbeitung">
+    <div class="tab-module-zeitachse">
+        <div class="module-icon" *ngFor="let icon of moduleIcon">
+            <div [id]="icon.shortName" class="img-module-icon" [ngClass]="icon.shortName === selectedShortName ? 'img-module-icon-active' : ''"
+                [style.background-image]="'url(' + module_icon_folder_path + icon.iconID + '.png)'" (click)="onSelectedTabChanged(icon.shortName)">
+            </div>
+        </div>
+        <div class="zeitachse-icon" *ngIf="isVisibleZeitachse">
+            <button disabled="isDisabledZeitachse">
+                <div class="img-zeitachse"></div>
+            </button>
+        </div>
+    </div>
+    <kiss-fa-modul-tree *ngIf="selectedShortName == FallfuhrungTreeConstant.codeF"></kiss-fa-modul-tree>
+    <kiss-sozialhilfe-tree *ngIf="selectedShortName == FallfuhrungTreeConstant.codeS"></kiss-sozialhilfe-tree>
+    <kiss-fallfuhrung-tree *ngIf="selectedShortName == FallfuhrungTreeConstant.codeB"></kiss-fallfuhrung-tree>
+</div>

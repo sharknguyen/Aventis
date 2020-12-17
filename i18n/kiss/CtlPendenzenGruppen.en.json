@@ -1,0 +1,56 @@
+{
+  "PendenzenGruppen": {
+    "Title": "Gruppen [en]",
+    "GruppenName": "Name [en]",
+    "GruppenID": "ID [en]",
+    "Description": "Beschreibung [en]",
+    "Suchen": "Suchen [en]",
+    "Ausführen": "Ausführen [en]",
+    "PendenzengruppenDetails": {
+      "TitleDetail": "Detail [en]",
+      "Placeholder": "Suchen ... [en]",
+      "Validation": {
+        "NoData": "Keine Daten [en]"
+      }
+    },
+    "Button": {
+      "Add": "Neuer Gruppen [en]",
+      "Edit": "Bearbeiten [en]",
+      "Save": "Speichern [en]",
+      "Cancel": "Abbrechen [en]",
+      "Search": "Search [en]"
+    },
+    "NavigatorPopupConfirm": {
+      "Yes": "Discard [en]",
+      "No": "Abbrechen [en]",
+      "Title": "Bestätigung [en]",
+      "Message": "Sie haben Daten geändert. Möchten Sie das Formular schließen und die Änderungen verwerfen ? [en]"
+    },
+    "Message": {
+      "ComfirmYes": "Ja [en]",
+      "ComfirmNo": "Nein [en]",
+      "DeleteAppNew": "Neuen Datensatz wieder löschen ? [en]",
+      "CancelEditModel": "Änderungen an diesem Datensatz rückgängig machen ? [en]",
+      "UpdateComfirmYes": "Abbrechen [en]",
+      "UpdateComfirmNo": "Daten aktualisieren [en]",
+      "Information": "information [en]",
+      "ConcurrencySave": "Beim Speichern des veränderten Datensatzes ist ein Fehler aufgetreten ! [en]",
+      "ConcurrencyDelete": "Beim Löschen des Datensatzes ist ein Fehler aufgetreten ! [en]",
+      "Concurrency409": "Der gewählte Datensatz wurde in der Zwischenzeit von einer anderen Person geändert oder gelöscht.\nAktualisieren sie die Daten zuerst, um Ihre Änderungen zu speichern [en]"
+    },
+    "MessageValidate": {
+      "GruppenName": "Name is required [en]",
+      "FormValidate": "Ungültige Daten. Bitte geben Sie gültige Eingabewerte ein [en]",
+      "MaxLengthField": "Der Inhalt eines Feldes überschreitet die maximal zugelassene Länge. Bitte kürzen Sie zuerst den Inhalt und versuchen Sie anschliessend nochmals zu speichern. [en]"
+    },
+    "Search": {
+      "Name": "Name [en]",
+      "Beschreibung": "Beschreibung [en]"
+    },
+    "DataGrid": {
+      "Kandidaten": "Kandidaten [en]",
+      "Name": "Name Vorname [en]",
+      "Login": "Login [en]"
+    }
+  }
+}

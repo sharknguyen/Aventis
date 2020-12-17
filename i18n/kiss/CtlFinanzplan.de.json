@@ -1,0 +1,32 @@
+{
+  "Finanzplan": {
+    "ClientList" : {
+      "Bezeichnung" : "Bezeichnung",
+      "Betrag": "Betrag",
+      "Total": "Total",
+      "Info": "Info",
+      "Style": "Style",
+      "ApplyFilter": "Filter anwenden",
+      "NoData": "Keine Daten",
+      "FilePdf": "finanzplan"
+    },
+    "Message": {
+      "DoubleClickMessage": "Die Angaben wurden in den Zwischenspeicher kopiert.",
+      "ShiftClickMessage": "Die ID wurde in den Zwischenspeicher kopiert ",
+      "ConfirmDeactive": "Änderungen an diesem Datensatz rückgängig machen ?",
+      "ConfirmMessage":"Sie haben Daten geändert. Möchten Sie das Formular schließen und die Änderungen verwerfen ?"
+    },
+    "HeaderBar": {
+      "FinanzplanVon": "vom",
+      "FinanzplanBis": "bis",
+      "FinanzplanLblTitle": "Übersicht der monatlichen Ein- und Ausgaben"
+    },
+    "TitleCancelMessage": "Bestätigung",
+    "Yes": "Ja",
+    "No": "Nein",
+    "Discard": "Discard",
+    "Abbrechen": "Abbrechen",
+    "TitleInformationMessage": "Information",
+    "ColumnChooser": "Benutzerdefiniert"
+  }
+}

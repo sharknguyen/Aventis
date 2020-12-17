@@ -1,0 +1,10 @@
+<div id="headerBarID">
+  <app-navigator
+    id="i010_zulagen_header"
+    [titleHeader]="info"
+    [listBtn]="listBtn"
+    [customizeBtn]="customizeBtn"
+    (onCustomizeBtnFn)="toolBarOnItemClickTopGrd($event)"
+    (dblclick)="onCopyZulageTitle()">
+  </app-navigator>
+</div>

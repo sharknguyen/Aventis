@@ -1,0 +1,70 @@
+<div *ngIf="_data" class="container-detail form-content-details form-height">
+  <div class="toolbar-header">
+    <kiss-card-title id="I010_detail_header" [titleHeader]="'Versicherungsleistungen.Form.Title' | translate" [listBtn]="listBtn"
+      [isCard]="true" (onCustomizeBtnFn)="onFormAction($event)" [customizeBtn]="customizeBtn">
+    </kiss-card-title>
+  </div>
+  <dx-validation-group #validationVersicherungsleistungen>
+    <dx-form [showColonAfterLabel]="false" [formData]="" class="container-detail__form" [screenByWidth]="screenByWidthSize">
+      <dxi-item itemType="group" [dataField]="" [colCount]="12">
+        <dxi-item itemType="group" [dataField]="" [colSpan]="8">
+          <dxi-item [dataField]="'Versicherungsleistungen.Form.Person' | translate" template="person">
+            <dxo-label [text]="'Versicherungsleistungen.Form.Person' | translate"></dxo-label>
+          </dxi-item>
+          <dxi-item [dataField]="'Versicherungsleistungen.Form.ArtDerVersicherung' | translate" template="artDerVersicherung">
+            <dxo-label [text]="'Versicherungsleistungen.Form.ArtDerVersicherung' | translate"></dxo-label>
+            <dxi-validation-rule type="required"></dxi-validation-rule>
+          </dxi-item>
+          <dxi-item [dataField]="'Versicherungsleistungen.Form.MonatlichesEinkommen' | translate" template="monatlichesEinkommen">
+            <dxo-label [text]="'Versicherungsleistungen.Form.MonatlichesEinkommen' | translate"></dxo-label>
+            <dxi-validation-rule type="required"></dxi-validation-rule>
+          </dxi-item>
+          <dxi-item [dataField]="' '" template="einkommenWirdTemp" editorType="dxCheckBox">
+            <dxo-label [text]="' '"></dxo-label>
+          </dxi-item>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="group" [dataField]="" [colCount]="12">
+        <dxi-item itemType="group" [dataField]="" [colSpan]="12">
+          <dxi-item [dataField]="'Versicherungsleistungen.Form.Beschreibung' | translate" template="beschreibung">
+            <dxo-label [text]="'Versicherungsleistungen.Form.Beschreibung' | translate"></dxo-label>
+          </dxi-item>
+        </dxi-item>
+      </dxi-item>
+
+      <div *dxTemplate="let data of 'person'">
+        <dx-select-box #person [dataSource]="personList" [(value)]="_data.BaPersonID" [displayExpr]="'NameVorname'"
+          [valueExpr]="'BaPersonID'" (onKeyDown)="onKeyDown($event,'person')" (onClosed)="onValueChanged('person')"
+          searchEnabled="true" (onOpened)="selectContentReady($event)">
+        </dx-select-box>
+      </div>
+      <div *dxTemplate="let data of 'artDerVersicherung'">
+        <dx-select-box #artDerVersicherung [dataSource]="artDerVersicherungList" [(value)]="_data.BgPositionsartID"
+          [displayExpr]="'Text'" [valueExpr]="'Code'" (onKeyDown)="onKeyDown($event,'artDerVersicherung')"
+          (onClosed)="onValueChanged('artDerVersicherung')" searchEnabled="true">
+          <dx-validator>
+            <dxi-validation-rule type="required" [message]="'Versicherungsleistungen.Message.RequiredArtDerVersicherung' | translate"></dxi-validation-rule>
+          </dx-validator>
+        </dx-select-box>
+      </div>
+      <div *dxTemplate="let data of 'monatlichesEinkommen'">
+        <dx-number-box #betrag class="kiss-input-right" [(value)]="_data.Betrag" [format]="numberFormat" valueChangeEvent="keyup change focusout"
+          (onValueChanged)="onValueChanged('betrag')" (onKeyDown)="onNumberboxKeyDown($event)">
+          <dx-validator>
+            <dxi-validation-rule *ngIf="allowValidate" type="required" [message]="'Versicherungsleistungen.Message.RequiredEinkommen' | translate"></dxi-validation-rule>
+            <dxi-validation-rule type="range" [min]="minNumber" [max]="maxNumber" [message]="'Aliment.Message.RequiredMonatlichesError' | translate"></dxi-validation-rule>
+          </dx-validator>
+        </dx-number-box>
+      </div>
+      <div *dxTemplate="let data of 'einkommenWirdTemp'">
+        <dx-check-box [accessKey]="6" class="label-text" [(value)]="_data.VerwaltungSD" [text]="'Versicherungsleistungen.Form.EinkommenWird' | translate"
+          (onValueChanged)="onValueChanged('verwaltungSD')">
+        </dx-check-box>
+      </div>
+      <div *dxTemplate="let data of 'beschreibung'">
+        <dx-text-area [(value)]="_data.Bemerkung" height="85" (onKeyDown)="onTextChange($event.event)">
+        </dx-text-area>
+      </div>
+    </dx-form>
+  </dx-validation-group>
+</div>

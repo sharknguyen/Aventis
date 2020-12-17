@@ -1,0 +1,18 @@
+{
+  "SozialhilfeTree": {
+    "neueRegularerFinanzplan" : "neue Regulärer finanzplan ",
+    "neueUberbruckung" : "neue Überbrückung ",
+    "finanzplanloschen" : "Finanzplan löschen ",
+    "neueSozialhilfe" : "Neue Sozialhilfe ",
+    "sozialhilfeloschen" : "Sozialhilfe löschen ",
+    "fallZugriff" : "Fallzugriff ",
+    "fallInfo" : "Fallinfo ",
+    "NeuesMonatsbudgetseinfugen" : "Neues Monatsbudget einfügen ",
+    "MonatsbudgetsanMasterbudget" : "Monatsbudget an Masterbudget anpassen ",
+    "MonatsbudgetsLoschen" : "Monatsbudget löschen ",
+    "NotFoundDelete": "Beim Löschen des Datensatzes ist ein Fehler aufgetreten ! ",
+    "NotFoundUpdate": "Beim Speichern des veränderten Datensatzes ist ein Fehler aufgetreten ! ",
+    "FinanzplanExit": "Diese Leistung kann nicht gelöscht werden. Sie enthält mindestens 1 Finanzplan !",
+    "Concurrency": "Der gewählte Datensatz wurde in der Zwischenzeit von einer anderen Person geändert oder gelöscht. /nAktualisieren sie die Daten zuerst, um Ihre Änderungen zu speichern. "
+  }
+}

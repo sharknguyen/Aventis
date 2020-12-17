@@ -1,0 +1,77 @@
+﻿<kiss-right-component>
+    <app-navigator
+        [titleHeader]="titleText + ' > ' + (formNameForTitle | translate)"
+        [listBtn]="listBtn"
+        (onCustomizeBtnFn)="toolBarOnItemClick($event)">
+    </app-navigator>
+    <div class="container">
+        <div class="container__right-content">
+            <app-remaining-message #remainMessage></app-remaining-message>
+            <kiss-speziaikonto-grid
+                #kissSpeziaikontoGrid
+                [rowSelectedGrid]="seletedRowKeys"
+                (rowSelected)="ischangedetailSelected($event)"
+                [edtAktiv]="edtAktiv"
+                [dataSource]="dsSpezkonto"
+                [isState1]="isState1"
+                [isState2]="isState2"
+                [FaLeistung]="FaLeistung"
+                [isState3]="isState3"
+                [isState4]="isState4"
+                [bgSpezkontoTypCode]="bgSpezkontoTypCode"
+                [isEditMode]="isEditMode"
+                [formName]="formName"
+                (isValueCheckbox)="onCheckBox($event)"
+                (displayDetailWhenGridEmpty)="displayDetailWhenGridEmpty($event)">
+            </kiss-speziaikonto-grid>
+            <kiss-speziaikonto-detail 
+                #speziaikonto
+                [isVorabzugskonti]="isState1"
+                [isAbzahlungskonti]="isState2"
+                [isAusgabekonti]="isState3"
+                [isKurzungen]="isState4"
+                [FaLeistung]="FaLeistung"
+                [dataSource]="dataSourceDetailGrid"
+                [monat]="monat"
+                [edtAktiv]="edtAktiv"
+                [bgSpezkontoTypCode]="bgSpezkontoTypCode"
+                [abzahlungskontoRueckerstattung]="abzahlungskontoRueckerstattung"
+                [dataSourceBaPerson]="dataSourceBaPerson"
+                [detailSelected]="detailSelected"
+                [dataSourceBgKostenart]="dataSourceBgKostenart"
+                [nameMonthVon]="nameMonthVon"
+                [nameMonthBis]="nameMonthBis"
+                [nameRueckerstattung]="nameRueckerstattung"
+                [namePerson]="namePerson"
+                [nameBelastung]="nameBelastung"
+                [nameGutschrift]="nameGutschrift"
+                [dataSourceDatumVon]="dataSourceDatumVon"
+                [dataSourceGutschrift]="dataSourceGutschrift"
+                [isCheckUserRole]="isCheckUserRole"
+                [isAbschliessenVisible]="isAbschliessenVisible"
+                [customizeBtn]="customizeBtn"
+                [isEditMode]="isEditMode"
+                [queryVorhanden]="queryVorhanden"
+                [queryBeglichen]="queryBeglichen"
+                [isVisiblePanasch]="isVisiblePanasch"
+                [maxSanktion]="maxSanktion"
+                [formName]="formName"
+                [isLoadEditBar]="isLoadEditBar"
+                [isDisableKurzungen]="isDisableKurzungen"
+                [isDisableSalo]="isDisableSalo"
+                [isDatumBis]="isDatumBis"
+                (editMode)="checkEditMode($event)"
+                (disableViewModelEventEmitter)="onDisableViewModel($event)"
+                (dataValueChange)="onChangeData($event)"
+                (messageEmitter)="onMessageRemaining($event)"
+                (hideMessageRemaining)="hideMessageRemaining()"
+                (displayButtonWithGrid)="displayButtonWithGrid()">
+            </kiss-speziaikonto-detail>
+        </div>
+    </div>
+</kiss-right-component>
+<app-popup-confirm [popUpModel]="popUpModel"></app-popup-confirm>
+<app-can-deactivate #canDeactivate></app-can-deactivate>
+<app-popup-concurrency-detail [visible]='visibleConcurrencyPopup' (yes)="onConcurrencyYes()" (no)="onConcurrencyNo()"></app-popup-concurrency-detail>
+
+

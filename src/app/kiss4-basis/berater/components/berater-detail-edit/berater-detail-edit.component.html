@@ -1,0 +1,66 @@
+<div class="form-body">
+  <dx-validation-group #validation>
+    <dx-form labelLocation="left" id="C006-detail" #detailBeraterForm
+      [formData]="formData"
+      [showColonAfterLabel]="false"
+      [screenByWidth]="getSizeQualifier"
+      [colCount]="12"
+      (onFieldDataChanged)="onFieldDataChanged($event)">
+      <dxi-item itemType="group" [colSpan]="6">
+        <dxi-item dataField="baInstitutionID" [template]="'institutionTemplate'">
+          <dxo-label [text]="'ExterneBerater.ExterneBeraterSucheBox.Institution' | translate"></dxo-label>
+          <dxi-validation-rule type="required" [message]="'ExterneBerater.ExterneBeraterDetail.InstitutionRequireMessage' | translate"></dxi-validation-rule>
+        </dxi-item>
+        <dxi-item id="C006_detail_anrede" dataField="anrede">
+          <dxo-label [text]="'ExterneBerater.ExterneBeraterSucheBox.Anrede' | translate"></dxo-label>
+          <dxi-validation-rule type="stringLength" [max]="100" [message]="'ExterneBerater.Messgage.CheckMaxLength' | translate"></dxi-validation-rule>
+        </dxi-item>
+        <dxi-item id="C006_detail_name" dataField="name">
+          <dxo-label [text]="'ExterneBerater.ExterneBeraterSucheBox.Name' | translate"></dxo-label>
+          <dxi-validation-rule type="required" [message]="'ExterneBerater.ExterneBeraterDetail.NameRequireMessage' | translate"></dxi-validation-rule>
+          <dxi-validation-rule type="stringLength" [max]="100" [message]="'ExterneBerater.Messgage.CheckMaxLength' | translate"></dxi-validation-rule>
+        </dxi-item>
+        <dxi-item id="C006_detail_vorname" dataField="vorname">
+          <dxo-label [text]="'ExterneBerater.ExterneBeraterSucheBox.Vorname' | translate"></dxo-label>
+          <dxi-validation-rule type="required" [message]="'ExterneBerater.ExterneBeraterDetail.VornameRequireMessage' | translate"></dxi-validation-rule>
+          <dxi-validation-rule type="stringLength" [max]="100" [message]="'ExterneBerater.Messgage.CheckMaxLength' | translate"></dxi-validation-rule>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="group" [colSpan]="6">
+        <dxi-item id="C006_detail_telefon" dataField="telefon">
+          <dxo-label [text]="'ExterneBerater.ExterneBeraterSucheBox.Telefon' | translate"></dxo-label>
+          <dxi-validation-rule type="stringLength" [max]="100" [message]="'ExterneBerater.Messgage.CheckMaxLength' | translate"></dxi-validation-rule>
+        </dxi-item>
+        <dxi-item id="C006_detail_fax" dataField="fax">
+          <dxo-label [text]="'ExterneBerater.ExterneBeraterSucheBox.Fax' | translate"></dxo-label>
+          <dxi-validation-rule type="stringLength" [max]="100" [message]="'ExterneBerater.Messgage.CheckMaxLength' | translate"></dxi-validation-rule>
+        </dxi-item>
+        <dxi-item id="C006_detail_email" dataField="eMail">
+          <dxo-label [text]="'ExterneBerater.ExterneBeraterSucheBox.Email' | translate"></dxo-label>
+          <dxi-validation-rule type="stringLength" [max]="100" [message]="'ExterneBerater.Messgage.CheckMaxLength' | translate"></dxi-validation-rule>
+        </dxi-item>
+        <dxi-item dataField="sprachCode" editorType="dxSelectBox" [editorOptions]="{ dataSource: beraterLanguages, searchEnabled: 'true', valueExpr: 'code', displayExpr: 'text' }">
+          <dxo-label [text]="'ExterneBerater.ExterneBeraterSucheBox.Sprache' | translate"></dxo-label>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item id="C006_detail_benerkung" editorType="dxTextArea" dataField="bemerkung" [colSpan]="12">
+        <dxo-label [text]="'ExterneBerater.ExterneBeraterSucheBox.Bemerkung' | translate"></dxo-label>
+        <div [froalaEditor]="froalaEditorConfig" [(froalaModel)]="formData.bemerkung" width="100%"></div>
+      </dxi-item>
+      <div *dxTemplate="let data of 'institutionTemplate'">
+        <kiss-dropdown-grid
+          [dataSource]="institutions"
+          [columnsDef]="columnsDef"
+          displayExpr="name"
+          validation="required"
+          [(value)]="formData.baInstitutionID"
+          valueExpr="baInstitutionID"
+          keyExpr="index"
+          [noDataText]="'ExterneBerater.Messgage.NoDataText' | translate"
+          [validationMsg]="'ExterneBerater.ExterneBeraterDetail.InstitutionRequireMessage' | translate"
+          (valueChanged)="onFieldDataChanged($event)">
+        </kiss-dropdown-grid>
+      </div>
+    </dx-form>
+  </dx-validation-group>
+</div>

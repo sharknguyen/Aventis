@@ -1,0 +1,371 @@
+<div class="container-detail__form">
+  <dx-validation-group #validationGroup>
+    <dx-form #detailForm
+      [showColonAfterLabel]="false"
+      labelLocation="left"
+      [(formData)]="formData"
+      [screenByWidth]="getSizeQualifier"
+    >
+      <dxi-item itemType="group" [colCount]="12" [colSpan]="12">
+        <!-- Panel Left-->
+        <dxi-item itemType="group" [colSpan]="6">
+
+          <!-- Wohnsituation -->
+          <dxi-item itemType="group" [colCount]="5">
+            <dxi-item itemType="group" [colSpan]="1">
+              <dxo-label [text]="'WohnKosten.Detail.Wohnsituation' | translate"></dxo-label>
+            </dxi-item>
+            <dxi-item itemType="group" [colSpan]="4" [template]="'wohnsituationTemplate'">
+            </dxi-item>
+          </dxi-item>
+
+          <!-- Berechnungsgrundlage -->
+          <dxi-item itemType="group" [colCount]="5">
+            <dxi-item itemType="group" [colSpan]="1">
+              <dxo-label [text]="'WohnKosten.Detail.Berechnungsgrundlage' | translate"></dxo-label>
+            </dxi-item>
+            <dxi-item itemType="group" [colSpan]="4" [template]="'berechnungsgrundlageTemplate'">
+            </dxi-item>
+          </dxi-item>
+
+          <!-- fur HG UE -->
+          <dxi-item itemType="group" [colCount]="5" cssClass="group-field-border-top">
+            <dxi-item itemType="group" [colSpan]="1">
+              <dxo-label text=" " ></dxo-label>
+            </dxi-item>
+            <dxi-item itemType="group" [colSpan]="2">
+              <dxo-label [text]="'WohnKosten.Detail.hg' | translate" ></dxo-label>
+            </dxi-item>
+            <dxi-item itemType="group" [colSpan]="2">
+              <dxo-label [text]="'WohnKosten.Detail.ue' | translate" ></dxo-label>
+            </dxi-item>
+          </dxi-item>
+
+          <!-- Effektive Miet-rsp. Zinskosten -->
+          <dxi-item itemType="group" [colCount]="5">
+            <dxi-item itemType="group" [colSpan]="1">
+              <dxo-label [text]="'WohnKosten.Detail.Effektive' | translate" ></dxo-label>
+              <dxi-validation-rule type="required"></dxi-validation-rule>
+            </dxi-item>
+            <dxi-item itemType="group" [colSpan]="2" [template]="'zinskostenNumberboxHG'">
+            </dxi-item>
+            <dxi-item itemType="group" [colSpan]="2" [template]="'zinskostenNumberboxUE'"></dxi-item>
+          </dxi-item>
+
+          <!-- Ansatz gemäss Richtlinien -->
+          <dxi-item itemType="group" [colCount]="5">
+            <dxi-item itemType="group" [colSpan]="1">
+              <dxo-label [text]="richtlinienTitle" ></dxo-label>
+              <dxi-validation-rule type="required" *ngIf="!disabledRichtlinienUE"></dxi-validation-rule>
+            </dxi-item>
+            <dxi-item itemType="group" [colSpan]="2" [template]="'richtlinienNumberboxHG'"></dxi-item>
+            <dxi-item itemType="group" [colSpan]="2" [template]="'richtlinienNumberboxUE'"></dxi-item>
+          </dxi-item>
+
+          <!-- Angerechneter Wohnkostenanteil exkl. NK -->
+          <dxi-item itemType="group" [colCount]="5" cssClass="group-field-border-top">
+            <dxi-item itemType="group" [colSpan]="1">
+              <dxo-label [text]="'WohnKosten.Detail.AngerechneterExkl' | translate" ></dxo-label>
+            </dxi-item>
+            <dxi-item itemType="empty" [colSpan]="2"></dxi-item>
+            <dxi-item itemType="group" [colSpan]="2" [template]="'exklNumberboxUE'"></dxi-item>
+          </dxi-item>
+
+          <!-- Unterdeckter Anteil zulasten Klient -->
+          <dxi-item itemType="group" [colCount]="5">
+            <dxi-item itemType="group" [colSpan]="1">
+                <dxo-label [text]="'WohnKosten.Detail.Unterdeckter' | translate" ></dxo-label>
+            </dxi-item>
+            <dxi-item itemType="empty" [colSpan]="2"></dxi-item>
+            <dxi-item itemType="group" [colSpan]="2" [template]="'zulastenNumberboxUE'"></dxi-item>
+          </dxi-item>
+
+          <!-- Effektive Nebenkosten -->
+          <dxi-item itemType="group" [colCount]="5" cssClass="group-field-border-top">
+            <dxi-item itemType="group" [colSpan]="1">
+              <dxo-label [text]="'WohnKosten.Detail.Nebenkosten' | translate" ></dxo-label>
+              <dxi-validation-rule type="required"></dxi-validation-rule>
+            </dxi-item>
+            <dxi-item itemType="group" [colSpan]="2" [template]="'nebenkostenNumberboxHG'">
+            </dxi-item>
+            <dxi-item itemType="group" [colSpan]="2" [template]="'nebenkostenNumberboxUE'"></dxi-item>
+          </dxi-item>
+
+          <!-- Angerechneter Wohnkostenanteil inkl. NK -->
+          <dxi-item itemType="group" [colCount]="5">
+              <dxi-item itemType="group" [colSpan]="1">
+                  <dxo-label [text]="'WohnKosten.Detail.AngerechneterInkl' | translate" ></dxo-label>
+              </dxi-item>
+              <dxi-item itemType="empty" [colSpan]="2"></dxi-item>
+              <dxi-item itemType="group" class="pull-right" [colSpan]="2"><span>{{ detailData?.Total | number : '1.2' : 'de-CH' }}</span></dxi-item>
+            </dxi-item>
+        </dxi-item>
+        <dxi-item itemType="empty" [colSpan]="1"></dxi-item>
+        <!-- Panel right-->
+        <dxi-item itemType="group" [colSpan]="5">
+          <dxi-item itemType="group" cssClass="kennzahlen-title">
+            <dxo-label [text]="'WohnKosten.Detail.Kennzahlen' | translate"></dxo-label>
+          </dxi-item>
+          <dxi-item itemType="group" [colCount]="5">
+              <dxi-item itemType="group">
+                <dxi-item itemType="group">
+                  <span class="group-title-label">{{ 'WohnKosten.Detail.Haushaltsgrosse' | translate }}</span>
+                </dxi-item>
+                <dxi-item itemType="group" [colCount]="2">
+                  <dxi-item itemType="group" [colSpan]="2">
+                    <dxo-label [text]="'WohnKosten.Detail.Grundbedarf' | translate"></dxo-label>
+                    <span>{{ whKennzahlenData.HgGrundbedarf }}</span>
+                  </dxi-item>
+                  <dxi-item itemType="group" [colSpan]="2">
+                    <dxo-label [text]="'WohnKosten.Detail.Wohnkosten' | translate"></dxo-label>
+                    <span>{{ whKennzahlenData.HgWohnkosten }}</span>
+                  </dxi-item>
+                  <dxi-item itemType="group" [colSpan]="2" *ngIf="showZuschlagFields">
+                    <dxo-label [text]="'WohnKosten.Detail.Zuschlag' | translate"></dxo-label>
+                    <span>{{ whKennzahlenData.HgZuschlagI }}</span>
+                  </dxi-item>
+                </dxi-item>
+              </dxi-item>
+
+              <dxi-item itemType="group">
+                <dxi-item itemType="group">
+                  <span class="group-title-label">{{ 'WohnKosten.Detail.Unterstutzungseinheit' | translate }}</span>
+                </dxi-item>
+                <dxi-item itemType="group" [colCount]="2">
+                  <dxi-item itemType="group" [colSpan]="2">
+                    <dxo-label [text]="'WohnKosten.Detail.Grundbedarf' | translate"></dxo-label>
+                    <span>{{ whKennzahlenData.UeGrundbedarf }}</span>
+                  </dxi-item>
+                  <dxi-item itemType="group" [colSpan]="2">
+                    <dxo-label [text]="'WohnKosten.Detail.Wohnkosten' | translate"></dxo-label>
+                    <span>{{ whKennzahlenData.UeWohnkosten }}</span>
+                  </dxi-item>
+                  <dxi-item itemType="group" [colSpan]="2" *ngIf="showZuschlagFields">
+                    <dxo-label [text]="'WohnKosten.Detail.Zuschlag' | translate"></dxo-label>
+                    <span>{{ whKennzahlenData.UeZuschlagI }}</span>
+                  </dxi-item>
+                </dxi-item>
+              </dxi-item>
+          </dxi-item>
+        </dxi-item>
+        <!-- Panel right-->
+        <dxi-item itemType="group" [colSpan]="12" cssClass="group-field-border-top">
+          <!-- Begründungen -->
+          <dxi-item itemType="group" [colCount]="12">
+            <dxi-item itemType="group" [colSpan]="1">
+              <dxo-label [text]="'WohnKosten.Detail.Begründungen' | translate"></dxo-label>
+            </dxi-item>
+            <dxi-item itemType="group" [colSpan]="11" [template]="'begrundungenTemplate'">
+            </dxi-item>
+          </dxi-item>
+        </dxi-item>
+      </dxi-item>
+
+      <!-- Template -->
+      <div *dxTemplate="let data of 'wohnsituationTemplate'">
+        <dx-select-box #berechnungsgrundlage
+          [dataSource]="bgPositionsartData"
+          [(value)]="detailData.Wohnsituation"
+          valueExpr="Code"
+          displayExpr="Text"
+          searchEnabled="true"
+          (onKeyDown)="onKeyDown($event)"
+          (onChange)="onChange()"
+          (onValueChanged)="onValueChanged('Wohnsituation')"
+        >
+        </dx-select-box>
+      </div>
+      <div *dxTemplate="let data of 'berechnungsgrundlageTemplate'">
+        <dx-select-box #perechnungsgrundlage
+          [dataSource]="berechnungsgrundlages"
+          [(value)]="detailData.Berechnungsgrundlage"
+          valueExpr="Code"
+          displayExpr="Text"
+          [disabled]="cloneState"
+          searchEnabled="true"
+          (onKeyDown)="onKeyDown($event)"
+          (onChange)="onChange()"
+          (onValueChanged)="onValueChanged('Berechnungsgrundlage')"
+        >
+        </dx-select-box>
+      </div>
+      <div *dxTemplate="let data of 'zinskostenNumberboxHG'">
+        <dx-number-box #betrag class="kiss-input-right-i008" width="100%"
+          [(value)]="detailData.Betrag"
+          [format]="numberBoxFormat"
+          [step]="0"
+          (onChange)="onChange()"
+          (onValueChanged)="onValueChanged('Betrag')"
+          (onKeyDown)="onKeyDownCurrency($event,'Betrag')"
+        >
+          <dx-validator>
+              <dxi-validation-rule
+              type="required"
+              [message]="'WohnKosten.ValidateMessage.MSG_007' | translate">
+            </dxi-validation-rule>
+            <dxi-validation-rule
+              type="custom"
+              [validationCallback]="validationBetrag"
+              [message]="'WohnKosten.ValidateMessage.MSG_016' | translate">
+            </dxi-validation-rule>
+            <dxi-validation-rule
+              type="range"
+              [min]="numberMin"
+              [max]="numberMax"
+              [message]="'WohnKosten.ValidateMessage.MSG_006' | translate">
+            </dxi-validation-rule>
+          </dx-validator>
+        </dx-number-box>
+      </div>
+      <div *dxTemplate="let data of 'zinskostenNumberboxUE'">
+        <dx-number-box #beitrag class="kiss-input-right-i008" width="100%"
+          [(value)]="detailData.Beitrag"
+          [format]="numberBoxFormat"
+          [disabled]="disabledZinskostenUE"
+          [step]="0"
+          (onChange)="onChange()"
+          (onValueChanged)="onValueChanged('Beitrag')"
+          (onKeyDown)="onKeyDownCurrency($event,'Beitrag')"
+        >
+        <dx-validator>
+          <dxi-validation-rule
+            type="required"
+            [message]="'WohnKosten.ValidateMessage.MSG_008' | translate">
+          </dxi-validation-rule>
+          <dxi-validation-rule *ngIf="!disabledZinskostenUE"
+            type="custom"
+            [validationCallback]="validationBetrag"
+            [message]="'WohnKosten.ValidateMessage.MSG_016' | translate">
+          </dxi-validation-rule>
+          <dxi-validation-rule
+            type="range"
+            [min]="numberMin"
+            [max]="numberMax"
+            [message]="'WohnKosten.ValidateMessage.MSG_006' | translate">
+          </dxi-validation-rule>
+        </dx-validator>
+        </dx-number-box>
+      </div>
+      <div *dxTemplate="let data of 'richtlinienNumberboxHG'">
+        <dx-number-box #richtlinienHG class="kiss-input-right-i008" width="100%" *ngIf="visibleRichtlinienHG"
+          [(value)]="detailData.WohnkostenHg"
+          [disabled]="visibleRichtlinienHG"
+          [format]="numberBoxFormat"
+          [step]="0"
+        >
+        </dx-number-box>
+      </div>
+      <div *dxTemplate="let data of 'richtlinienNumberboxUE'">
+        <dx-number-box #maxBeitragSD class="kiss-input-right-i008" width="100%"
+          [disabled]="disabledRichtlinienUE"
+          [(value)]="detailData.MaxBeitragSD"
+          [format]="numberBoxFormat"
+          [step]="0"
+          (onChange)="onChange()"
+          (onValueChanged)="onValueChanged()"
+          (onKeyDown)="onKeyDownCurrency($event,'MaxBeitragSD')"
+        >
+          <dx-validator>
+            <dxi-validation-rule
+              type="required"
+              [message]="'WohnKosten.ValidateMessage.MSG_017' | translate">
+            </dxi-validation-rule>
+            <dxi-validation-rule
+              type="range"
+              [min]="numberMin"
+              [max]="numberMax"
+              [message]="'WohnKosten.ValidateMessage.MSG_006' | translate">
+            </dxi-validation-rule>
+          </dx-validator>
+        </dx-number-box>
+      </div>
+      <div *dxTemplate="let data of 'exklNumberboxUE'">
+        <dx-number-box #exklUE class="kiss-input-right-i008" width="100%"
+          [(value)]="detailData.Angerechnet"
+          [format]="numberBoxFormat"
+          [step]="0"
+          [disabled]="true"
+        >
+        </dx-number-box>
+      </div>
+      <div *dxTemplate="let data of 'zulastenNumberboxUE'">
+        <dx-number-box #zulastenUE class="kiss-input-right-i008" width="100%"
+          [(value)]="detailData.Unterdeckung"
+          [format]="numberBoxFormat"
+          [step]="0"
+          [disabled]="true"
+        >
+        </dx-number-box>
+      </div>
+      <div *dxTemplate="let data of 'nebenkostenNumberboxHG'">
+        <dx-number-box #nkBetrag class="kiss-input-right-i008" width="100%"
+          [(value)]="detailData.NKBetrag"
+          [format]="numberBoxFormat"
+          [step]="0"
+          (onChange)="onChange()"
+          (onValueChanged)="onValueChanged()"
+          (onKeyDown)="onKeyDownCurrency($event,'NKBetrag')"
+        >
+          <dx-validator>
+              <dxi-validation-rule
+              type="required"
+              [message]="'WohnKosten.ValidateMessage.MSG_009' | translate">
+            </dxi-validation-rule>
+            <dxi-validation-rule
+              type="custom"
+              [validationCallback]="validationNKBetrag"
+              [message]="'WohnKosten.ValidateMessage.MSG_018' | translate">
+            </dxi-validation-rule>
+            <dxi-validation-rule
+              type="range"
+              [min]="numberMin"
+              [max]="numberMax"
+              [message]="'WohnKosten.ValidateMessage.MSG_006' | translate">
+            </dxi-validation-rule>
+          </dx-validator>
+        </dx-number-box>
+      </div>
+      <div *dxTemplate="let data of 'nebenkostenNumberboxUE'">
+        <dx-number-box #nkMaxBeitragSD class="kiss-input-right-i008" width="100%"
+          [(value)]="detailData.NKMaxBeitragSD"
+          [disabled]="disableNebenkostenUE"
+          [format]="numberBoxFormat"
+          [step]="0"
+          (onChange)="onChange()"
+          (onValueChanged)="onValueChanged('NKMaxBeitragSD')"
+          (onKeyDown)="onKeyDownCurrency($event,'NKMaxBeitragSD')"
+        >
+          <dx-validator>
+            <dxi-validation-rule
+              type="required"
+              [message]="'WohnKosten.ValidateMessage.MSG_010' | translate">
+            </dxi-validation-rule>
+            <dxi-validation-rule *ngIf="!disableNebenkostenUE"
+              type="custom"
+              [validationCallback]="validationNKBetrag"
+              [message]="'WohnKosten.ValidateMessage.MSG_018' | translate">
+            </dxi-validation-rule>
+            <dxi-validation-rule
+              type="range"
+              [min]="numberMin"
+              [max]="numberMax"
+              [message]="'WohnKosten.ValidateMessage.MSG_006' | translate">
+            </dxi-validation-rule>
+          </dx-validator>
+        </dx-number-box>
+      </div>
+      <div *dxTemplate="let data of 'begrundungenTemplate'">
+        <dx-text-area #bemerkung
+          [(value)]="detailData.Bemerkung"
+          [accessKey]="13"
+          [maxLength]="bemerkungMaxlength"
+          [height]="150"
+          (onInput)="onInput()"
+          (onValueChanged)="onValueChanged('Bemerkung')"
+        >
+        </dx-text-area>
+        <div *ngIf="cloneState"><br/>{{ 'WohnKosten.Detail.BewilligteBtnLabel' | translate }} {{ datePopupSelect?.text }}</div>
+      </div>
+    </dx-form>
+  </dx-validation-group>
+</div>

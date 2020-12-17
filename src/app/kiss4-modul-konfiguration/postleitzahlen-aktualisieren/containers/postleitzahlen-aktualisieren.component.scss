@@ -1,0 +1,22 @@
+.data-grid-top-class {
+    padding: 10px;
+}
+
+.button-confirm {
+    margin-top: 5px;
+    float: right;
+}
+
+@media only screen and (max-width: 1000px) {
+    ::ng-deep div.toolbar-button {
+        .dx-button-content {
+            padding: 8px 0px 8px 8px;
+            .dx-button-text {
+                display: none;
+            }
+            .dx-icon {
+                margin-right: 0;
+            }
+        }
+    }
+}

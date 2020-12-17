@@ -1,0 +1,83 @@
+<div class="toolbar-header">
+    <kiss-card-title
+        [titleHeader]="'J001Landesxindex.Detail' | translate"
+        [isCard]="true"
+        [listBtn]="listBtnBottom"
+        [customizeBtn]="customizeBtn"
+        (onCustomizeBtnFn)="onToolbarItemClick($event)">
+    </kiss-card-title>
+</div>
+
+<div class="form-body">
+    <div id="j001_detail_label_title" class="text-header-bottom-grid-class">
+        {{ 'J001Landesxindex.WerteFurDenAusgewahltenLandesindex' | translate }}
+    </div>
+
+    <div *ngIf="gridFunctionBottom.model.isFilterBuilder" class="filter-container">
+        <dx-filter-builder [(value)]="filter">
+            <dxi-field dataField="jahr" [caption]="'J001Landesxindex.Jahr' | translate" dataType="number"></dxi-field>
+            <dxi-field dataField="monat" [caption]="'J001Landesxindex.Monat' | translate" dataType="number"></dxi-field>
+            <dxi-field dataField="wert" [caption]="'J001Landesxindex.Wert' | translate" dataType="number"></dxi-field>
+        </dx-filter-builder>
+        <dx-button [text]="'DataGrid.FilterBuilder.FilterBuilderButton' | translate" type="default" (onClick)="filterGridData()">
+        </dx-button>
+        <div class="dx-clearfix"></div>
+    </div>
+
+    <app-grid-function #gridFunctionBottom (onchange)="gridFunctionBottom.model" [keyStorage]="gridFunctionKeyBottom"></app-grid-function>
+
+    <div class="grid-table-view">
+        <dx-data-grid #gridLandesxindexBottom id="j001_grid-item2"
+            [dataSource]="landesindexesWertes"
+            [allowColumnReordering]="true"
+            [allowColumnResizing]="true"
+            [columnResizingMode]="'widget'"
+            [showColumnLines]="true"
+            [showRowLines]="true"
+            [showBorders]="true"
+            [selectedRowKeys]="selectedKeysBottom"
+            [filterValue]="gridFilterValue"
+            (onSelectionChanged)="selectionChanged($event)"
+            (onRowClick)="selectRowBottomGrd($event)"
+            (onRowUpdating)="onRowUpdatingBottom($event)"
+            (onEditingStart)="onEditingStartBottom($event)"
+            (onKeyDown)="onKeyPress($event)"
+            (onContextMenuPreparing)="onContextMenuPreparing($event)"
+            (onToolbarPreparing)="toolbarPreparing($event)"
+            (onCellClick)="onCellClickGridBottom($event)">
+            <dxo-search-panel [visible]="gridFunctionBottom.model.isSearchPanel" highlightCaseSensitive="true"></dxo-search-panel>
+            <dxo-filter-row [visible]="gridFunctionBottom.model.isSearch" applyFilter="Immediately"></dxo-filter-row>
+            <dxo-header-filter [visible]="true"></dxo-header-filter>
+            <dxo-selection mode="single"></dxo-selection>
+            <dxo-editing mode="batch" [allowUpdating]="allowUpdatingGrdBottom" [allowAdding]="allowAddingBtm"></dxo-editing>
+            <dxo-group-panel [visible]="gridFunctionBottom.model.isGrouping"></dxo-group-panel>
+            <dxo-grouping #expandGridBottom [contextMenuEnabled]="true"  [autoExpandAll]="false"></dxo-grouping>
+            <dxo-paging [enabled]="false" [pageSize]="99999"></dxo-paging>
+            <dxo-column-chooser [title]="'J001Landesxindex.columnChooserTitle' | translate" [emptyPanelText]="''"></dxo-column-chooser>
+            <dxi-column width="20" caption="" cellTemplate="cellTemplateBtm" alignment="center" [allowEditing]="false" [allowExporting]="false"
+                [allowFiltering]="false" [allowGrouping]="false" [allowHeaderFiltering]="false" [allowHiding]="false" [allowReordering]="false" [allowResizing]="false">
+            </dxi-column>
+            <dxi-column dataField="jahr" [caption]="'J001Landesxindex.Jahr' | translate" [dataType]="'number'" [width]="'auto'" [minWidth]="50">
+                <dxi-validation-rule type="required" [message]="'J001Landesxindex.Msg.NichtAlleMussfelder' | translate"></dxi-validation-rule>
+                <dxi-validation-rule type="pattern" [pattern]="patternInteger" [message]="'J001Landesxindex.Msg.InvalidWert' | translate"></dxi-validation-rule>
+                <dxi-validation-rule type="range" [min]="dateMinFullYear" [max]="dateMaxFullYear" [message]="'J001Landesxindex.Msg.JahrInvalid' | translate"></dxi-validation-rule>
+                <dxi-validation-rule type="custom" [validationCallback]="validationCallbackBottom" [message]="'J001Landesxindex.Msg.CheckExist' | translate"></dxi-validation-rule>
+            </dxi-column>
+            <dxi-column dataField="monat" [caption]="'J001Landesxindex.Monat' | translate" [dataType]="'number'" [width]="'auto'" [minWidth]="50">
+                <dxi-validation-rule type="required" [message]="'J001Landesxindex.Msg.NichtAlleMussfelder' | translate"></dxi-validation-rule>
+                <dxi-validation-rule type="pattern" [pattern]="patternInteger" [message]="'J001Landesxindex.Msg.InvalidWert' | translate"></dxi-validation-rule>
+                <dxi-validation-rule type="range" [min]="dateMinMonth" [max]="dateMaxMonth" [message]="'J001Landesxindex.Msg.MonatInvalid' | translate"></dxi-validation-rule>
+                <dxi-validation-rule type="custom" [validationCallback]="validationCallbackBottom" [message]="'J001Landesxindex.Msg.CheckExist' | translate"></dxi-validation-rule>
+            </dxi-column>
+            <dxi-column dataField="wert" [caption]="'J001Landesxindex.Wert' | translate" [dataType]="'number'" [minWidth]="50">
+                <dxo-format type="fixedPoint" [precision]="2"></dxo-format>
+                <dxi-validation-rule type="range" [max]="maxLengthInput" [min]="minLengthInput" [message]="'J001Landesxindex.Msg.ValidateMaxLengthFieldWert' | translate"></dxi-validation-rule>
+            </dxi-column>
+            <div *dxTemplate="let data of 'cellTemplateBtm'">
+                <i *ngIf="data.key.ikLandesindexWertId == rowSelectedIDBtm && !editingControl.isEditBtm" class="fa fa-caret-right"></i>
+                <i *ngIf="data.key.ikLandesindexWertId == rowSelectedIDBtm && editingControl.isEditBtm" class="fa fa-pencil"></i>
+            </div>
+        </dx-data-grid>
+    </div>
+</div>
+<kiss-printer #printer></kiss-printer>

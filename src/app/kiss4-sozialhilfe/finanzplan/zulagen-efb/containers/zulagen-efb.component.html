@@ -1,0 +1,48 @@
+<kiss-right-component>
+  <kiss-zulagen-header-bar (action)="onHeaderAction($event)" [isEditMode]="isEditMode"
+                           (dblclick)="onDblClickMessage()" [personenData]="personenData"></kiss-zulagen-header-bar>
+  <section id="wrapper-content">
+    <div class="container" id="i010_zulagen">
+      <div class="right-content">
+        <app-remaining-message #remainingMessage></app-remaining-message>
+        <kiss-zulagen-efb-list #zulagenGrid [zulageGridData]="zulageGridData"
+                               [isDisableGrid]="isEditMode"
+                               [anteilSelectBoxData]="anteilSelectBoxData"
+                               [zulageSelectBoxData]="zulageSelectBoxData"
+                               [changeParamAction]="changeParamAction$"
+                               (nurAktuelleAnzeigen)="nurAktuelleAnzeigen($event)"
+                               (rowSelected)="onRowSelectedAction($event)">
+        </kiss-zulagen-efb-list>
+
+        <ng-container
+          *ngIf="isEditMode; then viewForm; else viewMode">
+        </ng-container>
+
+        <ng-template #viewMode>
+          <kiss-zulagen-efb-view #viewForm
+                                 (action)="onHandlerKissCardAction($event)" [dataView]="dataView"
+                                 [zulageSelectBoxData]="zulageSelectBoxData"
+                                 [viewAction]="viewAction$"
+                                 [anteilSelectBoxData]="anteilSelectBoxData">
+          </kiss-zulagen-efb-view>
+        </ng-template>
+
+        <ng-template #viewForm>
+          <kiss-zulagen-efb-form #editForm
+                                 (action)="onHandlerKissCardAction($event)"
+                                 (processAction)="onProcessAction($event)"
+                                 (zulageSelectAction)="onZulageSelectAction($event)"
+                                 (messageAction)="onMessageAction($event)"
+                                 [dataForm]="dataForm" [formAction]="formAction$ | async"
+                                 [positionsartMasterData]="positionsartMasterData"
+                                 [zulageSelectBoxData]="zulageSelectBoxData"
+                                 [isEditMode]="isEditMode"
+                                 [anteilSelectBoxData]="anteilSelectBoxData">
+          </kiss-zulagen-efb-form>
+        </ng-template>
+        <app-popup-confirm [popUpModel]="popUpModel"></app-popup-confirm>
+        <app-popup-concurrency-detail [visible]='visibleConcurrencyPopup' (yes)="onConcurrencyYes()" (no)="onConcurrencyNo()"></app-popup-concurrency-detail>
+      </div>
+    </div>
+  </section>
+</kiss-right-component>

@@ -1,0 +1,57 @@
+{
+    "I001WhLeistung":{
+      "NoData": "Keine Daten",
+      "fileNameExcel": "Sozialhilfe",
+        "Title":{
+            "Eröffnet":"Eröffnet am",
+            "BFS-Leistungsart":"BFS-Leistungsart",
+            "Grund": "Grund",
+            "Abgeschlossen": "Abgeschlossen am",
+            "Gemeindet":"zuständige Gemeinde",
+            "Bemerkung":"Bemerkung",
+            "Vorsaldo":"Vorsaldo Fremdsystem",
+            "Infomationen":"Infomationen",
+            "Perioden":"Perioden",
+            "Status":"Status",
+            "Geplantvon":"Geplant von",
+            "UB":"UB",
+            "Geplantbis":"Geplant bis",
+            "Gultigvon":"Gultig von",
+            "Gultigbis":"Gultig bis",
+            "Hg":"Hg",
+            "Ue":"Ue",
+            "Monatsbudgets":"enthalt Monatsbudgets",
+            "Information":"Information",
+            "TitlePopup": "Bestätigung"
+        },
+        "Button":{
+            "NeueSozialhilfe": "Neue Sozialhilfe",
+            "Bearbeiten":"Bearbeiten",
+            "Speichern":"Speichern",
+            "Abbrechen":"Abbrechen",
+            "Ja":"Ja",
+            "Nein":"Nein",
+            "Discard": "Discard"
+        },
+        "Message":{
+            "Information": "Information",
+            "MessageCanCel":"Änderungen an diesem Datensatz rückgängig machen ?",
+            "MessageRefresh":"Datenansicht trotz der nicht gespeicherten Daten aktualisieren !",
+            "Message8":"Datum von ungültig. Mindestens ein Finanzplan beginnt vor diesem Datum !",
+            "Message14":"Der Fall beginnt nach seinem Ende !",
+            "Message11": "Diese Leistung kann nicht gelöscht werden. Sie enthält mindestens 1 Finanzplan !",
+            "Message17":"Soll der Datensatz gelöscht werden ?",
+            "Message1": "Das Einfügen eines Datensatzes ist nicht erlaubt !",
+            "Message16": "Das Feld 'zuständige Gemeinde' darf nicht leer bleiben !",
+            "DatumVonEmpty": "Das Feld 'Eröffnet am' darf nicht leer bleiben !",
+            "ConfirmDeactive": "You have unsaved changes! If you leave, your changes will be lost !",
+            "DoubleClickMessage": "Die Angaben wurden in den Zwischenspeicher kopiert !",
+            "ShiftClickMessage": "Die ID wurde in den Zwischenspeicher kopiert !",
+            "InValidFormData": "Ungültige Daten. Bitte geben Sie gültige Eingabewerte ein !",
+            "MessageExit": "Sie haben Daten geändert. Möchten Sie das Formular schließen und die Änderungen verwerfen ?",
+            "SaveMessageFirstError": "Es existieren noch ",
+            "SaveMessageLastError": " offene Pendenzen zu der abzuschliessenden Leistung.",
+            "MessageErrorPendenzen": "Beim Speichern des Datensatzes ist ein Fehler aufgetreten !"
+        }
+    }
+}

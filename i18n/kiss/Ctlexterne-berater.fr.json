@@ -1,0 +1,94 @@
+{
+    "ExterneBerater": {
+        "ColumnChooser": "Benutzerdefiniert [fr]",
+        "TitlePage": "KA externe Berater [fr]",
+        "SearchSuche": "Suche... [fr]",
+        "ExterneBeraterDetail": {
+            "ConfirmPopupTitle": "Bestätigung [fr]",
+            "PopupYes": "Ja [fr]",
+            "PopupNo": "Nein [fr]",
+            "InstitutionRequireMessage": "Das Feld 'Institution' darf nicht leer bleiben ! [fr]",
+            "NameRequireMessage": "Das Feld 'Name' darf nicht leer bleiben ! [fr]",
+            "VornameRequireMessage": "Das Feld 'Vorname' darf nicht leer bleiben ! [fr]",
+            "AbbrechenAddnew": "Neuen Datensatz wieder löschen ? [fr]",
+            "AbbrechenDetail": "Änderungen an diesem Datensatz rückgängig machen ? [fr]",
+            "LoschenMessage": "Soll der Datensatz gelöscht werden ? [fr]"
+        },
+        "ExterneBeraterSucheBox": {
+            "TitleSuche": "Suchen [fr]",
+            "Detail": "Detail [fr]",
+            "Institution": "Institution [fr]",
+            "Name": "Name [fr]",
+            "Vorname": "Vorname [fr]",
+            "Email": "Email [fr]",
+            "Telefon": "Telefon [fr]",
+            "Sprache": "Sprache [fr]",
+            "Bemerkung": "Bemerkung [fr]",
+            "Fax": "Fax [fr]",
+            "Anrede": "Anrede [fr]",
+            "Speichern": "Speichern [fr]",
+            "Abbrechen": "Abbrechen [fr]",
+            "NeuerExternerBerater": "Neuer externer Berater [fr]",
+            "Bearbeiten": "Bearbeiten [fr]",
+            "Delete": "Löschen [fr]"
+        },
+        "Messgage": {
+            "DeleteError": "Es bestehen noch abhängige Daten. Diese müssen zuerst gelöscht werden [fr]",
+            "ValidateForm": "Ungültige Daten. Bitte geben Sie gültige Eingabewerte ein. [fr]",
+            "NoDataText": "Keine zutreffenden Institutionen gefunden [fr]",
+            "CheckMaxLength": "Der Inhalt eines Feldes überschreitet die maximal zugelassene Länge. Bitte kürzen Sie zuerst den Inhalt und versuchen Sie anschliessend nochmals zu speichern. [fr]",
+            "MessageErrorEdit": "Beim Speichern des veränderten Datensatzes ist ein Fehler aufgetreten ! [fr]",
+            "MessageDelError": "Beim Löschen des Datensatzes ist ein Fehler aufgetreten ! [fr]"
+        }
+    },
+    "ZulagenEfb": {
+        "Header": {
+            "Vom": "vom [fr]",
+            "Bis": "bis [fr]",
+            "Title": "Monatliche Zulagen und EFB [fr]"
+        },
+        "ClientList": {
+            "NurAktuelleAnzeigen": "Nur aktuelle anzeigen  [fr]",
+            "GultigAb": "Gultig ab [fr]",
+            "Name": "Name [fr]",
+            "Geburtsdatum": "Geburtsdatum [fr]",
+            "Zulage": "Zulage [fr]",
+            "Percent": "% [fr]",
+            "Betrag": "Betrag [fr]",
+            "Bemerkung": "Bemerkung [fr]",
+            "ApplyFilter": "Filter anwenden [fr]",
+            "EmptyPanelText": "Zu gruppierende Spalten in diesen Bereich ziehen [fr]",
+            "NoData": "Keine Daten [fr]",
+            "Caption": "Nach dieser Spalte gruppieren [fr]",
+            "UnGrouping": "Alle Gruppierung entfernen [fr]",
+            "HiddenColum": "Spalte ausblenden [fr]",
+            "ExpandGrouping": "Alles Gruppen erweitern [fr]",
+            "UnExpandGrouping": "Alles Gruppen reduzieren [fr]"
+        },
+        "Form": {
+            "Zulage": "Zulage [fr]",
+            "PercentAnteil": "% Anteil [fr]",
+            "Alleinerziehend": "Alleinerziehend [fr]",
+            "Betrag": "Betrag [fr]",
+            "Beschreibung": "Beschreibung [fr]"
+        },
+        "Message": {
+            "DoubleClickMessage": "Die Angaben wurden in den Zwischenspeicher kopiert. [fr]",
+            "ShiftClickMessage": "Die ID wurde in den Zwischenspeicher kopiert. [fr]",
+            "ConfirmDeactive": "Änderungen an diesem Datensatz rückgängig machen ? [fr]",
+            "ConfirmMessage": "Sie haben Daten geändert. Möchten Sie das Formular schließen und die Änderungen verwerfen ? [fr]",
+            "Max": "Die Zulage kann maximal Fr. [fr]",
+            "Min": "Die Zulage muss mindestens Fr. [fr]",
+            "ZulageBlank": "Das Feld 'Zulage' darf nicht leer bleiben ! [fr]",
+            "AnteilBlank": "Das Feld 'Anteil' darf nicht leer bleiben ! [fr]",
+            "BetragBlank": "Das Feld 'Betrag' darf nicht leer bleiben ! [fr]"
+        },
+        "TitleCancelMessage": "Bestätigung [fr]",
+        "Yes": "Ja [fr]",
+        "No": "Nein [fr]",
+        "Discard": "Discard [fr]",
+        "Abbrechen": "Abbrechen [fr]",
+        "TitleInformationMessage": "Information [fr]",
+        "ColumnChooser": "Benutzerdefiniert [fr]"
+    }
+}

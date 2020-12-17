@@ -1,0 +1,448 @@
+<div class="container-detail__form">
+  <dx-validation-group #validationGroupgrundbedarf>
+    <dx-form id="form-search-i007" labelLocation="left" [showColonAfterLabel]="false" [colCount]="12"
+      [showValidationSummary]="true" [screenByWidth]="getSizeQualifier">
+      <!--------------------------------------------------------- Form edit -------------------------------------------------------------------->
+      <!-- Berechnungsgrundlage select box-->
+      <dxi-item itemType="group" [colSpan]="6" [template]="'BerechnungsgrundlageTemplate'" [editorOptions]="{ width: '100%' }"
+        dataField="berechnungsgrundlage">
+        <dxo-label id="i007_berechnungsgrundlage-label" [text]="'I007GrundBedarf.Berechnungsgrundlage.caption' | translate"></dxo-label>
+      </dxi-item> <!-- The End Berechnungsgrundlage select box-->
+
+      <dxi-item itemType="empty" [colSpan]="6"></dxi-item>
+      <!-- SKOS bzw. interne Richtlinien -->
+      <dxi-item itemType="group" [colCount]="12" [colSpan]="12" [caption]="'I007GrundBedarf.SKOSbzw.caption' | translate"
+        [visible]="visibleGroup.visibleSKOSbzwGroup">
+        <dxi-item itemType="group" [colSpan]="3">
+          <dxi-item itemType="empty" [colSpan]="3"></dxi-item>
+          <dxi-item>
+            <dxo-label [text]="'I007GrundBedarf.SKOSbzw.GrundbedarfI' | translate"></dxo-label>
+          </dxi-item>
+          <dxi-item>
+            <dxo-label [text]="'I007GrundBedarf.SKOSbzw.AnpassungI' | translate"></dxo-label>
+            <dxi-validation-rule type="required"> </dxi-validation-rule>
+          </dxi-item>
+          <dxi-item itemType="empty" [colSpan]="3"></dxi-item>
+          <dxi-item>
+            <dxo-label [text]="'I007GrundBedarf.SKOSbzw.AbzugVVG' | translate"></dxo-label>
+          </dxi-item>
+          <dxi-item>
+            <dxo-label [text]="'I007GrundBedarf.SKOSbzw.Zuschlag' | translate"></dxo-label>
+          </dxi-item>
+          <dxi-item>
+            <dxo-label [text]="'I007GrundBedarf.SKOSbzw.GrundbedarfII' | translate"></dxo-label>
+          </dxi-item>
+          <dxi-item itemType="empty" [colSpan]="3"></dxi-item>
+          <dxi-item itemType="empty" [colSpan]="3"></dxi-item>
+          <dxi-item>
+            <dxo-label [text]="'I007GrundBedarf.SKOSbzw.AnpassungII' | translate"></dxo-label>
+            <dxi-validation-rule type="required"> </dxi-validation-rule>
+          </dxi-item>
+          <dxi-item itemType="empty" [colSpan]="3"></dxi-item>
+          <dxi-item itemType="empty" [colSpan]="3"></dxi-item>
+          <dxi-item>
+            <dxo-label [text]="'I007GrundBedarf.SKOSbzw.Total' | translate"></dxo-label>
+          </dxi-item>
+        </dxi-item>
+        <dxi-item itemType="group" [colSpan]="2">
+          <dxi-item>
+            <dxo-label [text]="'I007GrundBedarf.SKOSbzw.furHG' | translate"></dxo-label>
+          </dxi-item>
+          <dxi-item [template]="'grundbedarfI-furHGTemplate'">
+          </dxi-item>
+          <dxi-item [template]="'anpassungI-furHGTemplate'">
+          </dxi-item>
+          <dxi-item itemType="empty" [colSpan]="2"></dxi-item>
+          <dxi-item [template]="'abzugVVG-furHGTemplate'">
+          </dxi-item>
+          <dxi-item [template]="'zuschlag-furHGTemplate'">
+          </dxi-item>
+          <dxi-item [template]="'grundbedarfII-furHGTemplate'">
+          </dxi-item>
+          <dxi-item itemType="empty" [colSpan]="2"></dxi-item>
+          <dxi-item itemType="empty" [colSpan]="2"></dxi-item>
+          <dxi-item [template]="'anpassungII-furHGTemplate'">
+          </dxi-item>
+          <dxi-item itemType="empty" [colSpan]="2"></dxi-item>
+          <dxi-item itemType="empty" [colSpan]="2"></dxi-item>
+          <dxi-item itemType="empty" [colSpan]="2"></dxi-item>
+          <dxi-item [template]="'total-furHGTemplate'">
+          </dxi-item>
+        </dxi-item>
+        <dxi-item itemType="group" [colSpan]="2">
+          <dxi-item>
+            <dxo-label [text]="'I007GrundBedarf.SKOSbzw.furUE' | translate"></dxo-label>
+          </dxi-item>
+          <dxi-item [template]="'grundbedarfI-furUETemplate'">
+          </dxi-item>
+          <dxi-item [template]="'anpassungI-furUETemplate'">
+          </dxi-item>
+          <dxi-item [template]="'abzugVVG-furUETemplate'">
+          </dxi-item>
+          <dxi-item [template]="'zuschlag-furUETemplate'">
+          </dxi-item>
+          <dxi-item [template]="'grundbedarfII-furUETemplate'">
+          </dxi-item>
+          <dxi-item itemType="empty" [colSpan]="2"></dxi-item>
+          <dxi-item [template]="'anpassungII-furUETemplate'">
+          </dxi-item>
+          <dxi-item [template]="'keineCheckbox-furUETemplate'">
+          </dxi-item>
+          <dxi-item itemType="empty" [colSpan]="2"></dxi-item>
+          <dxi-item [template]="'total-furUETemplate'">
+          </dxi-item>
+        </dxi-item>
+      </dxi-item> <!-- The End SKOS bzw. interne Richtlinien -->
+
+      <!-- SKOS 2005 -->
+      <dxi-item itemType="group" [colCount]="12" [colSpan]="12" [caption]="'I007GrundBedarf.SKOS2005.caption' | translate"
+        [visible]="visibleGroup.visibleSKOS2005Group">
+        <dxi-item itemType="group" [colSpan]="3">
+          <dxi-item>
+            <dxo-label [text]=""></dxo-label>
+          </dxi-item>
+          <dxi-item>
+            <dxo-label [text]=""></dxo-label>
+          </dxi-item>
+          <dxi-item>
+            <dxo-label [text]=""></dxo-label>
+          </dxi-item>
+          <dxi-item>
+            <dxo-label [text]="'I007GrundBedarf.SKOS2005.Grundbedarf' | translate"></dxo-label>
+          </dxi-item>
+          <dxi-item>
+            <dxo-label [text]="'I007GrundBedarf.SKOS2005.Anpassung' | translate"></dxo-label>
+            <dxi-validation-rule type="required"> </dxi-validation-rule>
+          </dxi-item>
+          <dxi-item>
+            <dxo-label [text]=""></dxo-label>
+          </dxi-item>
+          <dxi-item>
+            <dxo-label [text]="'I007GrundBedarf.SKOS2005.AbzugVVG' | translate"></dxo-label>
+          </dxi-item>
+          <dxi-item>
+            <dxo-label [text]="'I007GrundBedarf.SKOS2005.Total' | translate"></dxo-label>
+          </dxi-item>
+        </dxi-item>
+        <dxi-item itemType="group" [colSpan]="2">
+          <dxi-item>
+            <dxo-label [text]="'I007GrundBedarf.SKOS2005.furHG' | translate"></dxo-label>
+          </dxi-item>
+          <dxi-item [template]="'grundbedarf-furHG-SKOS2005Template'">
+          </dxi-item>
+          <dxi-item [template]="'anpassung-furHG-SKOS2005Template'">
+          </dxi-item>
+          <dxi-item itemType="empty" [colSpan]="2"></dxi-item>
+          <dxi-item [template]="'abzugVVG-furHG-SKOS2005Template'">
+          </dxi-item>
+          <dxi-item [template]="'total-furHG-SKOS2005Template'">
+          </dxi-item>
+        </dxi-item>
+        <dxi-item itemType="group" [colSpan]="2">
+          <dxi-item>
+            <dxo-label [text]="'I007GrundBedarf.SKOS2005.furUE' | translate"></dxo-label>
+          </dxi-item>
+          <dxi-item [template]="'grundbedarf-furUE-SKOS2005Template'">
+          </dxi-item>
+          <dxi-item id="i007_skos2005-anpassung-furUE" [template]="'anpassung-furUE-SKOS2005Template'">
+          </dxi-item>
+          <dxi-item itemType="empty" [colSpan]="2"></dxi-item>
+          <dxi-item [template]="'abzugVVG-furUE-SKOS2005Template'">
+          </dxi-item>
+          <dxi-item [template]="'total-furUE-SKOS2005Template'">
+          </dxi-item>
+        </dxi-item>
+        <dxi-item itemType="empty" [colSpan]="5"></dxi-item>
+      </dxi-item> <!-- The End SKOS 2005 -->
+
+      <!-- SKOS Berechnungsgrundlage -->
+      <dxi-item itemType="group" [colCount]="12" [colSpan]="12" [caption]="fraELSE" [visible]="visibleGroup.visibleBerechnungsgrundlageGroup">
+        <dxi-item itemType="group" [colSpan]="3">
+          <dxi-item>
+            <dxo-label [text]=""></dxo-label>
+          </dxi-item>
+          <dxi-item>
+            <dxo-label [text]="lblELSE_Betrag"></dxo-label>
+            <dxi-validation-rule type="required"> </dxi-validation-rule>
+          </dxi-item>
+          <dxi-item>
+            <dxo-label [text]=""></dxo-label>
+          </dxi-item>
+          <dxi-item>
+            <dxo-label [text]="'I007GrundBedarf.Berechnungsgrundlage.Anpassung' | translate"></dxo-label>
+            <dxi-validation-rule type="required"> </dxi-validation-rule>
+          </dxi-item>
+          <dxi-item>
+            <dxo-label [text]=""></dxo-label>
+          </dxi-item>
+          <dxi-item>
+            <dxo-label [text]="'I007GrundBedarf.Berechnungsgrundlage.AbzugVVG' | translate"></dxo-label>
+          </dxi-item>
+          <dxi-item>
+            <dxo-label [text]="'I007GrundBedarf.Berechnungsgrundlage.Total' | translate"></dxo-label>
+          </dxi-item>
+        </dxi-item>
+        <dxi-item itemType="group" [colSpan]="2">
+          <dxi-item [template]="'monatlicher-furHG-berechnungsgrundlageTemplate'">
+          </dxi-item>
+          <dxi-item [template]="'anpassung-furHG-berechnungsgrundlageTemplate'">
+          </dxi-item>
+          <dxi-item itemType="empty" [colSpan]="2"></dxi-item>
+          <dxi-item [template]="'abzugVVG-furHG-berechnungsgrundlageTemplate'">
+          </dxi-item>
+          <dxi-item [template]="'total-furHG-berechnungsgrundlageTemplate'">
+          </dxi-item>
+        </dxi-item>
+        <dxi-item itemType="group" [colSpan]="2">
+          <dxi-item [template]="'monatlicher-furUE-berechnungsgrundlageTemplate'">
+          </dxi-item>
+          <dxi-item [template]="'anpassung-furUE-berechnungsgrundlageTemplate'">
+          </dxi-item>
+          <dxi-item itemType="empty" [colSpan]="2"></dxi-item>
+          <dxi-item [template]="'abzugVVG-furUE-berechnungsgrundlageTemplate'">
+          </dxi-item>
+          <dxi-item [template]="'total-furUE-berechnungsgrundlageTemplate'">
+          </dxi-item>
+        </dxi-item>
+        <dxi-item itemType="empty" [colSpan]="5"></dxi-item>
+      </dxi-item> <!-- The End Berechnungsgrundlage -->
+
+      <!-- Kennzahlen -->
+      <dxi-item itemType="group" [colCount]="12" [colSpan]="12" [caption]="'I007GrundBedarf.Kennzahlen.caption' | translate">
+        <dxi-item itemType="empty" [colSpan]="3"></dxi-item>
+        <dxi-item itemType="group" [colSpan]="2">
+          <dxi-item>
+            <dxo-label [text]="'I007GrundBedarf.Kennzahlen.Haushaltsgrösse.caption' | translate"></dxo-label>
+          </dxi-item>
+          <dxi-item [template]="'grundbedarf-haushaltsgrosse-kennzahlenTemplate'">
+            <dxo-label [text]="'I007GrundBedarf.Kennzahlen.Haushaltsgrösse.Grundbedarf' | translate"></dxo-label>
+          </dxi-item>
+          <dxi-item [template]="'wohnkosten-haushaltsgrosse-kennzahlenTemplate'">
+            <dxo-label [text]="'I007GrundBedarf.Kennzahlen.Haushaltsgrösse.Wohnkosten' | translate"></dxo-label>
+          </dxi-item>
+        </dxi-item>
+        <dxi-item itemType="group" [colSpan]="3">
+          <dxi-item>
+            <dxo-label [text]="'I007GrundBedarf.Kennzahlen.Unterstützungseinheit.caption' | translate"></dxo-label>
+          </dxi-item>
+          <dxi-item [template]="'grundbedarf-unterstutzungseinheit-kennzahlenTemplate'">
+            <dxo-label [text]="'I007GrundBedarf.Kennzahlen.Unterstützungseinheit.Grundbedarf' | translate"></dxo-label>
+          </dxi-item>
+          <dxi-item [template]="'wohnkosten-unterstutzungseinheit-kennzahlenTemplate'">
+            <dxo-label [text]="'I007GrundBedarf.Kennzahlen.Unterstützungseinheit.Wohnkosten' | translate"></dxo-label>
+          </dxi-item>
+          <dxi-item [visible]="visibleComponent.lblUeZuschlagI" [template]="'zuschlagI-unterstutzungseinheit-kennzahlenTemplate'">
+            <dxo-label [text]="'I007GrundBedarf.Kennzahlen.Unterstützungseinheit.ZuschlagI' | translate"></dxo-label>
+          </dxi-item>
+        </dxi-item>
+        <dxi-item itemType="empty" [colSpan]="4"></dxi-item>
+      </dxi-item> <!-- The end Kennzahlen -->
+      <dxi-item itemType="group" [colCount]="12" [colSpan]="12">
+        <dxi-item itemType="group" [colSpan]="3">
+          <dxi-item>
+            <dxo-label [text]="'I007GrundBedarf.Begründungen' | translate"></dxo-label>
+          </dxi-item>
+        </dxi-item>
+        <dxi-item itemType="group" [colSpan]="9">
+          <dxi-item [template]="'begrundungen-kennzahlenTemplate'">
+          </dxi-item>
+        </dxi-item>
+      </dxi-item>
+
+      <div *dxTemplate="let data of 'BerechnungsgrundlageTemplate'">
+        <dx-select-box #BerechnungsgrundlageTemplate id="i007_berechnungsgrundlage" [accessKey]="10" [(value)]="BgPositionsartCode"
+          [dataSource]="dataSourceSelectboxes" valueExpr="code" displayExpr="text" [placeholder]="'I007GrundBedarf.DefaultText.SelectBox' | translate"
+          [readOnly]="readOnlySettingComponents.berechnungsgrundlage"
+          (onFocusOut)="onFocusOut($event,'berechnungsgrundlage')" [searchEnabled]="true" [showClearButton]="true">
+        </dx-select-box>
+      </div>
+      <!--SKOSbzw -->
+      <!-- Template for fur HG -->
+      <div *dxTemplate="let data of 'grundbedarfI-furHGTemplate'">
+        <dx-number-box [(value)]="qryBgPositionData.GBI_Hg" [readOnly]="true" [format]="numberFormat"
+          valueChangeEvent="keyup change focusout" class="kiss-input-right-i007">
+        </dx-number-box>
+      </div>
+      <div *dxTemplate="let data of 'anpassungI-furHGTemplate'"> <span> </span>
+      </div>
+      <div *dxTemplate="let data of 'abzugVVG-furHGTemplate'"> <span> </span>
+      </div>
+      <div *dxTemplate="let data of 'zuschlag-furHGTemplate'">
+        <dx-number-box [(value)]="qryBgPositionData.GBIZuschlag_Hg" [readOnly]="true" [format]="numberFormat"
+          valueChangeEvent="keyup change focusout" class="kiss-input-right-i007">
+        </dx-number-box>
+      </div>
+      <div *dxTemplate="let data of 'grundbedarfII-furHGTemplate'">
+        <dx-number-box [(value)]="qryBgPositionData.GBII_Hg" [readOnly]="true" [format]="numberFormat"
+          valueChangeEvent="keyup change focusout" class="kiss-input-right-i007">
+        </dx-number-box>
+      </div>
+      <div *dxTemplate="let data of 'anpassungII-furHGTemplate'"> <span> </span>
+      </div>
+      <div *dxTemplate="let data of 'total-furHGTemplate'"> <span> </span>
+      </div> <!-- The end template for fur HG -->
+
+      <!-- Template for fur UE -->
+      <div *dxTemplate="let data of 'grundbedarfI-furUETemplate'">
+        <dx-number-box [(value)]="qryBgPositionData.Betrag_SKOS" [readOnly]="true" [format]="numberFormat"
+          valueChangeEvent="keyup change focusout" class="kiss-input-right-i007">
+        </dx-number-box>
+      </div>
+      <div *dxTemplate="let data of 'anpassungI-furUETemplate'">
+        <dx-number-box #edtAnpassungIfurUE_SKOSbzw id="i007_anpassungI_numberbox" [(value)]="qryBgPositionData.GrundbedarfI_Anpassung"
+          (onKeyDown)="formatNumberBox($event)" accessKey="11" [disabled]="false" (onFocusOut)="onFocusOut($event,'anpassungI_furUE-SKOSbzw')"
+          [format]="numberFormat" valueChangeEvent="keyup change focusout" class="kiss-input-right-i007">
+          <dx-validator #validatorAnpassungIfurUE_SKOSbzw>
+            <dxi-validation-rule type="custom" [validationCallback]="validationCallback" [message]="'I007GrundBedarf.MessageValidation.MsgErrorMaxLength' | translate"></dxi-validation-rule>
+            <dxi-validation-rule type="required" [message]="'I007GrundBedarf.Msg.MSG_004' | translate"></dxi-validation-rule>
+          </dx-validator>
+        </dx-number-box>
+      </div>
+      <div *dxTemplate="let data of 'abzugVVG-furUETemplate'">
+        <dx-number-box [(value)]="qryBgPositionData.AbzugVVG" [readOnly]="true" [format]="numberFormat"
+          valueChangeEvent="keyup change focusout" class="kiss-input-right-i007">
+        </dx-number-box>
+      </div>
+      <div *dxTemplate="let data of 'zuschlag-furUETemplate'">
+        <dx-number-box [(value)]="qryBgPositionData.GrundbedarfZusatz" [readOnly]="true" [format]="numberFormat"
+          valueChangeEvent="keyup change focusout" class="kiss-input-right-i007">
+        </dx-number-box>
+      </div>
+      <div *dxTemplate="let data of 'grundbedarfII-furUETemplate'">
+        <dx-number-box [(value)]="qryBgPositionData.GrundbedarfII" [readOnly]="true" [format]="numberFormat"
+          valueChangeEvent="keyup change focusout" class="kiss-input-right-i007">
+        </dx-number-box>
+      </div>
+      <div *dxTemplate="let data of 'anpassungII-furUETemplate'">
+        <dx-number-box #edtAnpassungIIfurUE_SKOSbzw id="i007_anpassungII_numberbox" [(value)]="qryBgPositionData.GrundbedarfII_Anpassung"
+          (onKeyDown)="formatNumberBox($event)" accessKey="11" [disabled]="false" (onFocusOut)="onFocusOut($event,'anpassungII_furUE-SKOSbzw')"
+          [format]="numberFormat" valueChangeEvent="keyup change focusout" class="kiss-input-right-i007">
+          <dx-validator #validatorAnpassungIIfurUE_SKOSbzw>
+            <dxi-validation-rule type="custom" [validationCallback]="validationCallback" [message]="'I007GrundBedarf.MessageValidation.MsgErrorMaxLength' | translate"></dxi-validation-rule>
+            <dxi-validation-rule type="required" [message]="'I007GrundBedarf.Msg.MSG_004' | translate"></dxi-validation-rule>
+          </dx-validator>
+        </dx-number-box>
+      </div>
+      <div *dxTemplate="let data of 'keineCheckbox-furUETemplate'">
+        <dx-check-box id="i007_keineCheckbox_furUE" text="Keime Kopfteilung auf GB II anwenden" [(value)]="qryBgPositionData.GBII_AsOnePerson"
+          accessKey="12" [readOnly]="false"></dx-check-box>
+      </div>
+      <div *dxTemplate="let data of 'total-furUETemplate'">
+        <dx-number-box [(value)]="qryBgPositionData.GrundbedarfTotal" [readOnly]="true" [format]="numberFormat"
+          valueChangeEvent="keyup change focusout" class="kiss-input-right-i007">
+        </dx-number-box>
+      </div> <!-- The end template for fur UE -->
+      <!-- The End SKOSbzw -->
+
+      <!-- SKOS2005 -->
+      <!-- Template for fur HG -->
+      <div *dxTemplate="let data of 'grundbedarf-furHG-SKOS2005Template'">
+        <dx-number-box [(value)]="qryBgPositionData.SKOS2005_HG" [readOnly]="true" [format]="numberFormat"
+          valueChangeEvent="keyup change focusout" class="kiss-input-right-i007">
+        </dx-number-box>
+      </div>
+      <div *dxTemplate="let data of 'anpassung-furHG-SKOS2005Template'"> <span> </span>
+      </div>
+      <div *dxTemplate="let data of 'abzugVVG-furHG-SKOS2005Template'"> <span> </span>
+      </div>
+      <div *dxTemplate="let data of 'total-furHG-SKOS2005Template'"> <span> </span>
+      </div> <!-- The end template for fur HG -->
+
+      <!-- Template for fur UE -->
+      <div *dxTemplate="let data of 'grundbedarf-furUE-SKOS2005Template'">
+        <dx-number-box [(value)]="qryBgPositionData.SKOS2005_UE" [readOnly]="true" [format]="numberFormat"
+          valueChangeEvent="keyup change focusout" class="kiss-input-right-i007">
+        </dx-number-box>
+      </div>
+      <div *dxTemplate="let data of 'anpassung-furUE-SKOS2005Template'">
+        <dx-number-box #edtAnpassungfurUE_SKOS2005 id="i007_anpassung-SKOS2005_numberbox" [(value)]="qryBgPositionData.SKOS2005_Anpassung"
+          (onKeyDown)="formatNumberBox($event)" accessKey="11" [disabled]="false" (onFocusOut)="onFocusOut($event,'anpassungI_furUE-SKOS2005')"
+          [format]="numberFormat" valueChangeEvent="keyup change focusout" class="kiss-input-right-i007">
+          <dx-validator #validatorGrunbedarfAnpassfurUESKOS2005>
+            <dxi-validation-rule type="custom" [validationCallback]="validationCallback" [message]="'I007GrundBedarf.MessageValidation.MsgErrorMaxLength' | translate"></dxi-validation-rule>
+            <dxi-validation-rule type="required" [message]="'I007GrundBedarf.Msg.MSG_004' | translate"></dxi-validation-rule>
+          </dx-validator>
+        </dx-number-box>
+      </div>
+      <div *dxTemplate="let data of 'abzugVVG-furUE-SKOS2005Template'">
+        <dx-number-box [(value)]="qryBgPositionData.AbzugVVG" [readOnly]="true" [format]="numberFormat"
+          valueChangeEvent="keyup change focusout" class="kiss-input-right-i007">
+        </dx-number-box>
+      </div>
+      <div *dxTemplate="let data of 'total-furUE-SKOS2005Template'">
+        <dx-number-box [(value)]="qryBgPositionData.SKOS2005_Total" [readOnly]="true" [format]="numberFormat"
+          valueChangeEvent="keyup change focusout" class="kiss-input-right-i007">
+        </dx-number-box>
+      </div><!-- The end template for fur UE -->
+      <!-- The End SKOS2005 -->
+
+      <!-- Berechnungsgrundlage -->
+      <!-- Template for fur HG -->
+      <div *dxTemplate="let data of 'monatlicher-furHG-berechnungsgrundlageTemplate'"> <span> </span>
+      </div>
+      <div *dxTemplate="let data of 'anpassung-furHG-berechnungsgrundlageTemplate'"> <span> </span>
+      </div>
+      <div *dxTemplate="let data of 'abzugVVG-furHG-berechnungsgrundlageTemplate'"> <span> </span>
+      </div>
+      <div *dxTemplate="let data of 'total-furHG-berechnungsgrundlageTemplate'"> <span> </span>
+      </div> <!-- The end template for fur HG -->
+
+      <!-- Template for fur UE -->
+      <div *dxTemplate="let data of 'monatlicher-furUE-berechnungsgrundlageTemplate'">
+        <dx-number-box #edtMonatlicherfurUE_berechnungsgrundlage id="i007_monatlicher-berechnungsgrundlage_numberbox"
+          (onKeyDown)="formatNumberBox($event)" [(value)]="qryBgPositionData.ELSE_Betrag" accessKey="11" [disabled]="false"
+          (onFocusOut)="onFocusOut($event,'monatlicher_furUE-Berechnungsgrundlage')" [format]="numberFormat"
+          valueChangeEvent="keyup change focusout" class="kiss-input-right-i007">
+          <dx-validator #validatorMonatlicherfurUEBerechnungsgrundlage>
+            <dxi-validation-rule type="custom" [validationCallback]="qryBgPositionData.BgPositionsartID === bgPositionsartIdNebe ? validationCallbackMAX500 : validationCallback"
+              [message]="'I007GrundBedarf.Msg.MSG_006' | translate"></dxi-validation-rule>
+            <dxi-validation-rule type="required" [message]="'I007GrundBedarf.Msg.MSG_005' | translate">
+            </dxi-validation-rule>
+          </dx-validator>
+
+        </dx-number-box>
+      </div>
+      <div *dxTemplate="let data of 'anpassung-furUE-berechnungsgrundlageTemplate'">
+        <dx-number-box #edtAnpassungfurUE_berechnungsgrundlage id="i007_anpassung-berechnungsgrundlage_numberbox"
+          (onKeyDown)="formatNumberBox($event)" [(value)]="qryBgPositionData.ELSE_Anpassung" accessKey="11" [disabled]="false"
+          (onFocusOut)="onFocusOut($event,'anpassung_furUE-Berechnungsgrundlage')" [format]="numberFormat"
+          valueChangeEvent="keyup change focusout" class="kiss-input-right-i007">
+          <dx-validator #validatorAnpassungfurUEBerechnungsgrundlage>
+            <dxi-validation-rule type="custom" [validationCallback]="validationCallback" [message]="'I007GrundBedarf.MessageValidation.MsgErrorMaxLength' | translate"></dxi-validation-rule>
+            <dxi-validation-rule type="required" [message]="'I007GrundBedarf.Msg.MSG_004' | translate">
+            </dxi-validation-rule>
+          </dx-validator>
+        </dx-number-box>
+      </div>
+      <div *dxTemplate="let data of 'abzugVVG-furUE-berechnungsgrundlageTemplate'">
+        <dx-number-box [(value)]="qryBgPositionData.AbzugVVG" [readOnly]="true" [format]="numberFormat"
+          valueChangeEvent="keyup change focusout" class="kiss-input-right-i007">
+        </dx-number-box>
+      </div>
+      <div *dxTemplate="let data of 'total-furUE-berechnungsgrundlageTemplate'">
+        <dx-number-box [(value)]="qryBgPositionData.ELSE_Total" [readOnly]="true" [format]="numberFormat"
+          valueChangeEvent="keyup change focusout" class="kiss-input-right-i007">
+        </dx-number-box>
+      </div> <!-- The end template for fur UE -->
+      <!-- The End Berechnungsgrundlage -->
+
+      <!-- Template for Kennzahlen -->
+      <div *dxTemplate="let data of 'grundbedarf-haushaltsgrosse-kennzahlenTemplate'"> <span>{{qryKennzahlenData.hgGrundbedarf}}</span>
+      </div>
+      <div *dxTemplate="let data of 'wohnkosten-haushaltsgrosse-kennzahlenTemplate'"> <span>{{qryKennzahlenData.hgWohnkosten}}</span>
+      </div>
+      <div *dxTemplate="let data of 'grundbedarf-unterstutzungseinheit-kennzahlenTemplate'"> <span>{{qryKennzahlenData.ueGrundbedarf}}</span>
+      </div>
+      <div *dxTemplate="let data of 'wohnkosten-unterstutzungseinheit-kennzahlenTemplate'"> <span>{{qryKennzahlenData.ueWohnkosten}}</span>
+      </div>
+      <div *dxTemplate="let data of 'zuschlagI-unterstutzungseinheit-kennzahlenTemplate'"> <span>{{qryKennzahlenData.ueZuschlagI}}</span>
+      </div>
+      <div *dxTemplate="let data of 'begrundungen-kennzahlenTemplate'">
+        <dx-text-area #begrundungenTextArea id="i007_detail_begrundungen" [(value)]="qryBgPositionData.Bemerkung"
+          (onFocusOut)="onFocusOut($event,'begrundungen')" [height]="160" valueChangeEvent="keyup">
+        </dx-text-area>
+      </div> <!-- The end template for Kennzahlen -->
+
+    </dx-form>
+  </dx-validation-group>
+</div>

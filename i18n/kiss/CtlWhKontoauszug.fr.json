@@ -1,0 +1,55 @@
+{
+    "CtlWhKontoauszug": {
+        "Container": {
+            "PageTitle": "Kontoauszug [fr]",
+            "KontoauszugDrucken": "Kontoauszug drucken [fr]"
+        },
+        "Search": {
+            "HeaderTitle": "Suche [fr]",
+            "Klient": "Klient/in [fr]",
+            "Ganze": "Ganze UE [fr]",
+            "Zeitraum": "Zeitraum [fr]",
+            "DatumVon": "Datum von [fr]",
+            "DatumBis": "bis [fr]",
+            "BetrageVer": "Beträge an Verwendungsperiode anpassen [fr]",
+            "Verdichtet": "verdichtet [fr]",
+            "SalAusKiss": "Saldovortrag aus KiSS [fr]",
+            "SalAusFremdsystem": "Saldovortrag aus Fremdsystem [fr]",
+            "Kostenarten": "Kostenarten [fr]",
+            "Verfuegbar": "Verfügbare Kostenart [fr]",
+            "Zugeteilt": "Zugeteilte Kostenart [fr]",
+            "DatumVonLessThanDatumBis": "Das 'von-Datum' muss kleiner sein als das 'bis-Datum' [fr]"
+        },
+        "List": {
+            "BelegDatum": "Beleg-Datum [fr]",
+            "BelegNr": "Beleg-Nr. [fr]",
+            "Klient": "Klient/in [fr]",
+            "LAText" : "KoA [fr]",
+            "Buchungstext": "Buchungstext [fr]",
+            "VerwPeriodeVon": "Verw. P. von [fr]",
+            "VerwPeriodeBis": "Verw. P. bis [fr]",
+            "Ausgabe": "Auszahlung [fr]",
+            "Einnahme": "Einnahme [fr]",
+            "Saldo": "Saldo [fr]",
+            "KbBuchungStatusCode": "Sta. [fr]",
+            "Doc": "Dok [fr]"
+        },
+        "Detail": {
+            "Verwendungsp": "Verwendungsp. [fr]",
+            "Betrag": "Betrag 100% [fr]",
+            "Splitting": "Splitting [fr]",
+            "Valuta": "Valuta [fr]",
+            "Auszahlart": "Auszahlart [fr]",
+            "Kreditor": "Kreditor [fr]",
+            "Debitor": "Debitor [fr]"
+        },
+        "Dokumente": {
+            "TitleHeader": "Dokumente [fr]",
+            "EditBtn": "Bearbeiten [fr]",
+            "Typ": "Typ [fr]",
+            "Stichwort": "Stichwort [fr]",
+            "Erstellungsdatum": "Erstellungsdatum [fr]",
+            "LetzteSpeicherung": "Letzte Speicherung [fr]"
+        }
+    }
+}

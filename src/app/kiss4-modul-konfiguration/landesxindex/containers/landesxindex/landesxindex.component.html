@@ -1,0 +1,84 @@
+<kiss-right-component>
+  <app-navigator id="j001_landesxindex" [titleHeader]="'J001Landesxindex.Label' | translate" [listBtn]="listBtn" [customizeBtn]="customizeBtn" (onCustomizeBtnFn)="toolBarOnItemClickTopGrd($event)"></app-navigator>
+  <div class="container">
+    <div class="container__right-content">
+      <app-remaining-message #remainingMessage id="j001_form_error"></app-remaining-message>
+
+      <div id="j001_text_header-top_grid" class="text-header-top-grid-class">
+        {{ 'J001Landesxindex.DieLOV' | translate }} "{{ 'J001Landesxindex.IkIndexTzp' | translate }}" {{ 'J001Landesxindex.MussBeiAnderungenAngepasstWerden' | translate }}
+      </div>
+
+      <div class="grid-table-view">
+        <kiss-landesxindex-list #landesxindexList
+          [landesxindexes]="landesxindexes"
+          [selectedKeysTop]="selectedKeysTop"
+          [gridFunctionKey]="gridFunctionKey"
+          [allowUpdatingGrdTop]="allowUpdatingGrdTop"
+          [editingControl]="editingControl"
+          [rowSelectedIDTop]="rowSelectedIDTop"
+          (emitterOnSelectionChanged)="selectionChangedTop($event)"
+          (emitterOnEditingStart)="onEditingStartTop($event)"
+          (emitterOnRowUpdating)="onRowUpdatingTop($event)"
+          (emitterOnCellClick)="onCellClickGridTop($event)">
+        </kiss-landesxindex-list>
+      </div>
+
+      <div class="container-detail form-content-details">
+        <kiss-landesxindex-detail #landesxindexDetail
+          [landesindexesWertes]="landesindexesWertes"
+          [selectedKeysBottom]="selectedKeysBottom"
+          [allowUpdatingGrdBottom]="allowUpdatingGrdBottom"
+          [allowAddingBtm]="allowAddingBtm"
+          [editingControl]="editingControl"
+          [landesxindexWertModel]="landesxindexWertModel"
+          [rowSelectedIDBtm]="rowSelectedIDBtm"
+          (emitterOnNeueMonatswerteErfassenClick)="onNeueMonatswerteErfassenClick()"
+          (emitterOnLoschenClick)="deleteInlineInGridBottom($event)"
+          (emitterOnSelectionChanged)="selectionChanged($event)"
+          (emitterOnRowClick)="selectRowBottomGrd($event)"
+          (emitterOnRowUpdating)="onRowUpdatingBottom($event)"
+          (emitterOnEditingStart)="onEditingStartBottom($event)"
+          (emitterOnKeyDown)="onKeyPress($event)"
+          (emitterOnCellClick)="onCellClickGridBottom($event)">
+        </kiss-landesxindex-detail>
+      </div>
+
+      <kiss-landesindex-erfassen #landesindexErfassen *ngIf="toolbarControlAdd.popupVisible"
+        [toolbarControlAdd] = "toolbarControlAdd"
+        [isAddNew] = "isAddNew"
+        [ikLandesindexID] = "ikLandesindexID"
+        [landesxindexes] = "landesxindexes"
+        [defaultDate] = "defaultDate"
+        [nameLandesindex] = "nameLandesindex"
+        (emitterGetWert) = "getWert($event)"
+        (emitterAddLandesIndex) = "addLandesIndex($event)"
+        (emitterModelAddLandesIndex) = "modelAddLandesIndex($event)"
+        (emitterCheckboxState) = "checkboxState($event)"
+        (emitterAddNewState) = "addnewState($event)">
+      </kiss-landesindex-erfassen>
+
+      <dx-popup id="j002-j003-popup" [title]="popupDataMess.title" [width]="500" [height]="'auto'" [(visible)]="popupDataMess.visible"
+        [dragEnabled]="false" [closeOnOutsideClick]="false" (onHiding)="popupHiding($event)">
+        <div class="j002-j003-popup-tmp-template" *dxTemplate="let data of 'content'">
+          <h3>{{popupDataMess.message}}</h3>
+        </div>
+      </dx-popup>
+
+      <!------------------------ Begin Popup LandesindexWertErfassen  ---------------------------------->
+      <kiss-indexwerte-erfassen #indexwerteErfassen *ngIf="popupLandesindexWertErfassen.popupVisibleLandesindexWertErfassen"
+      [popupLandesindexWertErfassen] = "popupLandesindexWertErfassen"
+      [landesindexModel] = "landesindexModel"
+      [rowSelectedWertPopup] = "rowSelectedWertPopup"
+      [filterColumnsPopup] = "filterColumnsPopup"
+      [ikLandesindexs] = "ikLandesindexs"
+      [ikLandesindexsToInsert] = "ikLandesindexsToInsert"
+      [ikLandesindexID] = "ikLandesindexID"
+      [selectedLandesindexWertErfassenKeys] = "selectedLandesindexWertErfassenKeys"
+      (addIkLandesindexWert) = "addIkLandesindexWert($event)">
+      </kiss-indexwerte-erfassen>
+      <!------------------------ End Popup LandesindexWertErfassen  ---------------------------------->
+    </div>
+  </div>
+  <app-popup-confirm [popUpModel]="popUpModel"></app-popup-confirm>
+  <app-popup-concurrency [popUpConcurrencyModel]="popUpConcurrencyModel"></app-popup-concurrency>
+</kiss-right-component>

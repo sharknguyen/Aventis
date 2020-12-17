@@ -1,0 +1,81 @@
+<div id="clientList" class="client-list">
+    <div *ngIf="gridFunction.model.isFilterBuilder" class="filter-container" id="filter-builder">
+      <dx-filter-builder [fields]="dataGrid.instance.option('columns')" [(value)]="filter">
+      </dx-filter-builder>
+      <dx-button [text]="'Finanzplan.ClientList.ApplyFilter' | translate" type="default" (onClick)="dataGrid.instance.filter(filter)">
+      </dx-button>
+      <div class="dx-clearfix"></div>
+    </div>
+    <dx-data-grid #dataGrid class="finanz-plan" *ngIf="finanzplanGridData" [dataSource]="finanzplanGridData" [noDataText]="'Finanzplan.ClientList.NoData' | translate"
+                  [columnResizingMode]="'widget'"
+                  [showBorders]="true"
+                  [allowColumnReordering]="true"
+                  [allowColumnResizing]="true"
+                  [columnMinWidth]="20"
+                  (onContentReady)="onContentReady($event)"
+                  (onCellPrepared)="onCellPrepared($event)"
+                  [showRowLines]="true"
+                  [keyExpr]="'SortKey'"
+                  [hoverStateEnabled]="true"
+                  [focusedRowEnabled]="true"
+                  [customizeExportData]="customizeExportData"
+                  (onRowClick)="onClickRowGrid($event)"
+                  (onContextMenuPreparing)="onContextMenuPreparing($event)"
+                  (onFocusedRowChanged)="onFocusedRowChanged($event)"
+                   width="100%">
+      <dxo-sorting mode="multiple"></dxo-sorting>
+      <dxo-search-panel [visible]="gridFunction.model.isSearchPanel" [highlightCaseSensitive]="true"></dxo-search-panel>
+      <dxo-header-filter [visible]="true"></dxo-header-filter>
+      <dxo-filter-row [visible]="false"></dxo-filter-row>
+      <dxo-group-panel [visible]="gridFunction.model.isGrouping" [emptyPanelText]="'Finanzplan.ClientList.EmptyPanelText' | translate"></dxo-group-panel>
+      <dxo-grouping [contextMenuEnabled]="gridFunction.model.isGrouping" #expandGrid [contextMenuEnabled]="true" [autoExpandAll]="false"></dxo-grouping>
+      <dxo-column-chooser #columnChooser emptyPanelText="" [title]="'Finanzplan.ColumnChooser' | translate"
+                          [enabled]="false"></dxo-column-chooser>
+      <dxo-editing mode="cell" [allowUpdating]="false"></dxo-editing>
+      <dxo-selection mode="single"></dxo-selection>
+      <dxi-column width="auto" dataField="Bezeichnung" cellTemplate="cellBezeTemplate" [allowSorting]="false"  alignment="left" [caption]="'Finanzplan.ClientList.Bezeichnung' | translate"></dxi-column>
+      <dxi-column width="auto"dataField="Betrag" cellTemplate="cellBetragTemplate" [allowSorting]="false" dataType="number" [format]="numberFormat" [caption]="'Finanzplan.ClientList.Betrag' | translate"></dxi-column>
+      <dxi-column width="auto" dataField="Total" cellTemplate="cellTotalTemplate" [allowSorting]="false" dataType="number" [format]="numberFormat" [caption]="'Finanzplan.ClientList.Total' | translate"></dxi-column>
+      <dxi-column width="auto" dataField="Info" cellTemplate="cellInfoTemplate" [allowSorting]="false"  [caption]="'Finanzplan.ClientList.Info' | translate"></dxi-column>
+      <dxi-column width="auto" dataField="Style" cellTemplate="cellFontNomalTemplate" [visible]="false" [caption]="'Finanzplan.ClientList.Style' | translate"></dxi-column>
+      <dxo-paging [enabled]="false"></dxo-paging>
+
+      <div *dxTemplate="let data of 'cellBezeTemplate'">
+        <span class="beze-customer" *ngIf="data.data.BgGruppeCode > 0; else outLineLeft">
+          {{data.value}}
+        </span>
+        <ng-template #outLineLeft>
+          <span>
+            {{data.value}}
+          </span>
+        </ng-template>
+      </div>
+      <div *dxTemplate="let data of 'cellFontNomalTemplate'">
+        <span class="beze-customer">
+          {{data.value}}
+        </span>
+      </div>
+      <div *dxTemplate="let data of 'cellBetragTemplate'">
+        <span class="beze-customer">
+          {{data.value | number : number_pipe : currentLang}}
+        </span>
+      </div>
+
+      <div *dxTemplate="let data of 'cellTotalTemplate'">
+        <span>
+          {{data.value | number : number_pipe : currentLang}}
+        </span>
+      </div>
+
+      <div *dxTemplate="let data of 'cellInfoTemplate'">
+        <span class="info-customer">
+          {{data.value}}
+        </span>
+        <span (click)="goToForm(rowSelected)" *ngIf="rowSelected && rowSelected.Parent_ID && rowSelected.SortKey===data.data.SortKey" class="fa fa-caret-right icon-right">
+        </span>
+      </div>
+
+    </dx-data-grid>
+    <app-grid-function #gridFunction (onchange)="gridFunction.model" [keyStorage]="gridFunctionKey"></app-grid-function>
+    <kiss-printer #printer></kiss-printer>
+</div>

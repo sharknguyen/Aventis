@@ -1,0 +1,81 @@
+<div class="container-detail form-content-details container-detail-child">
+    <div class="toolbar-header">
+        <kiss-card-title [titleHeader]="'CtlSpeziaikonto.HeaderGrid' | translate" [listBtn]="listBtn" [isCard]="true" [toolChild]="true"
+            (onCustomizeBtnFn)="toolBarOnItemClick($event)"></kiss-card-title>
+    </div>
+    <div class="container">
+        <div class="container__right-content">
+            <!--Grid kurs-->
+            <div class="grid-table-view">
+                <div *ngIf="gridFunctionModel.isFilterBuilder" class="filter-container">
+                    <dx-filter-builder [fields]="gridSpezialkontoBot.instance.option('columns')" [(value)]="filter"></dx-filter-builder>
+                    <dx-button [text]="'CtlSpeziaikonto.ApplyFilter' | translate" type="default" (onClick)="gridSpezialkontoBot.instance.filter(filter)"></dx-button>
+                    <div class="dx-clearfix"></div>
+                </div>
+                <app-grid-function #gridFunction (onchange)="gridFunction.model" [keyStorage]="gridFunctionKey"></app-grid-function>
+                <div class="grid-margin-top">
+                    <dx-data-grid 
+                        #gridSpezialkontoBot
+                        class="kiss-data-grid"
+                        [dataSource]="dataSource" 
+                        [allowColumnResizing]="true"
+                        [showRowLines]="true" 
+                        [showBorders]="true" 
+                        [height]="300" 
+                        keyExpr="id"
+                        [allowColumnReordering]="true"
+                        [noDataText]="'CtlSpeziaikonto.Validation.NoDataGrid' | translate"
+                        [customizeExportData]="customizeExportDataSummeries" 
+                        (onContentReady) = "onContentReady($event)"
+                        [focusedRowEnabled]="true" 
+                        [hoverStateEnabled]="true" 
+                        [(focusedRowKey)]="selectedRowKey"
+                        (onContextMenuPreparing)="onContextMenuPreparing($event)"
+                        columnResizingMode="widget">
+                        <dxo-selection selectAllMode="allPages" showCheckBoxesMode="onClick" mode="single"></dxo-selection>
+                        <dxo-selection mode="single"></dxo-selection>
+                        <dxo-paging [pageSize]="100"></dxo-paging>
+                        <dxo-search-panel [visible]="gridFunctionModel.isSearchPanel" highlightCaseSensitive="true"
+                            [placeholder]="'CtlSpeziaikonto.PlaceholderSearch' | translate"></dxo-search-panel>
+                        <dxo-column-chooser #columnChooser emptyPanelText="" [title]="'CtlSpeziaikonto.ColumnChooser.Title' | translate"
+                            [enabled]="false"></dxo-column-chooser>
+                        <dxo-filter-row [visible]="gridFunctionModel.isSearch" applyFilter="Immediately"></dxo-filter-row>
+                        <dxo-header-filter [visible]="gridFunctionModel.isFilter"></dxo-header-filter>
+                        <dxo-scrolling mode="virtual"></dxo-scrolling>
+                        <dxo-sorting mode="single"></dxo-sorting>
+                        <dxo-group-panel [visible]="gridFunctionModel.isGrouping" [emptyPanelText]="'CtlSpeziaikonto.emptyPanelText' | translate"></dxo-group-panel>
+                        <dxo-grouping [autoExpandAll]="false" [contextMenuEnabled]="gridFunctionModel.isGrouping"></dxo-grouping>
+                        <dxo-export [enabled]="false" [allowExportSelectedData]="true" [customizeExcelCell]="CustomizeExcelCell"></dxo-export>
+                        <dxi-column [minWidth]="150" dataField="Datum" dataType="date" [format]="dateVomFormat" width="auto" [caption]="'CtlSpeziaikonto.Column.Monat' | translate">
+                        </dxi-column>
+                        <dxi-column [minWidth]="140" dataField="Gutschrift" dataType="number" width="auto" [caption]="'CtlSpeziaikonto.Column.Gutschrift' | translate">
+                            <dxo-format type="fixedPoint" [precision]="2"></dxo-format>
+                        </dxi-column>
+                        <dxi-column [minWidth]="140" dataField="Belastung" dataType="number" width="auto" [caption]="'CtlSpeziaikonto.Column.Belastung' | translate">
+                            <dxo-format type="fixedPoint" [precision]="2"></dxo-format>
+                        </dxi-column>
+                        <dxi-column [minWidth]="140" dataField="Saldo" dataType="number" [caption]="'CtlSpeziaikonto.Column.Saldo' | translate">
+                            <dxo-format type="fixedPoint" [precision]="2"></dxo-format>
+                        </dxi-column>
+                        <dxi-column [minWidth]="140" dataField="Freigegeben" dataType="boolean" width="auto" [caption]="'CtlSpeziaikonto.Column.MB' | translate"></dxi-column>
+                        <dxi-column [minWidth]="140" *ngIf="!isKurzungen" dataField="Buchungstext" 
+                            dataType="string" [caption]="'CtlSpeziaikonto.Column.Buchungstext' | translate"></dxi-column>
+                        <dxi-column [minWidth]="140" *ngIf="isKurzungen" width="auto" dataField="Buchungstext" dataType="string"
+                            [caption]="'CtlSpeziaikonto.Column.Buchungstext' | translate"></dxi-column>
+                        <dxi-column [minWidth]="140" [visible]="isKurzungen" width="auto"
+                            dataField="Gesperrt" [caption]="'CtlSpeziaikonto.Column.gesperrt' | translate"></dxi-column>
+                        <dxo-summary [calculateCustomSummary]="calculateSelectedRow">
+                            <dxi-total-item column="Gutschrift" summaryType="sum" [valueFormat]="numberFormat" displayFormat="{0}">
+                            </dxi-total-item>
+                            <dxi-total-item column="Belastung" summaryType="sum" [valueFormat]="numberFormat" displayFormat="{0}">
+                            </dxi-total-item>
+                            <dxi-total-item column="Saldo" name="сustomSummary" summaryType="custom" [valueFormat]="numberFormat" displayFormat="{0}">
+                            </dxi-total-item>
+                        </dxo-summary>
+                    </dx-data-grid>
+                    <kiss-printer #printer></kiss-printer>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

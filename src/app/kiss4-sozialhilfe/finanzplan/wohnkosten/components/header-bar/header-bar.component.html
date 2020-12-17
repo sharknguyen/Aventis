@@ -1,0 +1,5 @@
+<div id="headerBarID"  [title]="smallScreen() ? getTitleHeader() : ''">
+    <app-navigator [titleHeader]="getTitleHeader()"
+    [listBtn]="listBtn"
+    (onCustomizeBtnFn)="toolBarOnItemClickTopGrd($event)" (dblclick)="onCopyTitle()"></app-navigator>
+  </div>

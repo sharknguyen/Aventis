@@ -1,0 +1,77 @@
+<kiss-right-component>
+    <kiss-header-bar
+        (action)="onHeaderAction($event)"
+        [isShiftKeyDown]="isShiftKeyDown"
+        [titleHeader]="pageTitle"
+        [baPersonID]="baPersonID"
+        [isEditMode]="isEditMode"
+        [datumBis]="datumBis"
+        [datumVon]="datumVon"
+    >
+    </kiss-header-bar>
+    <div class="container">
+        <div id="i005_einkommen" class="container__right-content">
+            <app-remaining-message #remainingMessage></app-remaining-message>
+            <section id="wrapper-content">
+                <div class="container kennzahlen-aktualisieren-container">
+                    <dx-check-box *ngIf="!isEditMode" [(value)]="checkboxOnValueChanged" (onValueChanged)="onValueChanged($event)" [text]="'Aliment.Grid.NurAktulleAnzeigen' | translate" ></dx-check-box>
+                    <dx-check-box readOnly="true" *ngIf="isEditMode" [(value)]="checkboxOnValueChanged" (onValueChanged)="onValueChanged($event)" [text]="'Aliment.Grid.NurAktulleAnzeigen' | translate" ></dx-check-box>
+                    <kiss-grid #formList 
+                        keyExpr="id" 
+                        idGridName="I004_data-grid" 
+                        filterBuilderName="I004_filter-builder"
+                        [dataSource]="alimentengu" 
+                        [searchPlaceholder]="'Aliment.CommonGrid.Suchen' | translate" 
+                        [noDataText]="'Aliment.CommonGrid.noDataText' | translate"
+                        [fileName]="fileName" 
+                        [columnChooserName]="'Aliment.CommonGrid.columnChooser' | translate"
+                        [readOnly]="!isEditMode"
+                        [selectedRowKey]="focusedRowKey" 
+                        [columnsDef]="columnsDataGrid"
+                        [summary]="summaryDef"
+                        [gridFunctionModel]="gridFunctionModel"
+                        [emptyGroupText]="'Aliment.CommonGrid.emptyPanelText' | translate"
+                        (selectedRow)="onSelectedRow($event)">
+                      </kiss-grid>
+
+                        <ng-container *ngIf="isEditMode; then editMode; else viewMode"> </ng-container>
+
+                        <ng-template #viewMode>
+                            <kiss-alimentenguthaben-view
+                                #detailView
+                                [showTitleDetail]="showTitleDetail"
+                                [dataSource]="rowDetail"
+                                [inkassoSelectbox]="inkassos"
+                                (action)="onDetailAction($event)"
+                                [permis]="permis"
+                                [checkConcurrency]="checkConcurrency"
+                            >
+                            </kiss-alimentenguthaben-view>
+                        </ng-template>
+                        
+                        <ng-template #editMode>
+                            <kiss-alimentenguthaben-edit
+                                #detailEdit
+                                [showTitleDetail]="showTitleDetail"
+                                [dataSource]="rowDataEdit"
+                                [dataSelectBoxInkasso]="inkassos"
+                                [dataSelectBoxPerson]="persons"
+                                (action)="onDetailAction($event)"
+                                (showMessage) = "showRemainingMessage($event)"
+                                (isDirtyForm)="setDirtyForm($event)"
+                                [checkConcurrency]="checkConcurrency"
+                            >
+                            </kiss-alimentenguthaben-edit>
+                        </ng-template>
+                </div>
+            </section>
+        </div>
+    </div>
+</kiss-right-component>
+
+<!-- Print component -->
+<kiss-printer #printer></kiss-printer>
+
+<!-- Confirm popup -->
+<app-popup-confirm [popUpModel]="popUpModel"></app-popup-confirm>
+<app-popup-concurrency-detail [visible]='visibleConcurrencyPopup' (yes)="onConcurrencyYes()" (no)="onConcurrencyNo()"></app-popup-concurrency-detail>

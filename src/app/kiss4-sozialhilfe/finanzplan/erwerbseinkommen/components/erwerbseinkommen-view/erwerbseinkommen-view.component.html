@@ -1,0 +1,158 @@
+<div class="container-detail form-content-details view-height" id="i003_detail">
+    <div class="toolbar-header">
+        <kiss-card-title id="i003_detail_header" [titleHeader]="'CtlBfsFragenkatalog.Detail' | translate" [isCard]="true"
+            (onCustomizeBtnFn)="toolBarOnItemClick($event)" [customizeBtn]="customizeBtn">
+        </kiss-card-title>
+    </div>
+    <div class="container-detail-content" id="i003_detail_form" class="i003-detail-form">
+        <div class="container-detail__form" *ngIf="showcontent">
+            <dx-form id="i003_form_view" [showColonAfterLabel]="false" [width]="formWidth">
+                <dxi-item itemType="group" [colCount]="12">
+                    <dxi-item itemType="group" [colSpan]="1">
+                        <dxo-label [text]="'Erwerbseinkommen.Feld.Person' | translate"></dxo-label>
+                    </dxi-item>
+                    <dxi-item itemType="group" [colSpan]="8">
+                        <dxi-item [template]="'personTemplate'">
+                        </dxi-item>
+                    </dxi-item>
+                </dxi-item>
+
+                <dxi-item itemType="group" [colCount]="12">
+                    <dxi-item itemType="group" [colSpan]="1">
+                        <dxo-label [text]="'Erwerbseinkommen.Feld.ArtdesEinkommens' | translate"></dxo-label>
+                    </dxi-item>
+                    <dxi-item itemType="group" [colSpan]="8">
+                        <dxi-item [template]="'artDesTemplate'">
+                        </dxi-item>
+                    </dxi-item>
+                </dxi-item>
+
+                <dxi-item itemType="group" [colCount]="12">
+                    <dxi-item itemType="group" [colSpan]="1">
+                        <dxo-label [text]="'Erwerbseinkommen.Feld.vonSDverwaltet' | translate"></dxo-label>
+                    </dxi-item>
+                    <dxi-item itemType="group" [colSpan]="8">
+                        <dxi-item [template]="'vonSDTemplate'">
+                        </dxi-item>
+                    </dxi-item>
+                </dxi-item>
+
+                <dxi-item itemType="group" [colCount]="12">
+                    <dxi-item itemType="group" [colSpan]="1">
+                        <dxo-label text="   "></dxo-label>
+                    </dxi-item>
+                    <dxi-item itemType="group" [colSpan]="2">
+                        <dxi-item [template]="'aTemplate'">
+                        </dxi-item>
+                    </dxi-item>
+                    <dxi-item itemType="group" [colSpan]="1">
+                    </dxi-item>
+                    <dxi-item itemType="group" [colSpan]="2">
+                        <span>{{'Erwerbseinkommen.List.Reduktion' | translate}}</span>
+                    </dxi-item>
+                    <dxi-item itemType="group" [colSpan]="1">
+                    </dxi-item>
+                    <dxi-item itemType="group" [colSpan]="2">
+                        <span>{{'Erwerbseinkommen.Feld.Angerechnet' | translate}}</span>
+                    </dxi-item>
+                    <dxi-item itemType="group" [colSpan]="1">
+                    </dxi-item>
+                    <dxi-item itemType="group" [colSpan]="2">
+                        <span>{{'Erwerbseinkommen.Feld.Total' | translate}}</span>
+                    </dxi-item>
+                </dxi-item>
+                <dxi-item itemType="group" [colCount]="12">
+                    <dxi-item itemType="group" [colSpan]="1">
+                        <dxo-label [text]="'Erwerbseinkommen.Feld.MonatlichesEinkomemen' | translate"></dxo-label>
+                    </dxi-item>
+                    <dxi-item itemType="group" [colSpan]="2">
+                        <dxi-item [template]="'monatlichesTemplate'">
+                        </dxi-item>
+                    </dxi-item>
+                    <dxi-item itemType="group" [colSpan]="1">
+                    </dxi-item>
+                    <dxi-item itemType="group" [colSpan]="2">
+                    </dxi-item>
+                    <dxi-item itemType="group" [colSpan]="1">
+                    </dxi-item>
+                    <dxi-item itemType="group" [colSpan]="2">
+                    </dxi-item>
+                    <dxi-item itemType="group" [colSpan]="1">
+                        <span>+</span>
+                    </dxi-item>
+                </dxi-item>
+                <dxi-item itemType="group" [colCount]="12">
+                    <dxi-item itemType="group" [colSpan]="1">
+                        <dxo-label [text]="'Erwerbseinkommen.Feld.EffektiveErwebsunkosten' | translate"></dxo-label>
+                    </dxi-item>
+                    <dxi-item itemType="group" [colSpan]="2">
+                        <dxi-item [template]="'effektiveTemplate'">
+                        </dxi-item>
+                    </dxi-item>
+                    <dxi-item itemType="group" [colSpan]="1">
+                        <span>-</span>
+                    </dxi-item>
+                    <dxi-item itemType="group" [colSpan]="2">
+                        <span>{{ (dataSource?.UKReduktion) | number : '1.2' : 'de-CH'}}</span>
+                    </dxi-item>
+                    <dxi-item itemType="group" [colSpan]="1">
+                        <span>=</span>
+                    </dxi-item>
+                    <dxi-item itemType="group" [colSpan]="2">
+                        <span>{{ (dataSource?.UKBetrag - dataSource?.UKReduktion) | number : '1.2' : 'de-CH'}}</span>
+                    </dxi-item>
+                    <dxi-item itemType="group" [colSpan]="1">
+                        <span>-</span>
+                    </dxi-item>
+                    <dxi-item itemType="group" [colSpan]="2">
+                        <span>{{ (dataSource?.Betrag - (dataSource?.UKBetrag - dataSource?.UKReduktion)) | number :
+                            '1.2' :
+                            'de-CH'}}</span>
+                    </dxi-item>
+                </dxi-item>
+                <dxi-item itemType="group" [colCount]="12">
+                    <dxi-item itemType="group" [colSpan]="1">
+                        <dxo-label [text]="'Erwerbseinkommen.Feld.Beschreigung' | translate"></dxo-label>
+                    </dxi-item>
+                    <dxi-item itemType="group" [colSpan]="11">
+                        <dxi-item [template]="'beschreigungTemplate'">
+                        </dxi-item>
+                    </dxi-item>
+                </dxi-item>
+
+                <!--template-->
+
+                <div *dxTemplate="let data of 'personTemplate'" class="item-height item-padding">
+                    <span>{{dataSource?.NameVorname}}</span>
+                </div>
+
+                <div *dxTemplate="let data of 'artDesTemplate'" class="item-height item-padding">
+                    <span>{{dataSource?.Buchungstext}}</span>
+                </div>
+
+                <div *dxTemplate="let data of 'vonSDTemplate'">
+                    <dx-check-box [readOnly]="true" [value]="dataSource?.VerwaltungSD"></dx-check-box>
+                </div>
+
+
+                <div *dxTemplate="let data of 'aTemplate'">
+                    <span>{{'Erwerbseinkommen.Feld.Effektiv' | translate}}</span>
+                </div>
+
+                <div *dxTemplate="let data of 'effektiveTemplate'">
+                    <span>{{ (dataSource?.UKBetrag) | number : '1.2' : 'de-CH'}}</span>
+                </div>
+
+                <div *dxTemplate="let data of 'monatlichesTemplate'" class="item-height item-padding">
+                    <span>{{ (dataSource?.Betrag) | number : '1.2' : 'de-CH'}}</span>
+                </div>
+
+                <div *dxTemplate="let data of 'beschreigungTemplate'" class="item-height item-padding">
+                    <span class="textarea-pre-wrap">{{dataSource?.Bemerkung}}</span>
+                </div>
+
+            </dx-form>
+        </div>
+    </div>
+
+</div>

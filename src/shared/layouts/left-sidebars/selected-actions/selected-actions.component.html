@@ -1,0 +1,18 @@
+<div class="bgr-seleted">
+  <div class="selected-actions-container" *ngIf="(selectedActions.length > 0)">
+      <div class="selected-actions">
+        <dx-list #listSelected [(dataSource)]="limitedSelectedActions" [allowItemDeleting]="true" focusStateEnabled="false"
+          [itemDeleteMode]="'static'" [showSelectionControls]="false" [selectionMode]="'single'" [height]="'auto'"
+          (onItemClick)="onClickItem($event.itemData)" (onItemDeleting)="onDeleteItem($event)">
+          <div *dxTemplate="let data of 'item'" class="sidebar-item" [ngClass]="{'current-url': data.url === currentUrl}">
+            <div class="item">
+              <div class="icon"> <img [src]="iconUrl + data.data.iconId + '.png'"> </div>
+              <div class="name">{{ data.name }}</div>
+              <div class="age" *ngIf="data.data.type==='flag_menu'">{{ data.time | timeago }}</div>
+              <div class="age" *ngIf="data.data.type!=='flag_menu'">({{ data.gender }} {{ data.age }})</div>
+            </div>
+          </div>
+        </dx-list>
+    </div>
+  </div>
+</div>

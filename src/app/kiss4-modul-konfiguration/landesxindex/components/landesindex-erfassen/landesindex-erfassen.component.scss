@@ -1,0 +1,35 @@
+@import 'settings/variables.scss';
+.btn-btnGroup{
+    position: absolute;
+    bottom : 30px;
+    right: 20px;
+  }
+
+.btn-btnGroup .j003__landesindex-erfassen_erfassen{
+    float: right;
+}
+
+.btn-btnGroup .j003_landesindex-erfassen_abbrechen{
+    margin:0px 10px;
+    float: left;
+}
+
+.unit {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    flex-direction: row;
+}
+
+.unit .j003_landesindex-erfassen_vorlage-date{
+    margin-right: 10px;
+}
+
+.banner-title {
+    background: unset; color: white;
+  }
+
+::ng-deep .J003-detail .dx-item.dx-box-item {
+  margin-bottom: $margin-content;
+}
+  

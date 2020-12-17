@@ -1,0 +1,59 @@
+<div id="clientList" class="client-list">
+  <dx-check-box #showNurAktuelleAnzeigen class="label-text"
+                (onValueChanged)="onChangeNurAktuelleAnzeigen($event)"
+                [text]="'ZulagenEfb.ClientList.NurAktuelleAnzeigen' | translate"></dx-check-box>
+
+    <div *ngIf="gridFunction.model.isFilterBuilder" class="filter-container" id="filter-builder">
+      <dx-filter-builder [fields]="dataGrid.instance.option('columns')" [(value)]="filter">
+      </dx-filter-builder>
+      <dx-button [text]="'ZulagenEfb.ClientList.ApplyFilter' | translate" type="default" (onClick)="dataGrid.instance.filter(filter)">
+      </dx-button>
+      <div class="dx-clearfix"></div>
+    </div>
+    <dx-data-grid #dataGrid *ngIf="zulageGridData"
+                  [dataSource]="zulageGridData" 
+                  [noDataText]="'ZulagenEfb.ClientList.NoData' | translate"
+                  [showBorders]="true"
+                  [allowColumnReordering]="true"
+                  [allowColumnResizing]="true"
+                  [columnMinWidth]="20"
+                  [showRowLines]="true"
+                  [keyExpr]="bgPositionID ? bgPositionID : baPersonID_NEW"
+                  [hoverStateEnabled]="true"
+                  [focusedRowEnabled]="true"
+                  (onContentReady)="onContentReady($event)"
+                  (onContextMenuPreparing)="onContextMenuPreparing($event)"
+                  (onFocusedRowChanged)="onFocusedRowChanged($event)"
+                  [disabled]="isDisableGrid"
+                  [columnResizingMode]="'widget'"
+                  width="100%">
+      <dxi-column dataField="datumVon" dataType="date" [format]="{type: formatDate}" [caption]="'ZulagenEfb.ClientList.GultigAb' | translate" width="auto"></dxi-column>
+      <dxi-column dataField="nameVorname" dataType="string" [caption]="'ZulagenEfb.ClientList.Name' | translate" width="auto"></dxi-column>
+      <dxi-column dataField="geburtsdatum" dataType="date" [format]="{type: formatDate}" [caption]="'ZulagenEfb.ClientList.Geburtsdatum' | translate" width="auto"></dxi-column>
+      <dxi-column dataField="zulageText" dataType="string" [caption]="'ZulagenEfb.ClientList.Zulage' | translate" width="auto"></dxi-column>
+      <dxi-column dataField="anteilText" dataType="string" [caption]="'ZulagenEfb.ClientList.Percent' | translate" width="auto"></dxi-column>
+      <dxi-column dataField="betragSum" dataType="number" cellTemplate="cellBetragTemplate"  [format]="numberFormat" [caption]="'ZulagenEfb.ClientList.Betrag' | translate" width="auto"></dxi-column>
+      <dxi-column dataField="bemerkung" dataType="string" [caption]="'ZulagenEfb.ClientList.Bemerkung' | translate" width="auto" [customizeText]="onFormatText"></dxi-column>
+      <dxo-search-panel [visible]="gridFunction.model.isSearchPanel" highlightCaseSensitive="true"></dxo-search-panel>
+      <dxo-filter-row [visible]="gridFunction.model.isSearch" applyFilter="Immediately"></dxo-filter-row>
+      <dxo-header-filter [visible]="true"></dxo-header-filter>
+      <dxo-group-panel [visible]="gridFunction.model.isGrouping" [emptyPanelText]="'ZulagenEfb.ClientList.EmptyPanelText' | translate"></dxo-group-panel>
+      <dxo-grouping #expandGrid [autoExpandAll]="false" [contextMenuEnabled]="true"></dxo-grouping>
+      <dxo-column-chooser #columnChooser emptyPanelText="" [title]="'ZulagenEfb.ColumnChooser' | translate" [enabled]="false"></dxo-column-chooser>
+      <dxo-editing mode="cell" [allowUpdating]="false"></dxo-editing>
+      <dxo-sorting mode="multiple"></dxo-sorting>
+      <dxo-scrolling mode="virtual"></dxo-scrolling>
+      <dxo-selection mode="single"></dxo-selection>
+      <div *dxTemplate="let data of 'cellBetragTemplate'">
+        <span *ngIf="data.data.betragSum != 0">
+          {{data.value | number : number_pipe : currentLang}}
+        </span>
+      </div>
+      <dxo-summary>
+        <dxi-total-item column="betragSum" summaryType="sum" [valueFormat]="numberFormat"  displayFormat="Sum: {0}"></dxi-total-item>
+      </dxo-summary>
+    </dx-data-grid>
+    <!-- ------------------------- The End Area for gridview ------------------- -->
+    <app-grid-function #gridFunction (onchange)="gridFunction.model" [keyStorage]="gridFunctionKey"></app-grid-function>
+    <kiss-printer #printer></kiss-printer>
+</div>

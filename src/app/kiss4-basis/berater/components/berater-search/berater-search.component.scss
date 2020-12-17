@@ -1,0 +1,20 @@
+.c006_search-form {
+    margin: 0;
+    .c006_title-search {
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 1300px) { 
+    .c006-data-gird-search {
+        max-height: 160px ;
+        min-height: 160px;
+    }
+}
+
+@media screen and (min-width: 1300) { 
+    .c006-data-gird-search {
+        max-height: 360px ;
+        min-height: 360px ;
+    }
+}

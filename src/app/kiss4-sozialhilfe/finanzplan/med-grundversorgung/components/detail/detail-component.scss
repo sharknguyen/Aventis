@@ -1,0 +1,40 @@
+@import 'settings/variables.scss';
+
+.content-popup {
+  text-align: left;
+  .title-popup {
+    font-weight: normal
+  }
+  .element-popup {
+      float: right;
+      margin-right: 1em;
+      margin-top: 1em;
+      .btn-detail {
+          background-color: $color-base;
+          color: $color-white;
+          &:focus {
+            background: $searchbox-header-group-color-bg
+          }
+      }
+      ::ng-deep .dx-button .dx-icon {
+          color: $color-white
+      }
+  }
+}
+
+:host ::ng-deep .toolbarHeader {
+  width: 100%;
+}
+
+.form-container{
+  overflow: auto; 
+  min-height: 611px;
+}
+
+@media only screen and (max-width: 1000px) {
+  ::ng-deep div.form-detail-button {
+      .dx-button-content{
+          padding: 8px 0px 8px 8px;
+       }   
+  }
+}

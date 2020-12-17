@@ -1,0 +1,87 @@
+{
+  "WohnKosten": {
+    "Grid": {
+      "GultigAb": "Gültig ab [it]",
+      "Miete": "Miete [it]",
+      "Nebenkosten": "Nebenkosten [it]",
+      "Angerechnet": "Angerechnet [it]"
+    },
+    "Detail": {
+      "title": "Detail [it]",
+      "Wohnsituation": "Wohnsituation [it]",
+      "Berechnungsgrundlage": "Berechnungsgrundlage [it]",
+      "hg": "für HG [it]",
+      "ue": "für UE [it]",
+      "Effektive": "Effektive Miet-rsp. Zinskosten [it]",
+      "Ansatz": "Ansatz gemäss Richtlinien [it]",
+      "AngerechneterExkl": "Angerechneter Wohnkostenanteil exkl. NK [it]",
+      "AngerechneterInkl": "Angerechneter Wohnkostenanteil inkl. NK [it]",
+      "Unterdeckter": "Unterdeckter Anteil zulasten Klient [it]",
+      "EffektiveNebenkosten": "Effektive Nebenkosten [it]",
+      "Begrundungen": "Begründungen [it]",
+      "Wohnkosten": "Wohnkosten [it]",
+      "BearbeitungAbschliessen": "Bearbeitung abschliessen [it]",
+      "BewilligteWohnostenAnpassen": "bewilligte Wohnosten Anpassen ... [it]",
+      "WohnkostenAnpassen": "Wohnkosten Anpassen ... [it]",
+      "Speichern": "Speichern [it]",
+      "Abbrechen": "Abbrechen [it]",
+      "Kennzahlen": "Kennzahlen [it]",
+      "Haushaltsgrosse": "Haushaltsgrösse [it]",
+      "Unterstutzungseinheit": "Unterstützungseinheit [it]",
+      "Grundbedarf": "Grundbedarf [it]",
+      "Bearbeiten": "Bearbeiten [it]",
+      "Begründungen": "Begründungen [it]",
+      "Zuschlag": "Zuschlag [it]",
+      "BewilligteBtnLabel": "Die Wohnkosten gelten ab [it]",
+      "Zinskosten": "Angerechnete Miet- rsp.Zinskosten [it]",
+      "Nebenkosten": "Effektive Nebenkosten [it]",
+      "Abschilessen": "Bearbeitung Abschilessen [it]"
+    },
+    "PopupConfirm": {
+      "TitleCloseForm": "Bestätigung [it]",
+      "MessageCloseForm": "Änderungen an diesem Datensatz rückgängig machen ? [it]",
+      "Ja": "Ja [it]",
+      "Nein": "Nein [it]",
+      "TitleConfirmDate": "Anpassung Wohnkosten [it]",
+      "MessageConfirmDate": "Die neuen Ansätze werden automatisch im Masterbudget sowie in sämtlichen noch nicht freigegebenen Monatsbudgets vom unten stehenden Monat an nachgeführt [it]",
+      "MessageChoseDate": "Die neue Kosten gelten ab [it]",
+      "TitleConfirmClone": "Bestätigung [it]",
+      "MessageConfirmClone": "Sie ändern die Wohnkosten eines aktiven Finanzplanes!\r\nSollen diese Änderungen gespeichert und alle betroffenen Monatsbudgets angepasst werden? [it]"
+    },
+    "GirdTitle": {
+      "FilterBuilderButton": "Filter anwenden [it]",
+      "ColumnChooser": "Benutzerdefiniert [it]",
+      "emptyPanelText": "Zu gruppierende Spalten in diesen Bereich ziehen [it]",
+      "KeineDaten": "Keine Daten [it]"
+    },
+    "Message": {
+      "MessageDelete": "Soll der Datensatz gelöscht werden ? [it]",
+      "MessageExit": "Sie haben Daten geändert. Möchten Sie das Formular schließen und die Änderungen verwerfen ? [it]",
+      "MessageDeleteNew": "Neuen Datensatz wieder löschen ? [it]",
+      "MessageDiscard": "Änderungen an diesem Datensatz rückgängig machen ? [it]",
+      "Information": "Information [it]",
+      "DoubleClickMessage": "Die Angaben wurden in den Zwischenspeicher kopiert. [it]",
+      "ShiftClickMessage": "Die ID wurde in den Zwischenspeicher kopiert [it]",
+      "SaveError": "Ungültige Daten. Bitte geben Sie gültige Eingabewerte ein. [it]",
+      "SaveError500": "Arithmetic overflow error converting expression to data type money.\r\nThe statement has been terminated. [it]",
+      "SaveError403": "Insufficient rights. [it]",
+      "KeineDaten": "Keine Daten [it]",
+      "MessageInformation": "Sämtliche Monatsbudgets des Finanzplanes sind bereits bewilligt. [it]"
+    },
+    "ValidateMessage": {
+      "MSG_006": "Beim Speichern des Datensatzes ist ein Fehler aufgetreten ! [it]",
+      "MSG_007": "Das Feld 'Miete' darf nicht leer bleiben ! [it]",
+      "MSG_008": "Das Feld 'Miete UE' darf nicht leer bleiben ! [it]",
+      "MSG_009": "Das Feld 'Nebenkosten' darf nicht leer bleiben ! [it]",
+      "MSG_010": "Das Feld 'Nebenkosten UE' darf nicht leer bleiben ! [it]",
+      "MSG_016": "Der Mietanteil der UE ist grösser als die gesammte Miete [it]",
+      "MSG_017": "Das Feld 'Angerechnet' darf nicht leer bleiben ! [it]",
+      "MSG_018": "Der Nebenkostenanteil der UE ist grösser als die gesammten Nebenkosten [it]",
+      "MSG_019": "Arithmetic overflow error converting numeric to data type money. The statement has been terminated. [it]"
+    },
+    "Title": {
+      "Vom": " > Monatliche Wohnkosten vom [it]",
+      "Bis": "bis [it]"
+    }
+  }
+}

@@ -1,0 +1,112 @@
+<div class="container-detail form-content-details" *ngIf="isEditMode">
+    <div class="toolbar-header">
+        <kiss-card-title [titleHeader]="'CtlBfsFragenkatalog.Detail' | translate" [listBtn]="listBtn" [isCard]="true"
+            (onCustomizeBtnFn)="toolBarOnItemClick($event)" [customizeBtn]="customizeBtn">
+        </kiss-card-title>
+    </div>
+    <div class="container-detail__form" *ngIf="expandDetail">
+        <dx-validation-group #validationVermogen>
+            <dx-form [showColonAfterLabel]="false" [screenByWidth]="getSizeQualifier">
+                <dxi-item itemType="group" [colCount]="12">
+                    <dxi-item itemType="group" [colSpan]="6">
+                        <dxi-item [template]="'freibetragTemplate'">
+                            <dxo-label [text]="'Vermogen.Detail.Freibetrag' | translate"></dxo-label>
+                        </dxi-item>
+                        <dxi-item [template]="'angerechnetTemplate'">
+                            <dxo-label [text]="'Vermogen.Detail.Angerechnet' | translate"></dxo-label>
+                        </dxi-item>
+                        <dxi-item [template]="'personTemplate'">
+                            <dxo-label [text]="'Vermogen.Detail.Person' | translate"></dxo-label>
+                        </dxi-item>
+                        <dxi-item [template]="'artDesVermogensTemplate'">
+                            <dxi-validation-rule type="required"></dxi-validation-rule>
+                            <dxo-label [text]="'Vermogen.Detail.ArtDesVermoge' | translate"></dxo-label>
+                        </dxi-item>
+                        <dxi-item [template]="'vermogensTemplate'">
+                            <dxi-validation-rule type="required"></dxi-validation-rule>
+                            <dxo-label [text]="'Vermogen.Detail.Vermogen' | translate"></dxo-label>
+                        </dxi-item>
+                        <dxi-item [template]="'vermogensverbrauchTemplate'">
+                            <dxi-validation-rule type="required"></dxi-validation-rule>
+                            <dxo-label [text]="'Vermogen.Detail.MonatlVermogensverbrauch' | translate"></dxo-label>
+                        </dxi-item>
+                    </dxi-item>
+                </dxi-item>
+                <dxi-item itemType="group" [colCount]="12">
+                    <dxi-item itemType="group" [colSpan]="12">
+                        <dxi-item [template]="'beschreibungTemplate'">
+                            <dxo-label [text]="'Vermogen.Detail.Beschreibung' | translate"></dxo-label>
+                        </dxi-item>
+                    </dxi-item>
+                </dxi-item>
+
+
+                <!-- Template -->
+                <div *dxTemplate="let data of 'freibetragTemplate'">
+                    <dx-number-box #freibetragTemplate class="kiss-input-right" [step]=0 [tabIndex]="1" [(value)]="freibetrag"
+                        [disabled]="true" [format]="formatNumber">
+                    </dx-number-box>
+                </div>
+
+                <div *dxTemplate="let data of 'angerechnetTemplate'">
+                    <dx-number-box #angerechnetTemplate class="kiss-input-right" [step]=0 [tabIndex]="2" [disabled]="true"
+                        [(value)]="angerechnet" [format]="formatNumber">
+                    </dx-number-box>
+                </div>
+
+                <div *dxTemplate="let data of 'personTemplate'">
+                    <dx-select-box #person [dataSource]="dataSelectBoxPerson" valueExpr="BaPersonID" displayExpr="NameVorname"
+                        [showClearButton]="false" [accessKey]="1" [(value)]="_data.BaPersonID" searchEnabled="true"
+                        (onKeyDown)="onFormKeyDown($event, 'selectbox')" (onFocusIn)="onFocusIn(person,'person','selectbox')"
+                        (onFocusOut)="onFocusOut()" (onInitialized)="onInitInstitution($event)">
+                    </dx-select-box>
+                </div>
+
+                <div *dxTemplate="let data of 'artDesVermogensTemplate'">
+                    <dx-select-box #artDesVermogens [dataSource]="dataSelectBoxArtDesVermogen" valueExpr="BgPositionsartID"
+                        displayExpr="Text" [showClearButton]="false" [accessKey]="2" [(value)]="_data.BgPositionsartID"
+                        searchEnabled="true" (onKeyDown)="onFormKeyDown($event, 'artDesVermogens')" (onFocusIn)="onFocusIn(artDesVermogens,'artDesVermogens','selectbox')"
+                        (onFocusOut)="onFocusOut()">
+                        <dx-validator>
+                            <dxi-validation-rule type="required" [message]="'Vermogen.FieldRequired.ArtDesVermogens' | translate">
+                            </dxi-validation-rule>
+                        </dx-validator>
+                    </dx-select-box>
+                </div>
+
+                <div *dxTemplate="let data of 'vermogensTemplate'">
+                    <dx-number-box #vermogen class="kiss-input-right" [(value)]="_data.Betrag" [accessKey]="3" [step]=0
+                        [format]="formatNumber" (onKeyDown)="onFormKeyDown($event, 'Betrag')" (onFocusIn)="onFocusIn(vermogen,'vermogen','numberbox')"
+                        (onFocusOut)="onFocusOut()">
+                        <dx-validator>
+                            <dxi-validation-rule type="required" [message]="'Vermogen.FieldRequired.Vermogen' | translate">
+                            </dxi-validation-rule>
+                            <dxi-validation-rule type="range" [min]="minNumber" [max]="maxNumber" [message]="'Vermogen.FieldRequired.RequiredMonatlichesError' | translate">
+                            </dxi-validation-rule>
+                        </dx-validator>
+                    </dx-number-box>
+                </div>
+
+                <div *dxTemplate="let data of 'vermogensverbrauchTemplate'">
+                    <dx-number-box #verbrauch class="kiss-input-right" [(value)]="_data.Verbrauch" [accessKey]="4"
+                        [step]=0 [format]="formatNumber" (onKeyDown)="onFormKeyDown($event, 'Verbrauch')" (onFocusIn)="onFocusIn(verbrauch,'verbrauch','numberbox')"
+                        (onFocusOut)="onFocusOut()">
+                        <dx-validator>
+                            <dxi-validation-rule type="required" [message]="'Vermogen.FieldRequired.Vermogensverbrauch' | translate">
+                            </dxi-validation-rule>
+                            <dxi-validation-rule type="range" [min]="minNumber" [max]="maxNumber" [message]="'Vermogen.FieldRequired.RequiredMonatlichesError' | translate">
+                            </dxi-validation-rule>
+                        </dx-validator>
+                    </dx-number-box>
+                </div>
+
+                <div *dxTemplate="let data of 'beschreibungTemplate'">
+                    <dx-text-area #beschreibung [(value)]="_data.Bemerkung" [accessKey]="5" (onKeyDown)="onFormKeyDown($event, 'beschreibung')"
+                        (onFocusIn)="onFocusIn(beschreibung,'beschreibung','textarea')" (onFocusOut)="onFocusOut()">
+                    </dx-text-area>
+                </div>
+
+            </dx-form>
+        </dx-validation-group>
+    </div>
+</div>

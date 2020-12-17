@@ -1,0 +1,23 @@
+@import 'settings/variables.scss';
+
+.section_title{
+  padding-top: $padding-horizontal;
+  font-weight: $form-detail-label-font-weight;
+}
+.c007_breakline{
+  margin: $c007-margin-bottom 0px;
+}
+.mietvertrag_item_height{
+  height: $form-line;
+  line-height: $form-line;
+}
+.dx-drop-down-box-width,.form_text_area {
+  min-width: $c007-drop-down-box-width;
+  max-width: $c007-text-area;
+}
+.mietvertrag_right_item_width{
+ width: $width-number-box;
+}
+.mietvertrag_right_item_content{  
+  text-align: $c007-text-align;
+ }

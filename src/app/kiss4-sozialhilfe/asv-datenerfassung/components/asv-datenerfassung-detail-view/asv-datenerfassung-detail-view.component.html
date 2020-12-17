@@ -1,0 +1,43 @@
+<div class="container-detail form-content-details">
+  <div class="toolbar-header" (click)="changeCollapseFormContent($event)">
+    <kiss-card-title [titleHeader]="'AsvDatenerfassung.TitleDetail' | translate" [customizeBtn]="customizeBtn" [isCard]="true"
+      (onCustomizeBtnFn)="toolBarOnItemClick($event)">
+    </kiss-card-title>
+  </div>
+  <div class="container-detail__form" [ngClass]="{'container__hide': !isExpand}">
+    <dx-form id="faAktennotiz-CreateEditForm" #faAktennotizCreateEditForm colCount="auto" labelLocation="left"
+      [showColonAfterLabel]="false">
+      <dxi-item itemType="group" cssClass="second-group" [colCount]="8">
+        <dxi-item [template]="'dateBoxDatumTemplate'" [colSpan]="1"></dxi-item>
+        <dxi-item [dataField]="'AsvDatenerfassung.DataDetail.Bis' | translate" [template]="'dateBoxDatumBisTemplate'"
+          [colSpan]="1"></dxi-item>
+
+        <dxi-item itemType="empty" cssClass="second-group" [colSpan]="6">
+        </dxi-item>
+        <dxi-item [template]="'selectBoxTemplate'" [colSpan]="2"></dxi-item>
+        <dxi-item [template]="'checkBoxTemplate'" [colSpan]="2"></dxi-item>
+        <dxi-item itemType="empty" cssClass="second-group" [colSpan]="4">
+        </dxi-item>
+        <dxi-item [template]="'textAreaInhaltTemplate'" [colSpan]="8">
+        </dxi-item>
+      </dxi-item>
+      <div *dxTemplate="let data of 'dateBoxDatumTemplate'">
+        <span>{{this.asvDetailData.DatumVon | date: dateFormat}}</span>
+      </div>
+      <div *dxTemplate="let data of 'dateBoxDatumBisTemplate'">
+        <span>{{this.asvDetailData.DatumBis | date: dateFormat}}</span>
+      </div>
+      <div *dxTemplate="let data of 'selectBoxTemplate'">
+        <span>{{this.asvDetailData.NameVorname}}</span>
+      </div>
+      <div *dxTemplate="let data of 'checkBoxTemplate'">
+        <dx-check-box [disabled]='true' [(value)]="asvDetailData.Widerrufen">
+        </dx-check-box>
+        <span> &nbsp;&nbsp; {{ 'AsvDatenerfassung.DataDetail.EintragWiderrufen' | translate }}</span>
+      </div>
+      <div *dxTemplate="let data of 'textAreaInhaltTemplate'">
+        <span>{{this.asvDetailData.Bemerkung}}</span>
+      </div>
+    </dx-form>
+  </div>
+</div>

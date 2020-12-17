@@ -1,0 +1,43 @@
+.zugeteilt-template-container {
+    display: inline-flex;
+    position: relative;
+}
+.arrow-btns {
+    display: inline-flex;
+    flex-direction: column;
+    position: absolute;
+    left: -75px;
+    top: 50px;
+    ::ng-deep .dx-button {
+        margin-bottom: 5px;
+    }
+}
+:host ::ng-deep .zugeteilt-container>label>span {
+    visibility: hidden;
+}
+
+@media only screen and (max-width: 500px) {
+    :host ::ng-deep div.i020-res-search-button {
+        .dx-button-content{
+            padding: 8px 0px 8px 8px;
+            .dx-button-text{
+                display: none;
+            }
+        } 
+    }
+}
+// Fix bug: datum-von & datum-bis are not on a line when responsive screen
+// Since there is currently no solution to fix this bug, it is necessary to override the devextreme inline-style
+@media only screen and (min-width: 768px) and (max-width: 1500px) {
+    :host ::ng-deep  {
+        .datum-container .dx-box-flex.dx-box.dx-widget.dx-visibility-change-handler.dx-collection{
+        flex-direction: row !important;
+        }
+        .datumbis-container {
+            padding-top: 0 !important;
+            .dx-field-item-label-content {
+                width: auto !important;
+            }
+    }
+}
+}

@@ -1,0 +1,35 @@
+﻿<kiss-right-component>
+  <app-navigator id="d002_fa-aktennotiz" [titleHeader]="pageTitle" [listBtn]="listBtn" (onCustomizeBtnFn)="toolBarOnItemClickTopGrd($event)"
+    (dblclick)="onCopyTitle()"></app-navigator>
+  <div class="container">
+    <div class="container__right-content">
+      <app-remaining-message #remainingMessage ></app-remaining-message>
+      <!-- Search content ------------------------------------------------------------------------------------------------------------------>
+      <app-fa-aktennotiz-search #searchComponent (searchEvent)="onSearchEvent($event)" [isDisable]="!isViewMode"
+        [gridMitarbeiterDataSource]="gridMitarbeiterDataSource" [theMenDataSource]="faAktennotizSandbox.theMenData$ | async"
+        [kontaktartData]="faAktennotizSandbox.kontaktartData$ | async" [isVisibleRadio]="isLogischesLoeschenActive"></app-fa-aktennotiz-search>
+      <!--/. Search content ------------------------------------------------------------------------------------------------------------------------>
+
+      <app-fa-aktennotiz-grid #gridFaAktennotiz
+      [faAktennotizsData]="faAktennotizData"
+      [isDisable]="!isViewMode"
+      (rowPrepared)="onRowPrepared($event)"
+      (rowFocusing)="onRowFocusing($event)">
+      </app-fa-aktennotiz-grid>
+
+      <app-fa-aktennotiz-view #viewComponent *ngIf="isViewMode" [faAktennotizDetail]="faAktennotizDetail" [theMenData]="theMenData"
+        [(tagBoxDetailTheMenValue)]="tagBoxDetailTheMenValue" (btnAddClick)="actionNew_OnClick()" (btnEditClick)="actionEdit_OnClick()"
+        (btnDeleteClick)="onDelete()" [dauerData]="dauerData" [isVisibleDauer]="isVisibleDauer" (btnGeloschterDatensatzClick)="actionGeloschterDatensatz_OnClick()"
+        (btnDocumentClick)="actionDokument_OnClick()" [isVisibleGeloschterDatensatz]="isLogischesLoeschenActive">
+      </app-fa-aktennotiz-view>
+      <app-fa-aktennotiz-create-edit #createEditComponent *ngIf="!isViewMode" [faAktennotizDetail]="faAktennotizDetail" [isVisibleDauer]="isVisibleDauer"
+        [mitarbeiterData]="gridMitarbeiterDataSource" [dauerData]="dauerData" [kontaktartData]="kontaktartData"
+        [theMenData]="theMenData" [(tagBoxDetailTheMenValue)]="tagBoxDetailTheMenValue"
+        (btnDocumentClick)="actionDokument_OnClick()" (btnSaveClick)="actionSave_OnClick()" (btnCancelClick)="actionCancel_OnClick()"
+        (btnDeleteClick)="onDelete()">
+      </app-fa-aktennotiz-create-edit>
+      <app-popup-concurrency [popUpConcurrencyModel]="popUpConcurrencyModel"></app-popup-concurrency>
+      <app-popup-confirm [popUpModel]="popUpConfirmModel"></app-popup-confirm>
+    </div>
+  </div>
+</kiss-right-component>

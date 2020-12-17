@@ -1,0 +1,26 @@
+.arbeit-view-group-field {
+  display: flex;
+  align-items: center;
+}
+.arbeit-view-group-field.padding-top {
+  padding-top: 8px;
+}
+.arbeit-view-group-field-left {
+  width: 20px;
+}
+.arbeit-view-group-field-right {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  .fr-box {
+    word-break: break-all;
+  }
+}
+.arbeit-content-view ::ng-deep .dx-layout-manager .dx-label-h-align.dx-flex-layout {
+  align-items: center;
+}
+.arbeit-content-view ::ng-deep .dx-layout-manager .erwerbssituation-field.dx-label-h-align.dx-flex-layout,
+.arbeit-content-view ::ng-deep .dx-layout-manager .teilzeitgrund-field.dx-label-h-align.dx-flex-layout,
+.arbeit-content-view ::ng-deep .dx-layout-manager .bemerkung-field.dx-label-h-align.dx-flex-layout, {
+  align-items: end;
+}

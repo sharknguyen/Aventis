@@ -1,0 +1,23 @@
+﻿<kiss-right-component>
+    <app-navigator id="i020_kontoauszug_header" [titleHeader]="pageTitle" [listBtn]="listBtn" [customizeBtn]="customizeBtn" (dblclick)="onCopyTitle()"
+        (onCustomizeBtnFn)="onToolbarItemClick($event)">
+    </app-navigator>
+    <div class="container">
+        <div class="container__right-content">
+            <app-remaining-message #remainingMessage></app-remaining-message>
+            <kiss-kontoauszug-search #kontoauszugSearch [personnenData]="personnenData" [zeitraumData]="zeitraumData" [kostenartData]="kostenartData"
+                [verfuegbarData]="verfuegbarData" [countID] = "countID" [verfuegbarRowKey]="verfuegbarRowKey" [kontoauszugSearchFormData]="kontoauszugSearchFormData"
+                (emitOnSearchBtnClick)="onSearchBtnClick($event)">
+            </kiss-kontoauszug-search>
+            <div class="grid-table-view">
+                <kiss-kontoauszug-list #kontoauszugList [KbBuchungsStatus]="KbBuchungsStatus" [buchungKostenart]="buchungKostenart" [selectedRowKey]="selectedRowKey"
+                    (emitOnKeyDown)="onKeyDownGrid($event)" [statusCodeHeaderFilter]="statusCodeHeaderFilter">
+                </kiss-kontoauszug-list>
+            </div>
+            <div class="container-detail form-content-details">
+                <kiss-kontoauszug-detail #kontoauszugDetail [kontoauszugDetail]="selectedKontoauszugRow">
+                </kiss-kontoauszug-detail>
+            </div>
+        </div>
+    </div>
+</kiss-right-component>

@@ -1,0 +1,40 @@
+.custom-lookup-container {
+    min-height: 34px;
+}
+.custom-lookup {
+    display: inline-block;
+    vertical-align: middle;
+}
+.custom-lookup > img {
+    vertical-align: middle;
+    margin-left: 5px;
+    margin-right: 3px;
+}
+:host ::ng-deep .custom-lookup-container {
+    .dx-textbox.dx-texteditor.dx-editor-outlined.dx-widget {
+        margin-top: 0;
+    }
+    .dx-placeholder {
+        display: none;
+    }
+}
+.custom-filter-row-lookup {
+    text-align: center;
+    img {
+        margin-top: 8.5px;
+    }
+}
+:host ::ng-deep .custom-filter-row-lookup {
+    .dx-textbox {
+        width: 0;
+    }
+    .dx-textbox.dx-texteditor.dx-editor-outlined.dx-widget {
+        display: inline-flex;
+    }
+    input {
+        width: 0;
+    }
+    .dx-placeholder {
+        display: none;
+    }
+}

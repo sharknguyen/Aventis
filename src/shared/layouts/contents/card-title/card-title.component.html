@@ -1,0 +1,17 @@
+<a *ngIf="!isCard" href="#" class="menu-state-button" (click)="onHideWidgetsMenu($event)" (keypress)="onHideWidgetsMenu($event)"
+  tabindex="-1"></a>
+<div #toolBarContainer>
+  <dx-toolbar #treeToolbar class="toolbarHeader" [ngClass]="{ 'kiss-card' : isCard, 'kiss-popup' : closeBtn, 'toolChild' : toolChild }"
+    (onItemClick)="onItemClick($event)">
+    <dxi-item location="before" locateInMenu="never" [options]="optionsHeader" class="navigator title-header-container">
+      <span #titleHeaderTag class="text-title-header cursor-pointer ellipsis" [title]="titleHeader">{{titleHeader}}</span>
+    </dxi-item>
+    <dxi-item class="toolbarHeader" *ngFor="let item of items" [location]="item.location" [widget]="item.widget"
+      [locateInMenu]="item.locateInMenu" [icon]="item.icon" [options]="item.options">
+    </dxi-item>
+  </dx-toolbar>
+</div>
+<div *ngFor="let contextMenu of listContextMenu">
+  <dx-context-menu [items]="contextMenu.items" target="#{{contextMenu.target}}" (onItemClick)="onItemRightClick($event, contextMenu)">
+  </dx-context-menu>
+</div>

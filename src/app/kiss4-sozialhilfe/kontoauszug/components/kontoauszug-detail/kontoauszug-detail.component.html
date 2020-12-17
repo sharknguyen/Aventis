@@ -1,0 +1,88 @@
+<div class="toolbar-header">
+  <kiss-card-title [titleHeader]="'CtlBfsFragenkatalog.Detail' | translate" [isCard]="true" (onCustomizeBtnFn)="onToolbarItemClick($event)">
+  </kiss-card-title>
+</div>
+<div class="container-detail__form" *ngIf="isExpand">
+  <dx-form id="kontoauszugDetailForm" #kontoauszugDetailForm colCount="2" labelLocation="left" [showColonAfterLabel]="false" [screenByWidth]="getSizeQualifier">
+    <dxi-item itemType="group" [colSpan]="1" width="100%">
+      <dxi-item dataField="Klient" [template]="'KlientTemplate'">
+        <dxo-label [text]="'CtlWhKontoauszug.List.Klient' | translate"></dxo-label>
+      </dxi-item>
+      <dxi-item dataField="LAText" [template]="'LATextTemplate'">
+        <dxo-label [text]="'CtlWhKontoauszug.List.LAText' | translate"></dxo-label>
+      </dxi-item>
+      <dxi-item dataField="Verwendungsp" [template]="'VerwendungspTemplate'">
+        <dxo-label [text]="'CtlWhKontoauszug.Detail.Verwendungsp' | translate"></dxo-label>
+      </dxi-item>
+      <dxi-item dataField="BelegNr" [template]="'BelegNrTemplate'">
+        <dxo-label [text]="'CtlWhKontoauszug.List.BelegNr' | translate"></dxo-label>
+      </dxi-item>
+      <dxi-item dataField="Betrag" [template]="'BetragTemplate'">
+        <dxo-label [text]="'CtlWhKontoauszug.Detail.Betrag' | translate"></dxo-label>
+      </dxi-item>
+      <dxi-item dataField="Splitting" [template]="'SplittingTemplate'">
+        <dxo-label [text]="'CtlWhKontoauszug.Detail.Splitting' | translate"></dxo-label>
+      </dxi-item>
+    </dxi-item>
+    <dxi-item itemType="group" [colSpan]="1" width="100%">
+      <dxi-item dataField="Valuta" [template]="'ValutaTemplate'">
+        <dxo-label [text]="'CtlWhKontoauszug.Detail.Valuta' | translate"></dxo-label>
+      </dxi-item>
+      <dxi-item dataField="Buchungstext" [template]="'BuchungstextTemplate'">
+        <dxo-label [text]="'CtlWhKontoauszug.List.Buchungstext' | translate"></dxo-label>
+      </dxi-item>
+      <dxi-item dataField="Auszahlart" [template]="'AuszahlartTemplate'">
+        <dxo-label [text]="'CtlWhKontoauszug.Detail.Auszahlart' | translate"></dxo-label>
+      </dxi-item>
+      <dxi-item dataField="Kreditor" [template]="'KreditorTemplate'">
+        <dxo-label [text]="kontoauszugDetail?.EA === 'A' ? ('CtlWhKontoauszug.Detail.Kreditor' | translate) : ('CtlWhKontoauszug.Detail.Debitor' | translate)"></dxo-label>
+      </dxi-item>
+    </dxi-item>
+    <!-- Template -->
+    <div *dxTemplate="let data of 'KlientTemplate'">
+      <div class="i020-row">
+        <div class="i020-col45">{{this.kontoauszugDetail?.Klient}}</div>
+        <div class="i020-col10"></div>
+        <div class="i020-col45">{{this.kontoauszugDetail?.BaPersonID}}</div>
+      </div>
+    </div>
+    <div *dxTemplate="let data of 'LATextTemplate'">
+      <span>{{this.kontoauszugDetail?.LAText}}</span>
+    </div>
+    <div *dxTemplate="let data of 'VerwendungspTemplate'">
+      <div class="i020-row">
+        <div class="i020-col45">{{this.kontoauszugDetail?.VerwPeriodeVon | date: CommonConstant.FORMAT_DATE}}</div>
+        <div class="i020-col10">-</div>
+        <div class="i020-col45">{{this.kontoauszugDetail?.VerwPeriodeBis | date: CommonConstant.FORMAT_DATE}}</div>
+      </div>
+    </div>
+    <div *dxTemplate="let data of 'BelegNrTemplate'">
+      <span>{{this.kontoauszugDetail?.BelegNr}}</span>
+    </div>
+    <div *dxTemplate="let data of 'BetragTemplate'">
+      <span>{{this.kontoauszugDetail?.FormatedBetrag100}}</span>
+    </div>
+    <div *dxTemplate="let data of 'SplittingTemplate'">
+      <span>
+        {{this.kontoauszugDetail?.BgSplittingArtCode}}
+      </span>
+    </div>
+
+    <div *dxTemplate="let data of 'ValutaTemplate'">
+      <span>{{this.kontoauszugDetail?.ValutaDatum | date: CommonConstant.FORMAT_DATE}}</span>
+    </div>
+    <div *dxTemplate="let data of 'BuchungstextTemplate'">
+      <span>{{this.kontoauszugDetail?.Buchungstext}}</span>
+    </div>
+    <div *dxTemplate="let data of 'AuszahlartTemplate'">
+      <span>{{this.kontoauszugDetail?.Auszahlart}}</span>
+    </div>
+    <div *dxTemplate="let data of 'KreditorTemplate'">
+      <span>{{this.kontoauszugDetail?.KreditorDebitor}}</span>
+    </div>
+  </dx-form>
+
+  <div class="container-detail form-content-details">
+      <kiss-kontoauszug-dokumente></kiss-kontoauszug-dokumente>
+  </div>
+</div>

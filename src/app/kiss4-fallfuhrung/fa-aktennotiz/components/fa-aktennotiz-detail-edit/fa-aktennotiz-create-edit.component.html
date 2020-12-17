@@ -1,0 +1,114 @@
+﻿<div class="container-detail form-content-details single-container" >
+    <div class="toolbar-header" (click)="changeCollapseFormContent($event)">
+        <kiss-card-title id="o006_detail_header"
+            [titleHeader]="'FaAktennotizDetails.TitleDetail' | translate"
+            [customizeBtn]="customizeBtn"
+            [isCard]="true"
+            (onCustomizeBtnFn)="toolBarOnItemClick($event)">
+        </kiss-card-title>
+    </div>
+  <div class="container-detail__form" [ngClass]="{'container__hide': !isExpand}">
+      <dx-validation-group #validationGroupDetails>
+          <dx-form id="faAktennotiz-CreateEditForm" #faAktennotizCreateEditForm colCount="auto" labelLocation="left"
+            [showColonAfterLabel]="false">
+            <dxi-item itemType="group" cssClass="second-group" [colCount]="2">
+              <dxi-item [dataField]="'FaAktennotizDetails.LabelDatum' |translate" [template]="'dateBoxDatumTemplate'"
+                [colSpan]="2"></dxi-item>
+              <dxi-item [dataField]="'FaAktennotizDetails.LabelKontaktpartner' |translate" [template]="'textBoxKontaktpartnerTemplate'"
+                [colSpan]="2"></dxi-item>
+              <dxi-item itemType="group" cssClass="second-group" [colSpan]="1">
+                <dxi-item [dataField]="'FaAktennotizDetails.LabelKontaktart' | translate" [template]="'selectBoxKontaktartTemplate'"></dxi-item>
+                <dxi-item [dataField]="'FaAktennotizDetails.LabelDauer' |translate" [template]="'labelDauerTemplate'">
+                </dxi-item>
+                <dxi-item [dataField]="'FaAktennotizDetails.LabelAutor' |translate" [template]="'dropDownBoxEmbeddedDataGridDetailTemplate'"></dxi-item>
+              </dxi-item>
+              <dxi-item itemType="empty" cssClass="second-group" [colSpan]="1">
+              </dxi-item>
+              <dxi-item [dataField]="'FaAktennotizDetails.LabelStichwort' |translate" [template]="'textBoxStichwortTemplate'"
+                [colSpan]="2"></dxi-item>
+              <dxi-item [dataField]="'FaAktennotizDetails.LabelInhalt' |translate" [template]="'textAreaInhaltTemplate'"
+                [colSpan]="2"></dxi-item>
+              <dxi-item [template]="'tagBoxTheMenTemplate'" [colSpan]="2">
+                <dxo-label [text]="'FaAktennotizDetails.LabelThemen' |translate"></dxo-label>
+              </dxi-item>
+              <dxi-item [dataField]="'FaAktennotizDetails.LabelErfassung' |translate" [template]="'labelErfassungTemplate'"
+                [colSpan]="2"> </dxi-item>
+              <dxi-item [dataField]="'FaAktennotizDetails.LabelMutation' |translate" [template]="'labelMutationTemplate'"
+                [colSpan]="2"> </dxi-item>
+            </dxi-item>
+            <div *dxTemplate="let data of 'dateBoxDatumTemplate'">
+              <dx-date-box #datebox [(value)]="faAktennotizDetail.Datum" type="date" [displayFormat]="dateFormat"
+                [readOnly]="faAktennotizDetail.IsDeleted" [max]="maxDate" [min]="minDate" (onKeyDown)="onKeyDown($event)"
+                (onFocusIn)="onFocusIn(datebox,'Datum')" (onFocusOut)="onFocusOut()" (valueChange)="valueChange($event)">
+                <dx-validator>
+                </dx-validator>
+              </dx-date-box>
+            </div>
+            <div *dxTemplate="let data of 'textBoxKontaktpartnerTemplate'">
+              <dx-text-box #textBoxKontaktpartner [(value)]="faAktennotizDetail.Kontaktpartner" [readOnly]="faAktennotizDetail.IsDeleted"
+              (valueChange)="valueChange($event)">
+                <dx-validator>
+                  <dxi-validation-rule type="stringLength" [max]="200" [message]="'FaAktennotiz.Message.MessageValidateMaxLength' | translate"></dxi-validation-rule>
+                </dx-validator>
+              </dx-text-box>
+            </div>
+            <div *dxTemplate="let data of 'selectBoxKontaktartTemplate'">
+              <dx-select-box #kontaktart [readOnly]="faAktennotizDetail.IsDeleted" [dataSource]="kontaktartData"
+                displayExpr="text" valueExpr="code" [(value)]="faAktennotizDetail.FaKontaktartCode" (valueChange)="valueChange($event)"
+                [searchEnabled]="true" (onKeyDown)="onKeyDown($event)" (onFocusIn)="onFocusIn(kontaktart,'Kontaktart')" (onFocusOut)="onFocusOut()"></dx-select-box>
+            </div>
+            <div *dxTemplate="let data of 'textBoxStichwortTemplate'">
+              <dx-text-box #textBoxStichwort [(value)]="faAktennotizDetail.Stichwort" [readOnly]="faAktennotizDetail.IsDeleted"
+              (valueChange)="valueChange($event)">
+                <dx-validator>
+                  <dxi-validation-rule type="stringLength" [max]="200" [message]="'FaAktennotiz.Message.MessageValidateMaxLength' | translate"></dxi-validation-rule>
+                </dx-validator>
+              </dx-text-box>
+            </div>
+            <div *dxTemplate="let data of 'textAreaInhaltTemplate'">
+              <div [froalaEditor]="froalaEditorConfig" [(froalaModel)]="faAktennotizDetail.InhaltRtf"
+                id="froalaEditor"></div>
+            </div>
+            <div *dxTemplate="let data of 'labelDauerTemplate'">
+              <dx-select-box #dauer *ngIf="isVisibleDauer" [dataSource]="dauerData" displayExpr="text"
+                valueExpr="code" [readOnly]="faAktennotizDetail.IsDeleted" [(value)]="faAktennotizDetail.FaDauerCode"
+                [searchEnabled]="true" (onKeyDown)="onKeyDown($event)" (onFocusIn)="onFocusIn(dauer,'Dauer')" (onFocusOut)="onFocusOut()"
+                (valueChange)="valueChange($event)"></dx-select-box>
+              <span *ngIf="!isVisibleDauer">{{this.faAktennotizDetail.FaDauerText }}</span>
+            </div>
+            <div *dxTemplate="let data of 'labelMutationTemplate'">
+              <span class="label-creator-modifier">{{ this.faAktennotizDetail.Modified| date: 'dd.MM.yyyy
+                HH:mm:ss' }}</span>
+              <span>{{ this.faAktennotizDetail.Modifier }}</span>
+            </div>
+            <div *dxTemplate="let data of 'labelErfassungTemplate'">
+              <span class="label-creator-modifier">{{ this.faAktennotizDetail.Created | date: 'dd.MM.yyyy
+                HH:mm:ss' }}</span>
+              <span>{{ this.faAktennotizDetail.Creator }}</span>
+            </div>
+            <div *dxTemplate="let data of 'tagBoxTheMenTemplate'">
+              <dx-tag-box [dataSource]="theMenData" displayExpr="text" valueExpr="code"
+                [readOnly]="faAktennotizDetail.IsDeleted" (onValueChanged)="onValueTagBoxThemenChanged($event)"
+                [(value)]="tagBoxDetailTheMenValue" [searchEnabled]="true" [showClearButton]="true"
+                [showSelectionControls]="true" applyValueMode="useButtons"></dx-tag-box>
+            </div>
+            <div *dxTemplate="let data of 'dropDownBoxEmbeddedDataGridDetailTemplate'">
+              <dx-drop-down-box #dropDownBox [readOnly]="faAktennotizDetail.IsDeleted" [(value)]="faAktennotizDetail.UserId"
+                valueExpr="userID" [deferRendering]="false" (onValueChanged)="onValueDropDownAutorChanged($event)"
+                displayExpr="name" placeholder="Select a value..." [showClearButton]="true" [dataSource]="mitarbeiterData"
+                (onKeyDown)="onKeyDown($event)" (onFocusIn)="onFocusIn(dropDownBox,'Mitarbeiter')" (onFocusOut)="onFocusOut()">
+                <div *dxTemplate="let data of 'content'">
+                  <dx-data-grid #gridMitarbeiter [dataSource]="mitarbeiterData" [selection]="{ mode: 'single' }" keyExpr="userID"
+                    [hoverStateEnabled]="true" [paging]="{ enabled: true, pageSize: 10 }" [filterRow]="{ visible: true }"
+                    [scrolling]="{ mode: 'infinite' }" (onRowClick)="gridAutorOnClick($event)" [noDataText]="'FaAktennotiz.DropDownNoData' |translate"
+                    [focusedRowEnabled]="true" (onFocusedRowChanged)="onFocusedRowChanged($event)" (onKeyDown)="onKeyDownGrid($event)">
+                    <dxi-column dataField="name" caption="Name" alignment="left" [allowEditing]="false"></dxi-column>
+                    <dxi-column dataField="logonName" caption="LogonName" alignment="left" [allowEditing]="false"></dxi-column>
+                  </dx-data-grid>
+                </div>
+              </dx-drop-down-box>
+            </div>
+          </dx-form>
+        </dx-validation-group>
+</div>
+</div>

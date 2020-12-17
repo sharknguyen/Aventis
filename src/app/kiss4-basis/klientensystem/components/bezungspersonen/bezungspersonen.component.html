@@ -1,0 +1,84 @@
+﻿<div id="c007_label_bezungspersonen" class="section_title">
+  {{'Klientensystem.SectionBezugspersonen.Bezungspersonen' | translate}}
+</div>
+<hr class="c007_breakline">
+<div class="grid-table-view" id="c007_grid_data">
+  <div *ngIf="gridFunctionModel.isFilterBuilder" class="filter-container" id="c007_filter-builder">
+    <dx-filter-builder [fields]="filterColumnsTop" [(value)]="filter">
+    </dx-filter-builder>
+    <dx-button [text]="'Klientensystem.SectionBezugspersonen.FilterAnwenden' | translate" type="default" (onClick)="dataGrid.instance.filter(filter)">
+    </dx-button>
+    <div class="dx-clearfix"></div>
+  </div>
+  <div class="grid-margin-top">
+    <dx-data-grid 
+      id="c007_data-grid" 
+      #dataGrid 
+      [dataSource]="bezugspersonenData" 
+      [showBorders]="true" 
+      width="100%"
+      [showColumnLines]="true" 
+      [showRowLines]="true" 
+      [allowColumnReordering]="true" 
+      [allowColumnResizing]="true"
+      [columnAutoWidth]="true" 
+      columnResizingMode="widget" 
+      [hoverStateEnabled]="true" 
+      (onContentReady)="onContentReady($event)"
+      (onContextMenuPreparing)=onContextMenuPreparing($event)
+      [customizeExportData]="customizeExportData" 
+      [(selectedRowKeys)]="selectedKeys" 
+      [focusedRowEnabled]="true"
+      [(focusedRowKey)]="rowKey" 
+      [(focusedRowIndex)]="rowIndex" 
+      keyExpr="personID" 
+      (onFocusedCellChanged)="onFocusedCellChanged($event)">
+      <dxi-column [allowResizing]="false" [allowFiltering]="false" [allowHiding]="false" [allowReordering]="false"
+        [caption]="" width="30" cellTemplate="cellTemplateTop"></dxi-column>
+      <div *dxTemplate="let data of 'cellTemplateTop'" width="40">
+        <i *ngIf="data.data.isEdit === true" class="fa fa-pencil"></i>
+        <i *ngIf="data.data.personID == rowKey && data.data.isEdit === false" class="fa fa-caret-right"></i>
+      </div>
+      <dxi-column minWidth="120" dataField="person" [allowEditing]="false" [caption]="'Klientensystem.SectionBezugspersonen.Name' | translate"></dxi-column>
+      <dxi-column minWidth="250" dataField="beziehung" [allowEditing]="false" [caption]="'Klientensystem.SectionBezugspersonen.Beziehung' | translate"
+        cellTemplate="dropdownTemplate">
+        <div *dxTemplate="let option of 'dropdownTemplate'">
+          <dx-select-box [dataSource]="option.data.dropdownboxData" [(value)]="option.data.relationID" [readOnly]="!isReadOnly"
+            height="31px" valueExpr="code" displayExpr="text" (onKeyDown)="onSelectBoxKeyDown($event)" (onValueChanged)="onValueChanged(rowIndex)" class="custom-grid-select-box" >
+          </dx-select-box>
+        </div>
+      </dxi-column>
+      <dxi-column minWidth="70" dataField="age" [allowEditing]="false" [caption]="'Klientensystem.SectionBezugspersonen.Alter' | translate"></dxi-column>
+      <dxi-column minWidth="115" dataField="unterstuetzt" [allowEditing]="false" [caption]="'Klientensystem.SectionBezugspersonen.Unterstutzt' | translate"
+        alignment="left" cellTemplate="cellTemplateUnterstutzt"></dxi-column>
+      <div *dxTemplate="let data of 'cellTemplateUnterstutzt'" class="grid-content-center">
+        <dx-check-box [readOnly]="!isReadOnly" [(value)]="data.data.unterstuetzt" class="dx-datagrid-checkbox-size"
+          (onValueChanged)="ckbValueChange('unterstuetzt')">
+        </dx-check-box>
+      </div>
+      <dxi-column minWidth="115" dataField="glHaushalt" [allowEditing]="false" [caption]="'Klientensystem.SectionBezugspersonen.Haushalt' | translate"
+        alignment="left" cellTemplate="cellTemplateHaushalt"></dxi-column>
+      <div *dxTemplate="let data of 'cellTemplateHaushalt'" class="grid-content-center">
+        <dx-check-box [readOnly]="!isReadOnly" [(value)]="data.data.glHaushalt" class="dx-datagrid-checkbox-size"
+          (onValueChanged)="ckbValueChange('GlHaushalt')">
+        </dx-check-box>
+      </div>
+      <dxi-column minWidth="115" dataField="klient" [allowEditing]="false" [caption]="'Klientensystem.SectionBezugspersonen.Klientln' | translate"></dxi-column>
+      <dxo-paging [pageSize]="10000000" [enabled]="false"></dxo-paging>
+      <dxo-search-panel [visible]="gridFunctionModel.isSearchPanel" [highlightCaseSensitive]="false" [placeholder]=" 'Klientensystem.SearchSuche' | translate "></dxo-search-panel>
+      <dxo-filter-row [visible]="gridFunctionModel.isSearch" applyFilter="Immediately"></dxo-filter-row>
+      <dxo-header-filter [visible]="gridFunctionModel.isFilter"></dxo-header-filter>
+      <dxo-selection selectAllMode="allPages" showCheckBoxesMode="onClick" mode="single"></dxo-selection>
+      <dxo-group-panel [visible]="gridFunctionModel.isGrouping"></dxo-group-panel>
+      <dxo-scrolling mode="virtual"></dxo-scrolling>
+      <dxo-sorting mode="multiple"></dxo-sorting>
+      <dxo-grouping #gridOption [autoExpandAll]="true" [contextMenuEnabled]="true"></dxo-grouping>
+      <dxo-column-chooser #columnChooser emptyPanelText="" [title]="'Klientensystem.Benutzerdefiniert' | translate"
+        [enabled]="false"></dxo-column-chooser>
+      <dxo-editing mode="cell" [allowUpdating]="true"></dxo-editing>
+      <dxo-export [enabled]="false" fileName="Klientensystem" [allowExportSelectedData]="true"></dxo-export>
+    </dx-data-grid>
+  </div>
+</div>
+<app-grid-function #gridFunction (onchange)="onChangeGridSetting()" [keyStorage]="gridFunctionKey"></app-grid-function>
+<kiss-printer #printer></kiss-printer>

@@ -1,0 +1,70 @@
+﻿<!-- Search content ------------------------------------------------------------------------------------------------------------------>
+<div class="container-search single-container">
+  <div class="toolbar-header" (click)="onCollapseSearchContainer($event)">
+    <kiss-card-title [titleHeader]="'Kasse.TitleSearch' | translate" [customizeBtn]="customizeBtn" [isCard]="true"
+      (onCustomizeBtnFn)="toolBarOnItemClick($event)">
+    </kiss-card-title>
+  </div>
+  <div *ngIf="isExpand" class="container-search__form">
+    <dx-validation-group #validationGroupSearch>
+      <dx-form id="faAktennotiz-Search" #searchForm colCount="auto" labelLocation="left" [showColonAfterLabel]="false"
+        [disabled]="isDisable" [screenByWidth]="getSizeQualifier" [colCount]="2">
+        <dxi-item itemType="group" [colCount]="2" [colSpan]="1" >
+          <dxi-item [colSpan]="2" [dataField]="'Kasse.Search.LabelDropDown' | translate" template="dropDownBoxEmbeddedDataGridTemplate"></dxi-item>
+          <dxi-item itemType="group" [colCount]="2" [colSpan]="2"  cssClass="datum-container">
+            <dxi-item [colSpan]="1" [dataField]="'Kasse.Search.VerfalldatumVon' | translate" template="dateBoxFromTemplate"></dxi-item>
+            <dxi-item [colSpan]="1" [dataField]="'Kasse.Search.VerfalldatumBis' | translate" template="dateBoxToTemplate" cssClass="datumbis-container"></dxi-item>
+          </dxi-item>
+          <dxi-item [colSpan]="2" template="cbNochNichtTemplate">
+            <dxo-label [text]="'Kasse.Search.Belegstatus' | translate"></dxo-label>
+          </dxi-item>
+          <dxi-item [colSpan]="2" template="cbAusgedrucktTemplate">
+            <dxo-label text=" "></dxo-label>
+          </dxi-item>
+          <dxi-item [colSpan]="2" template="cbGesperrtTemplate">
+            <dxo-label text=" "></dxo-label>
+          </dxi-item>
+        </dxi-item>
+        <dxi-item itemType="empty" [colSpan]="1"></dxi-item>
+        <div *dxTemplate="let data of 'dropDownBoxEmbeddedDataGridTemplate'">
+          <kiss-dropdown-grid [disabled]="isDisable" [dataSource]="dropDownData" [columnsDef]="columnsDef" displayExpr="Name"
+          [noDataText]="dropDownNoData" [(value)]="searchQuery.baPersonId" valueExpr="BaPersonID" [keyExpr]="dropDownKeyExpr">
+          </kiss-dropdown-grid>
+        </div>
+        <div *dxTemplate="let data of 'cbNochNichtTemplate'">
+          <dx-check-box #cbNicht [(value)]="searchQuery.nichtAusbezahlt" [text]="'Kasse.Search.NochNichtAusgedruckt' | translate"
+            [disabled]="isDisable" [accessKey]="4" (focus)="onFocusInCheckBox(cbNicht)" (focusout)="onFocusOutCheckBox()"
+            (onKeyDown)="onKeyDown($event)"></dx-check-box>
+        </div>
+        <div *dxTemplate="let data of 'cbAusgedrucktTemplate'">
+          <dx-check-box #cbAusbezahlt [(value)]="searchQuery.ausbezahlt" [text]="'Kasse.Search.Ausgedruckt' | translate"
+            [disabled]="isDisable" [accessKey]="5" (focus)="onFocusInCheckBox(cbAusbezahlt)" (focusout)="onFocusOutCheckBox()"
+            (onKeyDown)="onKeyDown($event)"></dx-check-box>
+        </div>
+        <div *dxTemplate="let data of 'cbGesperrtTemplate'">
+          <dx-check-box #cbGesperrt [(value)]="searchQuery.gesperrt" [text]="'Kasse.Search.Gesperrt' | translate"
+            [disabled]="isDisable" [accessKey]="6" (focus)="onFocusInCheckBox(cbGesperrt)" (focusout)="onFocusOutCheckBox()"
+            (onKeyDown)="onKeyDown($event)"></dx-check-box>
+        </div>
+        <div *dxTemplate="let data of 'dateBoxFromTemplate'">
+          <dx-date-box [useMaskBehavior]="true" [disabled]="isDisable" #datumvon [(value)]="searchQuery.datumVon" type="date"
+            [displayFormat]="dateFormat" (onFocusIn)="onFocusIn(datumvon,'Datumvon')" (onFocusOut)="onFocusOut($event)"
+            (onKeyDown)="onKeyDown($event)" [max]="maxDate" [min]="minDate">
+            <dx-validator>
+            </dx-validator>
+          </dx-date-box>
+        </div>
+        <div *dxTemplate="let data of 'dateBoxToTemplate'">
+          <dx-date-box [useMaskBehavior]="true" [disabled]="isDisable" #datumbis [(value)]="searchQuery.datumBis" type="date"
+            [displayFormat]="dateFormat" (onFocusIn)="onFocusIn(datumbis,'Datumbis')" (onFocusOut)="onFocusOut($event)"
+            (onKeyDown)="onKeyDown($event)" [max]="maxDate" [min]="minDate">
+            <dx-validator>
+            </dx-validator>
+          </dx-date-box>
+        </div>
+        <!-- /. search region template for control --------------------------------------------------------------------------------------------->
+      </dx-form>
+    </dx-validation-group>
+  </div>
+</div>
+<!--/. Search content ------------------------------------------------------------------------------------------------------------------------>

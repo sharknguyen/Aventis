@@ -1,0 +1,37 @@
+.tab-module-zeitachse {
+    padding: 3px 5px 0 4px;
+}
+.module-icon {
+    display: inline-flex;
+    vertical-align: text-bottom;
+    padding: 2px;
+}
+.img-module-icon {
+    height: 26px;
+    width: 26px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #fff;
+    cursor: pointer;
+}
+.img-zeitachse {
+    height: 20px;
+    width: 20px;
+    background-image: url('/assets/icon/h010-timeline.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #fff;
+    cursor: pointer;
+}
+.zeitachse-icon {
+    float: right;
+}
+.zeitachse-icon button {
+    padding: 5px;
+}
+.module-icon:hover .img-module-icon, .img-module-icon-active {
+    height: 32px;
+    width: 32px;
+}

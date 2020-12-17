@@ -1,0 +1,33 @@
+{
+  "Finanzplan": {
+    "ClientList" : {
+      "Bezeichnung" : "Bezeichnung [en]",
+      "Betrag": "Betrag [en]",
+      "Total": "Total [en]",
+      "Info": "Info [en]",
+      "Style": "Style [en]",
+      "ApplyFilter": "Filter anwenden [en]",
+      "NoData": "Keine Daten [en]",
+      "FilePdf": "finanzplan [en]"
+    },
+    "Message": {
+      "DoubleClickMessage": "Die Angaben wurden in den Zwischenspeicher kopiert. [en]",
+      "ShiftClickMessage": "Die ID wurde in den Zwischenspeicher kopiert [en]",
+      "ConfirmDeactive": "Änderungen an diesem Datensatz rückgängig machen ? [en]",
+      "ConfirmMessage":"Sie haben Daten geändert. Möchten Sie das Formular schließen und die Änderungen verwerfen ? [en]"
+    },
+    "HeaderBar": {
+      "FinanzplanVon": "vom [en]",
+      "FinanzplanBis": "bis [en]",
+      "FinanzplanLblTitle": "Übersicht der monatlichen Ein- und Ausgaben [en]"
+    },
+    "TitleCancelMessage": "Bestätigung [en]",
+    "Yes": "Ja [en]",
+    "No": "Nein [en]",
+    "Discard": "Discard [en]",
+    "Abbrechen": "Abbrechen [en]",
+    "TitleInformationMessage": "Information [en]",
+    "ColumnChooser": "Benutzerdefiniert [en]",
+    "LblTitel": "bersicht der monatlichen Ein- und Ausgaben [en]"
+  }
+}

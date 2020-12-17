@@ -1,0 +1,154 @@
+<div class="container-detail-content">
+  <div class="container-detail__form" id="i001_form_edit" class="i001-form-edit">
+
+    <dx-validation-group #validationWhLeistungForm>
+      <dx-form #whLeistungForm labelLocation="left" id="i001-detail" [showColonAfterLabel]="false" [formData]="formData" [width]="formWidth">
+        <dxi-item itemType="group" [colCount]="12">
+
+          <dxi-item itemType="group" [colSpan]="3">
+            <dxi-item dataField="datumVon" [template]="'dateboxTemplate'">
+              <dxo-label [text]="'I001WhLeistung.Title.Eröffnet' | translate"></dxo-label>
+              <dxi-validation-rule type="required"></dxi-validation-rule>
+            </dxi-item>
+          </dxi-item>
+          <dxi-item itemType="group" [colSpan]="5">
+            <dxi-item dataField="eroeffnungsGrundCode" [template]="'selectboxTemplate'">
+              <dxo-label [text]="'I001WhLeistung.Title.Grund' | translate"></dxo-label>
+            </dxi-item>
+          </dxi-item>
+          <dxi-item itemType="empty" [colSpan]="4"></dxi-item>
+
+          <dxi-item itemType="group" [colSpan]="8">
+            <dxi-item dataField="leistungsartCode" [template]="'selectboxBFSTemplate'">
+              <dxo-label [text]="'I001WhLeistung.Title.BFS-Leistungsart' | translate"></dxo-label>
+            </dxi-item>
+          </dxi-item>
+
+          <dxi-item itemType="empty" [colSpan]="4"></dxi-item>
+
+          <dxi-item itemType="group" [colSpan]="3">
+            <dxi-item dataField="datumBis" [template]="'dateboxAbTemplate'">
+              <dxo-label [text]="'I001WhLeistung.Title.Abgeschlossen' | translate"></dxo-label>
+            </dxi-item>
+          </dxi-item>
+
+          <dxi-item itemType="group" [colSpan]="5">
+            <dxi-item dataField="abschlussGrundCode" [template]="'selectboxBottomTemplate'">
+              <dxo-label [text]="'I001WhLeistung.Title.Grund' | translate"></dxo-label>
+            </dxi-item>
+          </dxi-item>
+          <dxi-item itemType="empty" [colSpan]="4"></dxi-item>
+
+          <dxi-item itemType="group" [colSpan]="8">
+            <dxi-item dataField="gemeindeCode" [template]="'selectboxGemTemplate'">
+              <dxo-label [text]="'I001WhLeistung.Title.Gemeindet' | translate"></dxo-label>
+              <dxi-validation-rule type="required"></dxi-validation-rule>
+            </dxi-item>
+          </dxi-item>
+
+          <dxi-item itemType="empty" [colSpan]="4"></dxi-item>
+
+          <dxi-item itemType="group" [colSpan]="12">
+            <dxi-item dataField="bemerkung" [template]="'textAreaBemeGemTemplate'">
+              <dxo-label [text]="'I001WhLeistung.Title.Bemerkung' | translate"></dxo-label>
+            </dxi-item>
+          </dxi-item>
+
+          <dxi-item itemType="group" [colSpan]="3">
+            <dxi-item dataField="vorsaldo" [template]="'textboxVorTemplate'">
+              <dxo-label [text]="'I001WhLeistung.Title.Vorsaldo' | translate"></dxo-label>
+            </dxi-item>
+          </dxi-item>
+
+          <dxi-item itemType="empty" [colSpan]="9"></dxi-item>
+
+          <dxi-item itemType="group" [colSpan]="12">
+            <dxi-item dataField="" [template]="'textAreaImfoGemTemplate'">
+              <dxo-label [text]="'I001WhLeistung.Title.Infomationen' | translate"></dxo-label>
+            </dxi-item>
+          </dxi-item>
+
+        </dxi-item>
+        <div *dxTemplate="let data of 'dateboxTemplate'">
+          <dx-date-box id="i001_sozialhilfe_eroffnet-am" #dateboxEr [(value)]="formData[data.dataField]"
+            [displayFormat]="dateFormat" (onValueChanged)="onValueChanged($event,data.dataField)" (onFocusIn)="onFocusIn(dateboxEr,'dateboxEr')"
+            (onFocusOut)="onFocusOut($event, 'dateboxEr')" (onKeyDown)="onKeyDown($event, 'dateboxEr')" [accessKey]='1'
+            [(max)]="formData.datumBis" [dateOutOfRangeMessage]="'I001WhLeistung.Message.Message14' | translate" valueChangeEvent="keyup" [useMaskBehavior]="true">
+            <dx-validator #datumVonValidator>
+              <dxi-validation-rule type="required" [message]="'I001WhLeistung.Message.DatumVonEmpty' | translate"></dxi-validation-rule>
+              <dxi-validation-rule type="custom" [validationCallback]="validationCallbackDatum" [message]="'DateBox.DateOutOfRange' | translate"></dxi-validation-rule>
+            </dx-validator>
+          </dx-date-box>
+        </div>
+
+        <div *dxTemplate="let data of 'dateboxAbTemplate'">
+          <dx-date-box #dateboxAb id="i001_sozialhilfe_abgeschlossen-am" [(value)]="formData[data.dataField]"
+            [displayFormat]="dateFormat" (onValueChanged)="onValueChanged($event,data.dataField)" (onFocusIn)="onFocusIn(dateboxAb,'dateboxAb')"
+            (onFocusOut)="onFocusOut($event)" (onKeyDown)="onKeyDown($event)" [accessKey]='4'
+            [(min)]="formData.datumVon" [dateOutOfRangeMessage]="'I001WhLeistung.Message.Message14' | translate" valueChangeEvent="keyup" [useMaskBehavior]="true">
+            <dx-validator #datumBisValidator>
+              <dxi-validation-rule type="custom" [validationCallback]="validationCallbackDatum" [message]="'DateBox.DateOutOfRange' | translate"></dxi-validation-rule>
+            </dx-validator>
+          </dx-date-box>
+        </div>
+
+        <div *dxTemplate="let data of 'textboxVorTemplate'">
+          <dx-number-box #textboxVor [(value)]="formData[data.dataField]" class="kiss-input-right-i001"
+            (onValueChanged)="onValueChanged($event, data.dataField)" (onFocusIn)="onFocusIn(textboxVor,'textboxVor')"
+            (onFocusOut)="onFocusOut($event)" (onPaste)="onPasteVor($event)" (onKeyDown)="onNumberboxKeyDown($event, data.dataField)"
+            [accessKey]='8' [format]="numberFormat" valueChangeEvent="keyup change focusout">
+            <dx-validator #validatorVor>
+              <dxi-validation-rule type="range" [min]="minNumber" [max]="maxNumber" [message]="'Aliment.Message.RequiredMonatlichesError' | translate">
+              </dxi-validation-rule>
+            </dx-validator>
+          </dx-number-box>
+        </div>
+
+        <div *dxTemplate="let data of 'selectboxTemplate'">
+          <dx-select-box id="i001_sozialhilfe_eroffnet-grund" #selectbox [dataSource]="nameCombobox" valueExpr="code"
+            displayExpr="text" [(value)]="formData[data.dataField]" valueChangeEvent="keyup" (onValueChanged)="onValueChanged($event,data.dataField)"
+            (onFocusIn)="onFocusIn(selectbox,'selectbox')" (onFocusOut)="onFocusOut($event)" (onKeyDown)="onKeyDown($event)"
+            [accessKey]='2'></dx-select-box>
+        </div>
+
+        <div *dxTemplate="let data of 'selectboxBFSTemplate'">
+          <dx-select-box #selectboxBFS id="i001_sozialhilfe_bfs-leistungsart" [dataSource]="nameComboboxBFS" valueExpr="code"
+            displayExpr="text" [(value)]="formData[data.dataField]" valueChangeEvent="keyup" (onValueChanged)="onValueChanged($event,data.dataField)"
+            (onFocusIn)="onFocusIn(selectboxBFS,'selectboxBFS')" (onFocusOut)="onFocusOut($event)" (onKeyDown)="onKeyDown($event)"
+            [accessKey]='3'>
+          </dx-select-box>
+        </div>
+
+        <div *dxTemplate="let data of 'selectboxGemTemplate'">
+          <dx-select-box #selectboxGem id="i001_sozialhilfe_zustandige-gemeinde" [showClearButton]="true" [dataSource]="nameComboboxGeme"
+            valueExpr="code" displayExpr="text" [(value)]="formData[data.dataField]" valueChangeEvent="keyup"
+            (onValueChanged)="onValueChanged($event,data.dataField)" (onFocusIn)="onFocusIn(selectboxGem,'selectboxGem')"
+            (onFocusOut)="onFocusOut($event)" (onKeyDown)="onKeyDown($event)" [accessKey]='6'>
+            <dx-validator #validation>
+              <dxi-validation-rule type="required" [message]="'I001WhLeistung.Message.Message16' | translate"></dxi-validation-rule>
+            </dx-validator>
+          </dx-select-box>
+        </div>
+
+        <div *dxTemplate="let data of 'selectboxBottomTemplate'">
+          <dx-select-box #selectboxBottom id="i001_sozialhilfe_abgeschlossen-grund" [dataSource]="nameComboboxBottom"
+            valueExpr="code" displayExpr="text" [(value)]="formData[data.dataField]" valueChangeEvent="keyup"
+            (onValueChanged)="onValueChanged($event,data.dataField)" (onFocusIn)="onFocusIn(selectboxBottom,'selectboxBottom')"
+            (onFocusOut)="onFocusOut($event)" (onKeyDown)="onKeyDown($event)" [accessKey]='5'></dx-select-box>
+        </div>
+
+        <div *dxTemplate="let data of 'textAreaBemeGemTemplate'">
+          <dx-text-area #textAreaBemeGem id="i001_sozialhilfe_bemerkung" [height]="120" valueChangeEvent="keyup"
+            [maxLength]="4000" [(value)]="formData[data.dataField]" (onValueChanged)="onValueChanged($event,data.dataField)"
+            (onFocusIn)="onFocusIn(textAreaBemeGem,'TextAreaBemeGem')" (onFocusOut)="onFocusOut($event)" (onKeyDown)="onKeyDown($event)"
+            [accessKey]='7'></dx-text-area>
+        </div>
+
+        <div *dxTemplate="let data of 'textAreaImfoGemTemplate'">
+          <dx-text-area #textImfoGem id="i001_sozialhilfe_infomationen" [height]="120"
+            [maxLength]="4000" [(value)]="formData[data.dataField]" [readOnly]="true" [disabled]="false"></dx-text-area>
+        </div>
+      </dx-form>
+    </dx-validation-group>
+  </div>
+</div>

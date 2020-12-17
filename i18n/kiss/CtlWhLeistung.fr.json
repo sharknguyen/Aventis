@@ -1,0 +1,57 @@
+{
+    "I001WhLeistung":{
+        "NoData": "Keine Daten [fr]",
+        "fileNameExcel": "Sozialhilfe",
+        "Title":{
+            "Eröffnet":"Eröffnet am [fr]",
+            "BFS-Leistungsart":"BFS-Leistungsart [fr]",
+            "Grund": "Grund [fr]",
+            "Abgeschlossen": "Abgeschlossen am [fr]",
+            "Gemeindet":"zuständige Gemeinde [fr]",
+            "Bemerkung":"Bemerkung [fr]",
+            "Vorsaldo":"Vorsaldo Fremdsystem [fr]",
+            "Infomationen":"Infomationen [fr]",
+            "Perioden":"Perioden [fr]",
+            "Status":"Status [fr]",
+            "Geplantvon":"Geplant von [fr]",
+            "UB":"UB [fr]",
+            "Geplantbis":"Geplant bis [fr]",
+            "Gultigvon":"Gultig von [fr]",
+            "Gultigbis":"Gultig bis [fr]",
+            "Hg":"Hg [fr]",
+            "Ue":"Ue [fr]",
+            "Monatsbudgets":"enthalt Monatsbudgets [fr]",
+            "Information":"Information [fr]",
+            "TitlePopup": "Bestätigung [fr]"
+        },
+        "Button":{
+            "NeueSozialhilfe": "Neue Sozialhilfe [fr]",
+            "Bearbeiten":"Bearbeiten [fr]",
+            "Speichern":"Speichern [fr]",
+            "Abbrechen":"Abbrechen [fr]",
+            "Ja":"Ja [fr]",
+            "Nein":"Nein [fr]",
+            "Discard": "Discard [fr]"
+        },
+        "Message":{
+            "Title": "Information [fr]",
+            "MessageCanCel":"Änderungen an diesem Datensatz rückgängig machen ? [fr]",
+            "MessageRefresh":"Datenansicht trotz der nicht gespeicherten Daten aktualisieren ! [fr]",
+            "Message8":"Datum von ungültig. Mindestens ein Finanzplan beginnt vor diesem Datum ! [fr]",
+            "Message14":"Der Fall beginnt nach seinem Ende [fr]",
+            "Message11": "Diese Leistung kann nicht gelöscht werden. Sie enthält mindestens 1 Finanzplan ! [fr]",
+            "Message17":"Soll der Datensatz gelöscht werden ? [fr]",
+            "Message1": "Das Einfügen eines Datensatzes ist nicht erlaubt ! [fr]",
+            "Message16": "Das Feld 'zuständige Gemeinde' darf nicht leer bleiben ! [fr]",
+            "DatumVonEmpty": "Das Feld 'Eröffnet am' darf nicht leer bleiben ! [fr]",
+            "ConfirmDeactive": "You have unsaved changes! If you leave, your changes will be lost ! [fr]",
+            "DoubleClickMessage": "Die Angaben wurden in den Zwischenspeicher kopiert ! [fr]",
+            "ShiftClickMessage": "Die ID wurde in den Zwischenspeicher kopiert ! [fr]",
+            "InValidFormData": "Ungültige Daten. Bitte geben Sie gültige Eingabewerte ein ! [fr]",
+            "MessageExit": "Sie haben Daten geändert. Möchten Sie das Formular schließen und die Änderungen verwerfen ? [fr]",
+            "SaveMessageFirstError": "Es existieren noch [fr]",
+            "SaveMessageLastError": " offene Pendenzen zu der abzuschliessenden Leistung. [fr]",
+            "MessageErrorPendenzen": "Beim Speichern des Datensatzes ist ein Fehler aufgetreten ! [fr]"
+        }
+    }
+}

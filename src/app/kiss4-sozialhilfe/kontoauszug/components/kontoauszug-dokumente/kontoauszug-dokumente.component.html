@@ -1,0 +1,18 @@
+<div class="toolbar-header">
+  <kiss-card-title [titleHeader]="'CtlWhKontoauszug.Dokumente.TitleHeader' | translate" [isCard]="true" [listBtn]="listBtn"
+    [customizeBtn]="customizeBtn">
+  </kiss-card-title>
+</div>
+<div class="container-detail__form">
+  <dx-data-grid id="i020_dokumente" columnAutoWidth="true" [allowColumnResizing]="true" [hoverStateEnabled]="true"
+    [showRowLines]='true' [showBorders]="true" [allowColumnReordering]="true" [noDataText]="'DataGrid.NoDataText' | translate">
+    <dxi-column dataField="Typ" [caption]="'CtlWhKontoauszug.Dokumente.Typ' | translate" [width]="'auto'" [minWidth]="50"
+      alignment="left" [allowEditing]="false"></dxi-column>
+    <dxi-column dataField="Stichwort" [caption]="'CtlWhKontoauszug.Dokumente.Stichwort' | translate" [width]="'auto'"
+      [minWidth]="50" alignment="left" [allowEditing]="false"></dxi-column>
+    <dxi-column dataField="Erstellungsdatum" [caption]="'CtlWhKontoauszug.Dokumente.Erstellungsdatum' | translate"
+      [width]="'auto'" [minWidth]="50" alignment="left" [allowEditing]="false"></dxi-column>
+    <dxi-column dataField="LetzteSpeicherung" [caption]="'CtlWhKontoauszug.Dokumente.LetzteSpeicherung' | translate"
+      [minWidth]="50" alignment="left" [allowEditing]="false"></dxi-column>
+  </dx-data-grid>
+</div>

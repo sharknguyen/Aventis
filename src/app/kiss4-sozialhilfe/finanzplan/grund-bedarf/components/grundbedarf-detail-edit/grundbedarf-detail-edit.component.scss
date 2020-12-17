@@ -1,0 +1,11 @@
+::ng-deep .kiss-input-right-i007 input  {
+    text-align: right;
+  }
+  .number-box-class {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    .fr-box {
+      word-break: break-all;
+    }
+  }

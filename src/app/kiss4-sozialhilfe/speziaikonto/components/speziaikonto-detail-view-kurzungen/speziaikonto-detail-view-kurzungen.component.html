@@ -1,0 +1,102 @@
+<dx-form [showColonAfterLabel]="false">
+  <dxi-item itemType="group" [colCount]="12">
+
+    <dxi-item itemType="group" [colSpan]="6">
+      <dxi-item [template]="'BezeichnungTemplate'">
+        <dxo-label [text]="'CtlSpeziaikonto.Label.Bezeichnung' | translate"></dxo-label>
+      </dxi-item>
+    </dxi-item>
+    <dxi-item itemType="empty" [colSpan]="6"></dxi-item>
+
+    <dxi-item itemType="group" [colSpan]="6">
+      <dxi-item [template]="'PersonTemplate'">
+        <dxo-label [text]="'CtlSpeziaikonto.Label.Person' | translate"></dxo-label>
+      </dxi-item>
+    </dxi-item>
+    <dxi-item itemType="empty" [colSpan]="6"></dxi-item>
+
+    <dxi-item itemType="group" [colSpan]="5">
+      <dxi-item [template]="'AnteilvomGBTemplate'">
+        <dxo-label [text]="'CtlSpeziaikonto.Label.AnteilVomGB' | translate"></dxo-label>
+      </dxi-item>
+    </dxi-item>
+    <dxi-item itemType="empty" [colSpan]="7"></dxi-item>
+
+    <dxi-item itemType="group" [colSpan]="5">
+      <dxi-item [template]="'LaufzeitTemplate'">
+        <dxo-label [text]="'CtlSpeziaikonto.Label.Laufzeit' | translate"></dxo-label>
+      </dxi-item>
+    </dxi-item>
+    <dxi-item itemType="empty" [colSpan]="7"></dxi-item>
+
+    <dxi-item itemType="group" [colSpan]="1">
+      <dxi-item [template]="'GultigvonTemplate'">
+        <dxo-label [text]="'CtlSpeziaikonto.Label.GultigVon' | translate"></dxo-label>
+      </dxi-item>
+    </dxi-item>
+    <dxi-item itemType="group" [colSpan]="2">
+      <dxi-item [template]="'GultigvonNumberboxTemplate'">
+        <dxo-label text=""></dxo-label>
+      </dxi-item>
+    </dxi-item>
+    <dxi-item itemType="empty" [colSpan]="9"></dxi-item>
+
+    <dxi-item itemType="group" [colSpan]="1">
+      <dxi-item [template]="'GultigbisTemplate'">
+        <dxo-label [text]="'CtlSpeziaikonto.Label.GultigBis' | translate"></dxo-label>
+      </dxi-item>
+    </dxi-item>
+    <dxi-item itemType="group" [colSpan]="2">
+      <dxi-item [template]="'GultigbisNumberboxTemplate'">
+        <dxo-label text=""></dxo-label>
+      </dxi-item>
+    </dxi-item>
+    <dxi-item itemType="empty" [colSpan]="9"></dxi-item>
+
+    <dxi-item itemType="group" [colSpan]="12">
+      <dxi-item [template]="'BemerkungenTemplate'">
+        <dxo-label [text]="'CtlSpeziaikonto.Label.Bemerkungen' | translate"></dxo-label>
+      </dxi-item>
+    </dxi-item>
+
+
+  </dxi-item>
+
+  <div *dxTemplate="let data of 'BezeichnungTemplate'">
+    <span>{{detailData?.NameSpezkonto}}</span>
+  </div>
+
+  <div *dxTemplate="let data of 'PersonTemplate'">
+    <span>{{namePerson}}</span>
+  </div>
+
+  <div *dxTemplate="let data of 'AnteilvomGBTemplate'">
+    <span class="numberbox">{{detailData?.KuerzungAnteilGBL}}</span>
+    <span>%</span>
+  </div>
+
+  <div *dxTemplate="let data of 'LaufzeitTemplate'">
+    <span class="numberbox">{{detailData?.KuerzungLaufzeitMonate}}</span>
+    <span>Monat(e)</span>
+  </div>
+
+  <div *dxTemplate="let data of 'GultigvonTemplate'">
+    <span>{{nameMonthVon}}</span>
+  </div>
+
+  <div *dxTemplate="let data of 'GultigvonNumberboxTemplate'">
+    <span>{{detailData?.DatumVonJahr}}</span>
+  </div>
+
+  <div *dxTemplate="let data of 'GultigbisTemplate'">
+    <span>{{nameMonthBis}}</span>
+  </div>
+
+  <div *dxTemplate="let data of 'GultigbisNumberboxTemplate'">
+    <span>{{detailData?.DatumBisJahr}}</span>
+  </div>
+
+  <div *dxTemplate="let data of 'BemerkungenTemplate'">
+    <span class="text-break">{{detailData?.Bemerkung}}</span>
+  </div>
+</dx-form>

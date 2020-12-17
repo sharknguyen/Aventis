@@ -1,0 +1,59 @@
+{
+    "Aliment":{
+        "Title": {
+            "TitlePage":" > Monatliches Alimentenguthaben vom [it] ",
+            "Bis":" bis [it]",
+            "Alimentenguthaben": "Alimentenguthaben [it]"
+        },
+        "Grid": {
+            "NurAktulleAnzeigen" : "Nur aktuelle anzeigen [it]",
+            "Gultigab": "Gültig ab [it]",
+            "Name" : "Name [it]",
+            "Geburtsdatum": "Geburtsdatum [it]",
+            "Inkasso" : "Inkasso - und Auszahlungsart [it]",
+            "Einkommen": "Einkommen [it]"
+        },
+        "CommonGrid": {
+            "GroupingHeader": "Nach dieser Spalte gruppieren [it]",
+            "UnAllGroupingHeader": "Alle Gruppierung entfernen [it]",
+            "HideColumn": "Spalte ausblenden [it]",
+            "ExpandCloumnGrouping": "Alles Gruppen erweitern [it]",
+            "UnExpandCloumnGrouping": "Alles Gruppen reduzieren [it]",
+            "emptyPanelText": "Zu gruppierende Spalten in diesen Bereich ziehen [it]",
+            "columnChooser": "Benutzerdefiniert [it]",
+            "noDataText": "Keine Daten [it]",
+            "Suchen":"Suchen... [it]"
+        },
+        "Detail": {
+            "Neues": "Neues Alimentenguthaben [it]",
+            "Bearbeiten": "Bearbeiten [it]",
+            "Speichern": "Speichern [it]",
+            "Abbrechen": "Abbrechen [it]",
+            "Person": "Person [it]",
+            "Inkasso": "Inkasso - und Auszahlungsa [it]",
+            "Monatliches": "Monatliches Alimentenguthaben [it]",
+            "Beschreibung": "Beschreibung [it]",
+            "Delete":"Soll der Datensatz gelöscht werden ? [it]",
+            "ButtonOK":"Ja [it]",
+            "ButtonCanCel":"Nein [it]",
+            "Confirm": "Bestätigung [it]",
+            "canDeactivateMessage": "Sie haben Daten geändert. Möchten Sie das Formular schließen und die Änderungen verwerfen ? [it]",
+            "Discard": "Discard [it]",
+            "CancelMessage":"Änderungen an diesem Datensatz rückgängig machen ? [it]",
+            "Information":"Information [it]"
+
+        },
+        "Message" : {
+            "RequiredPerson": "Das Feld 'Person' darf nicht leer bleiben !​​​​ [it]",
+            "RequiredInkasso": "Das Feld 'Inkasso- und Auszahlungsart' darf nicht leer bleiben !​​​​ [it]",
+            "RequiredMonatliches": "Nicht alle Mussfelder sind ausgefüllt [it]",
+            "RequiredMonatlichesError": "Beim Speichern des Datensatzes ist ein Fehler aufgetreten !",
+            "MessageDelError": "Beim Löschen des Datensatzes ist ein Fehler aufgetreten !​​​​ [it]",
+            "Message404Update":"Beim Speichern des veränderten Datensatzes ist ein Fehler aufgetreten !​​​​ [it]",
+            "Message404Delete":"Beim Löschen des Datensatzes ist ein Fehler aufgetreten !​​​​ [it]",
+            "Message409Delete":"Beim Löschen des Datensatzes ist ein Fehler aufgetreten !​​​​ [it]",
+            "Message500":"Arithmetic overflow error converting expression to data type money. \n The statement has been terminated [it]",
+            "MessageAdd":"Neuen Datensatz wieder löschen ? [it]"
+        }
+    }
+}

@@ -1,0 +1,64 @@
+<kiss-left-sidebars [isNavbar]="true">
+  <kiss-selected-actions
+    [selectedActions]="layoutSandbox.selectedAction$ | async"
+    [currentUrl]="">
+  </kiss-selected-actions>
+</kiss-left-sidebars>
+<div class="view-content">
+  <kiss-right-component>
+    <app-navigator *ngIf="readOnly"
+      id="c006_berater_header"
+      [titleHeader]="'ExterneBerater.TitlePage' | translate"
+      [listBtn]="listBtn"
+      (onCustomizeBtnFn)="toolBarOnItemClick($event)">
+    </app-navigator>
+    <app-navigator *ngIf="!readOnly"
+      id="c006_berater_header"
+      [titleHeader]="'ExterneBerater.TitlePage' | translate">
+    </app-navigator>
+    <div class="container">
+      <div class="container__right-content">
+        <app-remaining-message #remainMessage>
+        </app-remaining-message>
+        <kiss-berater-search
+          (search)="onSearch($event)"
+          [institutions]="institutions"
+          [columnsDef]="columnsDef"
+          [readOnly]="readOnly">
+        </kiss-berater-search>
+        <kiss-grid #formList
+          keyExpr="id"
+          idGridName="C006_data-grid"
+          filterBuilderName="C006_filter-builder"
+          [dataSource]="beraterData"
+          [searchPlaceholder]="'ExterneBerater.SearchSuche' | translate"
+          [noDataText]="'VorlagenKontext.VorlagenkontextDetails.Validation.NoData' | translate"
+          [fileName]="'ExterneBerater.TitlePage' | translate"
+          [columnChooserName]="'ExterneBerater.ColumnChooser' | translate"
+          [readOnly]="readOnly"
+          [selectedRowKey]="selectedDataID"
+          [columnsDef]="columnsDataGrid"
+          (selectedRow)="onSelectedRow($event)">
+        </kiss-grid>
+        <div class="container-detail form-content-details">
+          <kiss-berater-detail #detailForm
+            [institutions]="institutions"
+            [columnsDef]="columnsDef"
+            [beraterLanguages]="beraterLanguages"
+            [formData]="formData"
+            [(createdNewID)]="createdNewID"
+            (formRemainData)="showRemainMessage($event)"
+            (formDataSave)="saveData($event)"
+            (formStateChanged)="onFormStateChanged($event)"
+            (loschen)="onLoschen()"
+            (loadDataGrid)="getBeraterData(queryDataSearch)"
+            (closeRemain)="onCloseError()">
+          </kiss-berater-detail>
+        </div>
+      </div>
+    </div>
+  </kiss-right-component>
+</div>
+<app-popup-confirm [popUpModel]="popUpModelConfirm"></app-popup-confirm>
+<app-can-deactivate #canDeactivate></app-can-deactivate>
+<app-popup-concurrency-detail [visible]='visibleConcurrencyPopup' (yes)="onConcurrencyYes()" (no)="onConcurrencyNo()"></app-popup-concurrency-detail>

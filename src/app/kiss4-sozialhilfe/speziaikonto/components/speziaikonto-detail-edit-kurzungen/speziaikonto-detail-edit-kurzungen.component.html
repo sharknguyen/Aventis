@@ -1,0 +1,219 @@
+<dx-validation-group #validationGroup>
+  <dx-form [showColonAfterLabel]="false">
+    <dxi-item itemType="group" [colCount]="12">
+
+      <dxi-item itemType="group" [colSpan]="6">
+        <dxi-item [template]="'BezeichnungTemplate'">
+          <dxo-label [text]="'CtlSpeziaikonto.Label.Bezeichnung' | translate"></dxo-label>
+          <dxi-validation-rule type="required"></dxi-validation-rule>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="empty" [colSpan]="6"></dxi-item>
+
+      <dxi-item itemType="group" [colSpan]="6">
+        <dxi-item [template]="'PersonTemplate'">
+          <dxo-label [text]="'CtlSpeziaikonto.Label.Person' | translate"></dxo-label>
+          <dxi-validation-rule type="required"></dxi-validation-rule>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="empty" [colSpan]="6"></dxi-item>
+
+      <dxi-item itemType="group" [colSpan]="6">
+        <dxi-item [template]="'AnteilvomGBTemplate'">
+          <dxo-label [text]="'CtlSpeziaikonto.Label.AnteilVomGB' | translate"></dxo-label>
+          <dxi-validation-rule type="required"></dxi-validation-rule>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="empty" [colSpan]="6"></dxi-item>
+
+      <dxi-item itemType="group" [colSpan]="6">
+        <dxi-item [template]="'LaufzeitTemplate'">
+          <dxo-label [text]="'CtlSpeziaikonto.Label.Laufzeit' | translate"></dxo-label>
+          <dxi-validation-rule type="required"></dxi-validation-rule>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="empty" [colSpan]="6"></dxi-item>
+
+      <dxi-item itemType="group" [colSpan]="4">
+        <dxi-item [template]="'GultigvonTemplate'">
+          <dxo-label [text]="'CtlSpeziaikonto.Label.GultigVon' | translate"></dxo-label>
+          <dxi-validation-rule type="required"></dxi-validation-rule>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="group" [colSpan]="2">
+        <dxi-item [template]="'GultigvonNumberboxTemplate'">
+          <dxo-label text=""></dxo-label>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="empty" [colSpan]="6"></dxi-item>
+
+      <dxi-item itemType="group" [colSpan]="4">
+        <dxi-item [template]="'GultigbisTemplate'">
+          <dxo-label [text]="'CtlSpeziaikonto.Label.GultigBis' | translate"></dxo-label>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="group" [colSpan]="2">
+        <dxi-item [template]="'GultigbisNumberboxTemplate'">
+          <dxo-label text=""></dxo-label>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="empty" [colSpan]="6"></dxi-item>
+
+      <dxi-item itemType="group" [colSpan]="12">
+        <dxi-item [template]="'BemerkungenTemplate'">
+          <dxo-label [text]="'CtlSpeziaikonto.Label.Bemerkungen' | translate"></dxo-label>
+        </dxi-item>
+      </dxi-item>
+    </dxi-item>
+
+    <div *dxTemplate="let data of 'BezeichnungTemplate'">
+      <dx-text-box 
+        #BezeichnungTextBox
+        [(value)]="detailData.NameSpezkonto"
+        (onValueChanged)="onValueChanged()"
+        [disabled]="isDisableSalo && isEdit">
+        <dx-validator>
+          <dxi-validation-rule type="required"  [message]="'CtlSpeziaikonto.Message.MessageBezeichnungNull'|translate"></dxi-validation-rule>
+          <dxi-validation-rule type="stringLength" [max]="100" [message]="'CtlSpeziaikonto.Message.MessageMaxlenght'|translate">
+          </dxi-validation-rule>
+        </dx-validator>
+      </dx-text-box>
+    </div>
+
+    <div *dxTemplate="let data of 'PersonTemplate'">
+      <dx-select-box
+        [(value)]="detailData.BaPersonID"
+        [dataSource]="dataSourceBaPerson" 
+        valueExpr="BaPersonID"
+        displayExpr="NameVorname" 
+        [searchEnabled]="true"
+        (onFocusIn)="onFocusIn($event, 'selectbox')"
+        (onKeyDown)="onKeyDown($event)"
+        (onValueChanged)="onValueChanged()"
+        [disabled]="isDisableKurzungen && isEdit">
+        <dx-validator>
+          <dxi-validation-rule type="required" [message]="'CtlSpeziaikonto.Message.MessageEmptyPerson' | translate"></dxi-validation-rule>
+        </dx-validator>
+      </dx-select-box>
+    </div>
+
+    <div *dxTemplate="let data of 'AnteilvomGBTemplate'">
+      <div class="unit">
+        <dx-number-box
+          #AnteilvomGBNumberBox
+          class="numberbox"
+          valueChangeEvent="keyup change focusout"
+          [format]="formatPercent" 
+          [(value)]="detailData.KuerzungAnteilGBL"
+          (onValueChanged)="onValueChanged()"
+          (onKeyDown)="onKeyDownNumberBox($event,'KuerzungAnteilGBL')"
+          (onFocusOut)="onFocusOutAnteil()"
+          (onFocusIn)="onFocusInAnteil()"
+          [disabled]="isDisableSalo && isEdit">
+          <dx-validator>
+            <dxi-validation-rule type="required" [message]="'CtlSpeziaikonto.Message.MessageEmptyAnteilvomGB' | translate"></dxi-validation-rule>
+            <dxi-validation-rule type="range" [max]="maxSanktion" [min]="1" [message]="'CtlSpeziaikonto.Message.MessageRangeAnteilvomGB' | translate">
+            </dxi-validation-rule>
+          </dx-validator>
+        </dx-number-box>
+        <span>%</span>
+      </div>
+    </div>
+
+    <div *dxTemplate="let data of 'LaufzeitTemplate'">
+      <div class="unit">
+        <dx-number-box
+          #LaufzeitNumberBox
+          class="numberbox"
+          valueChangeEvent="keyup change focusout"
+          [(value)]="detailData.KuerzungLaufzeitMonate"
+          [format]="formatNumberInteger"
+          (onValueChanged)="onValueChanged()"
+          (onKeyUp)="onKeyUpNumberBox($event, 'KuerzungLaufzeitMonate')"
+          (onKeyDown)="onKeyDownNumberBox($event, 'KuerzungLaufzeitMonate')"
+          [disabled]="isDisableSalo && isEdit">
+          <dx-validator>
+            <dxi-validation-rule type="required" [message]="'CtlSpeziaikonto.Message.MessageEmptyLaufzeit' | translate"></dxi-validation-rule>
+            <dxi-validation-rule type="range" [min]="1" [message]="'CtlSpeziaikonto.Message.MessageLaufzeitLength' | translate"></dxi-validation-rule>
+            <dxi-validation-rule type="range" [max]="120000" message="Die Reduktionszeit muss weniger als 120000 Monate betragen"></dxi-validation-rule>
+          </dx-validator>
+        </dx-number-box>
+        <span>Monat(e)</span>
+      </div>
+    </div>
+
+    <div *dxTemplate="let data of 'GultigvonTemplate'">
+      <dx-select-box
+        [(value)]="detailData.DatumVonMonat"
+        [dataSource]="monat" 
+        valueExpr="code" 
+        displayExpr="shortText" 
+        [searchEnabled]="true"
+        (onFocusIn)="onFocusIn($event, 'selectbox')"
+        (onKeyDown)="onKeyDown($event)"
+        (onValueChanged)="onValueChanged()"
+        [disabled]="isDisableKurzungen && isEdit">
+        <dx-validator>
+          <dxi-validation-rule type="required" [message]="'CtlSpeziaikonto.Message.MessageDatumVonNull' | translate"></dxi-validation-rule>
+        </dx-validator>
+    </dx-select-box>
+    </div>
+
+    <div *dxTemplate="let data of 'GultigvonNumberboxTemplate'">
+      <dx-number-box
+        #GultigvonNumberBox
+        class="numberbox"
+        valueChangeEvent="keyup change focusout"
+        [(value)]="detailData.DatumVonJahr"
+        (onValueChanged)="onValueChanged()"
+        [format]="formatNumberInteger"
+        (onKeyUp)="onKeyUpNumberBox($event, 'DatumVonJahr')"
+        (onKeyDown)="onKeyDownNumberBox($event, 'DatumVonJahr')"
+        [disabled]="isDisableKurzungen && isEdit">
+        <dx-validator>
+          <dxi-validation-rule type="required" [message]="'CtlSpeziaikonto.Message.MessageDatumVonNull' | translate"></dxi-validation-rule>
+          <dxi-validation-rule type="range" [max]="3000" [min]="2000" [message]="'CtlSpeziaikonto.Message.MessageDatumVonOutOfRange'|translate">
+          </dxi-validation-rule>
+        </dx-validator>
+      </dx-number-box>
+    </div>
+
+    <div *dxTemplate="let data of 'GultigbisTemplate'">
+      <dx-select-box
+        [(value)]="detailData.DatumBisMonat"
+        [dataSource]="monat" 
+        valueExpr="code" 
+        displayExpr="shortText" 
+        [searchEnabled]="true"
+        [disabled]="true"
+        placeholder=""
+        (onFocusIn)="onFocusIn($event, 'selectbox')"
+        (onKeyDown)="onKeyDown($event)"
+        (onValueChanged)="onValueChanged()">
+      </dx-select-box>
+    </div>
+
+    <div *dxTemplate="let data of 'GultigbisNumberboxTemplate'">
+      <dx-number-box
+        #GultigbisNumberBox
+        class="numberbox"
+        valueChangeEvent="keyup change focusout"
+        [disabled]="true"
+        [(value)]="detailData.DatumBisJahr"
+        (onValueChanged)="onValueChanged()"
+        [format]="formatNumberInteger"
+        (onKeyDown)="onKeyDownNumberBox($event,'DatumBisJahr')">
+      </dx-number-box>
+    </div>
+
+    <div *dxTemplate="let data of 'BemerkungenTemplate'">
+      <dx-text-area
+        #Bemerkungen
+        height='140'
+        class="textBreak"
+        [(value)]="detailData.Bemerkung"
+        (onValueChanged)="onValueChanged()">
+      </dx-text-area>
+    </div>
+  </dx-form>
+</dx-validation-group>

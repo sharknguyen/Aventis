@@ -1,0 +1,14 @@
+{
+    "Pendenzentypen": {
+        "gridPendenzen": {
+            "Code": "Code [en]",
+            "Typ": "Typ [en]",
+            "Betreff": "Betreff [en]",
+            "Beschreibung": "Beschreibung [en]",
+            "Sortierung": "Sortierung [en]"
+        },
+        "gridAktionen": {
+
+        }
+    }
+}

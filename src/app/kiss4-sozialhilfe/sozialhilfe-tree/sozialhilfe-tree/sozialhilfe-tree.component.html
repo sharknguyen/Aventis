@@ -1,0 +1,108 @@
+<div class="h008-fallbearbeitung-sidebar-container">
+  <div class="h008-fallbearbeitung-sidebar-treeview">
+    <div id="d006_navigation" class="d006_navigation-container">
+      <!-- Begin tree-view -->
+
+      <div class="tree-label">
+        <span class="tree-label-text">{{iconName}}</span>
+        <img *ngIf="treeViewDataSource.length === 0" id="popover-top" class="icon-add" src="/assets/icon/hoz3dot.png" (click)="onClickAddNew()">
+        <dx-popover
+          target="#popover-top"
+          class="d006_navigation-popover" [position]="{at: 'bottom',my: 'left top'}"
+          [(visible)]="isVisibalePopoverTreeEmpty">
+          <div *dxTemplate="let data of 'content'">
+              <ul class="right-content-button">
+                  <li (click)="newSozialhilfeWhenEmpty()">
+                    <img class="float-left" width="15" height="15" src="assets/icon/ico/1628.ico" class="dx-icon">&nbsp;
+                    <label>neue Sozialhilfe</label>
+                  </li>
+              </ul>
+          </div>
+      </dx-popover>
+      </div>
+      <hr>
+
+      <dx-tree-view id="d006_navigation_nav" class="d006_navigation-tree-view" #treeView [dataSource]="treeViewDataSource"
+        dataStructure="plain" selectionMode="single" parentIdExpr="parentID" keyExpr="id" displayExpr="name" noDataText=""
+        expandedExpr="isExpanded" selectedExpr="isSelected" [width]="'100%'" itemTemplate="itemTemplate" (onItemClick)="onItemClick($event)">
+        <div *dxTemplate="let itemObj of 'itemTemplate'">
+          <img *ngIf="itemObj.icon" class="float-left" [src]="itemObj.icon" class="dx-icon">
+          <img *ngIf="itemObj.iconID" class="float-left" [src]="'assets/icon/ico/' + itemObj.iconID + '.ico'" class="dx-icon">
+          <!--Module S -->
+          <div *ngIf="iconShortName==='S'">
+            <div *ngIf="itemObj.aufnahme && itemObj.sarName" class="tree-node"  [title]="itemObj.name + ' (' + (itemObj.aufnahme | date: dateFormat) + ') - [' + itemObj.sarName + ']'">
+              <span class="tree-view-node-text">{{itemObj.name}} ({{itemObj.aufnahme | date: 'dd.MM.yyyy'}}) -
+                [{{itemObj.sarName}}]</span>
+            </div>
+            <div *ngIf="itemObj.aufnahme && !itemObj.sarName" class="tree-node" [title]="itemObj.name + ' (' + (itemObj.aufnahme | date: dateFormat) + ')'">
+              <span class="tree-view-node-text">{{itemObj.name}} ({{itemObj.aufnahme | date: 'dd.MM.yyyy'}})</span>
+            </div>
+            <div *ngIf="!itemObj.aufnahme && itemObj.sarName" class="tree-node" title="itemObj.name +  '[' + itemObj.sarName + ']'">
+              <span class="tree-view-node-text">{{itemObj.name}} [{{itemObj.sarName}}]</span>
+            </div>
+            <div *ngIf="!itemObj.aufnahme && !itemObj.sarName" class="tree-node" [title]="itemObj.name">
+              <span class="tree-view-node-text">{{itemObj.name}}</span>
+            </div>
+            <div *ngIf="checkNodeTreeToRenderIcon(itemObj)" id="popover-{{itemObj.pkey}}" class="tree-view-right-context" (click)="toggleVisiblePopover(itemObj)"></div>
+            <dx-popover class="d006_navigation-popover" target="#popover-{{itemObj.pkey}}" [position]="{at: 'bottom',my: 'left top'}"
+              [(visible)]="itemObj.visiblePopover">
+              <div *dxTemplate="let data of 'content'">
+                <ul class="right-content-button">
+                  <li class="right-item-button" *ngIf="isNeuesFinanzplan" (click)="createFinanzplan(itemObj, 2)">
+                    <img class="float-left" width="15" height="15" src="assets/icon/ico/1628.ico" class="dx-icon">&nbsp;
+                    <label>{{'SozialhilfeTree.neueRegularerFinanzplan' | translate}}</label>
+                  </li>
+                  <li class="right-item-button" *ngIf="isNeueUberbruckung" (click)="createFinanzplan(itemObj, 1)">
+                    <img class="float-left" width="15" height="15" src="assets/icon/ico/1628.ico" class="dx-icon">&nbsp;
+                    <label>{{'SozialhilfeTree.neueUberbruckung' | translate}}</label>
+                  </li>
+                  <hr  *ngIf="isNeueUberbruckung"/>
+                  <li class="right-item-button" *ngIf="isNeueSozialhilfe" (click)="newSozialhilfe(itemObj)">
+                    <img class="float-left" width="15" height="15" src="assets/icon/ico/1301.ico" class="dx-icon">&nbsp;
+                    <label>{{'SozialhilfeTree.neueSozialhilfe' | translate}}</label>
+                  </li>
+                  <li class="right-item-button" *ngIf="isSozialhilfeloschen" (click)="deleteSozialhilfe(itemObj)">
+                    <img class="float-left" width="15" height="15" src="assets/icon/ico/4.ico" class="dx-icon">&nbsp;
+                    <label>{{'SozialhilfeTree.sozialhilfeloschen' | translate}}</label>
+                  </li>
+                  <hr *ngIf="isFinanzplanloschen && isNeueSozialhilfe" />
+                  <li class="right-item-button" *ngIf="isFinanzplanloschen" (click)="deleteFinanzplan(itemObj)">
+                    <img class="float-left" width="15" height="15" src="assets/icon/ico/4.ico" class="dx-icon">&nbsp;
+                    <label>{{'SozialhilfeTree.finanzplanloschen' | translate}}</label>
+                  </li>
+                  <hr *ngIf="isNeueUberbruckung" />
+                  <li class="right-item-button" *ngIf="isFallZugriff">
+                    <img class="float-left" width="15" height="15" src="assets/icon/ico/5016.ico" class="dx-icon">&nbsp;
+                    <label>{{'SozialhilfeTree.fallZugriff' | translate}}</label>
+                  </li>
+                  <li class="right-item-button" *ngIf="isFallInfo">
+                    <img class="float-left" width="15" height="15" src="assets/icon/ico/176.ico" class="dx-icon">&nbsp;
+                    <label>{{'SozialhilfeTree.fallInfo' | translate}}</label>
+                  </li>
+                  <hr *ngIf="isFinanzplanloschen && isNeueMonatsbuget" />
+                  <li class="right-item-button" *ngIf="isNeueMonatsbuget" (click)="createBudget(itemObj)">
+                    <img class="float-left" width="15" height="15" src="assets/icon/ico/1323.ico" class="dx-icon">&nbsp;
+                    <label>{{'SozialhilfeTree.NeuesMonatsbudgetseinfugen' | translate}}</label>
+                  </li>
+                  <li class="right-item-button" *ngIf="isMonatsbugetMasterbudget">
+                    <img class="float-left" width="15" height="15" src="assets/icon/ico/127.ico" class="dx-icon">&nbsp;
+                    <label>{{'SozialhilfeTree.MonatsbudgetsanMasterbudget' | translate}}</label>
+                  </li>
+                  <li class="right-item-button" *ngIf="isMonatsbugetLoschen" (click)="deleteBudget(itemObj)">
+                    <img class="float-left" width="15" height="15" src="assets/icon/ico/4.ico" class="dx-icon">&nbsp;
+                    <label>{{'SozialhilfeTree.MonatsbudgetsLoschen' | translate}}</label>
+                  </li>
+                </ul>
+              </div>
+            </dx-popover>
+          </div>
+
+        </div>
+      </dx-tree-view>
+
+      <!-- End tree-view -->
+    </div>
+
+  </div>
+</div>
+<app-popup-confirm [popUpModel]="confirmDialogData"></app-popup-confirm>

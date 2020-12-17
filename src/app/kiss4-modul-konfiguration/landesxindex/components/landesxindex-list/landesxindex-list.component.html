@@ -1,0 +1,54 @@
+<div *ngIf="gridFunction.model.isFilterBuilder" class="filter-container">
+    <dx-filter-builder [(value)]="filter">
+        <dxi-field dataField="name" [caption]="'J001Landesxindex.LandesindexName' | translate"></dxi-field>
+        <dxi-field dataField="ikLandesindexId" caption="ID" dataType="number"></dxi-field>
+    </dx-filter-builder>
+    <dx-button [text]="'DataGrid.FilterBuilder.FilterBuilderButton' | translate" type="default" (onClick)="filterGridData()">
+    </dx-button>
+    <div class="dx-clearfix"></div>
+</div>
+<app-grid-function #gridFunction (onchange)="gridFunction.model" [keyStorage]="gridFunctionKey"></app-grid-function>
+<div class="data-grid-top-class">
+    <dx-data-grid #gridLandesxindexTop id="j001_grid-item1"
+        [dataSource]="landesxindexes" keyExpr="ikLandesindexId"
+        [allowColumnReordering]="true"
+        [allowColumnResizing]="true"
+        [columnResizingMode]="'widget'"
+        [showBorders]="true"
+        [showColumnLines]="true"
+        [showRowLines]="true"
+        [hoverStateEnabled]="true"
+        [selectedRowKeys]="selectedKeysTop"
+        [filterValue]="gridFilterValue"
+        (onSelectionChanged)="selectionChangedTop($event)"
+        (onEditingStart)="onEditingStartTop($event)"
+        (onRowUpdating)="onRowUpdatingTop($event)"
+        (onContextMenuPreparing)="onContextMenuPreparing($event)"
+        (onToolbarPreparing)="toolbarPreparing($event)"
+        (onCellClick)="onCellClickGridTop($event)">
+        <dxo-selection mode="single"></dxo-selection>
+        <dxo-search-panel [visible]="gridFunction.model.isSearchPanel" highlightCaseSensitive="true"></dxo-search-panel>
+        <dxo-filter-row [visible]="gridFunction.model.isSearch" applyFilter="Immediately"></dxo-filter-row>
+        <dxo-header-filter [visible]="true"></dxo-header-filter>
+        <dxo-scrolling mode="virtual"></dxo-scrolling>
+        <dxo-editing mode="batch" [allowUpdating]="allowUpdatingGrdTop"></dxo-editing>
+        <dxo-group-panel [visible]="gridFunction.model.isGrouping"></dxo-group-panel>
+        <dxo-grouping [contextMenuEnabled]="true" #expandGridTop [autoExpandAll]= "false"></dxo-grouping>
+        <dxo-paging [enabled]="false" [pageSize]="99999"></dxo-paging>
+        <dxo-column-chooser [title]="'J001Landesxindex.columnChooserTitle' | translate" [emptyPanelText]="''"></dxo-column-chooser>
+        <dxi-column width="20" caption="" cellTemplate="cellTemplateTop" alignment="center" [allowEditing]="false" [allowExporting]="false"
+            [allowFiltering]="false" [allowGrouping]="false" [allowHeaderFiltering]="false" [allowHiding]="false" [allowReordering]="false" [allowResizing]="false">
+        </dxi-column>
+        <dxi-column dataField="name" [caption]="'J001Landesxindex.LandesindexName' | translate" [width]="'auto'" [minWidth]="50">
+            <dxi-validation-rule type="required" [message]="'J001Landesxindex.Msg.NichtAlleMussfelder' | translate"></dxi-validation-rule>
+            <dxi-validation-rule type="pattern" [pattern]="patternName" [message]="'J001Landesxindex.Msg.MaxLength50' | translate"></dxi-validation-rule>
+            <dxi-validation-rule type="custom" [validationCallback]="validationCallbackTop" [message]="'J001Landesxindex.Msg.CheckExist' | translate"></dxi-validation-rule>
+        </dxi-column>
+        <dxi-column dataField="ikLandesindexId" [dataType]="'number'" caption="ID" [allowEditing]="false" [minWidth]="50"></dxi-column>
+        <div *dxTemplate="let data of 'cellTemplateTop'">
+            <i *ngIf="data.data.ikLandesindexId == rowSelectedIDTop && !editingControl.isEditTop" class="fa fa-caret-right"></i>
+            <i *ngIf="data.data.ikLandesindexId == rowSelectedIDTop && editingControl.isEditTop" class="fa fa-pencil"></i>
+        </div>
+    </dx-data-grid>
+</div>
+<kiss-printer #printer></kiss-printer>

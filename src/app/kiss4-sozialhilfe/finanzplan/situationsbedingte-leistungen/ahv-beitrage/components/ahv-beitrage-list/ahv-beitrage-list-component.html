@@ -1,0 +1,48 @@
+<div class="grid-table-view">
+  <div *ngIf="gridFunction.model.isFilterBuilder" class="filter-builder">
+    <dx-filter-builder [fields]="gridAhvBeitrage.instance.option('columns')" [disabled]="!statusContainer.isReadOnly" [(value)]="filter"></dx-filter-builder>
+    <dx-button [text]="'AhvBeitrage.GirdTitle.FilterBuilderButton' | translate" type="default" (onClick)="filterGridData()" [disabled]="!statusContainer.isReadOnly"></dx-button>
+    <div class="dx-clearfix"></div>
+  </div>
+  <div>
+    <dx-data-grid class="kiss-data-grid" id="i011_ahv-beitrage_grid-ahv-beitrage" #gridAhvBeitrage 
+      [dataSource]="listAHVBeitragPosition" allowColumnResizing="true" [hoverStateEnabled]="true"
+      [showRowLines]="true" keyExpr="bgPositionID" [showBorders]="true" (onContentReady)="onContentReady($event)" [height]="300"
+      [columnResizingMode]="'widget'" [wordWrapEnabled]="false" [allowColumnReordering]="true"
+      noDataText="Keine Daten" (onContextMenuPreparing)="onContextMenuPreparing($event)"
+      [columnMinWidth]="50" [(focusedRowKey)]="selectedRowKey[0]" width="100%"
+      [(selectedRowKeys)]="selectedRowKey" [disabled]="disabledGrid" (onKeyDown)=onKeyDown($event)>
+      <dxi-column width="auto" [visible]="!isFillter" alignment="left" [format]="dateFormat" dataType="date" dataField="datumVon"
+        [caption]="'AhvBeitrage.GirdTitle.GullingAB' | translate"></dxi-column>
+      <dxi-column width="auto" dataType="string"  alignment="left" dataField="nameVorname" [caption]="'AhvBeitrage.GirdTitle.Name' | translate">
+      </dxi-column>
+      <dxi-column width="auto" dataType="number"   alignment="right" dataField="baPersonIDNew" [caption]="'AhvBeitrage.GirdTitle.PersNr' | translate"></dxi-column>
+      <dxi-column width="auto"  alignment="left" [format]="dateFormat" dataType="date" dataField="geburtsdatum" [caption]="'AhvBeitrage.GirdTitle.Geburtsdatum' | translate"></dxi-column>
+      <dxi-column width="auto"  alignment="left" dataType="string" dataField="text" [caption]="'AhvBeitrage.GirdTitle.Leistungsart' | translate ">
+      </dxi-column>
+      <dxi-column width="auto"  dataType="number" alignment="right" dataField="betrag" [caption]="'AhvBeitrage.GirdTitle.Betrag' | translate">
+        <dxo-format type="fixedPoint" [precision]="2"></dxo-format>
+      </dxi-column>
+      <dxo-summary>
+        <dxi-total-item column="betrag" summaryType="sum" [valueFormat]="CommonConstant.FormatNumberN2" displayFormat="Sum: {0}">
+        </dxi-total-item>
+      </dxo-summary>
+      <dxi-column width="auto"  dataType="string" alignment="left" dataField="institutionName" [caption]="'AhvBeitrage.GirdTitle.Institution' | translate"></dxi-column>
+      <dxi-column width="auto"  dataType="string" alignment="left" dataField="textStatus" [caption]="'AhvBeitrage.GirdTitle.BewStatus' | translate">
+      </dxi-column>
+      <dxo-filter-row [visible]="gridFunction.model.isSearch" applyFilter="Immediately"></dxo-filter-row>
+      <dxo-header-filter [visible]="gridFunction.model.isFilter"></dxo-header-filter>
+      <dxo-selection mode="single"></dxo-selection>
+      <dxo-scrolling mode="virtual"></dxo-scrolling>
+      <dxo-sorting mode="multiple"></dxo-sorting>
+      <dxo-load-panel [enabled]="isLoading"></dxo-load-panel>
+      <dxo-group-panel [emptyPanelText]="'AhvBeitrage.GirdTitle.emptyPanelText' | translate" [visible]="gridFunction.model.isGrouping"></dxo-group-panel>
+      <dxo-grouping [contextMenuEnabled]="true" #expandGrid [autoExpandAll]="false"></dxo-grouping>
+      <dxo-column-chooser #columnChooser emptyPanelText="" [title]="'AhvBeitrage.GirdTitle.ColumnChooser' | translate"
+        [enabled]="false"></dxo-column-chooser>
+      <dxo-search-panel [visible]="gridFunction.model.isSearchPanel" highlightCaseSensitive="true"></dxo-search-panel>
+    </dx-data-grid>
+    <app-grid-function #gridFunction (onchange)="gridFunction.model" [keyStorage]="gridFunctionKey"></app-grid-function>
+    <kiss-printer #printer></kiss-printer>
+  </div>
+</div>

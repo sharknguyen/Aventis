@@ -1,0 +1,61 @@
+<dx-popup [title]="'DlgBewilligung.Header' | translate" [width]="'auto'" [minWidth]="500" [maxWidth]="800" [height]="'auto'"
+    [(visible)]="popupModel.isVisible" [dragEnabled]="false" (onShown)="onShown($event)" (onHiding)="onHiding($event)"
+    (onHidden)="onHidden($event)">
+    <span>{{'DlgBewilligung.Title' | translate}}</span>
+
+    <hr>
+
+    <dx-form [showColonAfterLabel]="false">
+        <dxi-item [itemType]="'group'" [colCount]="2">
+            <dxi-item [itemType]="'simple'" [colSpan]="1">
+                <dx-radio-group [dataSource]="radioItems" displayExpr="text" valueExpr="code" [(value)]="popupModel.data.radioGroup"></dx-radio-group>
+            </dxi-item>
+            <dxi-item [itemType]="'simple'" [colSpan]="1">
+                <span>{{popupModel.data.someText1}}</span>
+            </dxi-item>
+        </dxi-item>
+
+        <dxi-item [itemType]="'group'" [colCount]="1">
+            <dxi-item [itemType]="'simple'" [colSpan]="1">
+                <dxo-label [text]="'DlgBewilligung.Form.Zubena' | translate"></dxo-label>
+                <dx-select-box [dataSource]="selectBoxArr" showClearButton="true" displayExpr="text" valueExpr="code"
+                    [(value)]="popupModel.data.selectBox">
+                </dx-select-box>
+            </dxi-item>
+        </dxi-item>
+
+        <dxi-item [itemType]="'group'" [colCount]="1">
+            <dxi-item [itemType]="'simple'" [colSpan]="1">
+                <dxo-label text=" "></dxo-label>
+                <dx-check-box [text]="'DlgBewilligung.Form.PerEmail' | translate" [(value)]="popupModel.data.checkBox">
+                </dx-check-box>
+            </dxi-item>
+        </dxi-item>
+
+        <dxi-item [itemType]="'group'" [colCount]="1">
+            <dxi-item [itemType]="'simple'" [colSpan]="1">
+                <dxo-label text=" "></dxo-label>
+                <span>{{popupModel.data.someText2}}</span>
+            </dxi-item>
+        </dxi-item>
+
+        <dxi-item [itemType]="'group'" [colCount]="1">
+            <dxi-item [itemType]="'simple'" [colSpan]="1">
+                <dxo-label [text]="'DlgBewilligung.Form.GultigAb' | translate"></dxo-label>
+                <dx-date-box [displayFormat]="dateFormat" width="100%" [(value)]="popupModel.data.dateBox">
+                    <dx-validator>
+                        <dxi-validation-rule type="required" message="betrag is required !"></dxi-validation-rule>
+                    </dx-validator>
+                </dx-date-box>
+            </dxi-item>
+        </dxi-item>
+
+        <dxi-item [itemType]="'group'" [colCount]="1">
+            <dxi-item [itemType]="'simple'" [colSpan]="1">
+                <dxo-label [text]="'DlgBewilligung.Form.Bemerkungen' | translate"></dxo-label>
+                <dx-text-area [(value)]="popupModel.data.textArea"></dx-text-area>
+            </dxi-item>
+        </dxi-item>
+    </dx-form>
+
+</dx-popup>

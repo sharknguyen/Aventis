@@ -1,0 +1,18 @@
+@import 'settings/variables.scss';
+:host ::ng-deep {
+  .kiss-input-right-i008 input  {
+    text-align: right;
+  }
+  .kennzahlen-title {
+    border-bottom: 1px solid #aaa;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+  }
+  .group-field-border-top {
+    margin-top: 15px;
+  }
+  .group-title-label {
+    color: $color-lable-user;
+    font-weight: $form-detail-label-font-weight;
+  }
+}

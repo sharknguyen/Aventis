@@ -1,0 +1,75 @@
+{
+    "CtlInkassoSchuldner": {
+        "Title": "Rechtliche Massnahmen [fr]",
+        "Suchen": "Suchen [fr]",
+        "Detail": "Detail [fr]",
+        "Bearbeiten": "Bearbeiten [fr]",
+        "Speichern": "Speichern [fr]",
+        "Abbrechen": "Abbrechen [fr]",
+        "Löschen": "Löschen [fr]",
+        "ApplyFilter": "Filter anwenden [fr]",
+        "emptyPanelText": "Zu gruppierende Spalten in diesen Bereich ziehen [fr]",
+        "Ausführen": "Ausführen [fr]",
+        "Validation": {
+            "NoDataGrid": "Keine Daten [fr]"
+        },
+        "Placeholder": "Suchen... [fr]",
+        "ColumnChooser": {
+            "Title": "Benutzerdefiniert [fr]",
+            "EmptyPanelText": "Keine Daten [fr]"
+        },
+        "Message": {
+            "Information": "Information [fr]",
+            "MessageDelete": "Soll der Datensatz gelöscht werden ? [fr]",
+            "MessageDeleteNew": "Neuen Datensatz wieder löschen ? [fr]",
+            "MessageConfirmCancel": "Fenster trotz der nicht gespeicherten Daten schliessen ? [fr]",
+            "MessageError": "Nicht alle Mussfelder sind ausgefüllt [fr]",
+            "MessageErrorValidate": "Ungültige Daten. Bitte geben Sie gültige Eingabewerte ein. [fr]",
+            "Yes": "Ja [fr]",
+            "No": "Nein [fr]",
+            "Title": "Bestätigung [fr]",
+            "Confirmation": "Confirmation [fr]",
+            "Abbrechen": "Abbrechen [fr]",
+            "Daten-aktualisieren": "Daten aktualisieren [fr]",
+            "MessageCandiavtive": "Sie haben Daten geändert. Möchten Sie das Formular schließen und die Änderungen verwerfen? [fr]",
+            "Discard": "Discard [fr]",
+            "MessageConcurrencyUpdate": "Der gewählte Datensatz wurde in der Zwischenzeit von einer anderen Person geändert oder gelöscht.\r\nAktualisieren sie die Daten zuerst, um Ihre Änderungen zu speichern. [fr]",
+            "MessageConcurrencyDelete": "Beim Speichern des veränderten Datensatzes ist ein Fehler aufgetreten ! [fr]",
+            "EditNumberOverLengthMessage": "Ungültiger Wert. [fr]",
+            "NameOverLength": "Der Inhalt eines Feldes überschreitet die maximal zugelassene Länge.\nBitte kürzen Sie zuerst den Inhalt und versuchen Sie anschliessend nochmals zu speichern. [fr]",
+            "Bestatigung": "Bestätigung [fr]",
+            "DoubleClickHeader": "Die Angaben wurden in den Zwischenspeicher kopiert. [fr]",
+            "ShiftClickMessage": "Die ID wurde in den Zwischenspeicher kopiert [fr]",
+            "BetreibungHeader": "Alle Betreibungen von diesem Schuldner [fr]",
+            "AnzeigetypBlank": "Bitte wählen Sie einen Anzeigetyp aus. [fr]",
+            "AbgeschlossenamBlank": "Bitte geben Sie das Eröffnungsdatum ein. [fr]",
+            "StartDateEndDate": "Das Abschlussdatum kann nicht vor dem Eröffnungsdatum liegen. [fr]",
+            "isDirtyMessage": "Änderungen an diesem Datensatz rückgängig machen ? [fr]",
+            "DateOutOfRange": "Der Wert ist nicht im gültigen Bereich [fr]"
+        },
+        "anzeige-grid-column": {
+            "IkAnzeigeTypCode": "Typ [fr]",
+            "DatumVon": "Eröffnet am [fr]",
+            "DatumBis": "Abgeschlossen am [fr]",
+            "InkassofallName": "Inkassofall [fr]"
+        },
+        "anzeige-detail-label": {
+            "Inkassofall": "Inkassofall [fr]",
+            "EroeffnetAm": "Eröffnet am [fr]",
+            "Eroeffnungsgrund": "Grund [fr]",
+            "AnzeigeTyp": "Anzeigetyp [fr]",
+            "AbgeschlossenAm": "Abgeschlossen am [fr]",
+            "Abschlussgrund": "Grund [fr]",
+            "Bemerkungen": "Bemerkung [fr]",
+            "AlleBetreibungen": "Alle Betreibungen von diesem Schuldner [fr]"
+        },
+        "betreibung-grid-column": {
+            "BetreibungAm": "Datum [fr]",
+            "BetreibungBetrag": "Betrag [fr]",
+            "BetreibungVon": "Von [fr]",
+            "BetreibungBis": "Bis [fr]",
+            "BetreibungNummer": "Betreibungsnummer [fr]",
+            "InkassoFallName": "Inkassofall [fr]"
+        }
+    }
+}

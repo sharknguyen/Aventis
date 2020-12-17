@@ -1,0 +1,24 @@
+<!-- Form view -->
+<kiss-grundbedarf-detail-view #detailView *ngIf="isViewMode" [qryBgPositionData]="qryBgPositionData"
+  [qryKennzahlenData]="qryKennzahlenData" [dataSourceSelectboxes]="dataSourceSelectboxes" [readOnlySettingComponents]="readOnlySettingComponents"
+  [richtlinieData]="richtlinieData" [visibleGroup]="visibleGroup" [visibleComponent]="visibleComponent"
+  [berechnungsgrundlageValueSelectbox]="berechnungsgrundlageValueSelectbox" [SKOS2005_HGReadMode]="SKOS2005_HGReadMode"
+  [SKOS2005_UEReadMode]="SKOS2005_UEReadMode" [AbzugVVGReadMode]="AbzugVVGReadMode" [GBI_HgReadMode]="GBI_HgReadMode"
+  [GBIZuschlag_HgReadMode]="GBIZuschlag_HgReadMode" [GBII_HgReadMode]="GBII_HgReadMode" [Betrag_SKOSReadMode]="Betrag_SKOSReadMode"
+  [GrundbedarfZusatzReadMode]="GrundbedarfZusatzReadMode" [GrundbedarfIIReadMode]="GrundbedarfIIReadMode" [fraELSE]="fraELSE"
+  [lblELSE_Betrag]="lblELSE_Betrag">
+</kiss-grundbedarf-detail-view>
+
+<!-- Form edit -->
+<kiss-grundbedarf-detail-edit *ngIf="!isViewMode" [qryBgPositionData]="qryBgPositionData" [qryKennzahlenData]="qryKennzahlenData"
+  [richtlinieData]="richtlinieData" [dataSourceSelectboxes]="dataSourceSelectboxes" [BgPositionsartCode]="BgPositionsartCode"
+  [readOnlySettingComponents]="readOnlySettingComponents" [typeFormatNumber]="typeFormatNumber" [visibleGroup]="visibleGroup"
+  (isDirtyDataFormEvent)="isDirtyDataFormEvent($event)" (leaveEvent)="leaveEvent($event)" [visibleComponent]="visibleComponent"
+  [SKOS2005_HGReadMode]="SKOS2005_HGReadMode" [SKOS2005_UEReadMode]="SKOS2005_UEReadMode" [AbzugVVGReadMode]="AbzugVVGReadMode"
+  [SKOS2005_TotalReadMode]="SKOS2005_TotalReadMode" [ELSE_TotalReadMode]="ELSE_TotalReadMode" [GBI_HgReadMode]="GBI_HgReadMode"
+  [GBIZuschlag_HgReadMode]="GBIZuschlag_HgReadMode" [GBII_HgReadMode]="GBII_HgReadMode" [Betrag_SKOSReadMode]="Betrag_SKOSReadMode"
+  [GrundbedarfZusatzReadMode]="GrundbedarfZusatzReadMode" [GrundbedarfIIReadMode]="GrundbedarfIIReadMode"
+  [GrundbedarfTotalReadMode]="GrundbedarfTotalReadMode" [fraELSE]="fraELSE" [lblELSE_Betrag]="lblELSE_Betrag"></kiss-grundbedarf-detail-edit>
+<app-popup-confirm [popUpModel]="popUpModel"></app-popup-confirm>
+<!-- Concurrency popup -->
+<app-popup-concurrency [popUpConcurrencyModel]="popUpConcurrencyModel"></app-popup-concurrency>

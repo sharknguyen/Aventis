@@ -1,0 +1,89 @@
+<div class="container-fluid pt-10 pb-10 h-100">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-5">
+      <!-- use with alert remain messager -->
+      <app-remaining-message #remaining>
+      </app-remaining-message>
+
+      <div class="card bg-light-white p-2">
+        <div class="card-header">
+          <h3 id="H001_label-anmelden" class="font-weight-bold mb-0">
+            {{ 'Auth.Login.Title' | translate }}
+          </h3>
+        </div>
+        <div class="card-body">
+          <form class="needs-validation" [formGroup]="loginForm" (ngSubmit)="onSubmit($event, loginForm.value)" id="H001_frmLogin"
+            enctype="application/x-www-form-urlencoded">
+            <div class="frm-header"></div>
+
+            <div class="form-group row">
+              <label id="H001_label-benutzer-in" for="username" class="col-sm-3 col-form-label col-form-label-sm font-weight-light">{{
+                'Auth.UserName' | translate }}</label>
+              <div class="col-sm-9">
+                <input type="text" id="H001_benutzer-in" autofocus name="username" [formControl]="userName" required="required"
+                  autocomplete="off" class="form-control form-control-sm" />
+                <span for="username" *ngIf="
+                                      submitted &&
+                                      userName.hasError('required')
+                                  "
+                  class="invalid-feedback">{{
+                  'Auth.UserNameRequiredError' | translate
+                  }}</span>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label id="H001_label-passwort" for="password" class="col-sm-3 col-form-label col-form-label-sm font-weight-light">{{
+                'Auth.Password' | translate }}</label>
+              <div class="col-sm-9">
+                <input type="password" id="H001_passwort" name="password" [formControl]="password" required="required"
+                  class="form-control form-control-sm" />
+                <span for="password" *ngIf="
+                                      submitted &&
+                                      password.hasError('required')
+                                  "
+                  class="invalid-feedback">{{
+                  'Auth.PasswordRequiredError' | translate
+                  }}</span>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-9 offset-sm-3 text-right">
+                <button type="submit" id="H001_anmelden" class="btn btn-outline-dark btn-sm font-weight-bold">
+                  {{ 'Auth.Login.Submit' | translate }}
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<kiss-spinner [isRunning]="authSandbox.loginLoading$ | async"></kiss-spinner>
+
+<dx-popup #H001_popup id="H001_popup" class="popup" [showTitle]="true" title="Benutzer auswählen" [dragEnabled]="false"
+  [closeOnOutsideClick]="false" [(visible)]="popupVisible" [width]="700" [height]="230">
+  <div *dxTemplate="let data of 'content'">
+    <div id="form-container">
+      <div class="dx-fieldset">
+        <div class="dx-field">
+          <div id="H001_popup_label-benutzer" class="dx-field-label">Benutzer:</div>
+          <div id="H001_popup_benutzer" class="dx-field-value">
+            <dx-select-box
+              [(dataSource)]="listUserPrimaryKey"
+              [displayExpr]="'displayName'"
+              [valueExpr]="'logonName'"
+              [(value)]="xUser"></dx-select-box>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: right">
+      <dx-button id="H001_popup_ok" #btnGehezu type="submit" [tabIndex]="7" text="OK" name="btnBenutzer" (onClick)="clickOkBenutzer()"></dx-button>
+    </div>
+  </div>
+</dx-popup>
+<dx-button id="H001_show-the-popup" text="Show the Popup" (onClick)="popupVisible = true" style="display: none"></dx-button>

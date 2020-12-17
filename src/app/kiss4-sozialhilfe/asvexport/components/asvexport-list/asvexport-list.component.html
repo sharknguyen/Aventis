@@ -1,0 +1,40 @@
+<div *ngIf="gridFunction.model.isFilterBuilder" class="filter-container">
+    <dx-filter-builder [fields]="gridAsvexportTop.instance.option('columns')" [(value)]="filterAvs" [disabled]="isDisabledGridTop">
+        <dxi-field dataField="DatumExport" dataType="date" [caption]="'Asvexport.GridTop.TitleExportDatum' | translate"></dxi-field>
+        <dxi-field dataField="Creator" [caption]="'Asvexport.GridTop.TitleBenutzer' | translate"></dxi-field>
+        <dxi-field dataField="Bemerkung" [caption]="'Asvexport.GridTop.TitleBemerkung' | translate"></dxi-field>
+    </dx-filter-builder>
+    <dx-button [text]="'Asvexport.GridTop.FilterBuilderButton' | translate" type="default" (onClick)="onClickFilterGrid()"
+        [disabled]="isDisabledGridTop">
+    </dx-button>
+
+    <div class="dx-clearfix"></div>
+</div>
+<app-grid-function #gridFunction (onchange)="gridFunction.model" [keyStorage]="gridFunctionKey"></app-grid-function>
+
+<dx-data-grid id="i025_asv-datenerfassung_grid" #gridAsvexportTop class="gridContainer" [dataSource]="dataExportAllGridTop"
+    [showBorders]="true" [showColumnLines]="true" [showRowLines]="true" (onRowClick)="getDetailGridBottom($event)"
+    [selectedRowKeys]="selectedKeys" [wordWrapEnabled]="false" keyExpr="SstASVSExportID" [disabled]='isDisabledGridTop'
+    (onContextMenuPreparing)="onContextMenuPreparing($event)" [allowColumnResizing]="true"
+    [columnMinWidth]="50" [allowColumnReordering]="true" (onContentReady)=onContentReady($event) [focusedRowEnabled]="true"
+    (onFocusedRowChanged)="onFocusedRowChanged($event)" [filterValue]="gridDatenerFilter" width = "100%">
+    <dxo-load-panel [enabled]="false"></dxo-load-panel>
+    <dxo-paging [enabled]="false"></dxo-paging>
+    <dxo-paging [pageSize]="99999"></dxo-paging>
+    <dxo-filter-row [visible]="gridFunction.model.isSearch" applyFilter="Immediately"></dxo-filter-row>
+    <dxo-header-filter [visible]="gridFunction.model.isFilter"></dxo-header-filter>
+    <dxo-scrolling mode="virtual"></dxo-scrolling>
+    <dxo-sorting mode="multiple"></dxo-sorting>
+    <dxo-selection mode="single"></dxo-selection>
+    <dxo-group-panel [visible]="gridFunction.model.isGrouping" [emptyPanelText]="'Asvexport.EmptyPanelText' | translate"></dxo-group-panel>
+    <dxo-grouping [contextMenuEnabled]="true" #expandGridTop [autoExpandAll]="false"></dxo-grouping>
+    <dxi-column dataField="DatumExport" [caption]="'Asvexport.GridTop.TitleExportDatum' | translate" dataType="date"
+        [format]="dateFormat" [tabIndex]="2" width="auto"></dxi-column>
+    <dxi-column [allowFiltering]="true" dataField="Creator" [caption]="'Asvexport.GridTop.TitleBenutzer' | translate"
+        [tabIndex]="3" width="auto"></dxi-column>
+    <dxi-column [allowFiltering]="true" width="auto" dataField="Bemerkung" [caption]="'Asvexport.GridTop.TitleBemerkung' | translate"></dxi-column>
+    <dxo-column-chooser #columnChooser [title]="'Asvexport.TitleBenutzerdefiniert' | translate" [enabled]="false"
+        emptyPanelText="" [tabIndex]="4"></dxo-column-chooser>
+    <dxo-search-panel [visible]="gridFunction.model.isSearchPanel" highlightCaseSensitive="true"></dxo-search-panel>
+</dx-data-grid>
+<kiss-printer #printer></kiss-printer>

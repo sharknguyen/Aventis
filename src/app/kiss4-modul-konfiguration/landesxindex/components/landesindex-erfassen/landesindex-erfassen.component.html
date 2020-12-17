@@ -1,0 +1,105 @@
+<!-- Popup Add LandesIndex -->
+<dx-popup  #landesIndexErfassen id="j003_landesindex-erfassen" [width]="615" [height]="'auto'" [showTitle]="true"
+  [dragEnabled]="false" [closeOnOutsideClick]="false" [(visible)]="toolbarControlAdd.popupVisible" (onShown)="onShown()"
+  (onHiding)="popupHidingI003($event)" titleTemplate="title" [elementAttr]="{ class: 'kw-popup--center' }" (onShowing)="onShowing($event)" (onHidden)="onHidden($event)">
+
+  <div *dxTemplate="let data of 'title'">
+    <div class="dx-toolbar dx-widget dx-visibility-change-handler dx-collection banner-title" role="toolbar">
+      <div class="dx-toolbar-items-container">
+        <div class="dx-toolbar-before">
+          <div class="dx-item dx-toolbar-item dx-toolbar-label title-length">
+            <div class="dx-item-content dx-toolbar-item-content">
+              <div>{{ 'J003NeuerLandesindex.TitlePopUp' | translate}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="dx-toolbar-after">
+          <div class="dx-item dx-toolbar-item dx-toolbar-button">
+            <div class="dx-item-content dx-toolbar-item-content">
+              <div class="dx-closebutton dx-button dx-button-normal dx-button-mode-contained dx-widget dx-button-has-icon"
+                role="button" aria-label="close" tabindex="0" title="Close" (click)="cancelPopup()">
+                <div class="dx-button-content"><i class="dx-icon dx-icon-close"></i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *dxTemplate="let data of 'content'">
+    <dx-validation-group #validationGroup *ngIf="toolbarControlAdd.popupVisible">
+      <app-remaining-message #remainingMessage></app-remaining-message>
+      <dx-form #form labelLocation="left" class="J003-detail" [showColonAfterLabel]="false">
+        <dxi-item itemType="group" [colCount]="12">
+          <dxi-item id="name-box" itemType="group" [colSpan]="12">
+            <dxi-item id="j003_landesindex-erfassen_name" [template]="'textBoxTemplate'">
+              <dxo-label [text]="('J003NeuerLandesindex.Name' | translate) + ':'"> </dxo-label>
+              <dxi-validation-rule type="required"></dxi-validation-rule>
+            </dxi-item>
+          </dxi-item>
+
+          <dxi-item id="j003_landesindex-erfassen_label-neuberechnung" class="nameGroup" [colSpan]="12" itemType="group"
+            [caption]="'J003NeuerLandesindex.NameGroup' | translate">
+
+            <dxi-item [template]="'checkBoxTemplate'">
+              <dxo-label [text]="'J003NeuerLandesindex.NameCheckBox' | translate"></dxo-label>
+            </dxi-item>
+
+            <dxi-item>
+              <dxo-label [text]="'J003NeuerLandesindex.NameVorlage' | translate"></dxo-label>
+              <span>{{nameLandesindex}}</span>
+            </dxi-item>
+
+            <dxi-item [template]="'dateBoxTemplate'">
+              <dxo-label text=" "></dxo-label>
+            </dxi-item>
+
+          </dxi-item>
+
+        </dxi-item>
+
+        <div *dxTemplate="let data of 'textBoxTemplate'">
+          <dx-text-box #textbox [(value)]="txtLandesIndex" (onKeyPress)="pressKey($event)" (onFocusIn)="onFocusJ003(textbox, 'Textbox')"
+            (onFocusOut)="onFocusOutJ003($event,'Textbox')" [accessKey]="1" (onValueChanged)="onValueChangedJ003($event,'Textbox')">
+            <dx-validator #validation>
+              <dxi-validation-rule type="required" [message]="'J003NeuerLandesindex.Message-J003-1' | translate"></dxi-validation-rule>
+              <dxi-validation-rule type="stringLength" [max]="lengthInput" [message]="'J003NeuerLandesindex.Message-J003-4' | translate"></dxi-validation-rule>
+              <dxi-validation-rule type="custom" [validationCallback]="validationCallback" [message]="'J003NeuerLandesindex.Message-J003-2' | translate"></dxi-validation-rule>
+            </dx-validator>
+          </dx-text-box>
+        </div>
+
+        <div *dxTemplate="let data of 'checkBoxTemplate'">
+          <dx-check-box #checkbox type="submit" id="j003_landesindex-erfassen_aktivieren" [(value)]="checkboxVisible"
+            (onValueChanged)="onValueChangedJ003($event,'CheckBox')" (focus)="onFocusJ003(checkbox,'CheckBox');"
+            (focusout)="onFocusOutJ003($event,'CheckBox')" [accessKey]="2"></dx-check-box>
+        </div>
+
+        <div *dxTemplate="let data of 'dateBoxTemplate'">
+          <div class="unit">
+            <dx-date-box #datebox class="j003_landesindex-erfassen_vorlage-date" [(value)]="defaultDate" (onKeyPress)="pressKey($event)"
+              type="date" (onContentReady)="$event.component.option('calendarOptions.firstDayOfWeek', 1 )" [disabled]="dateVisible"
+              displayFormat="MMMM yyyy" (onKeyDown)="onKeyDownAdd($event)" (onClosed)="onClosedDateBox()" (onOpened)="onOpenedDateBox()"
+              width="widthNumberAndDateBox" (onFocusIn)="onFocusJ003(datebox, 'DateBox')" (onFocusOut)="onFocusOutJ003($event,'DateBox')"
+              [accessKey]="3" (onValueChanged)="onValueChangedJ003($event,'DateBox')" [width]= "215" [min]="minDate" [max]="maxDate">
+              <dx-validator>
+              </dx-validator>
+            </dx-date-box>
+            <span>= 100%</span>
+          </div>
+        </div>
+      </dx-form>
+    </dx-validation-group>
+
+    <div class="btn-btnGroup">
+      <dx-button #btnSave class="j003__landesindex-erfassen_erfassen" type="submit" [text]="'J003NeuerLandesindex.NameErf' | translate"
+        (onClick)="saveDataLandesIndex()" [accessKey]="4" (focus)="onFocusJ003(btnSave, 'saveDataLandesIndex')"
+        (focusout)="onFocusOutJ003($event,'saveDataLandesIndex')"></dx-button>
+      <dx-button #btnCancel class="j003_landesindex-erfassen_abbrechen" type="submit" [text]="'J003NeuerLandesindex.NameAbb' | translate"
+        (onClick)="cancelPopup()" (focus)="onFocusJ003(btnCancel, 'cancelDataLandesIndex')" (focusout)="onFocusOutJ003($event,'cancelDataLandesIndex')"
+        [accessKey]="5"></dx-button>
+    </div>
+
+  </div>
+</dx-popup>

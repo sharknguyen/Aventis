@@ -1,0 +1,71 @@
+<div class="d006-fa-modul-tree-container">
+  <div class="treeview-container">
+    <div class="treeview-wrapper">
+      <dx-tree-view id="d006-treeview" class="d006-treeview" #treeView [dataSource]="treeViewDataSource" dataStructure="plain"
+        selectionMode="single" parentIdExpr="parentID" keyExpr="id" displayExpr="name" expandedExpr="isExpanded"
+        selectedExpr="isSelected" [width]="'100%'" itemTemplate="itemTemplate" (onItemClick)="onItemClick($event)">
+        <div *dxTemplate="let itemObj of 'itemTemplate'">
+          <img *ngIf="itemObj.icon" class="float-left" [src]="itemObj.icon" class="dx-icon">
+          <img *ngIf="itemObj.iconID" class="float-left" [src]="'../../../assets/icon/ico/' + itemObj.iconID + '.ico'" class="dx-icon">
+          <div *ngIf="itemObj.aufnahme && itemObj.sarName" class="tree-node"
+            [title]="itemObj.name + ' (' + (itemObj.aufnahme | date: dateFormat) + ') - [' + itemObj.sarName + ']'">
+            <span class="tree-view-node-text">{{itemObj.name}} ({{itemObj.aufnahme | date: dateFormat}}) -
+              [{{itemObj.sarName}}]</span>
+          </div>
+          <div *ngIf="itemObj.aufnahme && !itemObj.sarName" class="tree-node"
+            [title]="itemObj.name + ' (' + (itemObj.aufnahme | date: dateFormat) + ')'">
+            <span class="tree-view-node-text">{{itemObj.name}} ({{itemObj.aufnahme | date: dateFormat}})</span>
+          </div>
+          <div *ngIf="!itemObj.aufnahme && itemObj.sarName" class="tree-node" [title]="itemObj.name + ' [' + itemObj.sarName + ']'">
+            <span class="tree-view-node-text">{{itemObj.name}} [{{itemObj.sarName}}]</span>
+          </div>
+          <div *ngIf="!itemObj.aufnahme && !itemObj.sarName" class="tree-node" [title]="itemObj.name">
+            <span class="tree-view-node-text">{{itemObj.name}}</span>
+          </div>
+          <div>
+            <div [id]="'popover-' + itemObj.pkey" class="tree-view-right-context" (click)="toggleVisiblePopover(itemObj)"></div>
+            <dx-popover class="d006_navigation-popover" [target]="'#popover-' + itemObj.pkey" [position]="{at: 'bottom',my: 'left top'}"
+              [(visible)]="itemObj.visiblePopover">
+              <div *dxTemplate="let data of 'content'">
+                <ul class="right-content-button">
+                  <div>
+                    <li *ngIf="isNeuesIntakeVisible" (click)="neuesIntakeMenuItem(itemObj)">
+                      <img class="float-left" width="15" height="15" src="../../../assets/icon/ico/192.ico" class="dx-icon">&nbsp;
+                      <label>{{neuesIntakeCaption}}</label>
+                    </li>
+                  </div>
+                  <div>
+                    <li *ngIf="isNeueBeratungsphaseVisible" (click)="neueBeratungsphaseMenuItem(itemObj)">
+                      <img class="float-left" width="15" height="15" src="../../../assets/icon/ico/190.ico" class="dx-icon">&nbsp;
+                      <label>{{neueBeratungsphaseCaption}}</label>
+                    </li>
+                  </div>
+                  <div>
+                    <li *ngIf="isLoschenVisible" (click)="deleteNodeTree(itemObj)">
+                      <img class="float-left" width="15" height="15" src="../../../assets/icon/ico/4.ico" class="dx-icon">&nbsp;
+                      <label>{{'Fallbearbeitung.Loschen' | translate}}</label>
+                    </li>
+                  </div>
+                  <hr *ngIf="isFrmFallZugriffVisible">
+                  <div>
+                    <li *ngIf="isFrmFallZugriffVisible" (click)="fallzugriff(itemObj)">
+                      <img class="float-left" width="15" height="15" src="../../../assets/icon/ico/5016.ico" class="dx-icon">&nbsp;
+                      <label>{{'Fallbearbeitung.FallZugriff' | translate}}</label>
+                    </li>
+                  </div>
+                  <div>
+                    <li *ngIf="isFrmFallInfoVisible">
+                      <img class="float-left" width="15" height="15" src="../../../assets/icon/ico/176.ico" class="dx-icon">&nbsp;
+                      <label>{{'Fallbearbeitung.FallInfo' | translate}}</label>
+                    </li>
+                  </div>
+                </ul>
+              </div>
+            </dx-popover>
+          </div>
+        </div>
+      </dx-tree-view>
+    </div>
+  </div>
+</div>
+<app-popup-confirm [popUpModel]="popUpModel"></app-popup-confirm>

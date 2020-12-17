@@ -1,0 +1,60 @@
+﻿{
+  "Vermogen": {
+    "FormName": "Vermögen und Vermögensverbrauch",
+    "TitleHeaderBar": "Vermögen und monatlicher Vermögensverbrauch",
+    "Neue-Vermogen": "Neues Vermögen und Vermögensverbrauch",
+    "Bearbeiten": "Bearbeiten",
+    "Speichern": "Speichern",
+    "Abbrechen": "Abbrechen",
+    "vom": "vom",
+    "bis": "bis",
+    "message": {
+      "required" :"required"
+    },
+    "Grid" : {
+      "NurAktiveAnzeigen" : "Nur aktive anzeigen",
+      "GultigAb" : "Gültig ab",
+      "Name" : "Name",
+      "Geburtsdatum" : "Geburtsdatum",
+      "ArtDesVermogens" : "Art des Vermögens",
+      "Vermogen" : "Vermögen",
+      "Verbrauch" : "Verbrauch",
+      "noDataText": "Keine Daten",
+      "emptyPanelText": "Zu gruppierende Spalten in diesen Bereich ziehen",
+      "ColumnChooser" : {
+        "Title" : "Benutzerdefiniert"
+      }
+    },
+    "Detail" : {
+      "Freibetrag" : "Freibetrag",
+      "Angerechnet" : "Angerechnet",
+      "Person" : "Person",
+      "ArtDesVermoge" : "Art des Vermögens",
+      "Vermogen" : "Vermögen",
+      "MonatlVermogensverbrauch" : "Monatl. Vermögensverbrauch",
+      "Beschreibung": "Beschreibung"
+    },
+    "Popup": {
+      "Yes": "Ja",
+      "No": "Nein",
+      "TitleDelete": "Bestätigung",
+      "MessageDelete": "Soll der Datensatz gelöscht werden ?",
+      "MessageCancelNew": "Neuen Datensatz wieder löschen ?",
+      "TitleConcurrency": "Infomation",
+      "MsgArithmetic":"Arithmetic overflow error converting expression to data type money. \n The statement has been terminated",
+      "MsgUpdate404": "Beim Speichern des veränderten Datensatzes ist ein Fehler aufgetreten !",
+      "MsgUpdate409": "Der gewählte Datensatz wurde in der Zwischenzeit von einer anderen Person geändert oder gelöscht.",
+      "MsgDelete404": "Beim Löschen des Datensatzes ist ein Fehler aufgetreten !",
+      "MsgDelete409": "Aktualisieren sie die Daten zuerst, um Ihre Änderungen zu speichern."
+    },
+    "RemainMessage": {
+      "FormInvalid" : "Ungültige Daten. Bitte geben Sie gültige Eingabewerte ein."
+    },
+    "FieldRequired": {
+      "ArtDesVermogens": "Das Feld 'Art des Vermögens' darf nicht leer bleiben !",
+      "Vermogen": "Das Feld 'Vermögen' darf nicht leer bleiben !",
+      "Vermogensverbrauch": "Das Feld 'Vermögensverbrauch' darf nicht leer bleiben !",
+      "RequiredMonatlichesError": "Beim Speichern des Datensatzes ist ein Fehler aufgetreten !"
+    }
+  }
+}

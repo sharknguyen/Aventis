@@ -1,0 +1,106 @@
+<div class="container-detail form-content-details">
+    <div class="toolbar-header">
+        <kiss-card-title id="i004_detail_header" [titleHeader]="'CtlBfsFragenkatalog.Detail' | translate"
+            [isCard]="true" (onCustomizeBtnFn)="toolBarOnItemClick($event)" [customizeBtn]="customizeBtn">
+        </kiss-card-title>
+    </div>
+
+    <div class="container-detail__form" *ngIf="showTitleDetail">
+        <dx-validation-group #validationGroup>
+            <dx-form [showColonAfterLabel]="false" [screenByWidth]="screenByWidthSize">
+                <dxi-item itemType="group" [colCount]="12">
+                    <dxi-item itemType="group" [colSpan]="8">
+                        <dxi-item [template]="'personTemplate'">
+                            <dxo-label [text]="'Aliment.Detail.Person' | translate"></dxo-label>
+                            <dxi-validation-rule type="required"></dxi-validation-rule>
+                        </dxi-item>
+                        <dxi-item [template]="'inkassoTemplate'">
+                            <dxo-label [text]="'Aliment.Detail.Inkasso' | translate"></dxo-label>
+                            <dxi-validation-rule type="required"></dxi-validation-rule>
+                        </dxi-item>
+                        <dxi-item [template]="'inkassoBeschreibungTemplate'">
+                            <dxo-label text=" "></dxo-label>
+                        </dxi-item>
+                        <dxi-item [template]="'monatlichesTemplate'">
+                            <dxo-label [text]="'Aliment.Detail.Monatliches' | translate"></dxo-label>
+                            <dxi-validation-rule type="required"></dxi-validation-rule>
+                        </dxi-item>
+                    </dxi-item>
+
+                </dxi-item>
+                <dxi-item itemType="group" [colCount]="12">
+                    <dxi-item itemType="group" [colSpan]="12">
+                        <dxi-item [template]="'beschreibungTemplate'">
+                            <dxo-label [text]="'Aliment.Detail.Beschreibung' | translate"></dxo-label>
+                        </dxi-item>
+                    </dxi-item>
+                </dxi-item>
+                <!-- Template -->
+                <div *dxTemplate="let data of 'personTemplate'">
+                    <dx-select-box 
+                        #nameVorname
+                        displayExpr="NameVorname"
+                        [dataSource]="dataSelectBoxPerson"
+                        valueExpr="BaPersonID"
+                        [(value)]="_data.BaPersonID"
+                        placeholder=""
+                        (onKeyDown)="onKeyDownSelectbox($event)"
+                        (onValueChanged)="onValueChanged($event)"
+                        searchEnabled="true"
+                        (onOpened)="selectContentReady($event)"
+                    >
+                        <dx-validator>
+                            <dxi-validation-rule type="required" [message]="'Aliment.Message.RequiredPerson' | translate">
+                            </dxi-validation-rule>
+                        </dx-validator>
+                    </dx-select-box>
+                </div>
+                <div *dxTemplate="let data of 'inkassoTemplate'">
+                    <dx-select-box 
+                        #inkasso
+                        displayExpr="Text"
+                        [dataSource]="dataSelectBoxInkasso"
+                        valueExpr="Code"
+                        [(value)]="_data.BgPositionsartID"
+                        placeholder=""
+                        (onKeyDown)="onKeyDownSelectbox($event)"
+                        (onValueChanged)="onValueChanged($event)"
+                        (onSelectionChanged)="onSelectionChanged($event)"
+                        searchEnabled="true"
+                    >
+                        <dx-validator>
+                            <dxi-validation-rule type="required" [message]="'Aliment.Message.RequiredInkasso' | translate">
+                            </dxi-validation-rule>
+                        </dx-validator>
+                    </dx-select-box>
+                </div>
+                <div *dxTemplate="let data of 'inkassoBeschreibungTemplate'">
+                    <span>{{ hilfeText }} &nbsp;</span>
+                </div>
+                <div *dxTemplate="let data of 'monatlichesTemplate'">
+                    <dx-number-box
+                    #betrag
+                    class="kiss-input-right"
+                    [(value)]="_data.Betrag"
+                    [format]="numberFormat"
+                    (onValueChanged)="onValueChanged($event)"
+                    (onKeyDown)="onNumberboxKeyDown($event,'Betrag')"
+                    valueChangeEvent="keyup change focusout"
+                    >
+                        <dx-validator>
+                            <dxi-validation-rule type="required" [message]="'Aliment.Message.RequiredMonatliches' | translate">
+                            </dxi-validation-rule>
+                            <dxi-validation-rule type="range" [min]="minNumber" [max]="maxNumber" [message]="'Aliment.Message.RequiredMonatlichesError' | translate">
+                            </dxi-validation-rule>
+                        </dx-validator>
+                    </dx-number-box>
+                </div>
+                <div *dxTemplate="let data of 'beschreibungTemplate'">
+                    <dx-text-area [(value)]="_data.Bemerkung" [height]="72" (onValueChanged)="onValueChanged($event)">
+                    </dx-text-area>
+                </div>
+
+            </dx-form>
+        </dx-validation-group>
+    </div>
+</div>

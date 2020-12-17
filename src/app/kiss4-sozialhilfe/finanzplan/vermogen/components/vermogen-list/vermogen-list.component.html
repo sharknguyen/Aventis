@@ -1,0 +1,66 @@
+<div id="clientList">
+    <dx-check-box [text]="'Vermogen.Grid.NurAktiveAnzeigen' | translate" (onValueChanged)="onChangeNurAktiveAnzeigen($event)"
+        [disabled]="disableGrid">
+    </dx-check-box>
+    <br /> <br />
+    <div *ngIf="gridFunction.model.isFilterBuilder" class="filter-container" id="filter-builder">
+        <dx-filter-builder [fields]="dataGrid.instance.option('columns')" [(value)]="filter">
+        </dx-filter-builder>
+        <dx-button 
+            [text]="'PersonenImHaushalt.ClientList.ApplyFilter' | translate" type="default"
+            (onClick)="dataGrid.instance.filter(filter)">
+        </dx-button>
+        <div class="dx-clearfix"></div>
+    </div>
+    <dx-data-grid #dataGrid 
+                    [keyExpr]="keyExpr"
+                    [dataSource]="dataSource" 
+                    [showBorders]="true" 
+                    [noDataText]="'Vermogen.Grid.noDataText' | translate"
+                    [disabled]="disableGrid" 
+                    [showRowLines]="true" 
+                    [allowColumnReordering]="true" 
+                    [allowColumnResizing]="true"
+                    [columnMinWidth]="60" 
+                    [hoverStateEnabled]="true" 
+                    [columnResizingMode]="'widget'"
+                    [focusedRowEnabled]="true"
+                    [(focusedRowKey)]="selectedRowKey"
+                    (onContentReady)="onContentReady($event)"
+                    (onContextMenuPreparing)="onContextMenuPreparing($event)"
+                    width="100%"
+                    [columnAutoWidth]="true"
+                    [columnMinWidth]="50">
+        <dxi-column dataField="DatumVon" width="auto"  dataType="date" [format]="{type: formatDate}" [caption]="'Vermogen.Grid.GultigAb' | translate"></dxi-column>
+        <dxi-column dataField="namevorname" width="auto"  dataType="string"[caption]="'Vermogen.Grid.Name' | translate"></dxi-column>
+        <dxi-column dataField="geburtsdatum" width="auto"  [caption]="'Vermogen.Grid.Geburtsdatum' | translate" dataType="date"
+            [format]="{type: formatDate}"></dxi-column>
+
+        <dxi-column dataField="Buchungstext" width="auto" dataType="string" minWidth="200" [caption]="'Vermogen.Grid.ArtDesVermogens' | translate"></dxi-column>
+        <dxi-column dataField="Betrag" width="auto" dataType="number" [format]="formatNumber" [caption]="'Vermogen.Grid.Vermogen' | translate">
+            <dxo-format type="fixedPoint" [precision]="2"></dxo-format>
+        </dxi-column>
+        <dxi-column dataField="Verbrauch" dataType="number" [format]="formatNumber" [caption]="'Vermogen.Grid.Verbrauch' | translate">
+            <dxo-format type="fixedPoint" [precision]="2"></dxo-format>
+        </dxi-column>
+        <dxo-search-panel [visible]="gridFunction.model.isSearchPanel" highlightCaseSensitive="true"></dxo-search-panel>
+        <dxo-filter-row [visible]="gridFunction.model.isSearch" applyFilter="Immediately"></dxo-filter-row>
+        <dxo-header-filter [visible]="true"></dxo-header-filter>
+        <dxo-group-panel [visible]="gridFunction.model.isGrouping" [emptyPanelText]="'Vermogen.Grid.emptyPanelText' | translate"></dxo-group-panel>
+        <dxo-grouping #expandGrid [contextMenuEnabled]="true" [autoExpandAll]="false"></dxo-grouping>
+        <dxo-column-chooser #columnChooser emptyPanelText="" [title]="'Vermogen.Grid.ColumnChooser.Title' | translate"
+            [enabled]="false"></dxo-column-chooser>
+        <dxo-editing mode="cell" [allowUpdating]="false"></dxo-editing>
+        <dxo-scrolling mode="virtual"></dxo-scrolling>
+        <dxo-selection mode="single"></dxo-selection>
+        <dxo-summary>
+            <dxi-total-item column="Betrag" summaryType="sum" [valueFormat]="formatNumber" displayFormat="Sum: {0}">
+            </dxi-total-item>
+            <dxi-total-item column="Verbrauch" summaryType="sum" [valueFormat]="formatNumber" displayFormat="Sum: {0}">
+            </dxi-total-item>
+        </dxo-summary>
+    </dx-data-grid>
+    <!-- ------------------------- The End Area for gridview ------------------- -->
+    <app-grid-function #gridFunction (onchange)="gridFunction.model"></app-grid-function>
+    <kiss-printer #printer></kiss-printer>
+</div>

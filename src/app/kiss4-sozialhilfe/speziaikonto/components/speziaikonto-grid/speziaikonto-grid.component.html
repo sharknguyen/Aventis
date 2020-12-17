@@ -1,0 +1,73 @@
+<dx-check-box class="check-box-text " 
+    [(value)]="edtAktiv" 
+    [text]= "'CtlSpeziaikonto.Label.NurAktive' | translate" 
+    (onValueChanged)="onValueChanged($event)"
+    [disabled]="isEditMode"></dx-check-box>
+<br />
+<div *ngIf="gridFunctionModel.isFilterBuilder">
+    <br />
+</div>
+<div class="grid-table-view">
+    <div *ngIf="gridFunctionModel.isFilterBuilder" class="filter-container">
+        <dx-filter-builder [fields]="gridSpezialkonto.instance.option('columns')" [(value)]="filter" [disabled]="isEditMode"></dx-filter-builder>
+        <dx-button [text]="'CtlSpeziaikonto.ApplyFilter' | translate" type="default" (onClick)="gridSpezialkonto.instance.filter(filter)" [disabled]="isEditMode"></dx-button>
+        <div class="dx-clearfix"></div>
+    </div>
+    <app-grid-function #gridFunction (onchange)="gridFunction.model" [keyStorage]="gridFunctionKey"></app-grid-function>
+    <div class="grid-margin-top">
+        <dx-data-grid
+            #gridSpezialkonto
+            class="kiss-data-grid"
+            [id]="idGridName"
+            [dataSource]="dataSource" 
+            [allowColumnResizing]="true"
+            [showRowLines]="true" [showBorders]="true" 
+            [height]="300" 
+            [allowColumnReordering]="true" 
+            [noDataText]="'CtlSpeziaikonto.Validation.NoDataGrid' | translate"
+            [focusedRowEnabled]="true"
+            [hoverStateEnabled]="true"
+            [customizeExportData]="customizeExportData"
+            keyExpr="id"
+            [(focusedRowKey)]="selectedRowKey"
+            columnResizingMode="widget"
+            (onContentReady) = "onContentReady($event)"
+            (onFocusedRowChanged)= "getSelectedRow()"
+            (onContextMenuPreparing)="onContextMenuPreparing($event)">
+            <dxo-selection selectAllMode="allPages" showCheckBoxesMode="onClick" mode="single"></dxo-selection>
+            <dxo-selection mode="single"></dxo-selection>
+            <dxo-paging [pageSize]="100"></dxo-paging>
+            <dxo-search-panel [visible]="gridFunctionModel.isSearchPanel" highlightCaseSensitive="true" [placeholder]="'CtlSpeziaikonto.PlaceholderSearch' | translate"></dxo-search-panel>
+            <dxo-column-chooser #columnChooser emptyPanelText="" [title]="'CtlSpeziaikonto.ColumnChooser.Title' | translate" [enabled]="false"></dxo-column-chooser>
+            <dxo-filter-row [visible]="gridFunctionModel.isSearch" applyFilter="Immediately"></dxo-filter-row>
+            <dxo-header-filter [visible]="gridFunctionModel.isFilter"></dxo-header-filter>
+            <dxo-scrolling mode="virtual"></dxo-scrolling>
+            <dxo-sorting mode="single"></dxo-sorting>
+            <dxo-load-panel [enabled]="false"></dxo-load-panel>
+            <dxo-group-panel [visible]="gridFunctionModel.isGrouping" [emptyPanelText]="'CtlSpeziaikonto.emptyPanelText' | translate"></dxo-group-panel>
+            <dxo-grouping [autoExpandAll]="false" [contextMenuEnabled]="true"></dxo-grouping>
+            <dxo-export [enabled]="false" [fileName]="formName | translate" [allowExportSelectedData]="true" [customizeExcelCell]="customizeExcelCell"></dxo-export>
+            <dxi-column [minWidth]="150" dataType="string" dataField="NameSpezkonto" width="auto" [caption]="'CtlSpeziaikonto.Column.Bezeichnung' | translate"></dxi-column>
+            <dxi-column [minWidth]="150" [visible] ="isState2" dataField="StartSaldo" dataType="number" width="auto" [caption]="'CtlSpeziaikonto.Column.Startsaldo' | translate">
+                <dxo-format type="fixedPoint" [precision]="2"></dxo-format>
+            </dxi-column>
+            <dxi-column [minWidth]="150" [visible] ="!isState4" dataField="BetragProMonat" dataType="number" width="auto" [caption]="'CtlSpeziaikonto.Column.Monatlich' | translate">
+                <dxo-format type="fixedPoint" [precision]="2"></dxo-format>
+            </dxi-column>
+            <dxi-column [minWidth]="80" [visible]="!isState4" dataField="Saldo" dataType="number" width="auto" [caption]="'CtlSpeziaikonto.Column.Saldo' | translate">
+                <dxo-format type="fixedPoint" [precision]="2"></dxo-format>
+            </dxi-column>
+            <dxi-column [minWidth]="80" [visible]="isState4" dataField="KuerzungAnteilGBL" width="auto" dataType="number" [caption]="'CtlSpeziaikonto.Column.GB' | translate">
+                <dxo-format type="fixedPoint" [precision]="1"></dxo-format>
+            </dxi-column>
+            <dxi-column [minWidth]="80" [visible]="isState4" dataField="KuerzungLaufzeitMonate" width="auto" dataType="number" [caption]="'CtlSpeziaikonto.Column.Laufzeit' | translate">
+                    <dxo-format type="fixedPoint" [precision]="0"></dxo-format>
+            </dxi-column>
+            <dxi-column [minWidth]="100" dataField="DatumVon" width="auto" dataType="date" [format]= "formatDate" [caption]="'CtlSpeziaikonto.Column.GultigVon' | translate"></dxi-column>
+            <dxi-column [minWidth]="100" dataField="DatumBis" width="auto" dataType="date" [format]= "formatDate" [caption]="'CtlSpeziaikonto.Column.GultigBis' | translate"></dxi-column>
+            <dxi-column [minWidth]="80" [visible]="isState4" width="auto" dataField="BewilligungStatusName" dataType="string" [caption]="'CtlSpeziaikonto.Column.Status' | translate"></dxi-column>
+            <dxi-column [minWidth]="150" dataField="AbschlussgrundText" width="auto" dataType="string" [caption]="'CtlSpeziaikonto.Column.Abschlussgrund' | translate"></dxi-column>
+        </dx-data-grid>
+        <kiss-printer #printer></kiss-printer>
+    </div>
+</div>

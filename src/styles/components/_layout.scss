@@ -1,0 +1,53 @@
+.wrapper-main {
+  position: relative;
+  height: calc(100vh - #{$footer-height});
+}
+.layout-fallbearbeitung {
+    position: absolute;
+    height: calc(100% - 260px);
+    width: 100%;
+}
+
+.page-wrapper {
+  position: relative;
+  overflow: hidden;
+  min-height: 100%;
+  display: block;
+}
+
+.body {
+  position: relative;
+  padding: $header-height 0 0 0;
+  height: 100vh;
+  .layout-footer & {
+    padding-bottom: $footer-height;
+  }
+}
+
+.widgets-menu-container {
+  -webkit-box-shadow: inset -1px 0 2px 0 #ececec;
+  -moz-box-shadow: inset -1px 0 2px 0 #ececec;
+  box-shadow: inset -1px 0 2px 0 rgba(51, 122, 183, 0.7);
+  position: fixed;
+  top: 60px;
+  bottom: 0;
+  width: 360px;
+  background: rgba(51, 122, 183, 0.7);
+  z-index: 4;
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: block;
+  overflow: hidden;
+  .layout-footer & {
+    bottom: $footer-height - 5;
+  }
+}
+
+app-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 9999;
+}

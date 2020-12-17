@@ -1,0 +1,123 @@
+<div class="grid-table-view">
+  <div class="grid-margin-top">
+    <div *ngIf="buchungKostenartGridFunction.model.isFilterBuilder" class="filter-container">
+      <dx-filter-builder [(value)]="filter">
+        <dxi-field dataField="BelegDatum" [caption]="'CtlWhKontoauszug.List.BelegDatum' | translate" dataType="date" [format]="{ type: CommonConstant.FORMAT_DATE }"></dxi-field>
+        <dxi-field dataField="BelegNr" [caption]="'CtlWhKontoauszug.List.BelegNr' | translate"></dxi-field>
+        <dxi-field dataField="Klient" [caption]="'CtlWhKontoauszug.List.Klient' | translate"></dxi-field>
+        <dxi-field dataField="LAText" [caption]="'CtlWhKontoauszug.List.LAText' | translate"></dxi-field>
+        <dxi-field dataField="Buchungstext" [caption]="'CtlWhKontoauszug.List.Buchungstext' | translate"></dxi-field>
+        <dxi-field dataField="VerwPeriodeVon" [caption]="'CtlWhKontoauszug.List.VerwPeriodeVon' | translate" dataType="date"></dxi-field>
+        <dxi-field dataField="VerwPeriodeBis" [caption]="'CtlWhKontoauszug.List.VerwPeriodeBis' | translate" dataType="date"></dxi-field>
+        <dxi-field dataField="Ausgabe" [caption]="'CtlWhKontoauszug.List.Ausgabe' | translate" dataType="number"></dxi-field>
+        <dxi-field dataField="Einnahme" [caption]="'CtlWhKontoauszug.List.Einnahme' | translate" dataType="number"></dxi-field>
+        <dxi-field dataField="Saldo" [caption]="'CtlWhKontoauszug.List.Saldo' | translate" dataType="number"></dxi-field>
+        <dxi-field dataField="KbBuchungStatusCode" [caption]="'CtlWhKontoauszug.List.KbBuchungStatusCode' | translate"
+          [editorOptions]="{ itemTemplate: 'lookupItem', fieldTemplate: 'lookupField' }">
+          <dxo-lookup [dataSource]="KbBuchungsStatus" valueExpr="Code" displayExpr="Text" fieldTemplate="lookupField"></dxo-lookup>
+        </dxi-field>
+        <dxi-field dataField="Doc" [caption]="'CtlWhKontoauszug.List.Doc' | translate"></dxi-field>
+        <div *dxTemplate="let data of 'lookupItem'">
+          <div *ngIf="data" class="custom-lookup">
+            <img [src]="icoFolderPath + data.Value1 + '.ico'" />
+            {{data.Text}}
+          </div>
+        </div>
+        <div *dxTemplate="let data of 'lookupField'" class="custom-lookup-container">
+            <div *ngIf="data" class="custom-lookup">
+                <img [src]="icoFolderPath + data.Value1 + '.ico'" />
+            </div>
+            <dx-text-box *ngIf="data" [value]="data.Text"></dx-text-box>
+            <dx-text-box *ngIf="!data"></dx-text-box>
+        </div>
+      </dx-filter-builder>
+      <dx-button [text]="'DataGrid.FilterBuilder.FilterBuilderButton' | translate" type="default" (onClick)="filterGrid()">
+      </dx-button>
+    </div>
+    <app-grid-function #buchungKostenartGridFunction (onchange)="buchungKostenartGridFunction.model" [keyStorage]="gridFunctionKey"></app-grid-function>
+
+    <dx-data-grid id="i020_list" #buchungKostenartGrid [(dataSource)]="buchungKostenart" [keyExpr]="keyExpr" columnMinWidth="80" width="100%"
+      [allowColumnResizing]="true" [hoverStateEnabled]="true" [showRowLines]='true' [showBorders]="true" [filterValue]="gridFilterValue"
+      [allowColumnReordering]="true" [customizeExportData]="customizeExportData" [noDataText]="'DataGrid.NoDataText' | translate" (onKeyDown)="onKeyDown($event)"
+      (onContextMenuPreparing)="onContextMenuPreparing($event)" (onContentReady)="onContentReady($event)" [focusedRowEnabled]="true" [(focusedRowKey)]="selectedRowKey">
+      <dxo-paging [pageSize]="99999"></dxo-paging>
+      <dxo-export [fileName]="'CtlWhKontoauszug.Container.PageTitle' | translate" [allowExportSelectedData]="true" [customizeExcelCell]="customizeExcelCell"></dxo-export>
+      <dxo-column-chooser [emptyPanelText]="''" [title]="'DataGrid.ColumnChooser.Title' | translate" [enabled]="false"></dxo-column-chooser>
+      <dxo-header-filter [visible]="buchungKostenartGridFunction.model.isFilter"></dxo-header-filter>
+      <dxo-filter-row [visible]="buchungKostenartGridFunction.model.isSearch" applyFilter="Immediately"></dxo-filter-row>
+      <dxo-group-panel [visible]="buchungKostenartGridFunction.model.isGrouping" [emptyPanelText]="'DataGrid.GroupPanel.EmptyPanelText' | translate"></dxo-group-panel>
+      <dxo-search-panel [visible]="buchungKostenartGridFunction.model.isSearchPanel" highlightCaseSensitive="true"></dxo-search-panel>
+      <dxo-grouping [contextMenuEnabled]="true" #gridGrouping [autoExpandAll]="false"></dxo-grouping>
+      <dxo-scrolling mode="virtual"></dxo-scrolling>
+      <dxo-selection mode="single"></dxo-selection>
+      <dxo-paging [enabled]="false"></dxo-paging>
+      <dxo-paging [pageSize]="99999"></dxo-paging>
+
+      <dxi-column dataField="BelegDatum" dataType="date" [caption]="'CtlWhKontoauszug.List.BelegDatum' | translate"
+        [format]="{ type: CommonConstant.FORMAT_DATE }" [width]="'auto'" alignment="left"
+        [allowEditing]="false"></dxi-column>
+      <dxi-column dataField="BelegNr" dataType="string" [caption]="'CtlWhKontoauszug.List.BelegNr' | translate" [width]="'auto'"
+        alignment="left" [allowEditing]="false"></dxi-column>
+      <dxi-column dataField="Klient" dataType="string" [caption]="'CtlWhKontoauszug.List.Klient' | translate" [width]="'auto'"
+        alignment="left" [allowEditing]="false"></dxi-column>
+      <dxi-column dataField="LAText" dataType="string" [caption]="'CtlWhKontoauszug.List.LAText' | translate" [width]="'auto'"
+        alignment="left" [allowEditing]="false"></dxi-column>
+      <dxi-column dataField="Buchungstext" dataType="string" [caption]="'CtlWhKontoauszug.List.Buchungstext' | translate" [width]="'auto'"
+        alignment="left" [allowEditing]="false"></dxi-column>
+      <dxi-column dataField="VerwPeriodeVon" dataType="date" [caption]="'CtlWhKontoauszug.List.VerwPeriodeVon' | translate"
+        [format]="{ type: CommonConstant.FORMAT_DATE }" [width]="'auto'" alignment="left"
+        [allowEditing]="false"></dxi-column>
+      <dxi-column dataField="VerwPeriodeBis" dataType="date" [caption]="'CtlWhKontoauszug.List.VerwPeriodeBis' | translate"
+        [format]="{ type: CommonConstant.FORMAT_DATE }" [width]="'auto'" alignment="left"
+        [allowEditing]="false"></dxi-column>
+      <dxi-column dataField="Ausgabe" dataType="number" [caption]="'CtlWhKontoauszug.List.Ausgabe' | translate"
+        [width]="'auto'" alignment="right" [allowEditing]="false">
+        <dxo-format type="fixedPoint" [precision]="2"></dxo-format>
+      </dxi-column>
+      <dxi-column dataField="Einnahme" dataType="number" [caption]="'CtlWhKontoauszug.List.Einnahme' | translate"
+        [width]="'auto'" alignment="right" [allowEditing]="false">
+        <dxo-format type="fixedPoint" [precision]="2"></dxo-format>
+      </dxi-column>
+      <dxi-column dataField="Saldo" dataType="number" [caption]="'CtlWhKontoauszug.List.Saldo' | translate" [width]="'auto'"
+        alignment="right" [allowEditing]="false">
+        <dxo-format type="fixedPoint" [precision]="2"></dxo-format>
+      </dxi-column>
+      <dxi-column dataField="KbBuchungStatusCode" dataType="string" [caption]="'CtlWhKontoauszug.List.KbBuchungStatusCode' | translate"
+        [width]="'auto'" alignment="center" [allowEditing]="false" cellTemplate="cellTemplateBuchungStatus"
+        [editorOptions]="{ itemTemplate: 'lookupItem', fieldTemplate: 'lookupField' }">
+        <dxo-header-filter [dataSource]="statusCodeHeaderFilter"></dxo-header-filter>
+        <dxo-lookup [dataSource]="KbBuchungsStatus" valueExpr="Code" displayExpr="Code"></dxo-lookup>
+      </dxi-column>
+      <dxi-column dataField="Doc" dataType="string" [caption]="'CtlWhKontoauszug.List.Doc' | translate" alignment="center"
+        [width]="'auto'" [allowEditing]="false"></dxi-column>
+
+      <dxo-summary>
+        <dxi-total-item column="Ausgabe" summaryType="sum" valueFormat="#,##0.00" displayFormat="{0}">
+        </dxi-total-item>
+        <dxi-total-item column="Einnahme" summaryType="sum" valueFormat="#,##0.00" displayFormat="{0}">
+        </dxi-total-item>
+      </dxo-summary>
+      <div *dxTemplate="let data of 'lookupItem'">
+        <div *ngIf="!data">
+          ({{ 'DataGrid.FilterRow.All' | translate}})
+        </div>
+        <div *ngIf="data" class="custom-lookup" [title]="data.Text">
+          <img [src]="icoFolderPath + data.Value1 + '.ico'" />
+          {{data.Text}}
+        </div>
+      </div>
+      <div *dxTemplate="let data of 'lookupField'" class="custom-filter-row-lookup">
+          <img *ngIf="data" [src]="icoFolderPath + data.Value1 + '.ico'" />
+          <dx-text-box *ngIf="data"></dx-text-box>
+          <span *ngIf="!data">
+            ({{ 'DataGrid.FilterRow.All' | translate}})
+          </span>
+          <dx-text-box *ngIf="!data"></dx-text-box>
+      </div>
+      <div *dxTemplate="let data of 'cellTemplateBuchungStatus'">
+        <img *ngIf="data.value" [src]="icoFolderPath + getIconID(data.value) + '.ico'" />
+      </div>
+    </dx-data-grid>
+  </div>
+</div>
+<kiss-printer #printer></kiss-printer>

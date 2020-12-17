@@ -1,0 +1,58 @@
+<div class="grid-table-view">
+  <div *ngIf="gridFunctionModel.isFilterBuilder" class="filter-container opacity" id="filterBuilderName">
+    <dx-filter-builder
+      [fields]="gridData.instance.option('columns')"
+      [(value)]="filterValue" [disabled]="!readOnly">
+    </dx-filter-builder>
+    <dx-button
+      [text]="'AhvBeitrage.GirdTitle.FilterBuilderButton' | translate"
+      type="default"
+      (onClick)="gridData.instance.filter(filterValue)" [disabled]="!readOnly">
+    </dx-button>
+    <div class="dx-clearfix"></div>
+  </div>
+  <div class="grid-margin-top" >
+    <dx-data-grid #gridData
+      class="kiss-data-grid"
+      [id]="idGridName"
+      [dataSource]="dataSource"
+      [columns]="columnsDef"
+      [allowColumnResizing]="true"
+      [hoverStateEnabled]="true"
+      [showRowLines]="true"
+      [showBorders]="true"
+      [allowColumnReordering]="true"
+      [keyExpr]="keyExpr"
+      [noDataText]="noDataText"
+      [disabled]="!readOnly"
+      [customizeExportData]="customizeExportData"
+      [columnResizingMode]="'widget'"
+      [focusedRowEnabled]="true"
+      [(focusedRowKey)]="selectedRowKey"
+      (onContextMenuPreparing)="onContextMenuPreparing($event)"
+      (onFocusedRowChanged)="onFocusedRowChanged($event)"
+      (onContentReady)="onContentReady($event)">
+      <dxo-search-panel [visible]="gridFunctionModel.isSearchPanel" [placeholder]="searchPlaceholder"></dxo-search-panel>
+      <dxo-filter-row [visible]="gridFunctionModel.isSearch" applyFilter="Immediately"></dxo-filter-row>
+      <dxo-header-filter [visible]="gridFunctionModel.isFilter"></dxo-header-filter>
+      <dxo-selection mode="single"></dxo-selection>
+      <dxo-group-panel [visible]="gridFunctionModel.isGrouping" [emptyPanelText]="emptyGroupText"></dxo-group-panel>
+      <dxo-scrolling mode="virtual"></dxo-scrolling>
+      <dxo-sorting mode="multiple"></dxo-sorting>
+      <dxo-paging [enabled]="false" [pageSize]="9999999"></dxo-paging>
+      <dxo-grouping #expand [autoExpandAll]="false" [contextMenuEnabled]="true"></dxo-grouping>
+      <dxo-column-fixing [enabled]="false"></dxo-column-fixing>
+      <dxo-column-chooser #columnChooser [title]="columnChooserName" [enabled]="false" emptyPanelText=""></dxo-column-chooser>
+      <dxo-export [enabled]="false" [fileName]="fileName" [allowExportSelectedData]="true" [customizeExcelCell]="customizeExcelCell"></dxo-export>
+      <dxo-summary *ngIf='summary'>
+        <dxi-total-item *ngFor="let sum of summary"
+            [column]="sum?.column"
+            [summaryType]="sum?.summaryType"
+            [displayFormat]="sum?.displayFormat"
+            [valueFormat]="sum?.valueFormat">
+        </dxi-total-item>
+      </dxo-summary>
+    </dx-data-grid>
+  </div>
+</div>
+<kiss-printer #printer></kiss-printer>

@@ -1,0 +1,20 @@
+<kiss-right-component>
+  <kiss-finanzplan-header-bar [personenData]="personenData"
+                              [isEditMode]="false"
+                              (dblclick)="onDblClickMessage()"
+                              [isShiftKeyDown]="isShiftKeyDown"
+                              (action)="onHeaderAction($event)"
+                              [hideBtnEdit]="isDisableBtnEdit">
+  </kiss-finanzplan-header-bar>
+  <section id="wrapper-content">
+    <div class="container" id="i010_zulagen">
+      <div class="right-content">
+        <kiss-finanzplan-list #finanzplanGrid
+                              [finanzplanGridData]="finanzplanGridData"
+                              [changeParamAction]="changeParamAction$">
+        </kiss-finanzplan-list>
+        <app-popup-confirm [popUpModel]="popUpModel"></app-popup-confirm>
+      </div>
+    </div>
+  </section>
+</kiss-right-component>

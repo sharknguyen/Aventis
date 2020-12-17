@@ -1,0 +1,27 @@
+<dx-popup id="c012_history" [dragEnabled]="false" [closeOnOutsideClick]="false" [resizeEnabled]="false"
+    [(visible)]="isPopupVisible">
+    <div class="demografie-history" *dxTemplate="let data of 'title'">
+        <kiss-card-title id="c012_demografie-history_header"
+            titleHeader="{{ 'DemografieHistory.Header.Title' | translate }}" [listBtn]="listBtn" [isCard]="true"
+            [closeBtn]="true" (onCustomizeBtnFn)="toolBarOnItemClickTopGrd($event)"></kiss-card-title>
+    </div>
+    <dx-scroll-view direction="Vertical" class="history-scroll">
+        <div class="container">
+            <div id="c012-demografie">
+                <app-remaining-message #remainingMessage></app-remaining-message>
+                <kiss-grid #formList keyExpr="id" idGridName="I004_data-grid" filterBuilderName="I004_filter-builder"
+                    [dataSource]="xUserHistory" [searchPlaceholder]="'Aliment.CommonGrid.Suchen' | translate"
+                    [noDataText]="'Aliment.CommonGrid.noDataText' | translate" [fileName]="fileName"
+                    [columnChooserName]="'Aliment.CommonGrid.columnChooser' | translate"
+                    [selectedRowKey]="selectedKeys" [columnsDef]="columnsDataGrid"
+                    [gridFunctionModel]="gridFunctionModel"
+                    [emptyGroupText]="'Aliment.CommonGrid.emptyPanelText' | translate"
+                    (selectedRow)="onSelectedRow($event)" [readOnly]="true">
+                </kiss-grid>
+                <kiss-demografie-history-detail [dataPersonalien]="personalien" [dataWohnsitz]="wohnsitz"
+                    [dataAufenthaltsort]="aufenthaltsort">
+                </kiss-demografie-history-detail>
+            </div>
+        </div>
+    </dx-scroll-view>
+</dx-popup>

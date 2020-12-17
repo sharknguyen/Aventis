@@ -1,0 +1,104 @@
+<dx-form *ngIf="!isEditMode" [showColonAfterLabel]="false" class="finazplan-view">
+  <dxi-item [itemType]="'group'" [colCount]="12">
+    <dxi-item [itemType]="'simple'" [colSpan]="4">
+      <dxo-label class="i031-label" [text]="'RegularerFinanzplan.Form.GeplantVon' | translate"></dxo-label>
+      <span>{{formData?.GeplantVon | date: dateFormat}}</span>
+    </dxi-item>
+
+    <dxi-item [itemType]="'simple'" [colSpan]="4">
+      <dxo-label [text]="'RegularerFinanzplan.Form.GeplantBis' | translate"></dxo-label>
+      <span>{{formData?.GeplantBis | date: dateFormat}}</span>
+    </dxi-item>
+  </dxi-item>
+
+  <dxi-item [itemType]="'group'" [colCount]="12">
+    <dxi-item [itemType]="'simple'" [colSpan]="12">
+      <dxo-label [text]="'RegularerFinanzplan.Form.Grund' | translate"></dxo-label>
+      <span>{{upperGrund}}</span>
+    </dxi-item>
+  </dxi-item>
+
+  <dxi-item [itemType]="'group'" [colCount]="12">
+    <dxi-item [itemType]="'simple'" [colSpan]="4">
+      <dxo-label [text]="'RegularerFinanzplan.Form.GultigAb' | translate"></dxo-label>
+      <span>{{formData?.DatumVon | date: dateFormat}}</span>
+    </dxi-item>
+
+    <dxi-item [itemType]="'simple'" [colSpan]="4">
+      <dxo-label [text]="'RegularerFinanzplan.Form.GultigBis' | translate"></dxo-label>
+      <span>{{formData?.DatumBis | date: dateFormat}}</span>
+    </dxi-item>
+  </dxi-item>
+
+  <dxi-item [itemType]="'group'" [colCount]="12">
+    <dxi-item [itemType]="'simple'" [colSpan]="12">
+      <dxo-label [text]="'RegularerFinanzplan.Form.Grund' | translate"></dxo-label>
+      <span>{{lowerGrund}}</span>
+    </dxi-item>
+  </dxi-item>
+
+  <dxi-item [itemType]="'group'" [colCount]="12">
+    <dxi-item [itemType]="'simple'" [colSpan]="12">
+      <dxo-label [text]="'RegularerFinanzplan.Form.Typ' | translate"></dxo-label>
+      <span>{{type}}</span>
+    </dxi-item>
+  </dxi-item>
+
+  <dxi-item [itemType]="'group'" [colCount]="12">
+    <dxi-item [itemType]="'simple'" [colSpan]="12">
+      <dxo-label [text]="'RegularerFinanzplan.Form.Berech' | translate"></dxo-label>
+      <span>{{berechnung}}</span>
+    </dxi-item>
+  </dxi-item>
+
+  <dxi-item [itemType]="'group'" [colCount]="12">
+    <dxi-item [itemType]="'simple'" [colSpan]="12">
+      <dxo-label [text]="' '"></dxo-label>
+      <span class="textarea-pre-wrap">{{formData?.Bemerkung}}</span>
+    </dxi-item>
+  </dxi-item>
+
+
+  <!-- region status info--->
+  <dxi-item [itemType]="'group'" [colCount]="12">
+    <dxi-item [itemType]="'simple'" [colSpan]="12">
+      <span class="title">{{'RegularerFinanzplan.StatusInfo.Header' | translate}}</span>
+      <hr>
+    </dxi-item>
+  </dxi-item>
+
+  <dxi-item [itemType]="'group'" [colCount]="12">
+    <dxi-item [itemType]="'simple'" [colSpan]="4">
+      <dxo-label [text]="'RegularerFinanzplan.StatusInfo.Key' | translate"></dxo-label>
+      <span>{{_statusInfo.key}}</span>
+    </dxi-item>
+  </dxi-item>
+
+  <div *ngIf="_statusInfo.infoText && _statusInfo.infoText.length">
+    <div *ngFor="let el of _statusInfo.infoText; let first = first">
+      <dxi-item [itemType]="'group'" [colCount]="12">
+        <dxi-item [itemType]="'simple'" [colSpan]="4">
+          <dxo-label *ngIf="first"
+                     [text]="'RegularerFinanzplan.StatusInfo.Info' | translate"></dxo-label>
+          <dxo-label *ngIf="!first" [text]="' '"></dxo-label>
+          <span>{{el}}</span>
+        </dxi-item>
+      </dxi-item>
+    </div>
+  </div>
+
+  <dxi-item *ngIf="!_statusInfo.infoText" [itemType]="'group'" [colCount]="12">
+    <dxi-item [itemType]="'simple'" [colSpan]="4">
+      <dxo-label [text]="'RegularerFinanzplan.StatusInfo.Info' | translate"></dxo-label>
+      <span></span>
+    </dxi-item>
+  </dxi-item>
+
+  <dxi-item [itemType]="'group'" [colCount]="12">
+    <dxi-item [itemType]="'simple'" [colSpan]="4">
+      <dxo-label [text]="'RegularerFinanzplan.StatusInfo.Status' | translate"></dxo-label>
+      <span>{{_statusInfo.statusName}}</span>
+    </dxi-item>
+  </dxi-item>
+
+</dx-form>

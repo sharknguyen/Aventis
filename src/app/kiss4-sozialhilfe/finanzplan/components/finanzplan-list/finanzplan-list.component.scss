@@ -1,0 +1,32 @@
+@import 'settings/variables.scss';
+
+:host ::ng-deep .client-list {
+  .finanz-plan {
+    min-height: 600px;
+    max-height: inherit;
+    min-width: 100%;
+    .beze-customer {
+      padding-left: 15px;
+      font-weight: normal;
+    }
+    .info-customer {
+      float: left;
+      width: 98%;
+      font-weight: normal;
+    }
+    .icon-right {
+      float: right;
+    }
+  }
+  .dx-datagrid-text-content {
+    text-align: left;
+  }
+  .dx-datagrid .dx-column-lines > td:last-child {
+    height: 32px;
+  }
+
+  .dx-widget * {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

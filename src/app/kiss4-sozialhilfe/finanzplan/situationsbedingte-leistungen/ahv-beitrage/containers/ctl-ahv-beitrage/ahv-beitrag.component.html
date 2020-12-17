@@ -1,0 +1,62 @@
+<kiss-right-component>
+  <app-navigator id="i011_ahv_beitrage_header" (dblclick)="onCopyTitle()" [titleHeader]="titleHeader"
+  [listBtn]="listBtn" (onCustomizeBtnFn)="toolBarOnItemClick($event)"
+  (click)="headerClicked$.next(null)"></app-navigator>
+  <div class="container">
+    <div class="container__right-content">
+        <app-remaining-message #remainingMessage></app-remaining-message>
+          <div class="grid-table-view">
+              <kiss-ahv-beitrage-list
+                #formList [selectedRowKeyEmit]="selectedRowKey"
+                (rowSelected)="onClickRowGrid($event)"
+                (keyDown)="handleKeyboardEvent($event)"
+                [listPersonenUnterstuetztEmit]="listPersonenUnterstuetzt"
+                [listSqlQueryShPositionTypEmit]="listSqlQueryShPositionTyp"
+                [disabledGrid]="disabledGrid"
+                [statusContainerEmit]="StatusContainer"
+                [isLoadingEmit]="isLoading"
+                [isFillter]="isFillter"
+                [execlName]="execlName"
+                [isSxModeEmit]="isSxMode"
+                [dataGrid]="listAHVBeitragPosition">
+              </kiss-ahv-beitrage-list>
+          </div>
+          <div class="container-detail form-content-details" id="i011_detail">
+              <kiss-ahv-beitrage-detail
+                #formDetail
+                [isSxModeEmit]="isSxMode"
+                (clearFilterEmit)="clearFilter()"
+                (actionUpdateStatus)="updateStatus($event)"
+                (doCancelEmit)="doCancel($event)"
+                (cancelBetrageAnpassenEmit)="cancelBetrageAnpassen($event)"
+                (createNewEmit)="createNew($event)"
+                (remainingMessageEmit)="remainingMessageEmit($event)"
+                (confirmYesBetrageAnpassen)="confirmYesBetrageAnpassen($event)"
+                (findItemByPostionId)="findItemByPostionId($event)"
+                (requestListDataGrid)="requestListDataGrid()"
+                (deleteItemEmit)="deleteItemEmit($event)"
+                (filterDataByDate)="filterDataByDate()"
+                (canDeactivateEmit)="canDeactivateEmit($event)"
+                [statusContainerEmit]="StatusContainer"
+                [msgValidateDateErr]="msgValidateDateErr"
+                [numberFormatEmit]="numberFormat"
+                [bgBudgetIDEmit]="bgBudgetID"
+                [isBgSilTherapieEntzug]='isBgSilTherapieEntzug'
+                [isKrankheits]='isKrankheits'
+                [btnNewName]='btnNewName'
+                [isDeleteError]='StatusContainer.isDeleteError'
+                [headerClicked$]="headerClicked$"
+                [bgSilAHVBeitragEmit]="BgSilAHVBeitrag"
+                [permissionContainerEmit]="PermissionContainer"
+                [listSqlQueryShPositionTypEmit]="listSqlQueryShPositionTyp"
+                [ahvBeitrageDetail]="ahvBeitragPositionDetail">
+              </kiss-ahv-beitrage-detail>
+          </div>
+      </div>
+  </div>
+</kiss-right-component>
+<!-- Print component -->
+<kiss-printer #printer></kiss-printer>
+
+<!-- Confirm popup -->
+<!-- <app-popup-confirm [popUpModel]="popUpModelChangeForm"></app-popup-confirm> -->

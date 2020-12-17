@@ -1,0 +1,99 @@
+﻿<div class="container-detail form-content-details single-container">
+  <div class="toolbar-header" (click)="changeCollapseFormContent($event)">
+    <kiss-card-title [titleHeader]="'Kasse.TitleDetail' | translate" [customizeBtn]="customizeBtn" [isCard]="true"
+      (onCustomizeBtnFn)="toolBarOnItemClick($event)">
+    </kiss-card-title>
+  </div>
+  <div class="container-detail__form" [ngClass]="{'container__hide': !isExpand}">
+    <dx-form #viewForm colCount="auto" labelLocation="left" [showColonAfterLabel]="false" [colCount]="10" [screenByWidth]="getSizeQualifier">
+      <dxi-item itemType="group" cssClass="second-group" [colCount]="1" [colSpan]="5" [caption]="'Kasse.Detail.TitleGroupPerson' | translate">
+        <dxi-item [template]="'nameTemplate'" [colSpan]="1">
+          <dxo-label [text]="'Kasse.Detail.LabelFieldName' | translate"></dxo-label>
+        </dxi-item>
+        <dxi-item [template]="'strasseTemplate'" [colSpan]="1">
+          <dxo-label [text]="'Kasse.Detail.LabelFieldStrasse' | translate"></dxo-label>
+        </dxi-item>
+        <dxi-item [template]="'plzTemplate'" [colSpan]="1">
+          <dxo-label [text]="'Kasse.Detail.LabelFieldPlzOrt' | translate"></dxo-label>
+        </dxi-item>
+        <dxi-item [template]="'geburtsTemplate'" [colSpan]="1">
+          <dxo-label [text]="'Kasse.Detail.LabelFieldGeburt' | translate"></dxo-label>
+        </dxi-item>
+        <dxi-item [template]="'ahvTemplate'" [colSpan]="1">
+          <dxo-label [text]="'Kasse.Detail.LabelFieldAhvNumber' | translate"></dxo-label>
+        </dxi-item>
+        <dxi-item [template]="'versTemplate'" [colSpan]="1">
+          <dxo-label [text]="'Kasse.Detail.LabelFieldVersNr' | translate"></dxo-label>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="group" cssClass="second-group" [colCount]="1" [colSpan]="5" [caption]="'Kasse.Detail.TitleGroupBeleg' | translate">
+        <dxi-item [template]="'buchungsTemplate'" [colSpan]="1">
+          <dxo-label [text]="'Kasse.Detail.LabelFieldBuchungs' | translate"></dxo-label>
+        </dxi-item>
+        <dxi-item [template]="'bemerkungenTemplate'"
+          [colSpan]="1">
+          <dxo-label [text]="'Kasse.Detail.LabelFieldBemerkungen' | translate"></dxo-label>
+        </dxi-item>
+        <dxi-item [template]="'auszahTemplate'"
+          [colSpan]="1">
+          <dxo-label [text]="'Kasse.Detail.LabelFieldAuszahlung' | translate"></dxo-label>
+        </dxi-item>
+        <dxi-item [template]="'BelegerTemplate'"
+          [colSpan]="1">
+          <dxo-label [text]="'Kasse.Detail.LabelFieldBelegerstellerln' | translate"></dxo-label>
+        </dxi-item>
+        <dxi-item [template]="'ZustTemplate'" [colSpan]="1">
+          <dxo-label [text]="'Kasse.Detail.LabelFieldZustSA' | translate"></dxo-label>
+        </dxi-item>
+        <dxi-item [template]="'BeguenstigtNameTemplate'"
+          [colSpan]="1">
+          <dxo-label [text]="'Kasse.Detail.LabelFieldAuszahlungAn' | translate"></dxo-label>
+        </dxi-item>
+        <dxi-item [dataField]="' '" [template]="'BeguenstigtStrasseTemplate'" [colSpan]="1"></dxi-item>
+        <dxi-item [dataField]="' '" [template]="'BeguenstigtOrtTemplate'" [colSpan]="1"></dxi-item>
+      </dxi-item>
+      <div *dxTemplate="let data of 'nameTemplate'">
+        <span>{{this.kasseDetail.Person}}</span>
+      </div>
+      <div *dxTemplate="let data of 'strasseTemplate'">
+        <span>{{this.kasseDetail.Strasse}}</span>
+      </div>
+      <div *dxTemplate="let data of 'plzTemplate'">
+        <span>{{this.kasseDetail.PLZOrt}}</span>
+      </div>
+      <div *dxTemplate="let data of 'geburtsTemplate'">
+        <span>{{this.kasseDetail.Geburtsdatum | date: dateFormat}}</span>
+      </div>
+      <div *dxTemplate="let data of 'ahvTemplate'">
+        <span>{{this.kasseDetail.AHVNummer}}</span>
+      </div>
+      <div *dxTemplate="let data of 'versTemplate'">
+        <span>{{this.kasseDetail.Versichertennummer}}</span>
+      </div>
+      <div *dxTemplate="let data of 'buchungsTemplate'">
+        <span>{{this.kasseDetail.Text}}</span>
+      </div>
+      <div *dxTemplate="let data of 'bemerkungenTemplate'">
+          <span>{{this.kasseDetail.Remark}}</span>
+      </div>
+      <div *dxTemplate="let data of 'auszahTemplate'">
+        <span>{{this.kasseDetail.ValutaDatum | date: dateFormat}}</span>
+      </div>
+      <div *dxTemplate="let data of 'BelegerTemplate'">
+        <span>{{this.kasseDetail.KasseUser}}</span>
+      </div>
+      <div *dxTemplate="let data of 'ZustTemplate'">
+        <span>{{this.kasseDetail.SAR}}</span>
+      </div>
+      <div *dxTemplate="let data of 'BeguenstigtNameTemplate'">
+        <span>{{this.kasseDetail.BeguenstigtName}}</span>
+      </div>
+      <div *dxTemplate="let data of 'BeguenstigtStrasseTemplate'">
+        <span>{{this.kasseDetail.BeguenstigtStrasse}}</span>
+      </div>
+      <div *dxTemplate="let data of 'BeguenstigtOrtTemplate'">
+        <span>{{this.kasseDetail.BeguenstigtOrt}}</span>
+      </div>
+    </dx-form>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<div id="headerBarID" [title]="info">
+    <app-navigator
+        [titleHeader]="info"
+        (onCustomizeBtnFn)="toolBarOnItemClickTopGrd($event)" 
+        [listBtn]="listBtn" 
+        (dblclick)="onCopyTitle()">
+    </app-navigator>
+</div>

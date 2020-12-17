@@ -1,0 +1,19 @@
+﻿{
+  "DlgBewilligung": {
+    "Header": "Finanzplan bewilligen [it]",
+    "Title": "Was wollen Sie mit diesem Finanzplan? [it]",
+    "RadioBtn": {
+      "Bewilligung": "Bewilligung [it]",
+      "Zuruc": "Zurückweisen [it]",
+      "Bewilligen": "Bewilligen [it]",
+      "Weite": "Weiterempfehlen [it]",
+      "Aufheben": "Aufheben [it]"
+    },
+    "Form": {
+      "Zubena": "Zu benachrichtigender Mitarbeiter [it]",
+      "PerEmail": "per e-Mail benachrichtigen [it]",
+      "GultigAb": "Gültig ab [it]",
+      "Bemerkungen": "Bemerkungen [it]"
+    }
+  }
+}

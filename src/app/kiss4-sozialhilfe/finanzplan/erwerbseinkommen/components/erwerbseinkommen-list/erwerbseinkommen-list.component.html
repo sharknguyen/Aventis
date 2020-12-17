@@ -1,0 +1,57 @@
+<div id="i003-erewbseinkommen">
+    <dx-check-box [text]="'Erwerbseinkommen.List.NurAkktuelleAnzeigen' | translate" (onValueChanged)="clickOnRefresh()"
+        [(value)]="valueCheckbox" [readOnly]="disableGrid"></dx-check-box>
+    <br /> <br />
+
+    <div *ngIf="gridFunction.model.isFilterBuilder" class="filter-container">
+        <dx-filter-builder [fields]="dataGrid.instance.option('columns')" [(value)]="filter" [disabled]="disableGrid"></dx-filter-builder>
+        <dx-button [text]="'CtlBfsFragenkatalog.ApplyFilter' | translate" type="default" (onClick)="dataGrid.instance.filter(filter)"
+            [disabled]="disableGrid"></dx-button>
+        <div class="dx-clearfix"></div>
+    </div>
+    <dx-data-grid class="custom-grid-container" #dataGrid [dataSource]="dataSource" columnResizingMode="widget" keyExpr="id"
+        [showBorders]="true" [noDataText]="'Versicherungsleistungen.List.NoDataText' | translate" [disabled]="disableGrid"
+        [focusedRowKey]="gridKey"
+        [showRowLines]="true" [allowColumnReordering]="true" [hoverStateEnabled]="true" [showColumnLines]="true"
+        [focusedRowEnabled]="true" [columnAutoWidth]="true" [allowColumnResizing]="true" (onFocusedRowChanged)="onFocusedRowChanged($event)"
+        (onContextMenuPreparing)="onContextMenuPreparing($event)" (onContentReady)="onContentReady($event)"
+        [columnMinWidth]="60" width="100%">
+        <dxo-sorting mode="multiple"> </dxo-sorting>
+        <dxo-search-panel [visible]="gridFunction.model.isSearchPanel" highlightCaseSensitive="true"></dxo-search-panel>
+        <dxo-filter-row [visible]="gridFunction.model.isSearch" applyFilter="Immediately"></dxo-filter-row>
+        <dxo-header-filter [visible]="true"></dxo-header-filter>
+        <dxo-group-panel [visible]="gridFunction.model.isGrouping" [emptyPanelText]="'Erwerbseinkommen.Messager.PlaceholderGroupGrid' | translate"></dxo-group-panel>
+        <dxo-grouping #expandGrid [contextMenuEnabled]="gridFunction.model.isGrouping" [autoExpandAll]="false"></dxo-grouping>
+        <dxo-column-chooser #columnChooser emptyPanelText="" [title]="'Erwerbseinkommen.List.columnChooser' | translate" [enabled]="false"></dxo-column-chooser>
+        <dxo-editing mode="cell" [allowUpdating]="false"></dxo-editing>
+        <dxo-selection mode="single"></dxo-selection>
+        <dxo-scrolling mode="virtual"></dxo-scrolling>
+        <dxi-column dataField="DatumVon" dataType="date" [caption]="'Erwerbseinkommen.List.GultigAb' | translate"></dxi-column>
+        <dxi-column dataField="NameVorname" [caption]="'Erwerbseinkommen.List.Name' | translate"></dxi-column>
+        <dxi-column dataField="Geburtsdatum" dataType="date" [format]="dateFormat" [caption]="'Erwerbseinkommen.List.Geburtsdatum' | translate"></dxi-column>
+        <dxi-column dataField="Buchungstext" [caption]="'Erwerbseinkommen.List.ArtDesEinkommens' | translate"></dxi-column>
+        <dxi-column dataField="Betrag" dataType="number" [format]="numberFormat" [caption]="'Erwerbseinkommen.List.Einkommen' | translate">
+            <dxo-format type="fixedPoint" [precision]="2"></dxo-format>
+        </dxi-column>
+        <dxi-column dataField="UKBetrag" dataType="number" [format]="numberFormat" [caption]="'Erwerbseinkommen.List.Unkosten' | translate">
+            <dxo-format type="fixedPoint" [precision]="2"></dxo-format>
+        </dxi-column>
+        <dxi-column dataField="UKReduktion" dataType="number" [format]="numberFormat" [caption]="'Erwerbseinkommen.List.Reduktion' | translate">
+            <dxo-format type="fixedPoint" [precision]="2"></dxo-format>
+        </dxi-column>
+
+        <dxo-summary>
+            <dxi-total-item column="Betrag" alignment="right" dataType="number" summaryType="sum" [valueFormat]="numberFormat" displayFormat="{0}">
+            </dxi-total-item>
+            <dxi-total-item column="UKBetrag" alignment="right" dataType="number" summaryType="sum" [valueFormat]="numberFormat" displayFormat="{0}">
+            </dxi-total-item>
+            <dxi-total-item column="UKReduktion" alignment="right" dataType="number" summaryType="sum" [valueFormat]="numberFormat" displayFormat="{0}">
+            </dxi-total-item>
+        </dxo-summary>
+
+    </dx-data-grid>
+
+    <!-- ------------------------- The End Area for gridview ------------------- -->
+    <app-grid-function #gridFunction (onchange)="gridFunction.model"></app-grid-function>
+    <kiss-printer #printer></kiss-printer>
+</div>

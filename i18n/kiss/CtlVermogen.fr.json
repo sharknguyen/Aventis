@@ -1,0 +1,60 @@
+﻿{
+  "Vermogen": {
+    "FormName": "Vermögen und Vermögensverbrauch [fr]",
+    "TitleHeaderBar": "Vermögen und monatlicher Vermögensverbrauch [fr]",
+    "Neue-Vermogen": "Neues Vermögen und Vermögensverbrauch [fr]",
+    "Bearbeiten": "Bearbeiten [fr]",
+    "Speichern": "Speichern [fr]",
+    "Abbrechen": "Abbrechen [fr]",
+    "vom": "vom [fr]",
+    "bis": "bis [fr]",
+    "message": {
+      "required" :"required [fr]"
+    },
+    "Grid" : {
+      "NurAktiveAnzeigen" : "Nur aktive anzeigen [fr]",
+      "GultigAb" : "Gültig ab [fr]",
+      "Name" : "Name [fr]",
+      "Geburtsdatum" : "Geburtsdatum [fr]",
+      "ArtDesVermogens" : "Art des Vermögens [fr]",
+      "Vermogen" : "Vermögen [fr]",
+      "Verbrauch" : "Verbrauch [fr]",
+      "noDataText": "Keine Daten[fr]",
+      "emptyPanelText": "Zu gruppierende Spalten in diesen Bereich ziehen[fr]",
+      "ColumnChooser" : {
+        "Title" : "Benutzerdefiniert [fr]"
+      }
+    },
+    "Detail" : {
+      "Freibetrag" : "Freibetrag [fr]",
+      "Angerechnet" : "Angerechnet [fr]",
+      "Person" : "Person [fr]",
+      "ArtDesVermoge" : "Art des Vermögens [fr]",
+      "Vermogen" : "Vermögen [fr]",
+      "MonatlVermogensverbrauch" : "Monatl. Vermögensverbrauch [fr]",
+      "Beschreibung": "Beschreibung [fr]"
+    },
+    "Popup": {
+      "Yes": "Ja [fr]",
+      "No": "Nein [fr]",
+      "TitleDelete": "Bestätigung [fr]",
+      "MessageDelete": "Soll der Datensatz gelöscht werden ? [fr]",
+      "MessageCancelNew": "Neuen Datensatz wieder löschen ? [fr]",
+      "TitleConcurrency": "Infomation",
+      "MsgArithmetic":"Arithmetic overflow error converting expression to data type money. \n The statement has been terminated [fr]",
+      "MsgUpdate404": "Beim Speichern des veränderten Datensatzes ist ein Fehler aufgetreten ! [fr]",
+      "MsgUpdate409": "Der gewählte Datensatz wurde in der Zwischenzeit von einer anderen Person geändert oder gelöscht. [fr]",
+      "MsgDelete404": "Beim Löschen des Datensatzes ist ein Fehler aufgetreten ! [fr]",
+      "MsgDelete409": "Aktualisieren sie die Daten zuerst, um Ihre Änderungen zu speichern. [fr]"
+    },
+    "RemainMessage": {
+      "FormInvalid" : "Ungültige Daten. Bitte geben Sie gültige Eingabewerte ein.[fr]"
+    },
+    "FieldRequired": {
+      "ArtDesVermogens": "Das Feld 'Art des Vermögens' darf nicht leer bleiben ![fr]",
+      "Vermogen": "Das Feld 'Vermögen' darf nicht leer bleiben ![fr]",
+      "Vermogensverbrauch": "Das Feld 'Vermögensverbrauch' darf nicht leer bleiben ![fr]",
+      "RequiredMonatlichesError": "Beim Speichern des Datensatzes ist ein Fehler aufgetreten ![fr]"
+    }
+  }
+}

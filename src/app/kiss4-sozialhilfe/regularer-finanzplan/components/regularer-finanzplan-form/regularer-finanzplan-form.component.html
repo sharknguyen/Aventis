@@ -1,0 +1,138 @@
+<dx-validation-group *ngIf="isEditMode" #validationGroup>
+    <dx-form class="finazplan-form" [formData]="_formData" [showColonAfterLabel]="false" [screenByWidth]="sizeQualifier">
+        <dxi-item [itemType]="'group'" [colCount]="2">
+            <dxi-item [itemType]="'group'" [colCount]="2" [colSpan]="1">
+                <dxi-item [itemType]="'group'" [colCount]="2" [colSpan]="2" cssClass="datum-container">
+                    <dxi-item [itemType]="'simple'" [colSpan]="1" [template]="'GeplantVonTemplate'">
+                        <dxi-validation-rule type="required"></dxi-validation-rule>
+                        <dxo-label [text]="'RegularerFinanzplan.Form.GeplantVon' | translate"></dxo-label>
+                    </dxi-item>
+                    <dxi-item [itemType]="'simple'" [colSpan]="1" [template]="'GeplantBisTemplate'" cssClass="datumbis-container">
+                        <dxi-validation-rule type="required"></dxi-validation-rule>
+                        <dxo-label [text]="'RegularerFinanzplan.Form.GeplantBis' | translate"></dxo-label>
+                    </dxi-item>
+                </dxi-item>
+
+                <dxi-item [itemType]="'simple'" [colSpan]="2" [template]="'UpperGrundTemplate'">
+                    <dxo-label [text]="'RegularerFinanzplan.Form.Grund' | translate"></dxo-label>
+                </dxi-item>
+
+                <dxi-item [itemType]="'group'" [colCount]="2" [colSpan]="2" cssClass="datum-container">
+                    <dxi-item [itemType]="'simple'" [colSpan]="1" [template]="'GultigAbTemplate'">
+                        <dxo-label [text]="'RegularerFinanzplan.Form.GultigAb' | translate"></dxo-label>
+                    </dxi-item>
+                    <dxi-item [itemType]="'simple'" [colSpan]="1" [template]="'GultigBisTemplate'" cssClass="datumbis-container">
+                        <dxo-label [text]="'RegularerFinanzplan.Form.GultigBis' | translate">
+                        </dxo-label>
+                    </dxi-item>
+                </dxi-item>
+
+                <dxi-item [itemType]="'simple'" [colSpan]="2" [template]="'LowerGrundTemplate'">
+                    <dxo-label [text]="'RegularerFinanzplan.Form.Grund' | translate"></dxo-label>
+                </dxi-item>
+                <dxi-item [itemType]="'simple'" [colSpan]="2" [template]="'TypTemplate'">
+                    <dxo-label [text]="'RegularerFinanzplan.Form.Typ' | translate"></dxo-label>
+                </dxi-item>
+                <dxi-item [itemType]="'simple'" [colSpan]="2" [template]="'BerechTemplate'">
+                    <dxo-label [text]="'RegularerFinanzplan.Form.Berech' | translate"></dxo-label>
+                </dxi-item>
+            </dxi-item>
+            <dxi-item itemType="empty" [colSpan]="1"></dxi-item>
+            <dxi-item [colSpan]="2" template="BemerkungTemplate">
+                <dxo-label text=" "></dxo-label>
+            </dxi-item>
+        </dxi-item>
+
+        <div *dxTemplate="let data of 'GeplantVonTemplate'">
+            <dx-date-box #GeplantVon [useMaskBehavior]="true" [displayFormat]="dateFormat" [(value)]="_formData.GeplantVon"
+                (onKeyDown)="onKeyDown($event, GeplantVon)">
+                <dx-validator>
+                    <dxi-validation-rule type="required" [message]="'RegularerFinanzplan.ValidateMessage.GeplantVon' | translate"></dxi-validation-rule>
+                </dx-validator>
+            </dx-date-box>
+        </div>
+
+        <div *dxTemplate="let data of 'GeplantBisTemplate'">
+            <dx-date-box #GeplantBis [useMaskBehavior]="true" [displayFormat]="dateFormat" [(value)]="_formData.GeplantBis"
+                (onKeyDown)="onKeyDown($event, GeplantBis)">
+                <dx-validator>
+                    <dxi-validation-rule type="required" [message]="'RegularerFinanzplan.ValidateMessage.GeplantBis' | translate"></dxi-validation-rule>
+                </dx-validator>
+            </dx-date-box>
+        </div>
+
+        <div *dxTemplate="let data of 'UpperGrundTemplate'">
+            <dx-select-box #upperGrund [dataSource]="upperGrundList" showClearButton="true" displayExpr="text"
+                valueExpr="code" [(value)]="_formData.BgGrundEroeffnenCode" (onKeyDown)="onKeyDown($event, upperGrund)">
+            </dx-select-box>
+        </div>
+
+        <div *dxTemplate="let data of 'GultigAbTemplate'">
+            <dx-date-box disabled="true" [useMaskBehavior]="true" [displayFormat]="dateFormat" [(value)]="_formData.DatumVon"></dx-date-box>
+        </div>
+
+        <div *dxTemplate="let data of 'GultigBisTemplate'">
+            <dx-date-box disabled="true" [useMaskBehavior]="true" [displayFormat]="dateFormat" [(value)]="_formData.DatumBis"></dx-date-box>
+        </div>
+
+        <div *dxTemplate="let data of 'LowerGrundTemplate'">
+            <dx-select-box #lowerGrund [dataSource]="lowerGrundList" showClearButton="true" displayExpr="text"
+                valueExpr="code" [(value)]="_formData.BgGrundAbschlussCode" (onKeyDown)="onKeyDown($event, lowerGrund)">
+            </dx-select-box>
+        </div>
+
+        <div *dxTemplate="let data of 'TypTemplate'">
+            <dx-select-box disabled="true" [dataSource]="typeList" displayExpr="text" valueExpr="code" [(value)]="_formData.WhHilfeTypCode">
+            </dx-select-box>
+        </div>
+
+        <div *dxTemplate="let data of 'BerechTemplate'">
+            <dx-select-box #berechnung [dataSource]="berechnungList" displayExpr="text" valueExpr="code" [(value)]="_formData.WhGrundbedarfTypCode"
+                (onKeyDown)="onKeyDown($event, berechnung)">
+            </dx-select-box>
+        </div>
+
+        <div *dxTemplate="let data of 'BemerkungTemplate'">
+            <dx-text-area [autoResizeEnabled]="true" height="150px" minHeight="150px" [(value)]="_formData.Bemerkung"></dx-text-area>
+        </div>
+        <dxi-item [itemType]="'group'" [colCount]="12">
+            <dxi-item [itemType]="'simple'" [colSpan]="12">
+                <span class="title">{{'RegularerFinanzplan.StatusInfo.Header' | translate}}</span>
+                <hr>
+            </dxi-item>
+        </dxi-item>
+
+        <dxi-item [itemType]="'group'" [colCount]="12">
+            <dxi-item [itemType]="'simple'" [colSpan]="4">
+                <dxo-label [text]="'RegularerFinanzplan.StatusInfo.Key' | translate"></dxo-label>
+                <span>{{_statusInfo.key}}</span>
+            </dxi-item>
+        </dxi-item>
+
+        <div *ngIf="_statusInfo.infoText && _statusInfo.infoText.length">
+            <div *ngFor="let el of _statusInfo.infoText; let first = first">
+                <dxi-item [itemType]="'group'" [colCount]="12">
+                    <dxi-item [itemType]="'simple'" [colSpan]="4">
+                        <dxo-label *ngIf="first" [text]="'RegularerFinanzplan.StatusInfo.Info' | translate"></dxo-label>
+                        <dxo-label *ngIf="!first" [text]="' '"></dxo-label>
+                        <span>{{el}}</span>
+                    </dxi-item>
+                </dxi-item>
+            </div>
+        </div>
+
+        <dxi-item *ngIf="!_statusInfo.infoText" [itemType]="'group'" [colCount]="12">
+            <dxi-item [itemType]="'simple'" [colSpan]="4">
+                <dxo-label [text]="'RegularerFinanzplan.StatusInfo.Info' | translate"></dxo-label>
+                <span></span>
+            </dxi-item>
+        </dxi-item>
+
+        <dxi-item [itemType]="'group'" [colCount]="12">
+            <dxi-item [itemType]="'simple'" [colSpan]="4">
+                <dxo-label [text]="'RegularerFinanzplan.StatusInfo.Status' | translate"></dxo-label>
+                <span>{{_statusInfo.statusName}}</span>
+            </dxi-item>
+        </dxi-item>
+    </dx-form>
+</dx-validation-group>

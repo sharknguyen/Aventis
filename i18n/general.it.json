@@ -1,0 +1,89 @@
+{
+  "ServerError401": "Access not allowed. Please login.[it]",
+  "ServerError403": "Access forbidden. Please provide correct credentials[it]",
+  "ServerError404": "An error occurred. Please contact your administrator[it]",
+  "ServerError500": "An error occurred. Please contact your administrator[it]",
+  "ServerError502": "502 Bad Gate way. Please contact your administrator[it]",
+  "SuccessNotificationTitle": "Success[it]",
+  "ErrorNotificationTitle": "Error[it]",
+  "InfoNotificationTitle": "Info[it]",
+  "WarningNotificationTitle": "Warning[it]",
+  "SaveBtn": "Save[it]",
+  "EditBtn": "Edit[it]",
+  "CancelBtn": "Cancel[it]",
+  "BackBtn": "Back[it]",
+  "GridEmptyLabel": "No available items[it]",
+  "ConfirmDialog": {
+    "Title": "Please confirm[it]",
+    "Content": "Do you want to leave without saving the changes?[it]",
+    "SubmitBtn": "Yes[it]",
+    "CancelBtn": "No[it]"
+  },
+
+  "Printer": {
+    "HeaderLeftDefault": "Expression of the table[it]",
+    "FooterLeftDefault": "Print date[it]",
+    "FooterCenterDefault": "Aventis[it]"
+  },
+
+  "SelectedActions": {
+    "TitleComfirm": "Confirmation![it]",
+    "Message": "You have changed data. Do you want to close the form and discard the changes?[it]",
+    "Cancel": "Abort[it]",
+    "Ok": "Discard[it]"
+  },
+
+  "AdditionalButtons": {
+    "Print": "Grid Drucken [it]",
+    "Export": "Excel Export [it]",
+    "ColumnChooser": "Spaltenauswahl [it]"
+  },
+
+  "CanDeactive": {
+    "Yes": "Discard [it]",
+    "No": "Abbrechen [it]",
+    "Title": "Bestätigung [it]",
+    "Message": "Sie haben Daten geändert. Möchten Sie das Formular schließen und die Änderungen verwerfen ? [it]"
+  },
+
+  "Concurrency": {
+    "Title": "Bestätigung [it]",
+    "Message": "Der gewählte Datensatz wurde in der Zwischenzeit von einer anderen Person geändert oder gelöscht.\n Aktualisieren sie die Daten zuerst, um Ihre Änderungen zu speichern. [it]",
+    "ButtonYes": "Abbrechen [it]",
+    "ButtonNo": "Daten aktualisieren [it]"
+  },
+
+  "SeachForm": {
+    "SearchBtnText": "Ausführen [it]"
+  },
+
+  "DataGrid": {
+    "NoDataText": "Keine Daten [it]",
+    "ColumnChooser": {
+      "Title": "Benutzerdefiniert [it]"
+    },
+    "FilterBuilder": {
+        "FilterBuilderButton": "Filter Anwenden [it]"
+    },
+    "GroupPanel": {
+      "EmptyPanelText": "Zu gruppierende Spalten in diesen Bereich ziehen [it]"
+    },
+    "ColumnGrouping": {
+      "HideColumn": "Spalte ausblenden [it]",
+      "ExpandCloumnGrouping": "Alles Gruppen erweitern [it]",
+      "UnExpandCloumnGrouping": "Alles Gruppen reduzieren [it]"
+    },
+    "FilterRow": {
+      "All": "Alle [it]"
+    },
+    "FilterHeader": {
+      "Blanks": "(vuoto)"
+    }
+  },
+  "HttpStatusMessage":{
+    "Forbidden":"Insufficient rights.[it]"
+  },
+  "DateBox": {
+    "DateOutOfRange": "Der Wert ist nicht im gültigen Bereich [it]"
+  }
+}

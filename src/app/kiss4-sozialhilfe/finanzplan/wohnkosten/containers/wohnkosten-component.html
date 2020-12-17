@@ -1,0 +1,61 @@
+<kiss-right-component>
+    <kiss-header-bar
+      (action)="toolBarOnItemClick($event)"
+      [isShiftKeyDown]="isShiftKeyDown"
+      [titleHeader]="titleHeaderTree"
+      [baPersonID]="baPersonID"
+      [isEditMode]="isEditMode"
+      [datumBis]="datumBis"
+      [datumVon]="datumVom"
+  >
+  </kiss-header-bar>
+  <div class="container">
+    <div class="container__right-content">
+      <div #remainingMessage class="remaining-message" *ngIf="isError" id="i008_validate-message">
+        <span class="remaining-message__btn-container">
+          <dx-button class="remaining-message__btn-close" (onClick)="onCloseError()" icon="fa fa-times fa-2x"></dx-button>
+        </span>
+        <div class="remaining-message__content">
+          <span class="remaining-message__icon"><i class="fa fa-exclamation-circle " aria-hidden="true"></i></span>
+          <span class="remaining-message__text">{{messageErr}}</span>
+        </div>
+      </div>
+      <div class="grid-table-view" *ngIf="gridData">
+        <kiss-grid #formList
+          keyExpr="SortId"
+          idGridName="i008_data-grid"
+          filterBuilderName="i008_filter-builder"
+          [dataSource]="gridData"
+          [searchPlaceholder]="'ExterneBerater.SearchSuche' | translate"
+          [noDataText]="'WohnKosten.GirdTitle.KeineDaten' | translate"
+          [fileName]="'WohnKosten.Detail.Wohnkosten' | translate"
+          [columnChooserName]="'ExterneBerater.ColumnChooser' | translate"
+          [readOnly]="disabledGrid"
+          [selectedRowKey]="focusedRowKey"
+          [columnsDef]="gridListColumns"
+          [emptyGroupText]="'WohnKosten.GirdTitle.emptyPanelText' | translate"
+          [gridFunctionModel]="gridFunctionModel"
+          (selectedRow)="gridOnSelectedRowChange($event)">
+        </kiss-grid>
+      </div>
+      <div class="container-detail form-content-details" id="i008_detail">
+        <kiss-wohnkosten-detail #wohnkostenDetail
+        [isEditMode]="isEditMode"
+        [detailData]="detailData"
+        [datePopUpList]="datePopUpList"
+        [whKennzahlenData]="whKennzahlenData"
+        [bgPositionsartData]="bgPositionsartData"
+        [finanzplanData]="finanzplanData"
+        [editMask]="editMask"
+        (changeViewMode)="doChangeDetailMode($event)"
+        (showRemainingMessage)="onShowRMMessage($event)"
+        (saveForm)="onSaveForm($event)"
+        (filterGrid)="doFilterGrid($event)"></kiss-wohnkosten-detail>
+      </div>
+    </div>
+  </div>
+</kiss-right-component>
+<app-progressbar #wohnKostenProgressBar></app-progressbar>
+<kiss-printer #printer></kiss-printer>
+<app-can-deactivate #canDeactivate ></app-can-deactivate>
+<app-popup-concurrency-detail [visible]='visibleConcurrencyPopup' (yes)="onConcurrencyYes()" (no)="onConcurrencyNo()"></app-popup-concurrency-detail>

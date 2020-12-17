@@ -1,0 +1,81 @@
+{
+    "Kasse": {
+        "Button": {
+            "Ausfuhren": "Ausführen",
+            "Auszahlen": "Auszahlen",
+            "Edit": "Bearbeiten",
+            "Save": "Speichern",
+            "Cancel": "Abbrechen",
+            "Search": "Ausführen",
+            "BtnYes": "Ja",
+            "BtnNo": "Nein",
+            "BtnAbbrechenConcurrency": "Abbrechen",
+            "BtnDatenAktualisieren": "Daten aktualisieren"
+        },
+        "Message":{
+            "TitleConfirm": "Bestätigung"
+        },
+        "PageTitle": "Kassenbelege",
+        "FileName": "SH-Kasse",
+        "TitleSearch": "Suchen",
+        "TitleDetail": "Detail",
+        "Detail": {
+            "TitleGroupPerson": "unterstüzte Person",
+            "LabelFieldName": "Name",
+            "LabelFieldStrasse": "Strasse",
+            "LabelFieldPlzOrt": "PLZ / Ort",
+            "LabelFieldGeburt": "Geburtsdatum",
+            "LabelFieldAhvNumber": "AHV-Nummer",
+            "LabelFieldVersNr": "Vers. - Nr.",
+            "TitleGroupBeleg": "Beleg",
+            "LabelFieldBuchungs": "Buchungstext",
+            "LabelFieldBemerkungen": "Bemerkungen",
+            "LabelFieldAuszahlung": "Auszahlung",
+            "LabelFieldBelegerstellerln": "Belegerstellerln",
+            "LabelFieldZustSA": "zust. SA",
+            "LabelFieldAuszahlungAn": "Auszahlung an",
+            "MessConfirmAusfuhren":"Soll der Betrag von CHF {0} an {1} ausbezahlt werden und der Belegstatus entsprechend geändert werden ?",
+            "ConcurrencyMessUpdateRecordDeleted": "Beim Speichern des veränderten Datensatzes ist ein Fehler aufgetreten !​",
+            "MessageConfirmCancelEdit": "Änderungen an diesem Datensatz rückgängig machen ?"
+        },
+        "Search": {
+            "DropDownNoData": "Keine zutreffende, unterstützte Person gefunden",
+            "LabelDropDown": "Fallträger/-in Name",
+            "VerfalldatumVon": "Verfalldatum von",
+            "VerfalldatumBis": " bis",
+            "Belegstatus": "Belegstatus",
+            "NochNichtAusgedruckt": "noch nicht ausgedruckt",
+            "Ausgedruckt": "ausgedruckt",
+            "Gesperrt": "gesperrt",
+            "MessRequireField":"Mindestens eines der Felder 'Person', 'Verfalldatum von', 'Verfalldatum bis' muss ausgefüllt sein!"
+        },
+        "Grid": {
+            "BelegNr": "Beleg-Nr.",
+            "Person": "Person",
+            "Verfalldatum": "Verfalldatum",
+            "Buchungstext": "Buchungstext",
+            "Betrag": "Betrag",
+            "ausged": "ausged.",
+            "Status": "Status",
+            "FT":"FT",
+            "Nr":"Nr.",
+            "Name":"Name",
+            "Strasse":"Strasse",
+            "PLZOrt":"PLZOrt",
+            "HideColumn":"Spalte ausblenden",
+            "ExpandCloumnGrouping":"Alles Gruppen erweitern",
+            "UnExpandCloumnGrouping":"Alles Gruppen reduzieren"
+        },
+        "Validation":{
+            "NoData":"Keine Daten",
+            "RemainingValidate": "Ungültige Daten. Bitte geben Sie gültige Eingabewerte ein.",
+            "MessageValidateMaxLength":"Der Inhalt eines Feldes überschreitet die maximal zugelassene Länge.\nBitte kürzen Sie zuerst den Inhalt und versuchen Sie anschliessend nochmals zu speichern."
+        },
+        "NavigatorPopupConfirm": {
+            "Yes": "Discard",
+            "No": "Abbrechen",
+            "Title": "Bestätigung",
+            "Message": "Sie haben Daten geändert. Möchten Sie das Formular schließen und die Änderungen verwerfen ?"
+          }
+    }
+}

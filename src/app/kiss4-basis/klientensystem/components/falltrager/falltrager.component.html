@@ -1,0 +1,44 @@
+﻿<div id="c007_form_falltrager">
+  <dx-form [formData]="falltraegerData" [colCount]="2" [showColonAfterLabel]="false">
+    <dxi-item itemType="group" [colSpan]="1">
+      <dxi-item [dataField]="'Klientensystem.SectionKlientensystem.Falltrager' | translate">
+        <dxo-label [text]=" 'Klientensystem.SectionKlientensystem.Falltrager' | translate "></dxo-label>
+        <span>{{falltraegerData.person}}</span>
+      </dxi-item>
+      <dxi-item [dataField]="'Klientensystem.SectionKlientensystem.WohnsitzZivilr' | translate">
+        <dxo-label [text]=" 'Klientensystem.SectionKlientensystem.WohnsitzZivilr' | translate "></dxo-label>
+        <span>{{falltraegerData.wohnsitz}}</span>
+      </dxi-item>
+      <dxi-item [dataField]="'Klientensystem.SectionKlientensystem.Aufenthaltsort' | translate">
+        <dxo-label [text]=" 'Klientensystem.SectionKlientensystem.Aufenthaltsort' | translate "></dxo-label>
+        <span>{{falltraegerData.aufenthaltsort}}</span>
+      </dxi-item>
+      <dxi-item [dataField]="'Klientensystem.SectionKlientensystem.Heimatort' | translate">
+        <dxo-label [text]=" 'Klientensystem.SectionKlientensystem.Heimatort' | translate "></dxo-label>
+        <span>{{falltraegerData.heimatort}}</span>
+      </dxi-item>
+      <dxi-item [dataField]="'Klientensystem.SectionKlientensystem.Nationalitat' | translate">
+        <dxo-label [text]=" 'Klientensystem.SectionKlientensystem.Nationalitat' | translate "></dxo-label>
+        <span>{{falltraegerData.nationalitaet}}</span>
+      </dxi-item>
+    </dxi-item>
+    <dxi-item itemType="group" [colSpan]="1">
+      <dxi-item [dataField]="'Klientensystem.SectionKlientensystem.Alter' | translate">
+        <dxo-label [text]=" 'Klientensystem.SectionKlientensystem.Alter' | translate "></dxo-label>
+        <span>{{falltraegerData.alter}}</span>
+      </dxi-item>
+      <dxi-item [dataField]="'Klientensystem.SectionKlientensystem.Geburtstag' | translate">
+        <dxo-label [text]=" 'Klientensystem.SectionKlientensystem.Geburtstag' | translate "></dxo-label>
+        <span>{{falltraegerData.geburtstag}}</span>
+      </dxi-item>
+      <dxi-item [dataField]="'Klientensystem.SectionKlientensystem.Geschiecht' | translate">
+        <dxo-label [text]=" 'Klientensystem.SectionKlientensystem.Geschiecht' | translate "></dxo-label>
+        <span>{{falltraegerData.geschlecht}}</span>
+      </dxi-item>
+      <dxi-item [dataField]="'Klientensystem.SectionKlientensystem.Zivilstand' | translate">
+        <dxo-label [text]=" 'Klientensystem.SectionKlientensystem.Zivilstand' | translate "></dxo-label>
+        <span>{{falltraegerData.zivilstand}}</span>
+      </dxi-item>
+    </dxi-item>
+  </dx-form>
+</div>

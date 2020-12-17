@@ -1,0 +1,58 @@
+{
+  "CtlAbklaerungen": {
+    "Abklarungsart" : "Abklärungsart",
+    "DatumAbk" : "Datum (Stichtag)",
+    "Auswertung" : "Auswertung",
+    "durch" : "durch",
+    "DatumAus" : "Datum (Stichtag)",
+    "AbklarungDurch" : "Abklärung durch",
+    "Bermerkung" : "Bermerkung",
+    "Name" : "Name",
+    "LogonName" : "LogonName",
+    "AbklDatum" : "Abkl. Datum",
+    "Validation" : {
+      "NoDataGrid" : "Keine Daten"
+    },
+    "emptyPanelText": "Zu gruppierende Spalten in diesen Bereich ziehen",
+    "ColumnChooser" : {
+      "Title" : "Benutzerdefiniert"
+    },
+    "Placeholder" : "Auswählen...",
+    "PlaceholderSearch" : "Suchen...",
+    "ApplyFilter" : "Filter anwenden",
+    "AnzahlDatensatze" : "Anzahl Datensätze",
+    "MessageConcurency404Update" : "Beim Speichern des veränderten Datensatzes ist ein Fehler aufgetreten !",
+    "MessageConcurency404Delete" : "Beim Löschen des Datensatzes ist ein Fehler aufgetreten !",
+    "MessageConcurency409" : "Der gewählte Datensatz wurde in der Zwischenzeit von einer anderen Person geändert oder gelöscht. Aktualisieren sie die Daten zuerst, um Ihre Änderungen zu speichern.",
+    "Message": {
+      "MessageDelete": "Soll der Datensatz gelöscht werden ?",
+      "MessageDeleteNew": "Neuen Datensatz wieder löschen ?",
+      "MessageConfirmCancel": "Fenster trotz der nicht gespeicherten Daten schliessen ?",
+      "MessageError": "Nicht alle Mussfelder sind ausgefüllt",
+      "MessageErrorValidate": "Ungültige Daten. Bitte geben Sie gültige Eingabewerte ein.",
+      "Yes": "Ja",
+      "No": "Nein",
+      "Title": "Bestätigung",
+      "Message": "Änderungen an diesem Datensatz rückgängig machen ?",
+      "Confirmation": "Confirmation",
+      "Abbrechen": "Abbrechen",
+      "Daten-aktualisieren": "Daten aktualisieren",
+      "MessageCandiavtive": "Sie haben Daten geändert. Möchten Sie das Formular schließen und die Änderungen verwerfen ?",
+      "Discard": "Discard",
+      "Information": "Information",
+      "DoubleClickMessage": "Die Angaben wurden in den Zwischenspeicher kopiert.",
+      "ShiftClickMessage": "Die ID wurde in den Zwischenspeicher kopiert"
+    },
+    "Title": "Abklärung > Abklärungen",
+    "Suchen": "Suchen",
+    "Detail": "Detail",
+    "Neue-Abklärungen": "Neue Abklärungen",
+    "Bearbeiten": "Bearbeiten",
+    "Speichern": "Speichern",
+    "Abbrechen": "Abbrechen",
+    "Löschen": "Löschen",
+    "NodataGrid" : "Keine zutreffenden MitarbeiterInnen gefunden",
+    "Bestatigung": "Bestätigung"
+
+  }
+}

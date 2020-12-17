@@ -1,0 +1,57 @@
+{
+  "CtlAbklaerungen": {
+    "Abklarungsart" : "Abklärungsart [en]",
+    "DatumAbk" : "Datum (Stichtag) [en]",
+    "Auswertung" : "Auswertung [en]",
+    "durch" : "durch [en]",
+    "DatumAus" : "Datum (Stichtag) [en]",
+    "AbklarungDurch" : "Abklärung durch [en]",
+    "Bermerkung" : "Bermerkung [en]",
+    "Name" : "Name [en]",
+    "LogonName" : "LogonName [en]",
+    "AbklDatum" : "Abkl. Datum [en]",
+    "Validation" : {
+      "NoDataGrid" : "Keine Daten [en]"
+    },
+    "emptyPanelText": "Zu gruppierende Spalten in diesen Bereich ziehen [en]",
+    "ColumnChooser" : {
+      "Title" : "Benutzerdefiniert [en]"
+    },
+    "Placeholder" : "Auswählen... [en]",
+    "PlaceholderSearch" : "Suchen... [en]",
+    "ApplyFilter" : "Filter anwenden [en]",
+    "AnzahlDatensatze" : "Anzahl Datensätze [en]",
+    "MessageConcurency404Update" : "Beim Speichern des veränderten Datensatzes ist ein Fehler aufgetreten ! [en]",
+    "MessageConcurency404Delete" : "Beim Löschen des Datensatzes ist ein Fehler aufgetreten ! [en]",
+    "MessageConcurency409" : "Der gewählte Datensatz wurde in der Zwischenzeit von einer anderen Person geändert oder gelöscht. Aktualisieren sie die Daten zuerst, um Ihre Änderungen zu speichern. [en]",
+    "Message": {
+      "MessageDelete": "Soll der Datensatz gelöscht werden ? [en]",
+      "MessageDeleteNew": "Neuen Datensatz wieder löschen ? [en]",
+      "MessageConfirmCancel": "Fenster trotz der nicht gespeicherten Daten schliessen ? [en]",
+      "MessageError": "Nicht alle Mussfelder sind ausgefüllt [en]",
+      "MessageErrorValidate": "Ungültige Daten. Bitte geben Sie gültige Eingabewerte ein. [en]",
+      "Yes": "Ja [en]",
+      "No": "Nein [en]",
+      "Title": "Bestätigung [en]",
+      "Message": "Änderungen an diesem Datensatz rückgängig machen ? [en]",
+      "Confirmation": "Confirmation [en]",
+      "Abbrechen": "Abbrechen [en]",
+      "Daten-aktualisieren": "Daten aktualisieren [en]",
+      "MessageCandiavtive": "Sie haben Daten geändert. Möchten Sie das Formular schließen und die Änderungen verwerfen ? [en]",
+      "Discard": "Discard [en]",
+      "Information": "Information [en]",
+      "DoubleClickMessage": "Die Angaben wurden in den Zwischenspeicher kopiert. [en]",
+      "ShiftClickMessage": "Die ID wurde in den Zwischenspeicher kopiert [en]"
+    },
+    "Title": "Abklärung > Abklärungen [en]",
+    "Suchen": "Suchen [en]",
+    "Detail": "Detail [en]",
+    "Neue-Abklärungen": "Neue Abklärungen [en]",
+    "Bearbeiten": "Bearbeiten [en]",
+    "Speichern": "Speichern [en]",
+    "Abbrechen": "Abbrechen [en]",
+    "Löschen": "Löschen [en]",
+    "NodataGrid" : "Keine zutreffenden MitarbeiterInnen gefunden [en]",
+    "Bestatigung": "Bestätigung [en]"
+  }
+}

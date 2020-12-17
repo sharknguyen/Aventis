@@ -1,0 +1,62 @@
+﻿{
+  "Versicherungsleistungen": {
+    "List": {
+      "NurAktuelleAnzeigen": "Nur aktuelle anzeigen",
+      "GultigAb": "Gultig ab",
+      "Name": "Name",
+      "Geburtsdatum": "Geburtsdatum",
+      "ArtDerVersicherung": "Art der Versicherung",
+      "Einkommen": "Einkommen",
+      "Betrag": "Betrag",
+      "Bemerkung": "Bemerkung",
+      "ApplyFilter": "Filter anwenden",
+      "EmptyPanelText": "Zu gruppierende Spalten in diesen Bereich ziehen",
+      "NoDataText":"Keine Daten",
+      "Benutzerdefiniert":"Benutzerdefiniert",
+      "Suchen":"Suchen..."
+    },
+    "Form": {
+      "Neues": " Neues Einkommen aus Versicherungsleistungen",
+      "Bearbeiten": "Bearbeiten",
+      "Speichern": "Speichern",
+      "Abbrechen": "Abbrechen",
+      "Loschen": "Löschen",
+      "Person": "Person",
+      "ArtDerVersicherung": "Art der Versicherung",
+      "MonatlichesEinkommen": "Monatliches Einkommen",
+      "EinkommenWird": "Einkommen wird vom Sozialdienst verwaltet",
+      "Beschreibung": "Beschreibung",
+      "Title": "Detail"
+    },
+    "Message": {
+      "DblClick": "Die Angaben wurden in den Zwischenspeicher kopiert.",
+      "ShiftDblClick_1": "Die ID wurde in den Zwischenspeicher kopiert (",
+      "ShiftDblClick_2": ").",
+      "RequiredArtDerVersicherung": "Das Feld 'Art der Versicherung' darf nicht leer bleiben !",
+      "RequiredEinkommen": "Nicht alle Mussfelder sind ausgefüllt",
+      "InValidData": "Ungültige Daten. Bitte geben Sie gültige Eingabewerte ein.",
+      "ConfirmDelete": "Soll der Datensatz gelöscht werden ?",
+      "Title": "Bestätigung",
+      "ConfirmMessage": "Sie haben Daten geändert. Möchten Sie das Formular schließen und die Änderungen verwerfen ?",
+      "ConfirmDeactive": "Änderungen an diesem Datensatz rückgängig machen ?",
+      "CancelAdd": "Neuen Datensatz wieder löschen ?",
+      "DeleteConcurrency": "Beim Löschen des Datensatzes ist ein Fehler aufgetreten !",
+      "Delete428": "Es bestehen noch abhängige Daten. Diese müssen zuerst gelöscht werden",
+      "UpdateConcurrency": "Beim Speichern des veränderten Datensatzes ist ein Fehler aufgetreten !",
+      "UpdateConcurrency409": "Der gewählte Datensatz wurde in der Zwischenzeit von einer anderen Person geändert oder gelöscht. Aktualisieren sie die Daten zuerst, um Ihre Änderungen zu speichern.",
+      "InsertFail":"Das Einfügen eines Datensatzes ist nicht erlaubt !",
+      "Rights":"Insufficient rights.",
+      "Group":"Zu gruppierende Spalten in diesen Bereich ziehen"
+    },
+    "Button": {
+      "Yes": "Ja",
+      "No": "Nein",
+      "Discard": "Discard",
+      "Abbrechen": "Abbrechen"
+    },
+    "Title": {
+      "String_1": " > Monatliche Versicherungsleistungen vom ",
+      "String_2": " bis "
+    }
+  }
+}

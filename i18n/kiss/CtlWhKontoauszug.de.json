@@ -1,0 +1,55 @@
+{
+    "CtlWhKontoauszug": {
+        "Container": {
+            "PageTitle": "Kontoauszug",
+            "KontoauszugDrucken": "Kontoauszug drucken"
+        },
+        "Search": {
+            "HeaderTitle": "Suche",
+            "Klient": "Klient/in",
+            "Ganze": "Ganze UE",
+            "Zeitraum": "Zeitraum",
+            "DatumVon": "Datum von",
+            "DatumBis": "bis",
+            "BetrageVer": "Beträge an Verwendungsperiode anpassen",
+            "Verdichtet": "verdichtet",
+            "SalAusKiss": "Saldovortrag aus KiSS",
+            "SalAusFremdsystem": "Saldovortrag aus Fremdsystem",
+            "Kostenarten": "Kostenarten",
+            "Verfuegbar": "Verfügbare Kostenart",
+            "Zugeteilt": "Zugeteilte Kostenart",
+            "DatumVonLessThanDatumBis": "Das 'von-Datum' muss kleiner sein als das 'bis-Datum'"
+        },
+        "List": {
+            "BelegDatum": "Beleg-Datum",
+            "BelegNr": "Beleg-Nr.",
+            "Klient": "Klient/in",
+            "LAText" : "KoA",
+            "Buchungstext": "Buchungstext",
+            "VerwPeriodeVon": "Verw. P. von",
+            "VerwPeriodeBis": "Verw. P. bis",
+            "Ausgabe": "Auszahlung",
+            "Einnahme": "Einnahme",
+            "Saldo": "Saldo",
+            "KbBuchungStatusCode": "Sta.",
+            "Doc": "Dok"
+        },
+        "Detail": {
+            "Verwendungsp": "Verwendungsp.",
+            "Betrag": "Betrag 100%",
+            "Splitting": "Splitting",
+            "Valuta": "Valuta",
+            "Auszahlart": "Auszahlart",
+            "Kreditor": "Kreditor",
+            "Debitor": "Debitor"
+        },
+        "Dokumente": {
+            "TitleHeader": "Dokumente",
+            "EditBtn": "Bearbeiten",
+            "Typ": "Typ",
+            "Stichwort": "Stichwort",
+            "Erstellungsdatum": "Erstellungsdatum",
+            "LetzteSpeicherung": "Letzte Speicherung"
+        }
+    }
+}

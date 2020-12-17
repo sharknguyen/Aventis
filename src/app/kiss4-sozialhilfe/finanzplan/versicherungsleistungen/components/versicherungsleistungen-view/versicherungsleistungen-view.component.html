@@ -1,0 +1,43 @@
+<div class="container-detail form-content-details view-height" id="i005_einkommen_form" *ngIf="_dataForm">
+  <div class="toolbar-header">
+    <kiss-card-title id="I005_detail_header" [titleHeader]="'CtlBfsFragenkatalog.Detail' | translate" [listBtn]="listBtn"
+      [isCard]="true" (onCustomizeBtnFn)="toolBarOnItemClick($event)" [customizeBtn]="customizeBtn">
+    </kiss-card-title>
+  </div>
+  <dx-form *ngIf="_dataForm" [showColonAfterLabel]="false" class="container-detail__form">
+    <dxi-item itemType="group" [dataField]="" [colSpan]="8">
+      <dxi-item [dataField]="'Versicherungsleistungen.Form.Person' | translate" template="person">
+        <dxo-label [text]="'Versicherungsleistungen.Form.Person' | translate"></dxo-label>
+      </dxi-item>
+      <dxi-item [dataField]="'Versicherungsleistungen.Form.ArtDerVersicherung' | translate" template="artDerVersicherung">
+        <dxo-label [text]="'Versicherungsleistungen.Form.ArtDerVersicherung' | translate"></dxo-label>
+      </dxi-item>
+      <dxi-item [dataField]="'Versicherungsleistungen.Form.MonatlichesEinkommen' | translate" template="monatlichesEinkommen">
+        <dxo-label [text]="'Versicherungsleistungen.Form.MonatlichesEinkommen' | translate"></dxo-label>
+      </dxi-item>
+      <dxi-item [dataField]="' '" template="einkommenWirdTemp" editorType="dxCheckBox">
+        <dxo-label [text]="' '"></dxo-label>
+      </dxi-item>
+    </dxi-item>
+    <dxi-item itemType="group" [dataField]="" [colSpan]="12">
+      <dxi-item [dataField]="'Versicherungsleistungen.Form.Beschreibung' | translate" template="beschreibung">
+        <dxo-label [text]="'Versicherungsleistungen.Form.Beschreibung' | translate"></dxo-label>
+      </dxi-item>
+    </dxi-item>
+    <div *dxTemplate="let data of 'person'" class="item-height item-padding">
+      <span> {{ _dataForm.NameVorname }} &nbsp; </span>
+    </div>
+    <div *dxTemplate="let data of 'artDerVersicherung'" class="item-height item-padding">
+      <span> {{ _dataForm.Buchungstext }} &nbsp; </span>
+    </div>
+    <div *dxTemplate="let data of 'monatlichesEinkommen'" class="item-height item-padding">
+      <span>{{ _betrag }} &nbsp; </span>
+    </div>
+    <div *dxTemplate="let data of 'einkommenWirdTemp'" class="item-height">
+      <dx-check-box [(value)]="_dataForm.VerwaltungSD" readOnly="true" [text]="'Versicherungsleistungen.Form.EinkommenWird' | translate"></dx-check-box>
+    </div>
+    <div *dxTemplate="let data of 'beschreibung'" class="item-height beschreibung-padding">
+      <div class="detailBeschreibungArea"><span class="textarea-pre-wrap">{{_dataForm.Bemerkung}}</span></div>
+    </div>
+  </dx-form>
+</div>

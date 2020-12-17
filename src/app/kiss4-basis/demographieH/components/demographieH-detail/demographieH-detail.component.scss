@@ -1,0 +1,11 @@
+@import 'settings/variables.scss';
+.c018_demografie_fiktiv, .c018_demografie_testperson{
+    margin-top: 7px;
+    margin-bottom: 4px;
+}
+.c018_demografie-margin-checkbox {
+    margin-right: 141px;
+}
+.c018_demografie-margin {
+    margin-right: $checkbox-margin-right;
+}

@@ -1,0 +1,30 @@
+@import 'settings/variables.scss';
+.buttonConfirm {
+    margin-top: $margin-top-5;
+    float: $float-right;
+}
+
+.i025-text-box.dx-state-disabled.dx-widget {
+    opacity: 0.95;
+}
+
+.button-background {
+    background-color: $color-base;
+    color: white;
+}
+
+.content-center {
+    text-align: $popup-confirm-text-align;
+}
+
+.custom-title {
+    padding: $padding-10;
+}
+
+.gridContainer { 
+    max-height: 378px;
+}
+
+.gridBottom { 
+    max-height: 375px;
+}

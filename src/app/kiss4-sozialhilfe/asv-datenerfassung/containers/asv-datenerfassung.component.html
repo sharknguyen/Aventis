@@ -1,0 +1,41 @@
+<kiss-right-component>
+    <app-navigator id="d002_fa-aktennotiz" [titleHeader]="pageTitle" [listBtn]="listBtn" (onCustomizeBtnFn)="toolBarOnItemClickTopGrd($event)"
+      (dblclick)="onCopyTitle()"></app-navigator>
+    <div class="container">
+      <div class="container__right-content">
+        <app-remaining-message #remainingMessage></app-remaining-message>
+        <app-asv-datenerfassung-grid #gridAsvDatenerfassung
+        [keyExpr] = "keyExpr"
+        [asvDatenerfassungData] = "asvDatenerfassungData"
+        [isViewMode] = "isViewMode" >
+        </app-asv-datenerfassung-grid>
+
+        <app-asv-datenerfassung-detail-view #viewComponent *ngIf="isViewMode"
+        [asvDetailData]="asvDetailData"
+        (btnAddClick)="actionNew_OnClick()"
+        (btnEditClick)="actionEdit_OnClick()"
+        (btnDeleteClick)="onDelete($event)"
+        >
+        </app-asv-datenerfassung-detail-view>
+
+        <app-asv-datenerfassung-detail-edit #editComponent  *ngIf="!isViewMode"
+        [asvDetailData]="asvDetailData"
+        [asvComboboxData] = "asvComboboxData"
+        [isAddNew] = "isAddNew"
+        [keyAction] = "keyAction"
+        (btnSaveClick)="actionSave_OnClick()"
+        (btnCancelClick)="actionCancel_OnClick()" 
+        (btnDeleteClick)="onDelete($event)"
+        (btnCopyClick) = "actionCopy_OnClick()">
+        </app-asv-datenerfassung-detail-edit>
+        <app-popup-confirm [popUpModel]="popUpConfirmModel"></app-popup-confirm>
+      </div>
+    </div>
+  </kiss-right-component>
+  <kiss-printer #printer></kiss-printer>
+  <app-can-deactivate #canDeactivate></app-can-deactivate>
+  <app-popup-concurrency-detail
+  [visible]='conPopupVisible'
+  (yes)="onConYes()"
+  (no)="onConNo()">
+</app-popup-concurrency-detail>

@@ -1,0 +1,90 @@
+{
+	"ServerError401": "Der Zugriff ist nicht erlaubt. Bitte einloggen.",
+  "ServerError403": "Der Zugriff ist nicht erlaubt. Bitte geben Sie die korrekten Informationen ein.",
+  "ServerError404": "Es ist ein Fehler aufgetreten. Bitte kontaktieren Sie Ihren Administrator.",
+  "ServerError500": "Es ist ein Fehler aufgetreten. Bitte kontaktieren Sie Ihren Administrator.",
+  "ServerError502": "502 Schlechter Gateway-Fehler. Bitte kontaktieren Sie Ihren Administrator.",
+  "SuccessNotificationTitle": "erfolgreich",
+  "ErrorNotificationTitle": "Fehler",
+  "InfoNotificationTitle": "Info",
+  "WarningNotificationTitle": "Warnung",
+  "SaveBtn": "Speichern",
+  "EditBtn": "Bearbeiten",
+  "CancelBtn": "Stornieren",
+  "BackBtn": "Nazad",
+  "GridEmptyLabel": "Keine Ergebnisse verfügbar",
+
+  "ConfirmDialog": {
+    "Title": "Bitte bestätigen",
+    "Content": "Möchten Sie das Formular schließen, ohne Änderungen zu speichern?",
+    "SubmitBtn": "Die",
+    "CancelBtn": "Nicht"
+  },
+
+  "Printer": {
+    "HeaderLeftDefault": "Ausdruck der Tabelle",
+    "FooterLeftDefault": "Druckdatum",
+    "FooterCenterDefault": "Aventis"
+  },
+
+  "SelectedActions": {
+    "TitleComfirm": "Bestätigung!",
+    "Message": "Sie haben Daten geändert. Möchten Sie das Formular schließen und die Änderungen verwerfen?",
+    "Cancel": "Abbrechen",
+    "Ok": "Discard"
+  },
+
+  "AdditionalButtons": {
+    "Print": "Grid Drucken",
+    "Export": "Excel Export",
+    "ColumnChooser": "Spaltenauswahl"
+  },
+
+  "CanDeactive": {
+    "Yes": "Discard",
+    "No": "Abbrechen",
+    "Title": "Bestätigung",
+    "Message": "Sie haben Daten geändert. Möchten Sie das Formular schließen und die Änderungen verwerfen ?"
+  },
+
+  "Concurrency": {
+    "Title": "Bestätigung",
+    "Message": "Der gewählte Datensatz wurde in der Zwischenzeit von einer anderen Person geändert oder gelöscht.\n Aktualisieren sie die Daten zuerst, um Ihre Änderungen zu speichern.",
+    "ButtonYes": "Abbrechen",
+    "ButtonNo": "Daten aktualisieren"
+  },
+
+  "SeachForm": {
+    "SearchBtnText": "Ausführen"
+  },
+
+  "DataGrid": {
+    "NoDataText": "Keine Daten",
+    "ColumnChooser": {
+      "Title": "Benutzerdefiniert"
+    },
+    "FilterBuilder": {
+        "FilterBuilderButton": "Filter Anwenden"
+    },
+    "GroupPanel": {
+      "EmptyPanelText": "Zu gruppierende Spalten in diesen Bereich ziehen"
+    },
+    "ColumnGrouping": {
+      "HideColumn": "Spalte ausblenden",
+      "ExpandCloumnGrouping": "Alles Gruppen erweitern",
+      "UnExpandCloumnGrouping": "Alles Gruppen reduzieren"
+    },
+    "FilterRow": {
+      "All": "Alle"
+    },
+    "FilterHeader": {
+      "Blanks": "(Leerwerte)"
+    }
+  },
+  "HttpStatusMessage":{
+    "Forbidden":"Insufficient rights."
+  },
+  "DateBox": {
+    "DateOutOfRange": "Der Wert ist nicht im gültigen Bereich"
+  }
+}

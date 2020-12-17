@@ -1,0 +1,60 @@
+{
+    "Inkassofall": {
+        "Title": "Rechtliche Massnahmen [it]",
+        "eroffnetAm": "Eröffnet am [it]",
+        "eroffnetGrund": "Grund [it]",
+        "typ": "Typ [it]",
+        "anzeigeTyp": "Anzeigetyp [it]",
+        "abgeschlossenAm": "Abgeschlossen am [it]",
+        "abgeschlossenGrund": "Grund [it]",
+        "bemerkung": "Bemerkung [it]",
+        "ApplyFilter": "Filter anwenden [it]",
+        "emptyPanelText": "Zu gruppierende Spalten in diesen Bereich ziehen [it]",
+        "Detail": "Detail [it]",
+        "Validation": {
+            "NoDataGrid": "Keine Daten [it]",
+            "AnzeigeTyp": "Bitte wählen Sie einen Anzeigetyp aus. [it]",
+            "EroffnetAm": "Bitte geben Sie das Eröffnungsdatum ein. [it]",
+            "Bemerkung": "Der Inhalt eines Feldes überschreitet die maximal zugelassene Länge.\nBitte kürzen Sie zuerst den Inhalt und versuchen Sie anschliessend nochmals zu speichern. [it]",
+            "AbgeschlossenAm": "Das Abschlussdatum kann nicht vor dem Eröffnungsdatum liegen. [it]"
+        },
+        "Placeholder": "Select... [it]",
+        "PlaceholderSearch": "Suchen... [it]",
+        "ColumnChooser": {
+            "Title": "Benutzerdefiniert [it]",
+            "EmptyPanelText": "Keine Daten [it]"
+        },
+        "Message": {
+            "MessageDelete": "Soll der Datensatz gelöscht werden ? [it]",
+            "MessageDeleteNew": "Neuen Datensatz wieder löschen ? [it]",
+            "MessageConfirmCancel": "Fenster trotz der nicht gespeicherten Daten schliessen ? [it]",
+            "MessageError": "Nicht alle Mussfelder sind ausgefüllt [it]",
+            "MessageErrorValidate": "Ungültige Daten. Bitte geben Sie gültige Eingabewerte ein. [it]",
+            "Yes": "Ja [it]",
+            "No": "Nein [it]",
+            "Title": "Bestätigung [it]",
+            "DirtyAddMessage": "Neuen Datensatz wieder löschen ? [it]",
+            "DirtyUpdateMessage": "Änderungen an diesem Datensatz rückgängig machen ? [it]",
+            "Confirmation": "Confirmation [it]",
+            "Abbrechen": "Abbrechen [it]",
+            "Daten-aktualisieren": "Daten aktualisieren [it]",
+            "MessageCandiavtive": "Sie haben Daten geändert. Möchten Sie das Formular schließen und die Änderungen verwerfen ? [it]",
+            "Discard": "Discard [it]",
+            "MessageConcurrencyUpdate": "Beim Speichern des veränderten Datensatzes ist ein Fehler aufgetreten ! [it]",
+            "MessageConcurrencyDelete": "Beim Löschen des Datensatzes ist ein Fehler aufgetreten ! [it]",
+            "EditNumberOverLengthMessage": "Ungültiger Wert. [it]",
+            "NameOverLength": "Der Inhalt eines Feldes überschreitet die maximal zugelassene Länge.\nBitte kürzen Sie zuerst den Inhalt und versuchen Sie anschliessend nochmals zu speichern. [it]",
+            "DoubleClickMessage": "Die Angaben wurden in den Zwischenspeicher kopiert. [it]",
+            "ShiftClickMessage": "Die ID wurde in den Zwischenspeicher kopiert [it]",
+            "Information": "Information [it]",
+            "ValueOutOfRange": "Der Wert ist nicht im gültigen Bereich [it]"
+        },
+        "Button": {
+            "New": "Neue rechtliche Massnahme [it]",
+            "Edit": "Bearbeiten [it]",
+            "Save": "Speichern [it]",
+            "Abort": "Abbrechen [it]",
+            "Delete": "Löschen [it]"
+        }
+    }
+}

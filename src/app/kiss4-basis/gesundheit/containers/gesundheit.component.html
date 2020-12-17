@@ -1,0 +1,17 @@
+<kiss-right-component>
+    <app-navigator
+        [customizeBtn]="customizeBtn"
+        (onCustomizeBtnFn)="toolBarOnItemClick($event)"
+    ></app-navigator>
+
+    <div class="container">
+        <div class="container__right-content">
+            <app-remaining-message #remainingMessage></app-remaining-message>
+
+            <kiss-gesundheit-view *ngIf="isViewMode"></kiss-gesundheit-view>
+
+            <kiss-gesundheit-edit *ngIf="!isViewMode"></kiss-gesundheit-edit>
+
+        </div>
+    </div>
+</kiss-right-component>

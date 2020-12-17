@@ -1,0 +1,72 @@
+<div class="container-detail form-content-details">
+  <div class="toolbar-header" (click)="changeCollapseFormContent($event)">
+    <kiss-card-title id="o006_detail_header" [titleHeader]="'AsvDatenerfassung.TitleDetail' | translate" [customizeBtn]="customizeBtn"
+      [isCard]="true" (onCustomizeBtnFn)="toolBarOnItemClick($event)">
+    </kiss-card-title>
+  </div>
+  <div class="container-detail__form" [ngClass]="{'container__hide': !isExpand}">
+    <dx-validation-group #validationGroupDetails>
+      <dx-form id="ASV-CreateEditForm" colCount="auto" labelLocation="left" [showColonAfterLabel]="false">
+        <dxi-item itemType="group" cssClass="second-group" [colCount]="8">
+          <dxi-item [template]="'dateBoxDatumTemplate'" [colSpan]="1"></dxi-item>
+          <dxi-item [dataField]="'AsvDatenerfassung.DataDetail.Bis' | translate" [template]="'dateBoxDatumBisTemplate'"
+            [colSpan]="1"></dxi-item>
+
+          <dxi-item itemType="empty" cssClass="second-group" [colSpan]="6">
+          </dxi-item>
+          <dxi-item [template]="'selectBoxTemplate'" [colSpan]="3"></dxi-item>
+          <dxi-item [template]="'checkBoxTemplate'" [colSpan]="2"></dxi-item>
+          <dxi-item itemType="empty" cssClass="second-group" [colSpan]="3">
+          </dxi-item>
+          <dxi-item [template]="'textAreaInhaltTemplate'" [colSpan]="8">
+          </dxi-item>
+        </dxi-item>
+        <div *dxTemplate="let data of 'dateBoxDatumTemplate'">
+          <dx-date-box #datebox type="date" [displayFormat]="dateFormat" [useMaskBehavior]="true" [(max)]="asvDetailData.DatumBis" (onKeyDown)="onKeyDown($event,'datebox')" [disabled]='asvDetailData.ASVSEintragStatusCode !== objKey.key1 && asvDetailData.ASVSEintragStatusCode !== objKey.key2 && !isAddNew && keyAction !== objKey.copy'
+            [(value)]="asvDetailData.DatumVon" (onValueChanged)="onChangeData($event)" [dateOutOfRangeMessage]="'AsvDatenerfassung.MessageError.ValidateDatumbisGreater' | translate" 
+            >
+            <dx-validator>
+              <dxi-validation-rule type="required" [message]="'AsvDatenerfassung.MessageValidation.DatumVon' | translate">
+              </dxi-validation-rule>
+              <dxi-validation-rule type="custom" [validationCallback]="validationDatumVon" [message]="messageValidationDatumVon">
+              </dxi-validation-rule>
+            </dx-validator>
+          </dx-date-box>
+        </div>
+        <div *dxTemplate="let data of 'dateBoxDatumBisTemplate'">
+          <dx-date-box #datumbis type="date" [displayFormat]="dateFormat" [useMaskBehavior]="true" [(value)]="asvDetailData.DatumBis" [(min)]="asvDetailData.DatumVon" 
+            (onKeyDown)="onKeyDown($event,'datebox')"  (onValueChanged)="onChangeData($event)"
+            [disabled]='asvDetailData.ASVSEintragStatusCode !== objKey.key1 && asvDetailData.ASVSEintragStatusCode !== objKey.key2 && !isAddNew && keyAction !== objKey.copy' [dateOutOfRangeMessage]="'AsvDatenerfassung.MessageError.ValidateDatumbisGreater' | translate"
+            >
+            <dx-validator>
+              <dxi-validation-rule type="custom" [validationCallback]="validationCallback" [message]="messageValidationDatumBis">
+              </dxi-validation-rule>
+            </dx-validator>
+          </dx-date-box>
+        </div>
+        <div *dxTemplate="let data of 'selectBoxTemplate'">
+          <dx-select-box #selectBox [dataSource]="asvComboboxData" displayExpr="NameVorname" valueExpr="BaPersonID"
+            [searchEnabled]="true" (onKeyDown)="onKeyDown($event,'selectbox')"  [(value)]="asvDetailData.BaPersonID" (onValueChanged)="onChangeData($event)"
+            [disabled]='asvDetailData.ASVSEintragStatusCode !== objKey.key1 && asvDetailData.ASVSEintragStatusCode !== objKey.key2 && !isAddNew && keyAction !== objKey.copy'>
+            <dx-validator>
+              <dxi-validation-rule type="required" [message]="'AsvDatenerfassung.MessageValidation.Person' | translate">
+              </dxi-validation-rule>
+            </dx-validator>
+          </dx-select-box>
+        </div>
+        <div *dxTemplate="let data of 'checkBoxTemplate'" class="custom-checkbox">
+          <dx-check-box [readOnly]='false' [(value)]="asvDetailData.Widerrufen" [disabled]='asvDetailData.ASVSEintragStatusCode !== objKey.key3 && asvDetailData.ASVSEintragStatusCode !== objKey.key4' (onValueChanged)="onChangeData($event)">
+          </dx-check-box>
+          <span> &nbsp;&nbsp; {{ 'AsvDatenerfassung.DataDetail.EintragWiderrufen' | translate }}</span>
+        </div>
+        <div *dxTemplate="let data of 'textAreaInhaltTemplate'">
+          <dx-text-area [height]="300" [(value)]="asvDetailData.Bemerkung" (onValueChanged)="onChangeData($event)" [disabled]='asvDetailData.ASVSEintragStatusCode !== objKey.key1 && asvDetailData.ASVSEintragStatusCode !== objKey.key2 && !isAddNew && keyAction !== objKey.copy'>
+            <dx-validator>
+              <dxi-validation-rule type="stringLength" [max]="maxLengthBemerkung" [message]="'AsvDatenerfassung.MessageError.ValidateBemerkung' | translate"></dxi-validation-rule>
+            </dx-validator>
+          </dx-text-area>
+        </div>
+      </dx-form>
+    </dx-validation-group>
+  </div>
+</div>

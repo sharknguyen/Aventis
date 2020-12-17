@@ -1,0 +1,6 @@
+<div id="headerBarID">
+  <app-navigator titleHeader="{{pageTitleTabModule}} {{'Versicherungsleistungen.Title.String_1' | translate}} {{headerData.datumVon | date:[dateFormat]}} {{'Versicherungsleistungen.Title.String_2' | translate}} {{headerData.datumBis | date:[dateFormat]}}" 
+                [listBtn]="listBtn"
+                [customizeBtn]="customizeBtn"
+                (onCustomizeBtnFn)="toolBarOnItemClickTopGrd($event)"></app-navigator>
+</div>

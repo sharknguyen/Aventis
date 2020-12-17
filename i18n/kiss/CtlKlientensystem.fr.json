@@ -1,0 +1,92 @@
+﻿{
+  "Klientensystem": {
+    "Title": " > Klientensystem [fr]",
+    "Toolbar": {
+      "GridDrucken": "Grid drucken [fr]",
+      "ExcelExport": "Excel Export [fr]",
+      "Spaltenauswahl": "Spaltenauswahl [fr]",
+      "Schnellfilterzeile": "Schnellfilterzeile anzeigen/ausblenden [fr]",
+      "Gruppierungsbereich": "Gruppierungsbereich anzeigen/ausblenden [fr]",
+      "Suche": "Suche anzeigen/ausblenden [fr]",
+      "Filtereditor": "Filtereditor anzeigen/ausblenden [fr]",
+      "GridEinstellungen": "Grid Einstellungen [fr]",
+      "Bearbeiten": "Bearbeiten [fr]",
+      "Speichern": "Speichern [fr]",
+      "Abbrechen": "Abbrechen [fr]"
+    },
+    "Message": {
+      "Title": "Confirmation! [fr]",
+      "Information": "Information [fr]",
+      "BemerkungMaxlength": "Beim Speichern des Datensatzes ist ein Fehler aufgetreten ! [fr]",
+      "Add": "Delete new record again ? [fr]",
+      "Edit": "Close windows despite the unsaved data ? [fr]",
+      "Delete": "Should the record be deleted ? [fr]",
+      "NameRequired": "The field 'Profilname' can not be left empty ! [fr]",
+      "ShiftClickMessage": "Die ID wurde in den Zwischenspeicher kopiert  [fr]",
+      "DoubleClickMessage": "Die Angaben wurden in den Zwischenspeicher kopiert. [fr]",
+      "C007_MSG002_1":"Die Person  [fr]",
+      "C007_MSG002_2":" hat keine gültige Wohnsitzadresse. Eine Koppelung der Adressen ist somit nicht möglich. [fr]",
+      "C007_MSG003":"Die Adressen von zwei Klienten können nicht gekoppelt werden! [fr]",
+      "C007_MSG004": "Diese Checkbox ist abhängig von einem aktuellen Finanzplan und kann nicht manuell verändert werden! [fr]",
+      "C007_MSG005_1": "Soll für ",
+      "C007_MSG005_2": " die Adresse ",
+      "C007_MSG005_3": " gesetzt werden? [fr]",
+      "C007_MSG006_1": "Die Adresse kann nicht übernommen werden. Bereinigen Sie bitte zuerst die Adressen von ",
+      "C007_MSG006_2": ". [fr]",
+      "Concurrency":"Der gewählte Datensatz wurde in der Zwischenzeit von einer anderen Person geändert oder gelöscht. Aktualisieren sie die Daten zuerst, um Ihre Änderungen zu speichern. [fr]"
+    },
+    "PopupButton":{
+      "Yes": "Ja [fr]",
+      "No": "Nein [fr]",
+      "Ok": "Ok [fr]",
+      "Language":"de-CH [fr]"
+    },
+    "SectionKlientensystem": {
+      "Falltrager": "Fallträger [fr]",
+      "WohnsitzZivilr": "Wohnsitz(zivilr.) [fr]",
+      "Aufenthaltsort": "Aufenthaltsort [fr]",
+      "Heimatort": "Heimatort [fr]",
+      "Nationalitat": "Nationalität [fr]",
+      "Alter": "Alter [fr]",
+      "Geburtstag": "Geburtstag [fr]",
+      "Geschiecht": "Geschiecht [fr]",
+      "Zivilstand": "Zivilstand [fr]"
+    },
+    "SectionBezugspersonen": {
+      "Bezungspersonen": "Bezugspersonen  [fr]",
+      "Name": "Name  [fr]",
+      "Beziehung": "Beziehung  [fr]",
+      "Alter": "Alter  [fr]",
+      "Unterstutzt": "Unterstützt  [fr]",
+      "Haushalt": "gi. Haushalt  [fr]",
+      "Klientln": "Klientln [fr]",
+      "FilterAnwenden":"Filter anwenden [fr]"
+    },
+    "SectionMietvertrag": {
+      "Mietvertrag": "Mietvertrag [fr]",
+      "Vermieter": "Vermieter [fr]",
+      "Miete": "Miete ab [fr]",
+      "bis": "bis [fr]",
+      "MietkostenNetto": "Mietkosten netto [fr]",
+      "Nebenkosten": "Nebenkosten [fr]",
+      "KostenanteilUE": "Kostenanteil UE [fr]",
+      "Mietdepot": "Mietdepot [fr]",
+      "Mietzinsgarantie": "Mietzinsgarantie [fr]",
+      "GarantieGultigBis": "Garantie gültig bis [fr]",
+      "MieteAbgetreten": "Miete abgetreten [fr]",
+      "Bemerkung": "Bemerkung [fr]",
+      "Auswahlen":"Auswählen... [fr]",
+      "NoDataText":"Keine zutreffenden Institutionen gefunden [fr]"
+    },
+    "SearchSuche": "Suche... [fr]",
+    "Discard": "Discard [fr]",
+    "Abbrechen": "Abbrechen [fr]",
+    "Bestatigung": "Bestätigung [fr]",
+    "MessageBestatigung": "Sie haben Daten geändert. Möchten Sie das Formular schließen und die Änderungen verwerfen ? [fr]",
+    "Benutzerdefiniert":"Benutzerdefiniert [fr]",
+    "MessageValidation" : "Ungültige Daten. Bitte geben Sie gültige Eingabewerte ein [fr]",
+    "AllesErweitern": "Alles erweitern [fr]",
+    "AllesReduzieren": "Alles reduzieren [fr]",
+    "SpalteAusblenden": "Spalte ausblenden [fr]"
+  }
+}

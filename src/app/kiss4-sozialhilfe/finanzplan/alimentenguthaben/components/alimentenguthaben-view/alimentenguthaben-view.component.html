@@ -1,0 +1,53 @@
+<div class="container-detail form-content-details" id="i004_detail_view">
+    <div class="toolbar-header">
+        <kiss-card-title id="i004_detail_header" [titleHeader]="'CtlBfsFragenkatalog.Detail' | translate" [isCard]="true"
+            (onCustomizeBtnFn)="toolBarOnItemClick($event)" [customizeBtn]="customizeBtn">
+        </kiss-card-title>
+    </div>
+
+    <div class="container-detail__form" *ngIf="showTitleDetail">
+        <dx-form id="i004_form_view" [showColonAfterLabel]="false" [screenByWidth]="screenByWidthSize">
+            <dxi-item itemType="group" [colCount]="12">
+                <dxi-item itemType="group" [colSpan]="8">
+                    <dxi-item [template]="'personTemplate'">
+                        <dxo-label [text]="'Aliment.Detail.Person' | translate"></dxo-label>
+                    </dxi-item>
+                    <dxi-item [template]="'inkassoTemplate'">
+                        <dxo-label [text]="'Aliment.Detail.Inkasso' | translate"></dxo-label>
+                    </dxi-item>
+                    <dxi-item [template]="'inkassoBeschreibungTemplate'">
+                        <dxo-label text=" "></dxo-label>
+                    </dxi-item>
+                    <dxi-item [template]="'monatlichesTemplate'">
+                        <dxo-label [text]="'Aliment.Detail.Monatliches' | translate"></dxo-label>
+                    </dxi-item>
+                </dxi-item>
+
+            </dxi-item>
+            <dxi-item itemType="group" [colCount]="12">
+                <dxi-item itemType="group" [colSpan]="12">
+                    <dxi-item [template]="'beschreibungTemplate'">
+                        <dxo-label [text]="'Aliment.Detail.Beschreibung' | translate"></dxo-label>
+                    </dxi-item>
+                </dxi-item>
+            </dxi-item>
+
+            <div *dxTemplate="let data of 'personTemplate'">
+                <span>{{dataSource.NameVorname}}</span>
+            </div>
+            <div *dxTemplate="let data of 'inkassoTemplate'">
+                <span>{{ dataSource.Buchungstext }}</span>
+            </div>
+            <div *dxTemplate="let data of 'inkassoBeschreibungTemplate'">
+                <span>{{dataSource?.HilfeText}} &nbsp;</span>
+            </div>
+            <div *dxTemplate="let data of 'monatlichesTemplate'">
+                <span>{{dataSource.Betrag | number : '1.2-2' : translateService.currentLang + '-CH' }}</span>
+            </div>
+            <div *dxTemplate="let data of 'beschreibungTemplate'">
+                <span class="textarea-pre-wrap">{{dataSource.Bemerkung}}</span>
+            </div>
+        </dx-form>
+    </div>
+
+</div>

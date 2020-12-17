@@ -1,0 +1,90 @@
+<div id="popupLandesindexWertErfassen">
+  <dx-popup #indexwerteErfassen class="popup" id="j002_indexwerte-erfassen" [title]="'J002LandesindexWertErfassen.TitlePopup' | translate"
+    [(visible)]="popupLandesindexWertErfassen.popupVisibleLandesindexWertErfassen" [dragEnabled]="false"
+    [closeOnOutsideClick]="false" [width]="700" [height]="'auto'" (onHidden)="onHiddenPopupLandesindexWertErfassen()"
+    (onShown)="onShownWertErfassen()" titleTemplate="title" [elementAttr]="{ class: 'kw-popup--scroll' }" (onShowing)="onShowing($event)" (onHidden)="onHidden($event)">
+    <div *dxTemplate="let data of 'title'">
+      <div class="dx-toolbar dx-widget dx-visibility-change-handler dx-collection banner-title" role="toolbar">
+        <div class="dx-toolbar-items-container">
+          <div class="dx-toolbar-before">
+            <div class="dx-item dx-toolbar-item dx-toolbar-label title-length">
+              <div class="dx-item-content dx-toolbar-item-content">
+                <div>{{ 'J003NeuerLandesindex.TitlePopUp' | translate}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="dx-toolbar-after">
+            <div class="dx-item dx-toolbar-item dx-toolbar-button">
+              <div class="dx-item-content dx-toolbar-item-content">
+                <div class="dx-closebutton dx-button dx-button-normal dx-button-mode-contained dx-widget dx-button-has-icon"
+                  role="button" aria-label="close" tabindex="0" title="Close" (click)="onClickAbbrechenLandesindexWertErfassen()">
+                  <div class="dx-button-content"><i class="dx-icon dx-icon-close"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *dxTemplate="let data of 'content'">
+      <app-remaining-message #remainingMessageJ002></app-remaining-message>
+      <dx-validation-group #validationGroup>
+        <div id="form-container">
+          <div class="dx-field dbx-dbxBottom">
+            <div class="dx-field-label">{{ 'J002LandesindexWertErfassen.DateBoxText' | translate }}</div>
+            <div class="dx-field-value width-value">
+              <dx-date-box id="j002_indexwerte-erfassen_monat-jahr" #dateBoxWertErfassen type="date" pickerType="calendar"
+                [(value)]="valueDateBoxLandesindexWertErfassen" displayFormat="MMMM yyyy" (onFocusIn)="onFocusInLandesindexWertErfassen()"
+                (onContentReady)="$event.component.option('calendarOptions.firstDayOfWeek', 1 )" [min]="minDate" [max]="maxDate"
+                (onKeyDown)="onKeyDown($event)" (onClosed)="onClosed()" (onOpened)="onOpened()">
+                <dx-validator>
+                </dx-validator>
+              </dx-date-box>
+            </div>
+          </div>
+          <div class="grid-table-view">
+            <div id="viewgrid">
+              <dx-data-grid #gridLandesindexWertErfassen id="j002_indexwerte-erfassen_data-grid" [height]="400"
+                [dataSource]="ikLandesindexs" [allowColumnReordering]="true" [showBorders]="true" [showColumnLines]="true"
+                [showRowLines]="true" (onEditorPreparing)="onEditorPreparing($event)" keyExpr="IkLandesindexID"
+                [hoverStateEnabled]="true" (onCellClick)="onCellClickGridLandesindexWertErfassen($event)"
+                (onRowUpdated)="onUpdatedLandesindexWertErfassen($event)" (onToolbarPreparing)="toolbarPreparing($event)"
+                (onKeyDown)="onKeyDownLandesindexWert($event)" [selectedRowKeys]="selectedLandesindexWertErfassenKeys"
+                (onRowValidating)="onRowValidating($event)" [allowColumnResizing]="true">
+                <dxo-selection mode="single"></dxo-selection>
+                <dxo-filter-row [visible]="true" applyFilter="Immediately"></dxo-filter-row>
+                <dxo-header-filter [visible]="true"></dxo-header-filter>
+                <dxo-scrolling mode="virtual"></dxo-scrolling>
+                <dxo-editing mode="batch" [allowUpdating]="true">
+                </dxo-editing>
+                <dxo-paging [enabled]="false"></dxo-paging>
+                <dxo-paging [pageSize]="99999"></dxo-paging>
+                <dxi-column [allowFiltering]="false" [allowHiding]="false" caption="" alignment="center" width="20"
+                  cellTemplate="cellTemplateWertErfasse" [allowReordering]="false" [allowResizing]="false"></dxi-column>
+                <div *dxTemplate="let data of 'cellTemplateWertErfasse'">
+                  <i *ngIf="data.data.IkLandesindexID == rowSelectedWertPopup && !isEditModel" class="fa fa-caret-right"></i>
+                  <i *ngIf="data.data.IkLandesindexID == rowSelectedWertPopup && isEditModel" class="fa fa-pencil"></i>
+                </div>
+                <dxi-column dataField="Name" [caption]="'J002LandesindexWertErfassen.ColumnIndexNameText' | translate"
+                  [width]="250" [allowEditing]="false" [minWidth]="50"></dxi-column>
+                <dxi-column dataField="Value" dataType="number" [caption]="'J002LandesindexWertErfassen.ColumnWertText' | translate"
+                  [allowFiltering]="false" [allowGrouping]="false" [minWidth]="50">
+                  <dxo-format type="fixedPoint" [precision]="2"></dxo-format>
+                  <dxi-validation-rule type="range" [max]="maxLengthInput" [min]="minLengthInput" [message]="'J002LandesindexWertErfassen.MessageMaxLength' | translate"></dxi-validation-rule>
+                </dxi-column>
+              </dx-data-grid>
+            </div>
+          </div>
+          <div class="dx-field" class="btn-btnGroupBottom">
+            <dx-button class="j002_indexwerte-erfassen_abbrechen" [text]="'J002LandesindexWertErfassen.ButtonAbbrechenText' | translate"
+              type="submit" (onClick)="onClickAbbrechenLandesindexWertErfassen()" (focus)="onFocusInLandesindexWertErfassen()">
+            </dx-button>
+            <dx-button class="j002_indexwerte-erfassen_speichern" #buttonSpeichernLandesindexWertErfassen [text]="'J002LandesindexWertErfassen.ButtonSpeichernText' | translate"
+              type="submit" (onClick)="onClickSpeichernLandesindexWertErfassen()" (focus)="onFocusInLandesindexWertErfassen()">
+            </dx-button>
+          </div>
+        </div>
+      </dx-validation-group>
+    </div>
+  </dx-popup>
+</div>

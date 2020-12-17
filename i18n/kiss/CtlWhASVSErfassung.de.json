@@ -1,0 +1,78 @@
+{
+    "AsvDatenerfassung": {
+        "Title": "ASV-Datenerfassung",
+        "TitleDetail": "Detail",
+        "EmptyPanelText": "Zu gruppierende Spalten in diesen Bereich ziehen",
+        "GridTop": {
+            "Person": "Person",
+            "Datumvon": "Datum Von",
+            "Datumbis": "Datum Bis",
+            "Ubertragungsdatum": "Übertragungsdatum",
+            "Widerrufen": "Widerrufen",
+            "WiderrufUbertragen": "Widerruf übertragen",
+            "ColumnChooser": "Benutzerdefiniert",
+            "ExportExcel": "Excel Export",
+            "GridPrint": "Grid drucken",
+            "Search": "Schnellfilterzeile anzeigen/ausblenden",
+            "Grouping": "Gruppierungsbereich anzeigen/ausblenden",
+            "SearchPanel": "Suche anzeigen/ausblenden",
+            "FilterBuilder": "Filtereditor anzeigen/ausblenden",
+            "GridSetting": "Grid Einstellungen"
+        },
+        "Button": {
+            "EintragKopieren": "Eintrag kopieren",
+            "Speichern": "Speichern",
+            "NeueASVDatenerfassung": "Neue ASV-Datenerfassung",
+            "Bearbeiten": "Bearbeiten",
+            "Cancel": "Abbrechen",
+            "Delete": "Löschen"
+        },
+        "MessageError": {
+            "UpdateError": "Update Error",
+            "Validate": "Ungültige Daten. Bitte geben Sie gültige Eingabewerte ein.",
+            "ValidateDatumbisGreater": "Datum bis darf nicht vor Datum von sein",
+            "ValidateDatumbisLastDayOfMonth": "Abmeldung ist nur am letzten Tag des Monats möglich.",
+            "ValidateDatumvonFirstDayOfMonth": "Anmeldung ist nur am ersten Tag des Monats möglich.",
+            "ValidateBemerkung": "Der Inhalt eines Feldes überschreitet die maximal zugelassene Länge. Bitte kürzen Sie zuerst den Inhalt und versuchen Sie anschliessend nochmals zu speichern.",
+            "MSG_01": "Das Feld 'Datum Von' muss ausgefüllt sein",
+            "MSG_02": "Anmeldung ist nur am ersten Tag des Monats möglich.",
+            "MSG_03": "Die Person muss ausgewählt werden.",
+            "MSG_04": "Abmeldung ist nur am letzten Tag des Monats möglich.",
+            "MSG_05": "Für die Person ist keine Adresse hinterlegt.",
+            "MSG_06": "Datum bis darf nicht vor Datum von sein",
+            "MSG_10": "Für die Person ist keine Versichertennummer hinterlegt.",
+            "MSG_12": "Das Anmeldedatum kann nicht vor dem Eröffnungsdatum des ersten Finanzplans liegen.",
+            "MSG_18": "Das Anmeldedatum darf, bezogen auf den 1. des Monats, maximal 2 Monate früher als die Sozialhilfe sein.",
+            "DateOutOfRange": "Der Wert ist nicht im gültigen Bereich",
+            "MSG_09": "Der Eintrag kann nicht gelöscht werden, da er bereits exportiert wurde."
+        },
+        "NavigatorPopupConfirm": {
+            "Yes": "Discard",
+            "No": "Abbrechen",
+            "Title": "Bestätigung",
+            "Message": "Sie haben Daten geändert. Möchten Sie das Formular schließen und die Änderungen verwerfen ?"
+        },
+        "DataDetail": {
+            "Bis": " bis",
+            "EintragWiderrufen": "Eintrag widerrufen"
+        },
+        "MessageValidation": {
+            "DatumVon": "Das Feld 'Datum Von' muss ausgefüllt sein",
+            "Person": "Die Person muss ausgewählt werden."
+        },
+        "PopupConfirm": {
+            "Yes": "Ja",
+            "No": "Nein",
+            "Title": "Bestätigung",
+            "Message": "Änderungen an diesem Datensatz rückgängig machen ?",
+            "MessageDeleteRow": "Soll der Datensatz gelöscht werden ?",
+            "MessageDeleteNewRow": "Neuen Datensatz wieder löschen ?"
+        },
+        "Message": {
+            "ConcurrencyMsg404_DELETE_UPDATE": "Beim Speichern des veränderten Datensatzes ist ein Fehler aufgetreten !",
+            "ConcurrencyMsg409": "Der gewählte Datensatz wurde in der Zwischenzeit von einer anderen Person geändert oder gelöscht.\r\nAktualisieren sie die Daten zuerst, um Ihre Änderungen zu speichern.",
+            "ConcurrencyMsg404_DELETE_DELETE": "Beim Löschen des Datensatzes ist ein Fehler aufgetreten !"
+        }
+        
+    }
+}

@@ -1,0 +1,96 @@
+﻿<!-- Search content ------------------------------------------------------------------------------------------------------------------>
+<div class="container-search single-container">
+  <div class="toolbar-header" (click)="onCollapseSearchContainer($event)">
+    <kiss-card-title [titleHeader]="'FaAktennotizDetails.TitleSearch' | translate" [customizeBtn]="customizeBtn"
+      [isCard]="true" (onCustomizeBtnFn)="toolBarOnItemClick($event)">
+    </kiss-card-title>
+  </div>
+  <div *ngIf="isExpand" class="container-search__form">
+    <dx-validation-group #validationGroupSearch>
+      <dx-form id="faAktennotiz-Search" #faAktennotizSearchForm colCount="auto" labelLocation="left"
+        [showColonAfterLabel]="false" [disabled]="isDisable" [screenByWidth]="getSizeQualifier">
+        <dxi-item itemType="group" colCount="2">
+          <dxi-item itemType="group" colSpan="1" width="100%">
+            <!-- /. Start group 1 -------------------------------------------------------->
+            <dxi-item itemType="group" cssClass="second-group" [colCount]="2">
+              <dxi-item [dataField]="'FaAktennotiz.LabelDatumVon' | translate" [template]="'dateBoxFromTemplate'"></dxi-item>
+              <dxi-item [dataField]="'FaAktennotiz.LabelDatumBis' | translate" [template]="'dateBoxToTemplate'"></dxi-item>
+            </dxi-item>
+            <dxi-item [dataField]="'FaAktennotiz.LabelKontaktart' | translate" [template]="'selectBoxKontaktartTemplate'"></dxi-item>
+            <dxi-item [dataField]="'FaAktennotiz.LabelMitarbeiter' | translate" [template]="'dropDownBoxEmbeddedDataGridTemplate'"></dxi-item>
+            <dxi-item [dataField]="'FaAktennotiz.LabelStichworte' | translate" [template]="'textboxStichworteTemplate'"></dxi-item>
+          </dxi-item>
+          <!-- /. End group 1 -------------------------------------------------------------------------------------------------->
+          <dxi-item itemType="group" colSpan="1" width="100%">
+            <dxi-item [template]="'checkBoxTheMenTemplate'">
+              <dxo-label [text]="'FaAktennotiz.LabelTheMen' | translate"></dxo-label>
+            </dxi-item>
+            <dxi-item [template]="'tagBoxTheMenTemplate'">
+              <dxo-label text=" "></dxo-label>
+            </dxi-item>
+            <dxi-item #radio [visible]="isVisibleRadio" [template]="'radioStatusTemplate'">
+              <dxo-label [text]="'FaAktennotiz.LabelStatus' | translate"></dxo-label>
+            </dxi-item>
+          </dxi-item>
+        </dxi-item>
+        <!--/ This is template of search region -------------------------------------------------------------------------------------------------------->
+        <div *dxTemplate="let data of 'dropDownBoxEmbeddedDataGridTemplate'">
+            <kiss-dropdown-grid [disabled]="isDisable" [dataSource]="gridMitarbeiterDataSource" [columnsDef]="columnsDef" displayExpr="name"
+          [noDataText]="'FaAktennotiz.DropDownNoData' | translate" [(value)]="querySearch.sucheSar" valueExpr="userID" [keyExpr]="dropDownKeyExpr">
+          </kiss-dropdown-grid>
+        </div>
+        <div *dxTemplate="let data of 'radioStatusTemplate'">
+          <dx-radio-group [disabled]="isDisable" #status [items]="priorities" [dataSource]="priorities" displayExpr="DisplayName"
+            valueExpr="Name" [(value)]="radioValue" layout="horizontal" (onValueChanged)="onValueRadioChanged($event)"
+            [accessKey]="9" (onFocusIn)="onFocusIn(status,'Status')" (onFocusOut)="onFocusOut($event)" (onKeyDown)="onKeyDown($event)">
+          </dx-radio-group>
+        </div>
+        <div *dxTemplate="let data of 'selectBoxKontaktartTemplate'">
+          <dx-select-box [searchEnabled]="true" [disabled]="isDisable" #kontaktart [dataSource]="kontaktartData"
+            displayExpr="text" valueExpr="code" [(value)]="querySearch.kontaktart" (onValueChanged)="onChangeSelectBox()"
+            valueChangeEvent="focusout" [accessKey]="4" (onFocusIn)="onFocusIn(kontaktart,'Kontaktart')" (onFocusOut)="onFocusOut($event)"
+            (onKeyDown)="onKeyDown($event)"></dx-select-box>
+        </div>
+        <div *dxTemplate="let data of 'tagBoxTheMenTemplate'">
+          <dx-tag-box #tagboxthemen [dataSource]="theMenDataSource" displayExpr="text" valueExpr="code" [disabled]="querySearch.alleThemen||isDisable"
+            [(value)]="tagBoxTheMenValue" (onValueChanged)="onChangeTagBox()" [accessKey]="8" (onFocusIn)="onFocusIn(tagboxthemen,'TagBoxTheMen')"
+            [searchEnabled]="true" [showClearButton]="true" applyValueMode="useButtons" [showSelectionControls]="true"
+            (onFocusOut)="onFocusOut($event)" (onKeyDown)="onKeyDown($event)">
+          </dx-tag-box>
+        </div>
+        <div *dxTemplate="let data of 'checkBoxTheMenTemplate'">
+          <dx-check-box #themen [(value)]="checkBoxTheMenValue" [text]="'FaAktennotiz.TextThemenFilter' | translate"
+            [disabled]="isDisable" (onValueChanged)="onChangeCheckBox()" [accessKey]="7" (focus)="onFocusInCheckBox(themen)"
+            (focusout)="onFocusOutCheckBox()" (onKeyDown)="onKeyDown($event)"></dx-check-box>
+        </div>
+        <div *dxTemplate="let data of 'dateBoxFromTemplate'">
+          <dx-date-box [disabled]="isDisable" #datumvon [(value)]="dateBoxDatumVonValue" type="date" [displayFormat]="dateFormat"
+            (onValueChanged)="onChangeDateBoxFrom()" [accessKey]="2" (onFocusIn)="onFocusIn(datumvon,'Datumvon')"
+            (onFocusOut)="onFocusOut($event)" (onKeyDown)="onKeyDown($event)" [max]="maxDate" [min]="minDate">
+            <dx-validator>
+            </dx-validator>
+          </dx-date-box>
+        </div>
+        <div *dxTemplate="let data of 'dateBoxToTemplate'">
+          <dx-date-box [disabled]="isDisable" #datumbis [(value)]="dateBoxDatumBisValue" type="date" [displayFormat]="dateFormat"
+            (onValueChanged)="onChangeDateBoxTo()" [accessKey]="3" (onFocusIn)="onFocusIn(datumbis,'Datumbis')"
+            (onFocusOut)="onFocusOut($event)" (onKeyDown)="onKeyDown($event)" [max]="maxDate" [min]="minDate">
+            <dx-validator>
+            </dx-validator>
+          </dx-date-box>
+        </div>
+        <div *dxTemplate="let data of 'textboxStichworteTemplate'">
+          <dx-text-box #stichworte [(value)]="querySearch.stichwort" (onValueChanged)="onChangeTextBoxStichwort()"
+            [disabled]="isDisable" [accessKey]="6" (onFocusIn)="onFocusIn(stichworte,'Stichworte')" (onFocusOut)="onFocusOut($event)"
+            (onKeyDown)="onKeyDown($event)">
+            <dx-validator>
+              <dxi-validation-rule type="stringLength" [max]="200" [message]="'FaAktennotiz.Message.MessageValidateMaxLength' | translate"></dxi-validation-rule>
+            </dx-validator>
+          </dx-text-box>
+        </div>
+        <!-- /. search region template for control --------------------------------------------------------------------------------------------->
+      </dx-form>
+    </dx-validation-group>
+  </div>
+</div>
+<!--/. Search content ------------------------------------------------------------------------------------------------------------------------>

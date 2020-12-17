@@ -1,0 +1,48 @@
+﻿<div class="grid-table-view">
+  <div class="grid-margin-top">
+    <div *ngIf="gridFunction.model.isFilterBuilder" class="filter-container">
+      <dx-filter-builder [(value)]="filter" [fields]="gridComponent.instance.option('columns')"> </dx-filter-builder>
+      <dx-button [text]="'DataGrid.FilterBuilder.FilterBuilderButton' | translate" type="default" (onClick)="gridComponent.instance.filter(filter)">
+      </dx-button>
+    </div>
+    <app-grid-function #gridFunction (onchange)="gridFunction.model" [keyStorage]="gridFunctionKey"></app-grid-function>
+    <dx-data-grid #gridComponent [keyExpr]="keyExpr" [(dataSource)]="kassesData" [disabled]="isDisable"
+      [allowColumnResizing]="true" [hoverStateEnabled]="true" [showRowLines]='true' [showBorders]="true" [height]="360"
+      [allowColumnReordering]="true" [customizeExportData]="customizeExportData" [noDataText]="'Kasse.Validation.NoData' | translate"
+      (onContextMenuPreparing)="onContextMenuPreparing($event)"
+      (onContentReady)="onContentReady($event)" [focusedRowEnabled]="true" (onFocusedRowChanged)="onFocusedRowChanged($event)"
+      (onKeyDown)="onKeyDown($event)" width="100%" columnResizingMode="widget">
+      <dxo-selection mode="single"></dxo-selection>
+      <dxo-editing mode="cell"></dxo-editing>
+
+      <dxo-export [fileName]="'Kasse.FileName' | translate" [allowExportSelectedData]="true" [customizeExcelCell]="customizeExcelCell"></dxo-export>
+      <dxo-column-chooser [emptyPanelText]="''" [title]="'DataGrid.ColumnChooser.Title' | translate" [enabled]="false"></dxo-column-chooser>
+      <dxo-header-filter [visible]="gridFunction.model.isFilter"></dxo-header-filter>
+      <dxo-filter-row [visible]="gridFunction.model.isSearch" applyFilter="Immediately"></dxo-filter-row>
+      <dxo-group-panel [visible]="gridFunction.model.isGrouping" [emptyPanelText]="'DataGrid.GroupPanel.EmptyPanelText' | translate"></dxo-group-panel>
+      <dxo-search-panel [visible]="gridFunction.model.isSearchPanel" highlightCaseSensitive="true"></dxo-search-panel>
+      <dxo-grouping [contextMenuEnabled]="true" #verfuegbarGridGrouping [autoExpandAll]="autoExpandAll"></dxo-grouping>
+      <dxo-scrolling mode="virtual"></dxo-scrolling>
+      <dxo-selection mode="single"></dxo-selection>
+      <dxo-paging [enabled]="false"></dxo-paging>
+      <dxo-paging [pageSize]="99999"></dxo-paging>
+
+      <dxi-column dataType="string" width="auto" [minWidth]="50" dataField="BelegNr" [caption]="'Kasse.Grid.BelegNr'|translate"
+        alignment="left" [allowEditing]="false"></dxi-column>
+      <dxi-column dataType="string" width="auto" [minWidth]="50" dataField="Person" [caption]="'Kasse.Grid.Person'|translate"
+        alignment="left" [allowEditing]="false"></dxi-column>
+      <dxi-column width="auto" [minWidth]="50" dataField="Verfalldatum" [caption]="'Kasse.Grid.Verfalldatum' | translate"
+        [format]="dateFormat" dataType="date" alignment="left" [allowEditing]="false"></dxi-column>
+      <dxi-column dataType="string" width="auto" [minWidth]="50" dataField="Text" [caption]="'Kasse.Grid.Buchungstext' | translate"
+        alignment="left" [allowEditing]="false"></dxi-column>
+      <dxi-column dataType="number" width="auto" [minWidth]="50" dataField="BetragGrid" [caption]="'Kasse.Grid.Betrag' | translate"
+        alignment="right" [allowEditing]="false" [format]="formatNumber"></dxi-column>
+      <dxi-column width="auto" [minWidth]="50" dataField="BarbelegDatum" [caption]="'Kasse.Grid.ausged' | translate"
+        alignment="left" [format]="dateFormat" dataType="date" [allowEditing]="false"></dxi-column>
+      <dxi-column width="auto" [minWidth]="50" dataField="StatusText" [caption]="'Kasse.Grid.Status' | translate" alignment="left"
+        [allowEditing]="false">
+      </dxi-column>
+    </dx-data-grid>
+    <kiss-printer #printer></kiss-printer>
+  </div>
+</div>

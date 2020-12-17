@@ -1,0 +1,58 @@
+<kiss-right-component>
+  <app-navigator
+    id="i001_header"
+    (dblclick)="onCopyTitle()"
+    [titleHeader]="titleHeader"
+    [listBtn]="isEmptySozialhilfe ? [] : listBtn"
+    (onCustomizeBtnFn)="toolBarOnItemClick($event)"
+    [customizeBtn]="isEmptySozialhilfe ? [] : customizeBtn"
+    (click)="headerClicked$.next(null)"
+  ></app-navigator>
+  <div class="container" *ngIf="!isEmptySozialhilfe">
+    <div class="container__right-content">
+      <app-remaining-message #remainingMessage></app-remaining-message>
+      <div id="i001_detail">
+        <!-- Form view -->
+        <kiss-whleistung-detail-view
+          *ngIf="isReadOnly"
+          [formDataEmit]="formData"
+        >
+        </kiss-whleistung-detail-view>
+
+        <!-- Form edit -->
+
+        <kiss-whleistung-detail-edit
+          *ngIf="!isReadOnly"
+          #formEdit
+          [formDataEmit]="formData"
+          [nameComboboxEmit]="nameCombobox"
+          [nameComboboxBFSEmit]="nameComboboxBFS"
+          [nameComboboxGemeEmit]="nameComboboxGeme"
+          [nameComboboxBottomEmit]="nameComboboxBottom"
+        >
+        </kiss-whleistung-detail-edit>
+
+        <dx-form class="grid-bottom" labelLocation="left" [showColonAfterLabel]="false">
+          <dxi-item itemType="group" [colSpan]="12" [editorOptions]="{ width: '100%' }">
+            <dxo-label
+              [text]="'I001WhLeistung.Title.Perioden' | translate"
+            ></dxo-label>
+          </dxi-item>
+        </dx-form>
+        <div class="grid-bottom">
+          <kiss-whleistung-list
+            #gridData
+            class="grid-bottom"
+            [enableGridEmit]="isReadOnly"
+            [dataGridBottomEmit]="dataGridBottom"
+            [selectedKeysEmit]="selectedKeys"
+          >
+          </kiss-whleistung-list>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-popup-confirm *ngIf="confirmDialogData.isVisible" [popUpModel]="confirmDialogData"></app-popup-confirm>
+  <app-popup-concurrency-detail [visible]="conPopupVisible" (yes)="onConYes()" (no)="onConNo()"></app-popup-concurrency-detail>
+</kiss-right-component>
+<kiss-printer #printer></kiss-printer>

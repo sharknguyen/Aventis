@@ -1,0 +1,38 @@
+﻿<div class="grid-table-view">
+  <div class="grid-margin-top">
+    <dx-data-grid id="grid-FaAktennotiz" #gridComponent columnAutoWidth="true" [keyExpr]="keyExpr"
+      [(dataSource)]="faAktennotizsData" [disabled]="isDisable"
+      [allowColumnResizing]="true" [hoverStateEnabled]="true" [showRowLines]='true' [showBorders]="true" [height]="300"
+      [allowColumnReordering]="true" [customizeExportData]="customizeExportData"
+      [noDataText]="'FaAktennotizDetails.Validation.NoData' | translate"
+      (onRowPrepared)="onRowPrepared($event)"
+      [focusedRowEnabled]="true" (onFocusedRowChanged)="onFocusedRowChanged($event)"
+      [(focusedRowKey)]="selectedRowKey"
+      (onContentReady)="onContentReady()">
+      <dxo-load-panel [enabled]="false"></dxo-load-panel>
+      <dxo-header-filter [visible]="true"></dxo-header-filter>
+      <dxo-scrolling mode="virtual"></dxo-scrolling>
+      <dxo-selection mode="single"></dxo-selection>
+      <dxo-editing mode="cell"></dxo-editing>
+      <dxo-paging [enabled]="false"></dxo-paging>
+      <dxo-paging [pageSize]="99999"></dxo-paging>
+      <dxo-export [fileName]="'FaAktennotiz.FileName' | translate" [allowExportSelectedData]="true" [customizeExcelCell]="customizeExcelCell"></dxo-export>
+      <dxo-column-chooser #columnChooser [emptyPanelText]="'FaAktennotizDetails.ColumnChooser.EmptyPanelText' | translate"
+        [title]="'FaAktennotizDetails.ColumnChooser.Title' | translate" [enabled]="false"></dxo-column-chooser>
+      <dxi-column [width]="'auto'" [minWidth]="50" dataField="Datum" [caption]="'FaAktennotiz.TextColumnDatum' | translate" dataType="date"
+        [format]="{ type: 'dd.MM.yyyy' }" alignment="left" [allowEditing]="false"></dxi-column>
+      <dxi-column [width]="'auto'" [minWidth]="50" dataField="Stichwort" [caption]="'FaAktennotiz.TextColumnStichwort' | translate" alignment="left"
+        [allowEditing]="false"></dxi-column>
+      <dxi-column [width]="'auto'" [minWidth]="50" dataField="FaThemaCodesText" [caption]="'FaAktennotiz.TextColumnThemen' | translate"
+        alignment="left" [allowEditing]="false"></dxi-column>
+      <dxi-column [width]="'auto'" [minWidth]="50" dataField="Kontaktpartner" [caption]="'FaAktennotiz.TextColumnKontaktpartner' | translate"
+        alignment="left" [allowEditing]="false"></dxi-column>
+      <dxi-column [width]="'auto'" [minWidth]="50" dataField="User" [caption]="'FaAktennotiz.TextColumnAutor' | translate" alignment="left"
+        [allowEditing]="false"></dxi-column>
+      <dxi-column dataField="IsDeleted" [minWidth]="50" [caption]="'FaAktennotiz.TextColumnGeloscht' | translate" alignment="center" dataType="boolean"
+        [allowEditing]="false"></dxi-column>
+      <dxo-filter-row [visible]="true" applyFilter="Immediately"></dxo-filter-row>
+    </dx-data-grid>
+    <kiss-printer #printer></kiss-printer>
+  </div>
+</div>
